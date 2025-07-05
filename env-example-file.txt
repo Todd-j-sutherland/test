@@ -1,0 +1,28 @@
+# ASX Bank Trading Analysis System - Environment Variables
+# Copy this file to .env and fill in your values
+
+# Alert Settings (all optional - system works without these)
+# Discord - Get webhook URL from Discord server settings
+DISCORD_WEBHOOK_URL=
+
+# Telegram - Create bot with @BotFather on Telegram
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+
+# Email - Use app-specific password for Gmail
+EMAIL_ADDRESS=
+EMAIL_PASSWORD=
+
+# Cache Settings
+CACHE_DURATION_MINUTES=15
+MAX_CACHE_SIZE_MB=100
+
+# Analysis Settings
+DEFAULT_ANALYSIS_PERIOD=3mo
+CONFIDENCE_THRESHOLD=70
+RISK_TOLERANCE=medium
+
+# Data Sources (all free by default)
+USE_YAHOO_FINANCE=true
+USE_WEB_SCRAPING=true
+USE_FREE_NEWS_API=true
