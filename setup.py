@@ -1,37 +1,45 @@
+"""
+Setup script for ASX Bank Trading Analysis System
+"""
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
+
 setup(
-    name='asx-bank-analyzer',
-    version='0.1.0',
-    description='A trading analysis system for ASX banks',
-    author='Your Name',
-    author_email='your.email@example.com',
+    name="asx-bank-analyzer",
+    version="1.0.0",
+    author="Trading Analysis Team",
+    author_email="",
+    description="Free ASX Bank Trading Analysis System",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/yourusername/asx-bank-analyzer",
     packages=find_packages(),
-    install_requires=[
-        'yfinance==0.2.28',
-        'pandas==2.1.3',
-        'numpy==1.24.3',
-        'requests==2.31.0',
-        'beautifulsoup4==4.12.2',
-        'lxml==4.9.3',
-        'ta==0.10.2',
-        'pandas-ta==0.3.14b0',
-        'python-dotenv==1.0.0',
-        'schedule==1.2.0',
-        'matplotlib==3.7.2',
-        'seaborn==0.12.2',
-        'plotly==5.17.0',
-        'selenium==4.15.2',
-        'webdriver-manager==4.0.1',
-        'textblob==0.17.1',
-        'vaderSentiment==3.3.2',
-        'jinja2==3.1.2',
-        'weasyprint==60.1',
-        'pytest==7.4.3',
-        'black==23.11.0',
-        'flake8==6.1.0',
-        'discord-webhook==1.3.0',
-        'python-telegram-bot==20.6',
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Financial and Insurance Industry",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Office/Business :: Financial :: Investment",
     ],
-    python_requires='>=3.6',
+    python_requires=">=3.8",
+    install_requires=requirements,
+    entry_points={
+        "console_scripts": [
+            "asx-analyzer=main:main",
+        ],
+    },
+    include_package_data=True,
+    package_data={
+        "": ["*.txt", "*.md", "*.yml", "*.yaml"],
+    },
 )
