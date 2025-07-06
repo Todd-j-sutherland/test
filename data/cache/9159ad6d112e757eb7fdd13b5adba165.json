@@ -1,20 +1,20 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-06T14:00:11.441238",
-  "news_count": 8,
+  "timestamp": "2025-07-06T14:34:14.479021",
+  "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.10355903409090908,
-    "positive_count": 5,
+    "average_sentiment": 0.05825590909090908,
+    "positive_count": 6,
     "negative_count": 0,
-    "neutral_count": 3,
+    "neutral_count": 13,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 5,
-      "neutral": 3,
+      "positive": 6,
+      "neutral": 13,
       "negative": 0,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.23778363636363636
+    "strongest_sentiment": 0.27838999999999997
   },
   "reddit_sentiment": {
     "posts_analyzed": 0,
@@ -33,12 +33,12 @@
     "rating_change": false,
     "events_detected": []
   },
-  "overall_sentiment": 0.06213542045454545,
+  "overall_sentiment": 0.034953545454545445,
   "recent_headlines": [
-    "Inspiring Aussies share their stories of doubt in new CommBank campaign",
-    "CommBank harnesses near real-time, AI-powered intelligence to outsmart the scammers",
-    "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
-    "CBA completes sale of shareholding in Bank of Hangzhou",
-    "Helping Australia\u2019s small businesses unlock value and reduce costs with CommBank Yello for Business"
+    "ASX closes above 8600 for first time; CBA slips",
+    "",
+    "",
+    "",
+    ""
   ]
 }

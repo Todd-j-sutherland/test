@@ -62,6 +62,10 @@ class NewsSentimentAnalyzer:
             rss_news = self._fetch_rss_news(symbol)
             all_news.extend(rss_news)
             
+            # Yahoo Finance news
+            yahoo_news = self._fetch_yahoo_news(symbol)
+            all_news.extend(yahoo_news)
+            
             # Web scraping
             scraped_news = self._scrape_news_sites(symbol)
             all_news.extend(scraped_news)
@@ -140,6 +144,39 @@ class NewsSentimentAnalyzer:
             except Exception as e:
                 logger.warning(f"Error fetching RSS feed {feed_name}: {str(e)}")
                 continue
+        
+        return news_items
+    
+    def _fetch_yahoo_news(self, symbol: str) -> List[Dict]:
+        """Fetch news from Yahoo Finance"""
+        news_items = []
+        
+        try:
+            import yfinance as yf
+            ticker = yf.Ticker(symbol)
+            news = ticker.news
+            
+            for item in news:
+                # Parse timestamp
+                pub_timestamp = item.get('providerPublishTime')
+                if pub_timestamp:
+                    pub_date = datetime.fromtimestamp(pub_timestamp)
+                else:
+                    pub_date = datetime.now()
+                
+                # Only include recent news (last 7 days)
+                if pub_date > datetime.now() - timedelta(days=7):
+                    news_items.append({
+                        'title': item.get('title', ''),
+                        'summary': item.get('summary', ''),
+                        'source': 'Yahoo Finance',
+                        'url': item.get('link', ''),
+                        'published': pub_date.isoformat(),
+                        'relevance': 'high'  # Yahoo Finance news is usually relevant
+                    })
+        
+        except Exception as e:
+            logger.warning(f"Error fetching Yahoo Finance news for {symbol}: {str(e)}")
         
         return news_items
     

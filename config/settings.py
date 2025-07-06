@@ -118,7 +118,11 @@ class Settings:
         'rss_feeds': {
             'rba': 'https://www.rba.gov.au/rss/rss-cb.xml',
             'asx': 'https://www.asx.com.au/asx/statistics/announcements.do',
-            'abc_business': 'https://www.abc.net.au/news/feed/51892/rss.xml'
+            'abc_business': 'https://www.abc.net.au/news/feed/51892/rss.xml',
+            'afr_companies': 'https://www.afr.com/rss/companies',
+            'smh_business': 'https://www.smh.com.au/rss/business.xml',
+            'market_index': 'https://www.marketindex.com.au/rss/asx-news',
+            'investing_au': 'https://au.investing.com/rss/news_301.rss'
         }
     }
     
