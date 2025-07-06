@@ -216,7 +216,7 @@ def main():
                     print(f"{symbol}: ERROR - {result['error']}")
                 else:
                     prediction = result.get('prediction', {})
-                    signal = prediction.get('signal', 'UNKNOWN')
+                    signal = prediction.get('direction', 'UNKNOWN')
                     confidence = prediction.get('confidence', 0)
                     print(f"{symbol}: {signal} (Confidence: {confidence}%)")
             
@@ -241,7 +241,7 @@ def main():
                 print(f"Current Price: ${result['current_price']:.2f}")
                 
                 prediction = result.get('prediction', {})
-                print(f"Signal: {prediction.get('signal', 'UNKNOWN')}")
+                print(f"Signal: {prediction.get('direction', 'UNKNOWN')}")
                 print(f"Confidence: {prediction.get('confidence', 0)}%")
                 
                 risk_reward = result.get('risk_reward', {})
