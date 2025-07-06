@@ -110,11 +110,15 @@ class NewsSentimentAnalyzer:
             # Check for specific events
             event_analysis = self._check_significant_events(all_news, symbol)
             
-            # Combine all sentiment sources
-            overall_sentiment = self._calculate_overall_sentiment(
+            # Get market context for enhanced calculation
+            market_context = self._get_market_context()
+            
+            # Use enhanced sentiment calculation
+            overall_sentiment = self._calculate_overall_sentiment_improved(
                 sentiment_analysis,
                 reddit_sentiment,
-                event_analysis
+                event_analysis,
+                market_context
             )
             
             result = {
@@ -124,7 +128,9 @@ class NewsSentimentAnalyzer:
                 'sentiment_scores': sentiment_analysis,
                 'reddit_sentiment': reddit_sentiment,
                 'significant_events': event_analysis,
-                'overall_sentiment': overall_sentiment,
+                'overall_sentiment': overall_sentiment['score'],
+                'sentiment_components': overall_sentiment['components'],
+                'confidence': overall_sentiment['confidence'],
                 'recent_headlines': [news['title'] for news in all_news[:5]]
             }
             
@@ -148,6 +154,243 @@ class NewsSentimentAnalyzer:
         except Exception as e:
             logger.error(f"Error analyzing sentiment for {symbol}: {str(e)}")
             return self._default_sentiment()
+    
+    def _calculate_overall_sentiment_improved(self, news_sentiment: Dict, 
+                                            reddit_sentiment: Dict, 
+                                            events: Dict,
+                                            market_context: Dict) -> Dict:
+        """Enhanced sentiment calculation with dynamic weighting"""
+        
+        # Base weights
+        weights = {
+            'news': 0.4,
+            'reddit': 0.15,
+            'events': 0.25,
+            'volume': 0.1,
+            'momentum': 0.1
+        }
+        
+        # Adjust weights based on data quality
+        news_count = news_sentiment.get('news_count', 0) if isinstance(news_sentiment, dict) else 0
+        reddit_posts = reddit_sentiment.get('posts_analyzed', 0)
+        
+        # Dynamic weight adjustment based on data availability
+        if news_count < 5:
+            weights['news'] *= 0.5
+            weights['reddit'] += weights['news'] * 0.3  # Transfer some weight to reddit
+            weights['events'] += weights['news'] * 0.2
+        
+        if reddit_posts < 3:
+            weights['reddit'] *= 0.3
+            weights['news'] += weights['reddit'] * 0.5  # Transfer weight back to news
+            weights['events'] += weights['reddit'] * 0.2
+        
+        # Calculate component scores
+        news_score = news_sentiment.get('average_sentiment', 0) if isinstance(news_sentiment, dict) else 0
+        reddit_score = reddit_sentiment.get('average_sentiment', 0)
+        
+        # Enhanced event scoring with decay
+        events_score = self._calculate_event_impact_score(events)
+        
+        # Add volume-weighted sentiment
+        volume_sentiment = self._calculate_volume_weighted_sentiment(news_sentiment)
+        
+        # Add momentum factor
+        momentum_score = self._calculate_sentiment_momentum(news_sentiment)
+        
+        # Normalize weights
+        total_weight = sum(weights.values())
+        normalized_weights = {k: v/total_weight for k, v in weights.items()}
+        
+        # Calculate weighted score
+        overall = (
+            news_score * normalized_weights['news'] +
+            reddit_score * normalized_weights['reddit'] +
+            events_score * normalized_weights['events'] +
+            volume_sentiment * normalized_weights['volume'] +
+            momentum_score * normalized_weights['momentum']
+        )
+        
+        # Apply market context modifier
+        market_modifier = market_context.get('volatility_factor', 1.0)
+        overall *= market_modifier
+        
+        # Calculate confidence factor based on data quality
+        confidence = self._calculate_confidence_factor(news_count, reddit_posts, len(events.get('events_detected', [])))
+        
+        # Apply confidence adjustment (less aggressive than full multiplication)
+        confidence_adjusted = overall * (0.7 + 0.3 * confidence)
+        
+        return {
+            'score': max(-1, min(1, confidence_adjusted)),
+            'components': {
+                'news': news_score * normalized_weights['news'],
+                'reddit': reddit_score * normalized_weights['reddit'],
+                'events': events_score * normalized_weights['events'],
+                'volume': volume_sentiment * normalized_weights['volume'],
+                'momentum': momentum_score * normalized_weights['momentum']
+            },
+            'weights': normalized_weights,
+            'confidence': confidence,
+            'market_modifier': market_modifier
+        }
+    
+    def _calculate_event_impact_score(self, events: Dict) -> float:
+        """Calculate event impact with time decay and severity weighting"""
+        
+        event_weights = {
+            'dividend_announcement': {'base': 0.3, 'decay': 0.9},
+            'earnings_report': {'base': 0.4, 'decay': 0.8},
+            'scandal_investigation': {'base': -0.6, 'decay': 0.7},
+            'regulatory_news': {'base': -0.4, 'decay': 0.85},
+            'merger_acquisition': {'base': 0.35, 'decay': 0.95},
+            'rating_change': {'base': 0.3, 'decay': 0.9},
+            'management_change': {'base': -0.2, 'decay': 0.8},
+            'capital_raising': {'base': -0.2, 'decay': 0.85},
+            'branch_closure': {'base': -0.1, 'decay': 0.9},
+            'product_launch': {'base': 0.1, 'decay': 0.95},
+            'partnership_deal': {'base': 0.1, 'decay': 0.95},
+            'legal_action': {'base': -0.3, 'decay': 0.8}
+        }
+        
+        total_score = 0
+        events_detected = events.get('events_detected', [])
+        
+        for event in events_detected:
+            event_type = event['type']
+            if event_type in event_weights:
+                # Calculate time decay
+                try:
+                    event_date = datetime.fromisoformat(event['date'].replace('Z', '+00:00'))
+                    days_old = (datetime.now() - event_date).days
+                    decay_factor = event_weights[event_type]['decay'] ** days_old
+                except:
+                    decay_factor = 1.0  # No decay if date parsing fails
+                
+                # Apply sentiment impact from context
+                base_score = event_weights[event_type]['base']
+                context_modifier = event.get('sentiment_impact', 1.0)
+                
+                # Apply relevance modifier
+                relevance = event.get('relevance', 'medium')
+                relevance_modifier = {'high': 1.2, 'medium': 1.0, 'low': 0.7}.get(relevance, 1.0)
+                
+                score = base_score * decay_factor * context_modifier * relevance_modifier
+                total_score += score
+        
+        # Apply diminishing returns for multiple events
+        if len(events_detected) > 3:
+            total_score *= (1 - 0.1 * (len(events_detected) - 3))
+        
+        return max(-1, min(1, total_score))
+    
+    def _calculate_volume_weighted_sentiment(self, news_sentiment: Dict) -> float:
+        """Calculate sentiment weighted by news volume patterns"""
+        
+        if not isinstance(news_sentiment, dict):
+            return 0
+        
+        news_count = news_sentiment.get('news_count', 0)
+        avg_sentiment = news_sentiment.get('average_sentiment', 0)
+        
+        # Sentiment distribution
+        distribution = news_sentiment.get('sentiment_distribution', {})
+        
+        # Calculate concentration (how unanimous the sentiment is)
+        total_items = sum(distribution.values()) if distribution else 1
+        if total_items == 0:
+            return avg_sentiment
+        
+        # Calculate entropy (diversity of opinions)
+        entropy = 0
+        for count in distribution.values():
+            if count > 0:
+                p = count / total_items
+                entropy -= p * (p if p > 0 else 1)  # Avoid log(0)
+        
+        # High volume with low entropy (unanimous sentiment) = stronger signal
+        volume_factor = min(news_count / 10, 1.0)  # Normalize to 0-1
+        unanimity_factor = 1 - entropy  # Higher when sentiment is unanimous
+        
+        # Weight the sentiment by volume and unanimity
+        weighted_sentiment = avg_sentiment * volume_factor * (0.7 + 0.3 * unanimity_factor)
+        
+        return weighted_sentiment
+    
+    def _calculate_sentiment_momentum(self, news_sentiment: Dict) -> float:
+        """Calculate momentum based on sentiment trends"""
+        
+        try:
+            # Get recent sentiment history
+            history = self.history_manager.load_sentiment_history(news_sentiment.get('symbol', ''))
+            
+            if len(history) < 3:
+                return 0
+            
+            # Get last 7 days of sentiment
+            recent = history[-7:] if len(history) >= 7 else history
+            
+            # Calculate moving averages
+            if len(recent) >= 3:
+                ma3 = sum(h['overall_sentiment'] for h in recent[-3:]) / 3
+                ma7 = sum(h['overall_sentiment'] for h in recent) / len(recent)
+                
+                # Momentum is difference between short and long MA
+                momentum = ma3 - ma7
+                
+                # Scale momentum to reasonable range
+                return max(-0.5, min(0.5, momentum * 2))
+            
+            return 0
+            
+        except Exception as e:
+            logger.warning(f"Error calculating sentiment momentum: {e}")
+            return 0
+    
+    def _calculate_confidence_factor(self, news_count: int, reddit_posts: int, event_count: int) -> float:
+        """Calculate confidence in the sentiment analysis"""
+        
+        # Base confidence
+        confidence = 0.5
+        
+        # News contribution (up to 0.3)
+        if news_count >= 10:
+            confidence += 0.3
+        elif news_count >= 5:
+            confidence += 0.2
+        elif news_count >= 2:
+            confidence += 0.1
+        
+        # Reddit contribution (up to 0.15)
+        if reddit_posts >= 10:
+            confidence += 0.15
+        elif reddit_posts >= 5:
+            confidence += 0.1
+        elif reddit_posts >= 2:
+            confidence += 0.05
+        
+        # Event contribution (up to 0.05)
+        if event_count >= 3:
+            confidence += 0.05
+        elif event_count >= 1:
+            confidence += 0.03
+        
+        return min(1.0, confidence)
+    
+    def _get_market_context(self) -> Dict:
+        """Get market context for sentiment adjustment"""
+        
+        try:
+            # This would ideally fetch real market data
+            # For now, return default context
+            return {
+                'volatility_factor': 1.0,  # Would be calculated from VIX or similar
+                'market_trend': 'neutral',
+                'sector_momentum': 0
+            }
+        except Exception as e:
+            logger.warning(f"Error getting market context: {e}")
+            return {'volatility_factor': 1.0}
     
     def _fetch_rss_news(self, symbol: str) -> List[Dict]:
         """Fetch news from RSS feeds"""
@@ -417,7 +660,8 @@ class NewsSentimentAnalyzer:
                 'positive_count': 0,
                 'negative_count': 0,
                 'neutral_count': 0,
-                'sentiment_distribution': {}
+                'sentiment_distribution': {},
+                'news_count': 0
             }
         
         sentiments = []
@@ -471,7 +715,8 @@ class NewsSentimentAnalyzer:
                 'negative': sum(1 for s in sentiments if -0.5 <= s < -0.1),
                 'very_negative': sum(1 for s in sentiments if s < -0.5)
             },
-            'strongest_sentiment': max(sentiments, key=abs) if sentiments else 0
+            'strongest_sentiment': max(sentiments, key=abs) if sentiments else 0,
+            'news_count': len(news_items)
         }
     
     def _check_significant_events(self, news_items: List[Dict], symbol: str) -> Dict:
@@ -715,37 +960,15 @@ class NewsSentimentAnalyzer:
     
     def _calculate_overall_sentiment(self, news_sentiment: Dict, 
                                    reddit_sentiment: Dict, events: Dict) -> float:
-        """Calculate overall sentiment score (-1 to 1)"""
+        """Calculate overall sentiment score (-1 to 1) - DEPRECATED: Use _calculate_overall_sentiment_improved"""
         
-        # Weight different sources
-        news_weight = 0.6
-        reddit_weight = 0.2
-        events_weight = 0.2
-        
-        # News sentiment score
-        news_score = news_sentiment['average_sentiment']
-        
-        # Reddit sentiment score (if available)
-        reddit_score = reddit_sentiment.get('average_sentiment', 0)
-        
-        # Events impact
-        events_score = 0
-        if events['dividend_announcement'] or events['earnings_report']:
-            events_score += 0.2
-        if events['rating_change']:
-            events_score += 0.1
-        if events['scandal_investigation'] or events['regulatory_news']:
-            events_score -= 0.3
-        if events['merger_acquisition']:
-            events_score += 0.1
-        
-        # Calculate weighted overall sentiment
-        overall = (news_score * news_weight + 
-                  reddit_score * reddit_weight + 
-                  events_score * events_weight)
-        
-        # Clamp to -1 to 1
-        return max(-1, min(1, overall))
+        # This method is kept for backward compatibility
+        # It now calls the improved version and returns just the score
+        market_context = self._get_market_context()
+        result = self._calculate_overall_sentiment_improved(
+            news_sentiment, reddit_sentiment, events, market_context
+        )
+        return result['score']
     
     def get_market_sentiment(self) -> Dict:
         """Get overall market sentiment"""
