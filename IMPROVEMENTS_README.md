@@ -261,20 +261,19 @@ The improvements provide:
 
 Your ASX Bank Trading System is now significantly more powerful, reliable, and efficient!
 
-## 📁 File Structure
+## � Documentation
 
-```
-trading_analysis/
-├── src/
-│   ├── async_main.py           # Async processing system
-│   ├── data_validator.py       # Data validation pipeline
-│   ├── advanced_risk_manager.py # Advanced risk management
-│   └── [existing files...]
-├── enhanced_main.py            # Enhanced main system
-├── test_improvements.py        # Test suite
-├── requirements.txt           # Updated dependencies
-└── README.md                  # This file
-```
+### Complete Guides
+- **[Decision Making Guide](DECISION_MAKING_GUIDE.md)** - How to use all metrics for trading decisions
+- **[Complete Metrics Guide](COMPLETE_METRICS_GUIDE.md)** - Every metric explained
+- **[Data Feed Fix Summary](DATA_FEED_FIX_SUMMARY.md)** - Recent fixes
+- **[Enhanced README](README_NEW_ENHANCED.md)** - New comprehensive README
+
+### Key Files
+- **enhanced_main.py** - Main system entry point
+- **src/async_main.py** - Async processing engine
+- **src/advanced_risk_manager.py** - Risk management
+- **src/data_validator.py** - Data validation
 
 ## 🔮 Future Enhancements
 

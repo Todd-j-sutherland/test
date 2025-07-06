@@ -297,3 +297,35 @@
 2025-07-06 18:48:49,036 - __main__ - INFO - Got market data for MQG.AX: 62 rows
 2025-07-06 18:48:49,049 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
 2025-07-06 18:48:49,049 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:53:51,753 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:53:51,764 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:53:51,765 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:53:51,882 - src.async_main - INFO - Async analysis completed in 0.12s for 5 symbols
+2025-07-06 18:53:51,882 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:53:51,886 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:53:51,904 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:53:51,908 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:53:51,921 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:53:51,924 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:53:51,936 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:53:51,940 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:53:51,952 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:53:51,955 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:53:51,967 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:53:51,967 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 19:09:32,276 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 19:09:32,288 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 19:09:32,288 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 19:09:32,410 - src.async_main - INFO - Async analysis completed in 0.12s for 5 symbols
+2025-07-06 19:09:32,410 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 19:09:32,415 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 19:09:32,427 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 19:09:32,431 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 19:09:32,443 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 19:09:32,448 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 19:09:32,460 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 19:09:32,463 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 19:09:32,475 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 19:09:32,480 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 19:09:32,492 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 19:09:32,492 - __main__ - INFO - 📊 Calculating portfolio-level risk...
