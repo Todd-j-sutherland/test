@@ -557,3 +557,526 @@
 2025-07-06 14:19:10,918 - __main__ - INFO - Analyzing MQG.AX...
 2025-07-06 14:19:12,209 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250706_141911.html
 2025-07-06 14:19:12,210 - __main__ - INFO - Report generated: reports/daily_report_20250706_141911.html
+2025-07-06 15:14:01,317 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 15:14:44,230 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 15:23:35,330 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 15:23:35,331 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-06 15:23:35,331 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-06 15:23:35,331 - utils.cache_manager - DEBUG - Cache hit for key: hist_CBA.AX_3mo_1d
+2025-07-06 15:23:35,350 - utils.cache_manager - DEBUG - Cache hit for key: fundamental_CBA.AX
+2025-07-06 15:23:35,350 - utils.cache_manager - DEBUG - Cache hit for key: sentiment_CBA.AX
+2025-07-06 15:23:36,354 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-06 15:23:36,355 - yfinance - DEBUG - Entering history()
+2025-07-06 15:23:36,357 - peewee - DEBUG - ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2025-07-06 15:23:36,358 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['WBC.AX', 1, 0])
+2025-07-06 15:23:36,381 - yfinance - DEBUG -  Entering history()
+2025-07-06 15:23:36,381 - yfinance - DEBUG - WBC.AX: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:36,381 - yfinance - DEBUG -   Entering get()
+2025-07-06 15:23:36,381 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 15:23:36,381 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/WBC.AX
+2025-07-06 15:23:36,382 - yfinance - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:36,382 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 15:23:36,382 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 15:23:36,382 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 15:23:36,382 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 15:23:36,382 - yfinance - DEBUG -        Entering _load_cookie_curlCffi()
+2025-07-06 15:23:36,383 - peewee - DEBUG - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2025-07-06 15:23:36,383 - peewee - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-07-06 15:23:36,384 - yfinance - DEBUG -        Exiting _load_cookie_curlCffi()
+2025-07-06 15:23:36,384 - yfinance - DEBUG - reusing persistent cookie
+2025-07-06 15:23:36,384 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 15:23:36,384 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 15:23:36,384 - yfinance - DEBUG -        Entering _get_cookie_basic()
+2025-07-06 15:23:36,384 - yfinance - DEBUG - reusing cookie
+2025-07-06 15:23:36,384 - yfinance - DEBUG -        Exiting _get_cookie_basic()
+2025-07-06 15:23:36,702 - yfinance - DEBUG - crumb = 'F6JtooNBHmB'
+2025-07-06 15:23:36,702 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 15:23:36,702 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 15:23:36,702 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 15:23:36,909 - yfinance - DEBUG - response code=200
+2025-07-06 15:23:36,909 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 15:23:36,909 - yfinance - DEBUG -   Exiting get()
+2025-07-06 15:23:36,912 - yfinance - DEBUG - WBC.AX: yfinance received OHLC data: 2025-04-03 23:00:00 -> 2025-07-04 00:00:00
+2025-07-06 15:23:36,915 - yfinance - DEBUG - WBC.AX: OHLC after cleaning: 2025-04-04 10:00:00+11:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 15:23:36,922 - yfinance - DEBUG - WBC.AX: OHLC after combining events: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:36,927 - yfinance - DEBUG - WBC.AX: yfinance returning OHLC: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:36,927 - yfinance - DEBUG -  Exiting history()
+2025-07-06 15:23:36,927 - yfinance - DEBUG - Exiting history()
+2025-07-06 15:23:36,932 - utils.cache_manager - DEBUG - Cached data for key: hist_WBC.AX_3mo_1d, expires in 60 minutes
+2025-07-06 15:23:36,949 - utils.cache_manager - DEBUG - Cache hit for key: fundamental_WBC.AX
+2025-07-06 15:23:36,950 - utils.cache_manager - DEBUG - Cache hit for key: sentiment_WBC.AX
+2025-07-06 15:23:37,951 - __main__ - INFO - Analyzing ANZ.AX...
+2025-07-06 15:23:37,952 - yfinance - DEBUG - Entering history()
+2025-07-06 15:23:37,952 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ANZ.AX', 1, 0])
+2025-07-06 15:23:37,953 - yfinance - DEBUG -  Entering history()
+2025-07-06 15:23:37,953 - yfinance - DEBUG - ANZ.AX: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:37,953 - yfinance - DEBUG -   Entering get()
+2025-07-06 15:23:37,953 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 15:23:37,954 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/ANZ.AX
+2025-07-06 15:23:37,954 - yfinance - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:37,954 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 15:23:37,954 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 15:23:37,954 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 15:23:37,954 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 15:23:37,954 - yfinance - DEBUG - reusing cookie
+2025-07-06 15:23:37,954 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 15:23:37,955 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 15:23:37,955 - yfinance - DEBUG - reusing crumb
+2025-07-06 15:23:37,955 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 15:23:37,955 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 15:23:37,955 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 15:23:38,119 - yfinance - DEBUG - response code=200
+2025-07-06 15:23:38,119 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 15:23:38,120 - yfinance - DEBUG -   Exiting get()
+2025-07-06 15:23:38,122 - yfinance - DEBUG - ANZ.AX: yfinance received OHLC data: 2025-04-03 23:00:00 -> 2025-07-04 00:00:00
+2025-07-06 15:23:38,123 - yfinance - DEBUG - ANZ.AX: OHLC after cleaning: 2025-04-04 10:00:00+11:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 15:23:38,129 - yfinance - DEBUG - ANZ.AX: OHLC after combining events: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:38,135 - yfinance - DEBUG - ANZ.AX: yfinance returning OHLC: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:38,135 - yfinance - DEBUG -  Exiting history()
+2025-07-06 15:23:38,135 - yfinance - DEBUG - Exiting history()
+2025-07-06 15:23:38,139 - utils.cache_manager - DEBUG - Cached data for key: hist_ANZ.AX_3mo_1d, expires in 60 minutes
+2025-07-06 15:23:38,155 - utils.cache_manager - DEBUG - Cache hit for key: fundamental_ANZ.AX
+2025-07-06 15:23:38,156 - utils.cache_manager - DEBUG - Cache hit for key: sentiment_ANZ.AX
+2025-07-06 15:23:39,158 - __main__ - INFO - Analyzing NAB.AX...
+2025-07-06 15:23:39,159 - yfinance - DEBUG - Entering history()
+2025-07-06 15:23:39,160 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NAB.AX', 1, 0])
+2025-07-06 15:23:39,160 - yfinance - DEBUG -  Entering history()
+2025-07-06 15:23:39,160 - yfinance - DEBUG - NAB.AX: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:39,161 - yfinance - DEBUG -   Entering get()
+2025-07-06 15:23:39,161 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 15:23:39,161 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/NAB.AX
+2025-07-06 15:23:39,161 - yfinance - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:39,161 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 15:23:39,161 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 15:23:39,161 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 15:23:39,161 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 15:23:39,162 - yfinance - DEBUG - reusing cookie
+2025-07-06 15:23:39,162 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 15:23:39,162 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 15:23:39,162 - yfinance - DEBUG - reusing crumb
+2025-07-06 15:23:39,162 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 15:23:39,162 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 15:23:39,162 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 15:23:39,360 - yfinance - DEBUG - response code=200
+2025-07-06 15:23:39,360 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 15:23:39,360 - yfinance - DEBUG -   Exiting get()
+2025-07-06 15:23:39,362 - yfinance - DEBUG - NAB.AX: yfinance received OHLC data: 2025-04-03 23:00:00 -> 2025-07-04 00:00:00
+2025-07-06 15:23:39,363 - yfinance - DEBUG - NAB.AX: OHLC after cleaning: 2025-04-04 10:00:00+11:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 15:23:39,369 - yfinance - DEBUG - NAB.AX: OHLC after combining events: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:39,374 - yfinance - DEBUG - NAB.AX: yfinance returning OHLC: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:39,374 - yfinance - DEBUG -  Exiting history()
+2025-07-06 15:23:39,374 - yfinance - DEBUG - Exiting history()
+2025-07-06 15:23:39,378 - utils.cache_manager - DEBUG - Cached data for key: hist_NAB.AX_3mo_1d, expires in 60 minutes
+2025-07-06 15:23:39,395 - utils.cache_manager - DEBUG - Cache hit for key: fundamental_NAB.AX
+2025-07-06 15:23:39,395 - utils.cache_manager - DEBUG - Cache hit for key: sentiment_NAB.AX
+2025-07-06 15:23:40,397 - __main__ - INFO - Analyzing MQG.AX...
+2025-07-06 15:23:40,397 - yfinance - DEBUG - Entering history()
+2025-07-06 15:23:40,397 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MQG.AX', 1, 0])
+2025-07-06 15:23:40,398 - yfinance - DEBUG -  Entering history()
+2025-07-06 15:23:40,398 - yfinance - DEBUG - MQG.AX: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:40,398 - yfinance - DEBUG -   Entering get()
+2025-07-06 15:23:40,398 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 15:23:40,398 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/MQG.AX
+2025-07-06 15:23:40,398 - yfinance - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 15:23:40,398 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 15:23:40,398 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 15:23:40,398 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 15:23:40,398 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 15:23:40,398 - yfinance - DEBUG - reusing cookie
+2025-07-06 15:23:40,398 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 15:23:40,399 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 15:23:40,399 - yfinance - DEBUG - reusing crumb
+2025-07-06 15:23:40,399 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 15:23:40,399 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 15:23:40,399 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 15:23:40,616 - yfinance - DEBUG - response code=200
+2025-07-06 15:23:40,616 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 15:23:40,616 - yfinance - DEBUG -   Exiting get()
+2025-07-06 15:23:40,618 - yfinance - DEBUG - MQG.AX: yfinance received OHLC data: 2025-04-03 23:00:00 -> 2025-07-04 00:00:00
+2025-07-06 15:23:40,619 - yfinance - DEBUG - MQG.AX: OHLC after cleaning: 2025-04-04 10:00:00+11:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 15:23:40,625 - yfinance - DEBUG - MQG.AX: OHLC after combining events: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:40,631 - yfinance - DEBUG - MQG.AX: yfinance returning OHLC: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 15:23:40,631 - yfinance - DEBUG -  Exiting history()
+2025-07-06 15:23:40,632 - yfinance - DEBUG - Exiting history()
+2025-07-06 15:23:40,635 - utils.cache_manager - DEBUG - Cached data for key: hist_MQG.AX_3mo_1d, expires in 60 minutes
+2025-07-06 15:23:40,651 - utils.cache_manager - DEBUG - Cache hit for key: fundamental_MQG.AX
+2025-07-06 15:23:42,268 - yfinance - DEBUG - Entering post()
+2025-07-06 15:23:42,268 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 15:23:42,268 - yfinance - DEBUG - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2025-07-06 15:23:42,268 - yfinance - DEBUG - params=None
+2025-07-06 15:23:42,268 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 15:23:42,268 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 15:23:42,268 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 15:23:42,268 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 15:23:42,268 - yfinance - DEBUG - reusing cookie
+2025-07-06 15:23:42,268 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 15:23:42,268 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 15:23:42,268 - yfinance - DEBUG - reusing crumb
+2025-07-06 15:23:42,268 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 15:23:42,269 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 15:23:42,269 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 15:23:42,585 - yfinance - DEBUG - response code=200
+2025-07-06 15:23:42,585 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 15:23:42,585 - yfinance - DEBUG - Exiting post()
+2025-07-06 15:23:42,589 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): news.google.com:443
+2025-07-06 15:23:43,387 - urllib3.connectionpool - DEBUG - https://news.google.com:443 "GET /search?q=Macquarie+MQG+Macquarie%20Group+macquarie+Australia+bank&hl=en-AU&gl=AU&ceid=AU:en HTTP/1.1" 200 None
+2025-07-06 15:23:44,072 - charset_normalizer - DEBUG - Encoding detection: utf_8 is most likely the one.
+2025-07-06 15:23:45,254 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusFinance/search/ at 1751779425.254003
+2025-07-06 15:23:45,254 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:45,254 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:45,256 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): www.reddit.com:443
+2025-07-06 15:23:45,538 - urllib3.connectionpool - DEBUG - https://www.reddit.com:443 "POST /api/v1/access_token HTTP/1.1" 200 655
+2025-07-06 15:23:45,541 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): oauth.reddit.com:443
+2025-07-06 15:23:45,949 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusFinance/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2887
+2025-07-06 15:23:45,951 - prawcore - DEBUG - Response: 200 (2887 bytes) (rst-374:rem-967.0:used-33 ratelimit) at 1751779425.951565
+2025-07-06 15:23:45,953 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusFinance/search/ at 1751779425.953035
+2025-07-06 15:23:45,953 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:45,953 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:46,248 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusFinance/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:46,250 - prawcore - DEBUG - Response: 200 (None bytes) (rst-374:rem-966.0:used-34 ratelimit) at 1751779426.249994
+2025-07-06 15:23:46,250 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusFinance/search/ at 1751779426.250746
+2025-07-06 15:23:46,250 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:46,251 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:46,537 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusFinance/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:46,538 - prawcore - DEBUG - Response: 200 (None bytes) (rst-373:rem-965.0:used-35 ratelimit) at 1751779426.53844
+2025-07-06 15:23:46,539 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusFinance/search/ at 1751779426.539168
+2025-07-06 15:23:46,539 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:46,539 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:46,888 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusFinance/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2887
+2025-07-06 15:23:46,889 - prawcore - DEBUG - Response: 200 (2887 bytes) (rst-373:rem-964.0:used-36 ratelimit) at 1751779426.889279
+2025-07-06 15:23:46,891 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/ASX_Bets/search/ at 1751779426.891145
+2025-07-06 15:23:46,891 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:46,891 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:47,279 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/ASX_Bets/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:47,280 - prawcore - DEBUG - Response: 200 (None bytes) (rst-373:rem-963.0:used-37 ratelimit) at 1751779427.279992
+2025-07-06 15:23:47,280 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/ASX_Bets/search/ at 1751779427.280464
+2025-07-06 15:23:47,280 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:47,280 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:47,586 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/ASX_Bets/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:47,588 - prawcore - DEBUG - Response: 200 (None bytes) (rst-372:rem-962.0:used-38 ratelimit) at 1751779427.588012
+2025-07-06 15:23:47,588 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/ASX_Bets/search/ at 1751779427.588736
+2025-07-06 15:23:47,588 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:47,589 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:47,894 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/ASX_Bets/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:47,895 - prawcore - DEBUG - Response: 200 (None bytes) (rst-372:rem-961.0:used-39 ratelimit) at 1751779427.8952162
+2025-07-06 15:23:47,895 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/ASX_Bets/search/ at 1751779427.8959439
+2025-07-06 15:23:47,896 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:47,896 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:48,189 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/ASX_Bets/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:48,190 - prawcore - DEBUG - Response: 200 (None bytes) (rst-372:rem-960.0:used-40 ratelimit) at 1751779428.190212
+2025-07-06 15:23:48,190 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/fiaustralia/search/ at 1751779428.190976
+2025-07-06 15:23:48,191 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:48,191 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:48,508 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/fiaustralia/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:48,509 - prawcore - DEBUG - Response: 200 (None bytes) (rst-371:rem-959.0:used-41 ratelimit) at 1751779428.509702
+2025-07-06 15:23:48,510 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/fiaustralia/search/ at 1751779428.510443
+2025-07-06 15:23:48,510 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:48,510 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:48,918 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/fiaustralia/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:48,919 - prawcore - DEBUG - Response: 200 (None bytes) (rst-371:rem-958.0:used-42 ratelimit) at 1751779428.919273
+2025-07-06 15:23:48,920 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/fiaustralia/search/ at 1751779428.919996
+2025-07-06 15:23:48,920 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:48,920 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:49,225 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/fiaustralia/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:49,226 - prawcore - DEBUG - Response: 200 (None bytes) (rst-371:rem-957.0:used-43 ratelimit) at 1751779429.22662
+2025-07-06 15:23:49,227 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/fiaustralia/search/ at 1751779429.227374
+2025-07-06 15:23:49,227 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:49,227 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:49,532 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/fiaustralia/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:49,533 - prawcore - DEBUG - Response: 200 (None bytes) (rst-370:rem-956.0:used-44 ratelimit) at 1751779429.533709
+2025-07-06 15:23:49,534 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusEcon/search/ at 1751779429.534477
+2025-07-06 15:23:49,534 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:49,534 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:49,942 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusEcon/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:49,943 - prawcore - DEBUG - Response: 200 (None bytes) (rst-370:rem-955.0:used-45 ratelimit) at 1751779429.94346
+2025-07-06 15:23:49,944 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusEcon/search/ at 1751779429.944182
+2025-07-06 15:23:49,944 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:49,944 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:50,249 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusEcon/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:50,250 - prawcore - DEBUG - Response: 200 (None bytes) (rst-370:rem-954.0:used-46 ratelimit) at 1751779430.250539
+2025-07-06 15:23:50,251 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusEcon/search/ at 1751779430.2512598
+2025-07-06 15:23:50,251 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:50,251 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:50,557 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusEcon/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:50,558 - prawcore - DEBUG - Response: 200 (None bytes) (rst-369:rem-953.0:used-47 ratelimit) at 1751779430.558594
+2025-07-06 15:23:50,559 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusEcon/search/ at 1751779430.559315
+2025-07-06 15:23:50,559 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:50,559 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:50,863 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusEcon/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:50,865 - prawcore - DEBUG - Response: 200 (None bytes) (rst-369:rem-952.0:used-48 ratelimit) at 1751779430.865032
+2025-07-06 15:23:50,865 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusProperty/search/ at 1751779430.865806
+2025-07-06 15:23:50,866 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:50,866 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:51,237 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusProperty/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2029
+2025-07-06 15:23:51,239 - prawcore - DEBUG - Response: 200 (2029 bytes) (rst-369:rem-951.0:used-49 ratelimit) at 1751779431.2390149
+2025-07-06 15:23:51,240 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusProperty/search/ at 1751779431.240235
+2025-07-06 15:23:51,240 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:51,240 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:51,580 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusProperty/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:51,581 - prawcore - DEBUG - Response: 200 (None bytes) (rst-368:rem-950.0:used-50 ratelimit) at 1751779431.5819032
+2025-07-06 15:23:51,582 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusProperty/search/ at 1751779431.58263
+2025-07-06 15:23:51,582 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:51,583 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:51,874 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusProperty/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:51,875 - prawcore - DEBUG - Response: 200 (None bytes) (rst-368:rem-949.0:used-51 ratelimit) at 1751779431.875521
+2025-07-06 15:23:51,876 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/AusProperty/search/ at 1751779431.876257
+2025-07-06 15:23:51,876 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:51,876 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:52,176 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/AusProperty/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2029
+2025-07-06 15:23:52,178 - prawcore - DEBUG - Response: 200 (2029 bytes) (rst-368:rem-948.0:used-52 ratelimit) at 1751779432.178071
+2025-07-06 15:23:52,179 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/SecurityAnalysis/search/ at 1751779432.179017
+2025-07-06 15:23:52,179 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:52,179 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:52,502 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/SecurityAnalysis/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:52,503 - prawcore - DEBUG - Response: 200 (None bytes) (rst-367:rem-947.0:used-53 ratelimit) at 1751779432.5035698
+2025-07-06 15:23:52,504 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/SecurityAnalysis/search/ at 1751779432.504294
+2025-07-06 15:23:52,504 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:52,504 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:52,912 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/SecurityAnalysis/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:52,913 - prawcore - DEBUG - Response: 200 (None bytes) (rst-367:rem-946.0:used-54 ratelimit) at 1751779432.913219
+2025-07-06 15:23:52,913 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/SecurityAnalysis/search/ at 1751779432.913962
+2025-07-06 15:23:52,914 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:52,914 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:53,219 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/SecurityAnalysis/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:53,220 - prawcore - DEBUG - Response: 200 (None bytes) (rst-367:rem-945.0:used-55 ratelimit) at 1751779433.2204149
+2025-07-06 15:23:53,221 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/SecurityAnalysis/search/ at 1751779433.22116
+2025-07-06 15:23:53,221 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:53,221 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:53,629 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/SecurityAnalysis/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:53,630 - prawcore - DEBUG - Response: 200 (None bytes) (rst-366:rem-944.0:used-56 ratelimit) at 1751779433.63064
+2025-07-06 15:23:53,631 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/investing/search/ at 1751779433.6313999
+2025-07-06 15:23:53,631 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:53,631 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:54,039 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/investing/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2228
+2025-07-06 15:23:54,040 - prawcore - DEBUG - Response: 200 (2228 bytes) (rst-366:rem-943.0:used-57 ratelimit) at 1751779434.040419
+2025-07-06 15:23:54,041 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/investing/search/ at 1751779434.0415769
+2025-07-06 15:23:54,041 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:54,042 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:54,346 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/investing/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:54,347 - prawcore - DEBUG - Response: 200 (None bytes) (rst-365:rem-942.0:used-58 ratelimit) at 1751779434.34719
+2025-07-06 15:23:54,347 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/investing/search/ at 1751779434.3479161
+2025-07-06 15:23:54,348 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:54,348 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:54,652 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/investing/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:54,654 - prawcore - DEBUG - Response: 200 (None bytes) (rst-365:rem-941.0:used-59 ratelimit) at 1751779434.654079
+2025-07-06 15:23:54,654 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/investing/search/ at 1751779434.654819
+2025-07-06 15:23:54,655 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:54,655 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:54,964 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/investing/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 2229
+2025-07-06 15:23:54,965 - prawcore - DEBUG - Response: 200 (2229 bytes) (rst-365:rem-940.0:used-60 ratelimit) at 1751779434.9656
+2025-07-06 15:23:54,966 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/stocks/search/ at 1751779434.966809
+2025-07-06 15:23:54,967 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:54,967 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:55,252 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/stocks/search/?q=Macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:55,253 - prawcore - DEBUG - Response: 200 (None bytes) (rst-364:rem-939.0:used-61 ratelimit) at 1751779435.253163
+2025-07-06 15:23:55,253 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/stocks/search/ at 1751779435.253547
+2025-07-06 15:23:55,253 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:55,253 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'MQG',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:55,574 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/stocks/search/?q=MQG&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:55,575 - prawcore - DEBUG - Response: 200 (None bytes) (rst-364:rem-938.0:used-62 ratelimit) at 1751779435.575701
+2025-07-06 15:23:55,576 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/stocks/search/ at 1751779435.576448
+2025-07-06 15:23:55,576 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:55,576 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'Macquarie Group',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:55,881 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/stocks/search/?q=Macquarie+Group&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:55,882 - prawcore - DEBUG - Response: 200 (None bytes) (rst-364:rem-937.0:used-63 ratelimit) at 1751779435.8829231
+2025-07-06 15:23:55,883 - prawcore - DEBUG - Fetching: GET https://oauth.reddit.com/r/stocks/search/ at 1751779435.883646
+2025-07-06 15:23:55,883 - prawcore - DEBUG - Data: None
+2025-07-06 15:23:55,884 - prawcore - DEBUG - Params: {'limit': 20,
+ 'q': 'macquarie',
+ 'raw_json': 1,
+ 'restrict_sr': True,
+ 'sort': 'new',
+ 'syntax': 'lucene',
+ 't': 'week'}
+2025-07-06 15:23:56,189 - urllib3.connectionpool - DEBUG - https://oauth.reddit.com:443 "GET /r/stocks/search/?q=macquarie&restrict_sr=True&sort=new&syntax=lucene&t=week&limit=20&raw_json=1 HTTP/1.1" 200 None
+2025-07-06 15:23:56,190 - prawcore - DEBUG - Response: 200 (None bytes) (rst-364:rem-936.0:used-64 ratelimit) at 1751779436.190152
+2025-07-06 15:23:56,257 - utils.cache_manager - DEBUG - Cached data for key: sentiment_MQG.AX, expires in 30 minutes
+2025-07-06 15:23:56,258 - src.sentiment_history - INFO - Stored sentiment data for MQG.AX
+2025-07-06 15:23:57,625 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250706_152357.html
+2025-07-06 15:23:57,625 - __main__ - INFO - Report generated: reports/daily_report_20250706_152357.html

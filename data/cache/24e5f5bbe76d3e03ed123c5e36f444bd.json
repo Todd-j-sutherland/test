@@ -1,27 +1,30 @@
 {
   "symbol": "WBC.AX",
-  "timestamp": "2025-07-06T14:37:22.422618",
-  "news_count": 20,
+  "timestamp": "2025-07-06T15:12:22.080868",
+  "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.0459935,
+    "average_sentiment": 0.03509947368421053,
     "positive_count": 4,
     "negative_count": 0,
-    "neutral_count": 16,
+    "neutral_count": 15,
     "sentiment_distribution": {
       "very_positive": 0,
       "positive": 4,
-      "neutral": 16,
+      "neutral": 15,
       "negative": 0,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.34138999999999997
+    "strongest_sentiment": 0.245805
   },
   "reddit_sentiment": {
     "posts_analyzed": 0,
     "average_sentiment": 0,
     "bullish_count": 0,
     "bearish_count": 0,
-    "neutral_count": 0
+    "neutral_count": 0,
+    "top_posts": [],
+    "sentiment_distribution": {},
+    "subreddit_breakdown": {}
   },
   "significant_events": {
     "dividend_announcement": true,
@@ -31,30 +34,47 @@
     "merger_acquisition": false,
     "scandal_investigation": false,
     "rating_change": false,
+    "capital_raising": false,
+    "branch_closure": false,
+    "product_launch": true,
+    "partnership_deal": false,
+    "legal_action": false,
     "events_detected": [
+      {
+        "type": "product_launch",
+        "headline": "Westpac Banking Launches Streamlined Home Loans for Self-Employed Borrowers",
+        "date": "2025-07-06T15:12:13.873573",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.1
+      },
       {
         "type": "dividend_announcement",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T14:37:21.378387"
+        "date": "2025-07-06T15:12:13.873730",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.3
       },
       {
         "type": "earnings_report",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T14:37:21.378387"
+        "date": "2025-07-06T15:12:13.873730",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.4
       },
       {
         "type": "earnings_report",
         "headline": "Australia's Westpac flags global trade risks, shares slide after profit miss",
-        "date": "2025-07-06T14:37:21.378426"
-      },
-      {
-        "type": "earnings_report",
-        "headline": "Westpac share price sinks on half-year results miss",
-        "date": "2025-07-06T14:37:21.378579"
+        "date": "2025-07-06T15:12:13.873767",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.4
       }
     ]
   },
-  "overall_sentiment": 0.0675961,
+  "overall_sentiment": 0.06105968421052632,
   "recent_headlines": [
     "",
     "",

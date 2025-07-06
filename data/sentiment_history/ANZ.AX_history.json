@@ -1,0 +1,79 @@
+[
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-06T15:12:10.877675",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": 0.03703436720142602,
+      "positive_count": 1,
+      "negative_count": 0,
+      "neutral_count": 16,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 0,
+        "neutral": 16,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.64106
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 0,
+      "average_sentiment": 0,
+      "bullish_count": 0,
+      "bearish_count": 0,
+      "neutral_count": 0,
+      "top_posts": [],
+      "sentiment_distribution": {},
+      "subreddit_breakdown": {}
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Financial Officer Farhan Faruqui Speaking Notes",
+          "date": "2025-07-06T15:12:02.675218",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-06T15:12:02.675262",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "A message from ANZ\u2019s new CEO",
+          "date": "2025-07-06T15:12:02.675304",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.062220620320855624,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  }
+]

@@ -1,50 +1,150 @@
 {
   "symbol": "MQG.AX",
-  "timestamp": "2025-07-06T14:37:30.166857",
+  "timestamp": "2025-07-06T15:23:56.256822",
   "news_count": 20,
   "sentiment_scores": {
-    "average_sentiment": 0.04104275,
-    "positive_count": 5,
+    "average_sentiment": -0.008690499999999993,
+    "positive_count": 2,
     "negative_count": 1,
-    "neutral_count": 14,
+    "neutral_count": 17,
     "sentiment_distribution": {
-      "very_positive": 1,
-      "positive": 3,
-      "neutral": 15,
+      "very_positive": 0,
+      "positive": 1,
+      "neutral": 18,
       "negative": 1,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.61271
+    "strongest_sentiment": -0.4348049999999999
   },
   "reddit_sentiment": {
-    "posts_analyzed": 0,
-    "average_sentiment": 0,
-    "bullish_count": 0,
+    "posts_analyzed": 8,
+    "average_sentiment": 0.15837243499435344,
+    "bullish_count": 6,
     "bearish_count": 0,
-    "neutral_count": 0
+    "neutral_count": 2,
+    "top_posts": [
+      {
+        "title": "High interest savings account. Who to go with?",
+        "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+        "score": 0,
+        "num_comments": 35,
+        "created": "2025-07-04T07:38:06",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.39,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+      },
+      {
+        "title": "High interest savings account. Who to go with?",
+        "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+        "score": 0,
+        "num_comments": 35,
+        "created": "2025-07-04T07:38:06",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.47,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+      },
+      {
+        "title": "Home loan finance- Macquarie bank",
+        "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+        "score": 5,
+        "num_comments": 12,
+        "created": "2025-06-29T17:16:31",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.69,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+      },
+      {
+        "title": "Home loan finance- Macquarie bank",
+        "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+        "score": 3,
+        "num_comments": 12,
+        "created": "2025-06-29T17:16:31",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.62,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+      },
+      {
+        "title": "Macquarie or UBank?",
+        "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+        "score": 3,
+        "num_comments": 9,
+        "created": "2025-07-01T20:26:46",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.71,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+      }
+    ],
+    "sentiment_distribution": {
+      "very_positive": 0,
+      "positive": 6,
+      "neutral": 2,
+      "negative": 0,
+      "very_negative": 0
+    },
+    "subreddit_breakdown": {
+      "AusFinance": {
+        "posts": 6,
+        "average_sentiment": 0.17987036605182252,
+        "bullish": 6,
+        "bearish": 0
+      },
+      "investing": {
+        "posts": 2,
+        "average_sentiment": 0.09387864182194616,
+        "bullish": 0,
+        "bearish": 0
+      }
+    }
   },
   "significant_events": {
     "dividend_announcement": false,
-    "earnings_report": true,
+    "earnings_report": false,
     "management_change": false,
     "regulatory_news": true,
     "merger_acquisition": false,
-    "scandal_investigation": false,
+    "scandal_investigation": true,
     "rating_change": false,
+    "capital_raising": false,
+    "branch_closure": false,
+    "product_launch": false,
+    "partnership_deal": false,
+    "legal_action": false,
     "events_detected": [
       {
         "type": "regulatory_news",
         "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
-        "date": "2025-07-06T14:37:29.158864"
+        "date": "2025-07-06T15:23:44.247691",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.4
       },
       {
-        "type": "earnings_report",
-        "headline": "Macquarie Group profits squeezed by \u2018subdued\u2019 energy markets",
-        "date": "2025-07-06T14:37:29.159155"
+        "type": "regulatory_news",
+        "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+        "date": "2025-07-06T15:23:44.247742",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.4
+      },
+      {
+        "type": "regulatory_news",
+        "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+        "date": "2025-07-06T15:23:44.247995",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.4
+      },
+      {
+        "type": "scandal_investigation",
+        "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+        "date": "2025-07-06T15:23:44.247995",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": -0.6
       }
     ]
   },
-  "overall_sentiment": 0.0046256500000000055,
+  "overall_sentiment": -0.03353981300112931,
   "recent_headlines": [
     "",
     "",

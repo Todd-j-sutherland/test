@@ -14,6 +14,8 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import logging
 from typing import Dict, List, Optional
 import time
+import praw
+import os
 
 # Import settings
 import sys
@@ -21,6 +23,8 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import Settings
 from utils.cache_manager import CacheManager
+from src.sentiment_history import SentimentHistoryManager
+from src.news_impact_analyzer import NewsImpactAnalyzer
 
 logger = logging.getLogger(__name__)
 
@@ -31,19 +35,46 @@ class NewsSentimentAnalyzer:
         self.settings = Settings()
         self.cache = CacheManager()
         self.vader = SentimentIntensityAnalyzer()
+        self.history_manager = SentimentHistoryManager()
+        self.impact_analyzer = NewsImpactAnalyzer()
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
         
+        # Initialize Reddit client (read-only)
+        self.reddit = None
+        try:
+            self.reddit = praw.Reddit(
+                client_id="XWbagNe33Nz0xFF1nUngbA",  # Optional - uses public API
+                client_secret="INNUY2kX3PgO58NElPr2_necAlKdQw",  # Optional
+                user_agent="ASXBankAnalysis/1.0 by /u/tradingbot",
+                check_for_async=False
+            )
+        except Exception as e:
+            logger.warning(f"Reddit client initialization failed: {e}")
+            logger.info("Reddit integration will use fallback mode")
+        
         # Bank name variations for searching
         self.bank_keywords = {
-            'CBA.AX': ['Commonwealth Bank', 'CommBank', 'CBA'],
-            'WBC.AX': ['Westpac', 'WBC'],
-            'ANZ.AX': ['ANZ', 'Australia and New Zealand Banking'],
-            'NAB.AX': ['National Australia Bank', 'NAB'],
-            'MQG.AX': ['Macquarie', 'MQG', 'Macquarie Group']
+            'CBA.AX': ['Commonwealth Bank', 'CommBank', 'CBA', 'commonwealth'],
+            'WBC.AX': ['Westpac', 'WBC', 'westpac'],
+            'ANZ.AX': ['ANZ', 'Australia and New Zealand Banking', 'anz'],
+            'NAB.AX': ['National Australia Bank', 'NAB', 'nab'],
+            'MQG.AX': ['Macquarie', 'MQG', 'Macquarie Group', 'macquarie']
         }
+        
+        # Reddit subreddits for financial discussion
+        self.financial_subreddits = [
+            'AusFinance',
+            'ASX_Bets', 
+            'fiaustralia',
+            'AusEcon',
+            'AusProperty',
+            'SecurityAnalysis',
+            'investing',
+            'stocks'
+        ]
     
     def analyze_bank_sentiment(self, symbol: str) -> Dict:
         """Analyze sentiment for a specific bank"""
@@ -99,6 +130,18 @@ class NewsSentimentAnalyzer:
             
             # Cache for 30 minutes
             self.cache.set(cache_key, result, expiry_minutes=30)
+            
+            # Store in historical data
+            self.history_manager.store_sentiment(symbol, result)
+            
+            # Add trend analysis
+            trend_data = self.history_manager.get_sentiment_trend(symbol, days=7)
+            result['trend_analysis'] = trend_data
+            
+            # Add impact correlation analysis (if sufficient data)
+            if trend_data['data_points'] >= 5:
+                impact_analysis = self.impact_analyzer.analyze_sentiment_price_correlation(symbol, days=14)
+                result['impact_analysis'] = impact_analysis
             
             return result
             
@@ -222,32 +265,147 @@ class NewsSentimentAnalyzer:
         return news_items
     
     def _get_reddit_sentiment(self, symbol: str) -> Dict:
-        """Get sentiment from Reddit (using pushshift.io or Reddit API)"""
+        """Get sentiment from Reddit financial subreddits"""
         try:
-            # For simplicity, we'll use a basic approach
-            # In production, you'd want to use PRAW or the Reddit API
-            
             keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
             
-            # Simulated Reddit sentiment (replace with actual Reddit API calls)
-            # This is just an example structure
             reddit_data = {
                 'posts_analyzed': 0,
                 'average_sentiment': 0,
                 'bullish_count': 0,
                 'bearish_count': 0,
-                'neutral_count': 0
+                'neutral_count': 0,
+                'top_posts': [],
+                'sentiment_distribution': {},
+                'subreddit_breakdown': {}
             }
             
-            # You would actually fetch and analyze Reddit posts here
-            # For now, return neutral sentiment
+            if not self.reddit:
+                logger.warning("Reddit client not available, using fallback")
+                return reddit_data
+            
+            # Search across financial subreddits
+            all_posts = []
+            
+            for subreddit_name in self.financial_subreddits:
+                try:
+                    subreddit = self.reddit.subreddit(subreddit_name)
+                    
+                    # Search for posts mentioning the bank
+                    for keyword in keywords:
+                        try:
+                            # Search recent posts (last week)
+                            posts = subreddit.search(
+                                keyword, 
+                                sort='new', 
+                                time_filter='week',
+                                limit=20
+                            )
+                            
+                            for post in posts:
+                                # Check if post is recent (last 7 days)
+                                post_date = datetime.fromtimestamp(post.created_utc)
+                                if post_date > datetime.now() - timedelta(days=7):
+                                    all_posts.append({
+                                        'title': post.title,
+                                        'selftext': post.selftext,
+                                        'score': post.score,
+                                        'num_comments': post.num_comments,
+                                        'created': post_date,
+                                        'subreddit': subreddit_name,
+                                        'upvote_ratio': post.upvote_ratio,
+                                        'url': post.url
+                                    })
+                        except Exception as e:
+                            logger.warning(f"Error searching {subreddit_name} for {keyword}: {e}")
+                            continue
+                            
+                except Exception as e:
+                    logger.warning(f"Error accessing subreddit {subreddit_name}: {e}")
+                    continue
+            
+            # Analyze sentiment of collected posts
+            if all_posts:
+                sentiments = []
+                subreddit_sentiments = {}
+                
+                for post in all_posts:
+                    # Combine title and text for analysis
+                    text = f"{post['title']} {post['selftext']}"
+                    
+                    # Analyze sentiment
+                    blob = TextBlob(text)
+                    vader_scores = self.vader.polarity_scores(text)
+                    
+                    # Weighted sentiment (TextBlob + VADER + Reddit metrics)
+                    textblob_sentiment = blob.sentiment.polarity
+                    vader_sentiment = vader_scores['compound']
+                    
+                    # Weight by Reddit engagement (upvotes, comments)
+                    engagement_weight = min(1.0, (post['score'] + post['num_comments']) / 100)
+                    upvote_influence = (post['upvote_ratio'] - 0.5) * 0.5  # Convert 0-1 to -0.25 to +0.25
+                    
+                    combined_sentiment = (textblob_sentiment + vader_sentiment) / 2
+                    weighted_sentiment = combined_sentiment * engagement_weight + upvote_influence
+                    
+                    # Clamp to -1 to 1
+                    weighted_sentiment = max(-1, min(1, weighted_sentiment))
+                    
+                    sentiments.append(weighted_sentiment)
+                    
+                    # Track by subreddit
+                    if post['subreddit'] not in subreddit_sentiments:
+                        subreddit_sentiments[post['subreddit']] = []
+                    subreddit_sentiments[post['subreddit']].append(weighted_sentiment)
+                    
+                    # Categorize
+                    if weighted_sentiment > 0.1:
+                        reddit_data['bullish_count'] += 1
+                    elif weighted_sentiment < -0.1:
+                        reddit_data['bearish_count'] += 1
+                    else:
+                        reddit_data['neutral_count'] += 1
+                
+                # Calculate averages
+                reddit_data['posts_analyzed'] = len(all_posts)
+                reddit_data['average_sentiment'] = sum(sentiments) / len(sentiments)
+                
+                # Top posts by engagement
+                reddit_data['top_posts'] = sorted(
+                    all_posts, 
+                    key=lambda x: x['score'] + x['num_comments'], 
+                    reverse=True
+                )[:5]
+                
+                # Sentiment distribution
+                reddit_data['sentiment_distribution'] = {
+                    'very_positive': sum(1 for s in sentiments if s > 0.5),
+                    'positive': sum(1 for s in sentiments if 0.1 < s <= 0.5),
+                    'neutral': sum(1 for s in sentiments if -0.1 <= s <= 0.1),
+                    'negative': sum(1 for s in sentiments if -0.5 <= s < -0.1),
+                    'very_negative': sum(1 for s in sentiments if s < -0.5)
+                }
+                
+                # Subreddit breakdown
+                for subreddit, sents in subreddit_sentiments.items():
+                    reddit_data['subreddit_breakdown'][subreddit] = {
+                        'posts': len(sents),
+                        'average_sentiment': sum(sents) / len(sents),
+                        'bullish': sum(1 for s in sents if s > 0.1),
+                        'bearish': sum(1 for s in sents if s < -0.1)
+                    }
+            
             return reddit_data
             
         except Exception as e:
             logger.warning(f"Error fetching Reddit sentiment: {str(e)}")
             return {
                 'posts_analyzed': 0,
-                'average_sentiment': 0
+                'average_sentiment': 0,
+                'bullish_count': 0,
+                'bearish_count': 0,
+                'neutral_count': 0,
+                'error': str(e)
             }
     
     def _analyze_news_sentiment(self, news_items: List[Dict]) -> Dict:
@@ -317,7 +475,7 @@ class NewsSentimentAnalyzer:
         }
     
     def _check_significant_events(self, news_items: List[Dict], symbol: str) -> Dict:
-        """Check for significant events in the news"""
+        """Check for significant events in the news with enhanced pattern matching"""
         
         events = {
             'dividend_announcement': False,
@@ -327,33 +485,233 @@ class NewsSentimentAnalyzer:
             'merger_acquisition': False,
             'scandal_investigation': False,
             'rating_change': False,
+            'capital_raising': False,
+            'branch_closure': False,
+            'product_launch': False,
+            'partnership_deal': False,
+            'legal_action': False,
             'events_detected': []
         }
         
-        # Keywords for different event types
-        event_keywords = {
-            'dividend_announcement': ['dividend', 'distribution', 'payout'],
-            'earnings_report': ['earnings', 'profit', 'results', 'quarterly', 'half-year'],
-            'management_change': ['CEO', 'CFO', 'director', 'appoint', 'resign', 'retirement'],
-            'regulatory_news': ['APRA', 'ASIC', 'regulator', 'compliance', 'investigation'],
-            'merger_acquisition': ['merger', 'acquisition', 'takeover', 'buyout'],
-            'scandal_investigation': ['scandal', 'probe', 'misconduct', 'penalty', 'fine'],
-            'rating_change': ['upgrade', 'downgrade', 'rating', 'outlook']
+        # Enhanced keywords with regex patterns for better matching
+        event_patterns = {
+            'dividend_announcement': {
+                'keywords': ['dividend', 'distribution', 'payout', 'interim dividend', 'final dividend', 'special dividend'],
+                'regex': [
+                    r'dividend.*\$[\d.]+',
+                    r'(interim|final|special)\s+dividend',
+                    r'dividend.*(?:increased|raised|maintained|cut|suspended)'
+                ]
+            },
+            'earnings_report': {
+                'keywords': ['earnings', 'profit', 'results', 'quarterly', 'half-year', 'full-year', 'net income'],
+                'regex': [
+                    r'(quarterly|half-year|full-year)\s+results',
+                    r'profit.*\$[\d.]+(?:million|billion)',
+                    r'earnings.*(?:beat|miss|exceed|below)',
+                    r'net\s+income.*\$[\d.]+'
+                ]
+            },
+            'management_change': {
+                'keywords': ['CEO', 'CFO', 'director', 'chairman', 'appoint', 'resign', 'retirement', 'succession'],
+                'regex': [
+                    r'(CEO|CFO|chairman|director).*(?:appoint|resign|retire|step down)',
+                    r'new\s+(CEO|CFO|chairman|director)',
+                    r'(appoint|announce).*(?:CEO|CFO|chairman|director)',
+                    r'management\s+change'
+                ]
+            },
+            'regulatory_news': {
+                'keywords': ['APRA', 'ASIC', 'regulator', 'compliance', 'investigation', 'audit', 'prudential'],
+                'regex': [
+                    r'(APRA|ASIC).*(?:investigation|audit|review|action)',
+                    r'regulatory.*(?:action|review|investigation|compliance)',
+                    r'prudential.*(?:requirement|review|standard)',
+                    r'compliance.*(?:breach|issue|review)'
+                ]
+            },
+            'merger_acquisition': {
+                'keywords': ['merger', 'acquisition', 'takeover', 'buyout', 'combine', 'acquire'],
+                'regex': [
+                    r'(merger|acquisition|takeover).*\$[\d.]+(?:million|billion)',
+                    r'acquire.*(?:stake|interest|business)',
+                    r'(merge|combine)\s+with',
+                    r'takeover.*(?:bid|offer)'
+                ]
+            },
+            'scandal_investigation': {
+                'keywords': ['scandal', 'probe', 'misconduct', 'penalty', 'fine', 'breach', 'violation'],
+                'regex': [
+                    r'(fine|penalty).*\$[\d.]+(?:million|billion)',
+                    r'(scandal|misconduct|breach).*(?:investigation|probe)',
+                    r'(AUSTRAC|ASIC|APRA).*(?:fine|penalty|action)',
+                    r'compliance.*(?:breach|failure|issue)'
+                ]
+            },
+            'rating_change': {
+                'keywords': ['upgrade', 'downgrade', 'rating', 'outlook', 'Moody\'s', 'S&P', 'Fitch'],
+                'regex': [
+                    r'(Moody\'s|S&P|Fitch).*(?:upgrade|downgrade|rating)',
+                    r'credit\s+rating.*(?:upgrade|downgrade|affirm)',
+                    r'outlook.*(?:positive|negative|stable)',
+                    r'rating.*(?:AA|A|BBB|BB|B)'
+                ]
+            },
+            'capital_raising': {
+                'keywords': ['capital raising', 'share issue', 'equity raising', 'rights issue', 'placement'],
+                'regex': [
+                    r'(capital|equity)\s+raising.*\$[\d.]+(?:million|billion)',
+                    r'(rights|share)\s+issue',
+                    r'placement.*\$[\d.]+(?:million|billion)',
+                    r'raise.*capital'
+                ]
+            },
+            'branch_closure': {
+                'keywords': ['branch closure', 'branch closing', 'close branches', 'branch network'],
+                'regex': [
+                    r'clos(?:e|ing).*\d+.*branches?',
+                    r'branch.*(?:closure|closing|reduction)',
+                    r'reduce.*branch.*network'
+                ]
+            },
+            'product_launch': {
+                'keywords': ['launch', 'new product', 'introduce', 'unveil', 'digital platform'],
+                'regex': [
+                    r'launch.*(?:new|digital).*(?:product|service|platform)',
+                    r'introduce.*(?:banking|financial).*(?:product|service)',
+                    r'unveil.*(?:new|digital).*(?:platform|service)'
+                ]
+            },
+            'partnership_deal': {
+                'keywords': ['partnership', 'joint venture', 'alliance', 'collaboration', 'agreement'],
+                'regex': [
+                    r'(partnership|alliance).*with',
+                    r'joint\s+venture',
+                    r'(sign|announce).*(?:partnership|agreement|deal)',
+                    r'collaboration.*with'
+                ]
+            },
+            'legal_action': {
+                'keywords': ['lawsuit', 'legal action', 'court case', 'litigation', 'class action'],
+                'regex': [
+                    r'(lawsuit|litigation).*(?:filed|against)',
+                    r'class\s+action',
+                    r'legal\s+action.*(?:taken|filed)',
+                    r'court.*(?:case|action|ruling)'
+                ]
+            }
         }
         
         for news in news_items:
             text = f"{news['title']} {news.get('summary', '')}".lower()
             
-            for event_type, keywords in event_keywords.items():
-                if any(keyword in text for keyword in keywords):
+            for event_type, patterns in event_patterns.items():
+                # Check keywords
+                keyword_match = any(keyword.lower() in text for keyword in patterns['keywords'])
+                
+                # Check regex patterns
+                regex_match = False
+                if 'regex' in patterns:
+                    for pattern in patterns['regex']:
+                        if re.search(pattern, text, re.IGNORECASE):
+                            regex_match = True
+                            break
+                
+                if keyword_match or regex_match:
                     events[event_type] = True
-                    events['events_detected'].append({
+                    
+                    # Extract relevant details
+                    event_details = {
                         'type': event_type,
                         'headline': news['title'],
-                        'date': news.get('published', '')
-                    })
+                        'date': news.get('published', ''),
+                        'source': news.get('source', ''),
+                        'relevance': news.get('relevance', 'medium'),
+                        'sentiment_impact': self._calculate_event_sentiment_impact(event_type, text)
+                    }
+                    
+                    # Try to extract specific values (amounts, percentages, etc.)
+                    extracted_values = self._extract_event_values(text, event_type)
+                    if extracted_values:
+                        event_details['extracted_values'] = extracted_values
+                    
+                    events['events_detected'].append(event_details)
         
         return events
+    
+    def _calculate_event_sentiment_impact(self, event_type: str, text: str) -> float:
+        """Calculate the expected sentiment impact of an event"""
+        
+        # Base sentiment impact by event type
+        base_impacts = {
+            'dividend_announcement': 0.3,
+            'earnings_report': 0.0,  # Depends on results
+            'management_change': -0.1,
+            'regulatory_news': -0.4,
+            'merger_acquisition': 0.2,
+            'scandal_investigation': -0.6,
+            'rating_change': 0.0,  # Depends on direction
+            'capital_raising': -0.2,
+            'branch_closure': -0.1,
+            'product_launch': 0.1,
+            'partnership_deal': 0.1,
+            'legal_action': -0.3
+        }
+        
+        base_impact = base_impacts.get(event_type, 0)
+        
+        # Adjust based on context
+        if event_type == 'earnings_report':
+            if any(word in text for word in ['beat', 'exceed', 'strong', 'record']):
+                base_impact = 0.4
+            elif any(word in text for word in ['miss', 'below', 'weak', 'disappoint']):
+                base_impact = -0.4
+        
+        elif event_type == 'rating_change':
+            if any(word in text for word in ['upgrade', 'positive', 'improve']):
+                base_impact = 0.3
+            elif any(word in text for word in ['downgrade', 'negative', 'lower']):
+                base_impact = -0.3
+        
+        elif event_type == 'dividend_announcement':
+            if any(word in text for word in ['increase', 'raise', 'higher']):
+                base_impact = 0.4
+            elif any(word in text for word in ['cut', 'reduce', 'suspend']):
+                base_impact = -0.4
+        
+        return base_impact
+    
+    def _extract_event_values(self, text: str, event_type: str) -> Dict:
+        """Extract specific values from event text (amounts, percentages, etc.)"""
+        
+        extracted = {}
+        
+        # Extract dollar amounts
+        dollar_pattern = r'\$[\d,]+(?:\.\d{1,2})?(?:\s*(?:million|billion|m|b|mn|bn))?'
+        dollar_matches = re.findall(dollar_pattern, text, re.IGNORECASE)
+        if dollar_matches:
+            extracted['amounts'] = dollar_matches
+        
+        # Extract percentages
+        percentage_pattern = r'\d+(?:\.\d+)?%'
+        percentage_matches = re.findall(percentage_pattern, text)
+        if percentage_matches:
+            extracted['percentages'] = percentage_matches
+        
+        # Extract numbers (for branch closures, etc.)
+        if event_type == 'branch_closure':
+            number_pattern = r'\d+(?:\s*(?:branches?|locations?))'
+            number_matches = re.findall(number_pattern, text, re.IGNORECASE)
+            if number_matches:
+                extracted['branch_numbers'] = number_matches
+        
+        # Extract dates
+        date_pattern = r'(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}'
+        date_matches = re.findall(date_pattern, text, re.IGNORECASE)
+        if date_matches:
+            extracted['dates'] = date_matches
+        
+        return extracted
     
     def _calculate_overall_sentiment(self, news_sentiment: Dict, 
                                    reddit_sentiment: Dict, events: Dict) -> float:

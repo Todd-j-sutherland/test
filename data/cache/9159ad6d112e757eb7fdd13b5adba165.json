@@ -1,16 +1,16 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-06T14:34:14.479021",
+  "timestamp": "2025-07-06T15:11:59.761645",
   "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.05825590909090908,
-    "positive_count": 6,
+    "average_sentiment": 0.04991703349282296,
+    "positive_count": 5,
     "negative_count": 0,
-    "neutral_count": 13,
+    "neutral_count": 14,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 6,
-      "neutral": 13,
+      "positive": 5,
+      "neutral": 14,
       "negative": 0,
       "very_negative": 0
     },
@@ -21,7 +21,10 @@
     "average_sentiment": 0,
     "bullish_count": 0,
     "bearish_count": 0,
-    "neutral_count": 0
+    "neutral_count": 0,
+    "top_posts": [],
+    "sentiment_distribution": {},
+    "subreddit_breakdown": {}
   },
   "significant_events": {
     "dividend_announcement": false,
@@ -31,9 +34,39 @@
     "merger_acquisition": false,
     "scandal_investigation": false,
     "rating_change": false,
-    "events_detected": []
+    "capital_raising": false,
+    "branch_closure": false,
+    "product_launch": false,
+    "partnership_deal": true,
+    "legal_action": false,
+    "events_detected": [
+      {
+        "type": "partnership_deal",
+        "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
+        "date": "2025-07-06T15:11:49.015607",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.1
+      },
+      {
+        "type": "partnership_deal",
+        "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
+        "date": "2025-07-06T15:11:49.015869",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.1
+      },
+      {
+        "type": "partnership_deal",
+        "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
+        "date": "2025-07-06T15:11:49.015948",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.1
+      }
+    ]
   },
-  "overall_sentiment": 0.034953545454545445,
+  "overall_sentiment": 0.029950220095693775,
   "recent_headlines": [
     "ASX closes above 8600 for first time; CBA slips",
     "",

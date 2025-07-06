@@ -85,3 +85,5 @@ websockets==15.0.1
 wsproto==1.2.0
 yfinance==0.2.64
 zopfli==0.2.3.post1
+praw==7.7.1
+scipy>=1.11.0
