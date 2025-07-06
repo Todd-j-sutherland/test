@@ -1,9 +1,9 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-06T18:48:48.927789",
+  "timestamp": "2025-07-06T19:35:45.500694",
   "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.04991703349282296,
+    "average_sentiment": 0.04927045454545454,
     "positive_count": 5,
     "negative_count": 0,
     "neutral_count": 14,
@@ -19,10 +19,10 @@
   },
   "reddit_sentiment": {
     "posts_analyzed": 15,
-    "average_sentiment": 0.03032055570483157,
-    "bullish_count": 4,
-    "bearish_count": 2,
-    "neutral_count": 9,
+    "average_sentiment": 0.041340042573518435,
+    "bullish_count": 5,
+    "bearish_count": 3,
+    "neutral_count": 7,
     "top_posts": [
       {
         "title": "Which Australian bank has the least restrictive withdrawal limits?",
@@ -31,8 +31,18 @@
         "num_comments": 24,
         "created": "2025-07-06T10:44:10",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.29,
+        "upvote_ratio": 0.27,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
+      },
+      {
+        "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+        "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+        "score": 0,
+        "num_comments": 13,
+        "created": "2025-07-04T04:07:49",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.25,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
         "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
@@ -45,14 +55,14 @@
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
-        "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
-        "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
-        "score": 0,
-        "num_comments": 13,
-        "created": "2025-07-04T04:07:49",
+        "title": "I built a tool that tracks ASX short selling daily. Thought this community might find it useful",
+        "selftext": "Hey folks,\n\nI\u2019ve been working on a tool called **Aussie Shorts** that tracks daily short position disclosures from ASIC and turns them into interactive dashboards and AI-generated summaries.\n\nIt started as a data engineering project. Working with ASIC\u2019s CSVs, automating ingestion, and building a daily summarisation engine. It was a fun challenge to build this with AI commentary. Playing around with some new tooling. \n\nNow it\u2019s a live app where you can:\n\n* Explore short interest by company (e.g. CBA) or sector (e.g. Basic Materials)\n* Skim daily summaries of the biggest moves\n* Spot sentiment shifts or pressure on individual stocks\n\nWould love feedback, especially from traders or anyone keeping a close eye on the ASX.\n\n[https://aussieshorts.report/](https://aussieshorts.report/)",
+        "score": 5,
+        "num_comments": 5,
+        "created": "2025-07-01T09:56:40",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.2,
-        "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        "upvote_ratio": 0.78,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1lon9mh/i_built_a_tool_that_tracks_asx_short_selling/"
       },
       {
         "title": "Best way to be paid by US company?",
@@ -63,31 +73,21 @@
         "subreddit": "AusFinance",
         "upvote_ratio": 0.67,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lorlkk/best_way_to_be_paid_by_us_company/"
-      },
-      {
-        "title": "Anyone work at CBA?",
-        "selftext": "Im going for a job at CBA - I understand salaries have an \"additional pay of $xx per year\". What does this additional pay mean/consist of?",
-        "score": 0,
-        "num_comments": 9,
-        "created": "2025-07-04T14:25:15",
-        "subreddit": "AusFinance",
-        "upvote_ratio": 0.22,
-        "url": "https://www.reddit.com/r/AusFinance/comments/1lr9q2k/anyone_work_at_cba/"
       }
     ],
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 4,
-      "neutral": 9,
-      "negative": 2,
+      "positive": 5,
+      "neutral": 7,
+      "negative": 3,
       "very_negative": 0
     },
     "subreddit_breakdown": {
       "AusFinance": {
         "posts": 13,
-        "average_sentiment": 0.012007724891966278,
-        "bullish": 3,
-        "bearish": 2
+        "average_sentiment": 0.024722517432758814,
+        "bullish": 4,
+        "bearish": 3
       },
       "fiaustralia": {
         "posts": 1,
@@ -120,7 +120,7 @@
       {
         "type": "partnership_deal",
         "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
-        "date": "2025-07-06T18:48:37.070042",
+        "date": "2025-07-06T19:35:34.301581",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
@@ -128,30 +128,22 @@
       {
         "type": "partnership_deal",
         "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
-        "date": "2025-07-06T18:48:37.070306",
-        "source": "Google News",
-        "relevance": "medium",
-        "sentiment_impact": 0.1
-      },
-      {
-        "type": "partnership_deal",
-        "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
-        "date": "2025-07-06T18:48:37.070387",
+        "date": "2025-07-06T19:35:34.301840",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
       }
     ]
   },
-  "overall_sentiment": 0.037923358916699706,
+  "overall_sentiment": 0.03652067092426663,
   "sentiment_components": {
-    "news": 0.019966813397129187,
-    "reddit": 0.004548083355724736,
-    "events": 0.0075000000000000015,
-    "volume": 0.005908462163845777,
+    "news": 0.01970818181818182,
+    "reddit": 0.006201006386027765,
+    "events": 0.005000000000000001,
+    "volume": 0.005831929425837321,
     "momentum": 0.0
   },
-  "confidence": 1.0,
+  "confidence": 0.9800000000000001,
   "recent_headlines": [
     "ASX closes above 8600 for first time; CBA slips",
     "",

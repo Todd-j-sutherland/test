@@ -1,6 +1,6 @@
 {
   "symbol": "MQG.AX",
-  "timestamp": "2025-07-06T18:48:48.677739",
+  "timestamp": "2025-07-06T19:35:45.181855",
   "news_count": 20,
   "sentiment_scores": {
     "average_sentiment": -0.000550666666666662,
@@ -19,7 +19,7 @@
   },
   "reddit_sentiment": {
     "posts_analyzed": 6,
-    "average_sentiment": 0.16317084357027833,
+    "average_sentiment": 0.14903681579250055,
     "bullish_count": 4,
     "bearish_count": 0,
     "neutral_count": 2,
@@ -31,7 +31,7 @@
         "num_comments": 35,
         "created": "2025-07-04T07:38:06",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.39,
+        "upvote_ratio": 0.44,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
       },
       {
@@ -41,27 +41,27 @@
         "num_comments": 35,
         "created": "2025-07-04T07:38:06",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.47,
+        "upvote_ratio": 0.44,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
       },
       {
         "title": "Macquarie or UBank?",
         "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
-        "score": 4,
+        "score": 3,
         "num_comments": 9,
         "created": "2025-07-01T20:26:46",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.75,
+        "upvote_ratio": 0.71,
         "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
       },
       {
         "title": "Macquarie or UBank?",
         "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
-        "score": 4,
+        "score": 2,
         "num_comments": 9,
         "created": "2025-07-01T20:26:46",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.75,
+        "upvote_ratio": 0.63,
         "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
       },
       {
@@ -85,7 +85,7 @@
     "subreddit_breakdown": {
       "AusFinance": {
         "posts": 4,
-        "average_sentiment": 0.19781694444444442,
+        "average_sentiment": 0.17661590277777775,
         "bullish": 4,
         "bearish": 0
       },
@@ -114,7 +114,7 @@
       {
         "type": "regulatory_news",
         "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
-        "date": "2025-07-06T18:48:37.496985",
+        "date": "2025-07-06T19:35:33.916920",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
@@ -122,7 +122,7 @@
       {
         "type": "regulatory_news",
         "headline": "ASIC prepared 17 files on Macquarie in 10 months",
-        "date": "2025-07-06T18:48:37.497076",
+        "date": "2025-07-06T19:35:33.917013",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
@@ -130,7 +130,7 @@
       {
         "type": "earnings_report",
         "headline": "Macquarie to bolster private credit ops as earnings track steady",
-        "date": "2025-07-06T18:48:37.497288",
+        "date": "2025-07-06T19:35:33.917242",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.0
@@ -138,7 +138,7 @@
       {
         "type": "regulatory_news",
         "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
-        "date": "2025-07-06T18:48:37.497333",
+        "date": "2025-07-06T19:35:33.917298",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
@@ -146,17 +146,17 @@
       {
         "type": "scandal_investigation",
         "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
-        "date": "2025-07-06T18:48:37.497333",
+        "date": "2025-07-06T19:35:33.917298",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.6
       }
     ]
   },
-  "overall_sentiment": 0.18930532873717532,
+  "overall_sentiment": 0.18721702613300867,
   "sentiment_components": {
     "news": -0.0002202666666666648,
-    "reddit": 0.02447562653554175,
+    "reddit": 0.022355522368875082,
     "events": 0.16800000000000004,
     "volume": -6.72088666666661e-05,
     "momentum": 0.0

@@ -1,21 +1,21 @@
 {
   "symbol": "WBC.AX",
-  "timestamp": "2025-07-06T18:48:46.299892",
-  "news_count": 20,
+  "timestamp": "2025-07-06T19:35:43.799668",
+  "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.05280036363636363,
-    "positive_count": 5,
+    "average_sentiment": 0.03761143540669856,
+    "positive_count": 4,
     "negative_count": 0,
     "neutral_count": 15,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 5,
+      "positive": 4,
       "neutral": 15,
       "negative": 0,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.34138999999999997,
-    "news_count": 20
+    "strongest_sentiment": 0.245805,
+    "news_count": 19
   },
   "reddit_sentiment": {
     "posts_analyzed": 7,
@@ -106,9 +106,17 @@
     "legal_action": false,
     "events_detected": [
       {
+        "type": "rating_change",
+        "headline": "Fitch Gives 'AAA' Rating to Westpac New Zealand's Mortgage-Covered Bond Issuance",
+        "date": "2025-07-06T19:35:34.491963",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.0
+      },
+      {
         "type": "dividend_announcement",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T18:48:37.574208",
+        "date": "2025-07-06T19:35:34.492009",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.3
@@ -116,35 +124,27 @@
       {
         "type": "earnings_report",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T18:48:37.574208",
+        "date": "2025-07-06T19:35:34.492009",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
       },
       {
-        "type": "rating_change",
-        "headline": "Fitch Gives 'AAA' Rating to Westpac New Zealand's Mortgage-Covered Bond Issuance",
-        "date": "2025-07-06T18:48:37.574247",
-        "source": "Google News",
-        "relevance": "medium",
-        "sentiment_impact": 0.0
-      },
-      {
         "type": "earnings_report",
         "headline": "Australia's Westpac flags global trade risks, shares slide after profit miss",
-        "date": "2025-07-06T18:48:37.574287",
+        "date": "2025-07-06T19:35:34.492053",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
       }
     ]
   },
-  "overall_sentiment": -0.005909379633761101,
+  "overall_sentiment": -0.01362311198527172,
   "sentiment_components": {
-    "news": 0.021120145454545453,
+    "news": 0.015044574162679425,
     "reddit": 0.01836044117707689,
     "events": -0.05175000000000002,
-    "volume": 0.0062700431818181815,
+    "volume": 0.0045144141168206335,
     "momentum": 0.0
   },
   "confidence": 0.9500000000000001,
