@@ -139,8 +139,9 @@ class ASXDataFeed:
             hist = ticker.history(period=period, interval=interval)
             
             if not hist.empty:
-                # Cache as dict for JSON serialization
-                self.cache.set(cache_key, hist.to_dict(), expiry_minutes=60)
+                # Cache as dict for JSON serialization - reset index to make dates into columns
+                hist_dict = hist.reset_index().to_dict('records')
+                self.cache.set(cache_key, hist_dict, expiry_minutes=60)
                 return hist
             
         except Exception as e:

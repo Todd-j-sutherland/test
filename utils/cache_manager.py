@@ -95,7 +95,7 @@ class CacheManager:
         # Save to cache file
         try:
             with open(cache_file, 'w') as f:
-                json.dump(value, f, default=self._json_serializer)
+                json.dump(value, f, default=self._json_serializer, indent=2)
             
             # Update index
             self.cache_index[key] = {
@@ -119,7 +119,16 @@ class CacheManager:
         elif isinstance(obj, pd.Series):
             return obj.tolist()
         elif isinstance(obj, pd.DataFrame):
-            return obj.to_dict()
+            # Convert DataFrame to dict and ensure index is serializable
+            df_dict = obj.to_dict()
+            # Convert any Timestamp indexes to strings
+            for col in df_dict:
+                if isinstance(df_dict[col], dict):
+                    df_dict[col] = {
+                        str(k) if isinstance(k, (pd.Timestamp, datetime)) else k: v
+                        for k, v in df_dict[col].items()
+                    }
+            return df_dict
         elif isinstance(obj, np.ndarray):
             return obj.tolist()
         elif isinstance(obj, (np.int64, np.int32, np.int16, np.int8)):

@@ -7,3 +7,491 @@
 2025-07-05 20:17:27,989 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
 2025-07-05 20:17:33,794 - __main__ - ERROR - Error in analyze_bank for WBC.AX: 'str' object has no attribute 'get'
 2025-07-05 20:17:34,217 - __main__ - INFO - System shutdown requested
+2025-07-06 13:11:05,846 - utils.cache_manager - INFO - Cleaned up 2 expired cache entries
+2025-07-06 13:11:05,857 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:11:05,857 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-06 13:11:05,857 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-06 13:11:06,498 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:11:12,664 - __main__ - ERROR - Error in analyze_bank for CBA.AX: 'str' object has no attribute 'get'
+2025-07-06 13:11:13,214 - __main__ - INFO - System shutdown requested
+2025-07-06 13:21:46,679 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:21:46,679 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-06 13:21:46,679 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-06 13:21:47,267 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:21:50,760 - __main__ - ERROR - Error in analyze_bank for CBA.AX: 'str' object has no attribute 'get'
+2025-07-06 13:21:51,764 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-06 13:21:51,949 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:21:57,524 - __main__ - ERROR - Error in analyze_bank for WBC.AX: 'str' object has no attribute 'get'
+2025-07-06 13:21:58,529 - __main__ - INFO - Analyzing ANZ.AX...
+2025-07-06 13:21:58,716 - utils.cache_manager - ERROR - Error caching data for hist_ANZ.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:22:04,582 - __main__ - ERROR - Error in analyze_bank for ANZ.AX: 'str' object has no attribute 'get'
+2025-07-06 13:22:05,583 - __main__ - INFO - Analyzing NAB.AX...
+2025-07-06 13:22:05,793 - utils.cache_manager - ERROR - Error caching data for hist_NAB.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:22:11,583 - __main__ - ERROR - Error in analyze_bank for NAB.AX: 'str' object has no attribute 'get'
+2025-07-06 13:22:12,584 - __main__ - INFO - Analyzing MQG.AX...
+2025-07-06 13:22:12,805 - utils.cache_manager - ERROR - Error caching data for hist_MQG.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:22:18,260 - __main__ - ERROR - Error in analyze_bank for MQG.AX: 'str' object has no attribute 'get'
+2025-07-06 13:22:19,503 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250706_132219.html
+2025-07-06 13:22:19,503 - __main__ - INFO - Report generated: reports/daily_report_20250706_132219.html
+2025-07-06 13:25:17,470 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:25:17,470 - yfinance - DEBUG - Entering history()
+2025-07-06 13:25:17,472 - peewee - DEBUG - ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2025-07-06 13:25:17,472 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['CBA.AX', 1, 0])
+2025-07-06 13:25:17,497 - yfinance - DEBUG -  Entering history()
+2025-07-06 13:25:17,497 - yfinance - DEBUG - CBA.AX: Yahoo GET parameters: {'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:17,497 - yfinance - DEBUG -   Entering get()
+2025-07-06 13:25:17,497 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 13:25:17,497 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/CBA.AX
+2025-07-06 13:25:17,497 - yfinance - DEBUG - params={'range': '3mo', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:17,497 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 13:25:17,497 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:17,497 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:17,497 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 13:25:17,497 - yfinance - DEBUG -        Entering _load_cookie_curlCffi()
+2025-07-06 13:25:17,498 - peewee - DEBUG - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2025-07-06 13:25:17,499 - peewee - DEBUG - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-07-06 13:25:17,499 - yfinance - DEBUG -        Exiting _load_cookie_curlCffi()
+2025-07-06 13:25:17,499 - yfinance - DEBUG - reusing persistent cookie
+2025-07-06 13:25:17,500 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 13:25:17,500 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 13:25:17,500 - yfinance - DEBUG -        Entering _get_cookie_basic()
+2025-07-06 13:25:17,500 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:17,500 - yfinance - DEBUG -        Exiting _get_cookie_basic()
+2025-07-06 13:25:17,913 - yfinance - DEBUG - crumb = 'F6JtooNBHmB'
+2025-07-06 13:25:17,914 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 13:25:17,914 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:17,914 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:18,092 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:18,093 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 13:25:18,093 - yfinance - DEBUG -   Exiting get()
+2025-07-06 13:25:18,095 - yfinance - DEBUG - CBA.AX: yfinance received OHLC data: 2025-04-03 23:00:00 -> 2025-07-04 00:00:00
+2025-07-06 13:25:18,098 - yfinance - DEBUG - CBA.AX: OHLC after cleaning: 2025-04-04 10:00:00+11:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 13:25:18,102 - yfinance - DEBUG - CBA.AX: OHLC after combining events: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:18,108 - yfinance - DEBUG - CBA.AX: yfinance returning OHLC: 2025-04-04 00:00:00+11:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:18,108 - yfinance - DEBUG -  Exiting history()
+2025-07-06 13:25:18,108 - yfinance - DEBUG - Exiting history()
+2025-07-06 13:25:18,111 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:25:18,129 - yfinance - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/CBA.AX
+2025-07-06 13:25:18,129 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:18,129 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:18,129 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/CBA.AX
+2025-07-06 13:25:18,129 - yfinance - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'CBA.AX'}
+2025-07-06 13:25:18,129 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:18,130 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:18,130 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:18,130 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:18,130 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,130 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:18,256 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:18,256 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:18,256 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:18,256 - yfinance - DEBUG - get_raw_json(): https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:18,257 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:18,257 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:18,257 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:18,257 - yfinance - DEBUG - params={'symbols': 'CBA.AX', 'formatted': 'false'}
+2025-07-06 13:25:18,257 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:18,257 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:18,257 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,257 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:18,257 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:18,257 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:18,257 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:18,258 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:18,258 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:18,258 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,258 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:18,376 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:18,376 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:18,376 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:18,377 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:18,377 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:18,378 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CBA.AX?symbol=CBA.AX&type=trailingPegRatio&period1=1736035200&period2=1751846400
+2025-07-06 13:25:18,378 - yfinance - DEBUG - params=None
+2025-07-06 13:25:18,378 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:18,378 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:18,378 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:18,378 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:18,378 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,378 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:18,495 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:18,495 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:18,495 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:18,496 - yfinance - DEBUG - Entering _fetch_time_series()
+2025-07-06 13:25:18,496 - yfinance - DEBUG -  Entering get()
+2025-07-06 13:25:18,497 - yfinance - DEBUG -   Entering _make_request()
+2025-07-06 13:25:18,497 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CBA.AX?symbol=CBA.AX&type=quarterlyTaxEffectOfUnusualItems,quarterlyTaxRateForCalcs,quarterlyNormalizedEBITDA,quarterl...
+2025-07-06 13:25:18,497 - yfinance - DEBUG - params=None
+2025-07-06 13:25:18,497 - yfinance - DEBUG -    Entering _get_cookie_and_crumb()
+2025-07-06 13:25:18,497 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:18,497 - yfinance - DEBUG -     Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,497 - yfinance - DEBUG -      Entering _get_cookie_basic()
+2025-07-06 13:25:18,498 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:18,498 - yfinance - DEBUG -      Exiting _get_cookie_basic()
+2025-07-06 13:25:18,498 - yfinance - DEBUG -      Entering _get_crumb_basic()
+2025-07-06 13:25:18,498 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:18,498 - yfinance - DEBUG -      Exiting _get_crumb_basic()
+2025-07-06 13:25:18,498 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,498 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:18,836 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:18,836 - yfinance - DEBUG -   Exiting _make_request()
+2025-07-06 13:25:18,836 - yfinance - DEBUG -  Exiting get()
+2025-07-06 13:25:18,839 - yfinance - DEBUG - Exiting _fetch_time_series()
+2025-07-06 13:25:18,839 - yfinance - DEBUG - Entering _fetch_time_series()
+2025-07-06 13:25:18,840 - yfinance - DEBUG -  Entering get()
+2025-07-06 13:25:18,840 - yfinance - DEBUG -   Entering _make_request()
+2025-07-06 13:25:18,840 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CBA.AX?symbol=CBA.AX&type=quarterlyTreasurySharesNumber,quarterlyPreferredSharesNumber,quarterlyOrdinarySharesNumber,q...
+2025-07-06 13:25:18,840 - yfinance - DEBUG - params=None
+2025-07-06 13:25:18,840 - yfinance - DEBUG -    Entering _get_cookie_and_crumb()
+2025-07-06 13:25:18,840 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:18,840 - yfinance - DEBUG -     Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,840 - yfinance - DEBUG -      Entering _get_cookie_basic()
+2025-07-06 13:25:18,841 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:18,841 - yfinance - DEBUG -      Exiting _get_cookie_basic()
+2025-07-06 13:25:18,841 - yfinance - DEBUG -      Entering _get_crumb_basic()
+2025-07-06 13:25:18,841 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:18,841 - yfinance - DEBUG -      Exiting _get_crumb_basic()
+2025-07-06 13:25:18,841 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:18,841 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,094 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,094 - yfinance - DEBUG -   Exiting _make_request()
+2025-07-06 13:25:19,094 - yfinance - DEBUG -  Exiting get()
+2025-07-06 13:25:19,116 - yfinance - DEBUG - Exiting _fetch_time_series()
+2025-07-06 13:25:19,117 - yfinance - DEBUG - Entering _fetch_time_series()
+2025-07-06 13:25:19,118 - yfinance - DEBUG -  Entering get()
+2025-07-06 13:25:19,118 - yfinance - DEBUG -   Entering _make_request()
+2025-07-06 13:25:19,118 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CBA.AX?symbol=CBA.AX&type=quarterlyForeignSales,quarterlyDomesticSales,quarterlyAdjustedGeographySegmentData,quarterly...
+2025-07-06 13:25:19,118 - yfinance - DEBUG - params=None
+2025-07-06 13:25:19,118 - yfinance - DEBUG -    Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,118 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,118 - yfinance - DEBUG -     Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,118 - yfinance - DEBUG -      Entering _get_cookie_basic()
+2025-07-06 13:25:19,118 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,119 - yfinance - DEBUG -      Exiting _get_cookie_basic()
+2025-07-06 13:25:19,119 - yfinance - DEBUG -      Entering _get_crumb_basic()
+2025-07-06 13:25:19,119 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,119 - yfinance - DEBUG -      Exiting _get_crumb_basic()
+2025-07-06 13:25:19,119 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,119 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,338 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,338 - yfinance - DEBUG -   Exiting _make_request()
+2025-07-06 13:25:19,339 - yfinance - DEBUG -  Exiting get()
+2025-07-06 13:25:19,341 - yfinance - DEBUG - Exiting _fetch_time_series()
+2025-07-06 13:25:19,342 - yfinance - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/WBC.AX
+2025-07-06 13:25:19,342 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,342 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,342 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/WBC.AX
+2025-07-06 13:25:19,342 - yfinance - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'WBC.AX'}
+2025-07-06 13:25:19,342 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,342 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,342 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,342 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,342 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,342 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,342 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,343 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,343 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,343 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,343 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,463 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,463 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:19,463 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:19,464 - yfinance - DEBUG - get_raw_json(): https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:19,464 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,464 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,464 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:19,464 - yfinance - DEBUG - params={'symbols': 'WBC.AX', 'formatted': 'false'}
+2025-07-06 13:25:19,464 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,464 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,465 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,465 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,465 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,465 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,465 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,465 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,466 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,466 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,466 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,583 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,584 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:19,584 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:19,585 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,585 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,585 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/WBC.AX?symbol=WBC.AX&type=trailingPegRatio&period1=1736035200&period2=1751846400
+2025-07-06 13:25:19,585 - yfinance - DEBUG - params=None
+2025-07-06 13:25:19,585 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,585 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,586 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,586 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,586 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,586 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,702 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,703 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:19,703 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:19,703 - yfinance - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/ANZ.AX
+2025-07-06 13:25:19,704 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,704 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,704 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/ANZ.AX
+2025-07-06 13:25:19,704 - yfinance - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'ANZ.AX'}
+2025-07-06 13:25:19,704 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,705 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,705 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,705 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,705 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,705 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,828 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,828 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:19,828 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:19,828 - yfinance - DEBUG - get_raw_json(): https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:19,829 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,829 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,829 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:19,829 - yfinance - DEBUG - params={'symbols': 'ANZ.AX', 'formatted': 'false'}
+2025-07-06 13:25:19,829 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,829 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,829 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,829 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,829 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,829 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,829 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,829 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,829 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,829 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,830 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:19,951 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:19,951 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:19,951 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:19,952 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:19,953 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:19,953 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ANZ.AX?symbol=ANZ.AX&type=trailingPegRatio&period1=1736035200&period2=1751846400
+2025-07-06 13:25:19,953 - yfinance - DEBUG - params=None
+2025-07-06 13:25:19,953 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:19,953 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:19,953 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,953 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:19,954 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:19,954 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:19,954 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:19,954 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:19,954 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:19,954 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:19,954 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,070 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,070 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,070 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,071 - yfinance - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/NAB.AX
+2025-07-06 13:25:20,071 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,071 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,071 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/NAB.AX
+2025-07-06 13:25:20,071 - yfinance - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'NAB.AX'}
+2025-07-06 13:25:20,072 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,072 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,072 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,072 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,072 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,072 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,191 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,191 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,191 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,191 - yfinance - DEBUG - get_raw_json(): https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:20,192 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,192 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,192 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:20,192 - yfinance - DEBUG - params={'symbols': 'NAB.AX', 'formatted': 'false'}
+2025-07-06 13:25:20,192 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,192 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,192 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,192 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,192 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,192 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,192 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,193 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,193 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,193 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,193 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,312 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,313 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,313 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,314 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,314 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,314 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/NAB.AX?symbol=NAB.AX&type=trailingPegRatio&period1=1736035200&period2=1751846400
+2025-07-06 13:25:20,314 - yfinance - DEBUG - params=None
+2025-07-06 13:25:20,314 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,314 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,315 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,315 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,315 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,315 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,439 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,439 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,439 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,439 - yfinance - DEBUG - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/MQG.AX
+2025-07-06 13:25:20,440 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,440 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,440 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/MQG.AX
+2025-07-06 13:25:20,440 - yfinance - DEBUG - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'MQG.AX'}
+2025-07-06 13:25:20,440 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,440 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,440 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,440 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,440 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,440 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,440 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,441 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,441 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,441 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,441 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,564 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,565 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,565 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,565 - yfinance - DEBUG - get_raw_json(): https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:20,565 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,566 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,566 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/v7/finance/quote?
+2025-07-06 13:25:20,566 - yfinance - DEBUG - params={'symbols': 'MQG.AX', 'formatted': 'false'}
+2025-07-06 13:25:20,566 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,566 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,566 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,566 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,566 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,567 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,567 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,567 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,567 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,567 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,567 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,737 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,737 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,737 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,739 - yfinance - DEBUG - Entering get()
+2025-07-06 13:25:20,739 - yfinance - DEBUG -  Entering _make_request()
+2025-07-06 13:25:20,739 - yfinance - DEBUG - url=https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/MQG.AX?symbol=MQG.AX&type=trailingPegRatio&period1=1736035200&period2=1751846400
+2025-07-06 13:25:20,739 - yfinance - DEBUG - params=None
+2025-07-06 13:25:20,739 - yfinance - DEBUG -   Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,740 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,740 - yfinance - DEBUG -    Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG -     Entering _get_cookie_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,740 - yfinance - DEBUG -     Exiting _get_cookie_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG -     Entering _get_crumb_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,740 - yfinance - DEBUG -     Exiting _get_crumb_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,740 - yfinance - DEBUG -   Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:20,856 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:20,856 - yfinance - DEBUG -  Exiting _make_request()
+2025-07-06 13:25:20,856 - yfinance - DEBUG - Exiting get()
+2025-07-06 13:25:20,856 - yfinance - DEBUG - Entering history()
+2025-07-06 13:25:20,857 - peewee - DEBUG - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['CBA.AX', 1, 0])
+2025-07-06 13:25:20,857 - yfinance - DEBUG -  Entering history()
+2025-07-06 13:25:20,857 - yfinance - DEBUG - CBA.AX: Yahoo GET parameters: {'range': '2y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:20,857 - yfinance - DEBUG -   Entering get()
+2025-07-06 13:25:20,857 - yfinance - DEBUG -    Entering _make_request()
+2025-07-06 13:25:20,857 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/CBA.AX
+2025-07-06 13:25:20,858 - yfinance - DEBUG - params={'range': '2y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:20,858 - yfinance - DEBUG -     Entering _get_cookie_and_crumb()
+2025-07-06 13:25:20,858 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:20,858 - yfinance - DEBUG -      Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG -       Entering _get_cookie_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:20,858 - yfinance - DEBUG -       Exiting _get_cookie_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG -       Entering _get_crumb_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:20,858 - yfinance - DEBUG -       Exiting _get_crumb_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG -      Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:20,858 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:21,128 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:21,128 - yfinance - DEBUG -    Exiting _make_request()
+2025-07-06 13:25:21,128 - yfinance - DEBUG -   Exiting get()
+2025-07-06 13:25:21,132 - yfinance - DEBUG - CBA.AX: yfinance received OHLC data: 2023-07-04 00:00:00 -> 2025-07-04 00:00:00
+2025-07-06 13:25:21,134 - yfinance - DEBUG - CBA.AX: OHLC after cleaning: 2023-07-04 10:00:00+10:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 13:25:21,142 - yfinance - DEBUG - CBA.AX: OHLC after combining events: 2023-07-04 00:00:00+10:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:21,148 - yfinance - DEBUG - CBA.AX: yfinance returning OHLC: 2023-07-04 00:00:00+10:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:21,148 - yfinance - DEBUG -  Exiting history()
+2025-07-06 13:25:21,148 - yfinance - DEBUG - Exiting history()
+2025-07-06 13:25:21,148 - yfinance - DEBUG - Entering history()
+2025-07-06 13:25:21,148 - yfinance - DEBUG - CBA.AX: Yahoo GET parameters: {'period1': '1926-07-31 13:25:26+10:00', 'period2': '2025-07-06 13:25:21+10:00', 'interval': '1d', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:21,149 - yfinance - DEBUG -  Entering get()
+2025-07-06 13:25:21,149 - yfinance - DEBUG -   Entering _make_request()
+2025-07-06 13:25:21,149 - yfinance - DEBUG - url=https://query2.finance.yahoo.com/v8/finance/chart/CBA.AX
+2025-07-06 13:25:21,149 - yfinance - DEBUG - params={'period1': -1370291674, 'period2': 1751772321, 'interval': '1d', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2025-07-06 13:25:21,149 - yfinance - DEBUG -    Entering _get_cookie_and_crumb()
+2025-07-06 13:25:21,149 - yfinance - DEBUG - cookie_mode = 'basic'
+2025-07-06 13:25:21,149 - yfinance - DEBUG -     Entering _get_cookie_and_crumb_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG -      Entering _get_cookie_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG - reusing cookie
+2025-07-06 13:25:21,149 - yfinance - DEBUG -      Exiting _get_cookie_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG -      Entering _get_crumb_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG - reusing crumb
+2025-07-06 13:25:21,149 - yfinance - DEBUG -      Exiting _get_crumb_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG -     Exiting _get_cookie_and_crumb_basic()
+2025-07-06 13:25:21,149 - yfinance - DEBUG -    Exiting _get_cookie_and_crumb()
+2025-07-06 13:25:21,632 - yfinance - DEBUG - response code=200
+2025-07-06 13:25:21,633 - yfinance - DEBUG -   Exiting _make_request()
+2025-07-06 13:25:21,633 - yfinance - DEBUG -  Exiting get()
+2025-07-06 13:25:21,667 - yfinance - DEBUG - CBA.AX: yfinance received OHLC data: 1991-09-30 00:00:00 -> 2025-07-04 00:00:00
+2025-07-06 13:25:21,670 - yfinance - DEBUG - CBA.AX: OHLC after cleaning: 1991-09-30 10:00:00+10:00 -> 2025-07-04 10:00:00+10:00
+2025-07-06 13:25:21,714 - yfinance - DEBUG - CBA.AX: OHLC after combining events: 1991-09-30 00:00:00+10:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:21,721 - yfinance - DEBUG - CBA.AX: yfinance returning OHLC: 1991-09-30 00:00:00+10:00 -> 2025-07-04 00:00:00+10:00
+2025-07-06 13:25:21,722 - yfinance - DEBUG - Exiting history()
+2025-07-06 13:25:21,723 - utils.cache_manager - DEBUG - Cached data for key: fundamental_CBA.AX, expires in 240 minutes
+2025-07-06 13:25:21,724 - utils.cache_manager - DEBUG - Cache hit for key: sentiment_CBA.AX
+2025-07-06 13:25:21,724 - __main__ - ERROR - Error in analyze_bank for CBA.AX: 'str' object has no attribute 'get'
+2025-07-06 13:26:44,662 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:26:45,354 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:26:53,702 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:26:53,702 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-06 13:26:53,702 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-06 13:26:54,297 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:26:55,314 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-06 13:26:55,501 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:26:59,827 - __main__ - INFO - Analyzing ANZ.AX...
+2025-07-06 13:27:00,012 - utils.cache_manager - ERROR - Error caching data for hist_ANZ.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:27:04,194 - __main__ - INFO - Analyzing NAB.AX...
+2025-07-06 13:27:04,409 - utils.cache_manager - ERROR - Error caching data for hist_NAB.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:27:08,450 - __main__ - INFO - Analyzing MQG.AX...
+2025-07-06 13:27:08,626 - utils.cache_manager - ERROR - Error caching data for hist_MQG.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:27:12,543 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250706_132712.html
+2025-07-06 13:27:12,543 - __main__ - INFO - Report generated: reports/daily_report_20250706_132712.html
+2025-07-06 13:28:02,592 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:28:03,280 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-06 13:29:28,661 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:30:08,383 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 13:30:08,383 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-06 13:30:08,383 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-06 13:30:10,061 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-06 13:30:11,259 - __main__ - INFO - Analyzing ANZ.AX...
+2025-07-06 13:30:12,642 - __main__ - INFO - Analyzing NAB.AX...
+2025-07-06 13:30:13,664 - __main__ - INFO - Analyzing MQG.AX...
+2025-07-06 13:30:15,092 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250706_133014.html
+2025-07-06 13:30:15,093 - __main__ - INFO - Report generated: reports/daily_report_20250706_133014.html

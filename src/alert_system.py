@@ -426,17 +426,26 @@ class AlertSystem:
         alerts = []
         thresholds = self.settings.ALERT_THRESHOLDS
         
+        # Handle single analysis result vs multiple results
+        if 'symbol' in current_data and 'current_price' in current_data:
+            # Single analysis result - convert to expected format
+            data_dict = {current_data['symbol']: current_data}
+        else:
+            # Multiple results - use as is
+            data_dict = current_data
+        
         # Price movement alerts
-        for symbol, data in current_data.items():
-            change_percent = data.get('change_percent', 0)
-            
-            if abs(change_percent) > thresholds['price_breakout'] * 100:
-                alerts.append({
-                    'type': 'PRICE_BREAKOUT',
-                    'symbol': symbol,
-                    'message': f"{symbol} moved {change_percent:+.2f}% - Breakout detected",
-                    'price': data.get('price', 0)
-                })
+        for symbol, data in data_dict.items():
+            if isinstance(data, dict):
+                change_percent = data.get('change_percent', 0)
+                
+                if abs(change_percent) > thresholds['price_breakout'] * 100:
+                    alerts.append({
+                        'type': 'PRICE_BREAKOUT',
+                        'symbol': symbol,
+                        'message': f"{symbol} moved {change_percent:+.2f}% - Breakout detected",
+                        'price': data.get('current_price', data.get('price', 0))
+                    })
         
         return alerts
     

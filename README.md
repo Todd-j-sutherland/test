@@ -58,7 +58,7 @@ chmod +x run.sh
 ### Basic Commands
 ```bash
 # Analyze all banks
-python main.py analyze
+python3 main.py analyze
 
 # Analyze specific bank
 python main.py bank --symbol CBA
