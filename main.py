@@ -111,9 +111,9 @@ class ASXBankTradingSystem:
                 'symbol': symbol,
                 'timestamp': datetime.now().isoformat(),
                 'current_price': float(market_data['Close'].iloc[-1]),
-                'technical': technical_signals,
-                'fundamental': fundamental_metrics,
-                'sentiment': sentiment_score,
+                'technical_analysis': technical_signals,
+                'fundamental_analysis': fundamental_metrics,
+                'sentiment_analysis': sentiment_score,
                 'risk_reward': risk_reward,
                 'prediction': prediction
             }

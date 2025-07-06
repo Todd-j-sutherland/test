@@ -665,7 +665,7 @@ class ReportGenerator:
                     
                     <div class="metric">
                         <span class="metric-label">Dividend Yield:</span>
-                        <span class="metric-value">{fundamental.get('metrics', {}).get('dividend_yield', 0)*100:.2f}%</span>
+                        <span class="metric-value">{fundamental.get('metrics', {}).get('dividend_yield', 0):.2f}%</span>
                     </div>
                     
                     <div class="metric">
@@ -679,7 +679,37 @@ class ReportGenerator:
                         <span class="metric-label">Risk Score:</span>
                         <span class="metric-value">{risk_reward.get('risk_score', 0):.0f}/100</span>
                     </div>
+                    
+                    <div class="metric">
+                        <span class="metric-label">RSI:</span>
+                        <span class="metric-value">{technical.get('indicators', {}).get('rsi', 0):.1f}</span>
+                    </div>
+                    
+                    <div class="metric">
+                        <span class="metric-label">MACD Signal:</span>
+                        <span class="metric-value">{technical.get('signals', {}).get('macd', {}).get('signal', 'neutral').upper()}</span>
+                    </div>
+                    
+                    <div class="metric">
+                        <span class="metric-label">ROE:</span>
+                        <span class="metric-value">{(fundamental.get('metrics', {}).get('roe', 0)*100):.1f}%</span>
+                    </div>
                 </div>
+                
+                <p><strong>Technical Details:</strong></p>
+                <ul>
+                    <li>Support: ${technical.get('support_resistance', {}).get('support', [0])[-1] if technical.get('support_resistance', {}).get('support') else 0:.2f}</li>
+                    <li>Resistance: ${technical.get('support_resistance', {}).get('resistance', [0])[0] if technical.get('support_resistance', {}).get('resistance') else 0:.2f}</li>
+                    <li>Trend: {technical.get('trend', {}).get('primary', 'neutral').upper()}</li>
+                    <li>Volume Signal: {technical.get('signals', {}).get('volume', {}).get('signal', 'neutral').upper()}</li>
+                </ul>
+                
+                <p><strong>Fundamental Highlights:</strong></p>
+                <ul>
+                    <li>Valuation: {fundamental.get('valuation', {}).get('rating', 'unknown').upper()}</li>
+                    <li>Growth Score: {fundamental.get('score', 0):.0f}/100</li>
+                    <li>Strengths: {', '.join(fundamental.get('strengths', [])[:2]) if fundamental.get('strengths') else 'None identified'}</li>
+                </ul>
                 
                 <p><strong>Key Factors:</strong></p>
                 <ul>
@@ -761,7 +791,7 @@ class ReportGenerator:
         
         # Create comparison chart
         symbols = list(analysis_results.keys())
-        scores = [a.get('prediction', {}).get('score', 0) for a in analysis_results.values()]
+        scores = [a.get('prediction', {}).get('confidence', 0) for a in analysis_results.values()]
         risk_scores = [a.get('risk_reward', {}).get('risk_score', 0) for a in analysis_results.values()]
         
         # Prediction scores chart

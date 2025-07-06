@@ -1,1 +1,50 @@
-{"symbol": "ANZ.AX", "timestamp": "2025-07-06T13:22:04.581544", "news_count": 8, "sentiment_scores": {"average_sentiment": 0.09583623106060606, "positive_count": 1, "negative_count": 0, "neutral_count": 7, "sentiment_distribution": {"very_positive": 1, "positive": 0, "neutral": 7, "negative": 0, "very_negative": 0}, "strongest_sentiment": 0.64106}, "reddit_sentiment": {"posts_analyzed": 0, "average_sentiment": 0, "bullish_count": 0, "bearish_count": 0, "neutral_count": 0}, "significant_events": {"dividend_announcement": false, "earnings_report": true, "management_change": false, "regulatory_news": false, "merger_acquisition": false, "scandal_investigation": false, "rating_change": false, "events_detected": [{"type": "earnings_report", "headline": "ANZ 2025 Half Year Results \u2013 Chief Financial Officer Farhan Faruqui Speaking Notes", "date": "2025-07-06T13:22:03.573840"}]}, "overall_sentiment": 0.09750173863636363, "recent_headlines": ["4 best numbers to value ANZ shares", "ANZ New Zealand 2025 Half Year Result", "Behind the Valuation: Key Metrics Shaping the (ASX:ANZ) Share Price", "ANZ 2025 Half Year Results \u2013 Chief Financial Officer Farhan Faruqui Speaking Notes", "ANZ brings forward new CEO start date"]}
+{
+  "symbol": "ANZ.AX",
+  "timestamp": "2025-07-06T14:00:19.526617",
+  "news_count": 8,
+  "sentiment_scores": {
+    "average_sentiment": 0.09583623106060606,
+    "positive_count": 1,
+    "negative_count": 0,
+    "neutral_count": 7,
+    "sentiment_distribution": {
+      "very_positive": 1,
+      "positive": 0,
+      "neutral": 7,
+      "negative": 0,
+      "very_negative": 0
+    },
+    "strongest_sentiment": 0.64106
+  },
+  "reddit_sentiment": {
+    "posts_analyzed": 0,
+    "average_sentiment": 0,
+    "bullish_count": 0,
+    "bearish_count": 0,
+    "neutral_count": 0
+  },
+  "significant_events": {
+    "dividend_announcement": false,
+    "earnings_report": true,
+    "management_change": false,
+    "regulatory_news": false,
+    "merger_acquisition": false,
+    "scandal_investigation": false,
+    "rating_change": false,
+    "events_detected": [
+      {
+        "type": "earnings_report",
+        "headline": "ANZ 2025 Half Year Results \u2013 Chief Financial Officer Farhan Faruqui Speaking Notes",
+        "date": "2025-07-06T14:00:18.519007"
+      }
+    ]
+  },
+  "overall_sentiment": 0.09750173863636363,
+  "recent_headlines": [
+    "4 best numbers to value ANZ shares",
+    "ANZ New Zealand 2025 Half Year Result",
+    "Behind the Valuation: Key Metrics Shaping the (ASX:ANZ) Share Price",
+    "ANZ 2025 Half Year Results \u2013 Chief Financial Officer Farhan Faruqui Speaking Notes",
+    "ANZ brings forward new CEO start date"
+  ]
+}

@@ -38,10 +38,12 @@ class RiskRewardCalculator:
             atr = technical.get('indicators', {}).get('atr', current_price * 0.02)
             
             # Calculate stop loss levels
+            signal_strength = technical.get('overall_signal', 0)
             stop_loss_levels = self._calculate_stop_loss(
                 current_price, 
                 atr, 
-                technical.get('support_resistance', {})
+                technical.get('support_resistance', {}),
+                signal_strength
             )
             
             # Calculate take profit levels
@@ -103,39 +105,68 @@ class RiskRewardCalculator:
             logger.error(f"Error calculating risk/reward for {symbol}: {str(e)}")
             return self._default_risk_calculation()
     
-    def _calculate_stop_loss(self, price: float, atr: float, support_resistance: Dict) -> Dict:
+    def _calculate_stop_loss(self, price: float, atr: float, support_resistance: Dict, signal_strength: float = 0) -> Dict:
         """Calculate multiple stop loss levels"""
         
-        # ATR-based stop loss
-        atr_stop = price - (atr * self.risk_params['stop_loss_atr_multiplier'])
+        # Determine if signal is bullish or bearish
+        is_bullish = signal_strength > 0
         
-        # Percentage-based stop loss
-        risk_level = self.settings.get_risk_level()
-        percentage_stop = price * (1 - risk_level['stop_loss'])
-        
-        # Support-based stop loss
-        support_levels = support_resistance.get('support', [])
-        if support_levels:
-            # Use the highest support level that's below current price
-            valid_supports = [s for s in support_levels if s < price]
-            support_stop = max(valid_supports) * 0.99 if valid_supports else atr_stop
+        if is_bullish:
+            # For bullish signals (long positions), stop loss goes below current price
+            # ATR-based stop loss
+            atr_stop = price - (atr * self.risk_params['stop_loss_atr_multiplier'])
+            
+            # Percentage-based stop loss
+            risk_level = self.settings.get_risk_level()
+            percentage_stop = price * (1 - risk_level['stop_loss'])
+            
+            # Support-based stop loss
+            support_levels = support_resistance.get('support', [])
+            if support_levels:
+                # Use the highest support level that's below current price
+                valid_supports = [s for s in support_levels if s < price]
+                support_stop = max(valid_supports) * 0.99 if valid_supports else atr_stop
+            else:
+                support_stop = atr_stop
+            
+            # Trailing stop loss
+            trailing_stop = price * 0.95  # 5% trailing stop
+            
+            # Recommended stop (most conservative)
+            recommended_stop = max(atr_stop, percentage_stop, support_stop)
+            
         else:
-            support_stop = atr_stop
-        
-        # Trailing stop loss
-        trailing_stop = price * 0.95  # 5% trailing stop
-        
-        # Recommended stop (most conservative)
-        recommended_stop = max(atr_stop, percentage_stop, support_stop)
+            # For bearish signals (short positions), stop loss goes above current price
+            # ATR-based stop loss
+            atr_stop = price + (atr * self.risk_params['stop_loss_atr_multiplier'])
+            
+            # Percentage-based stop loss
+            risk_level = self.settings.get_risk_level()
+            percentage_stop = price * (1 + risk_level['stop_loss'])
+            
+            # Resistance-based stop loss
+            resistance_levels = support_resistance.get('resistance', [])
+            if resistance_levels:
+                # Use the lowest resistance level that's above current price
+                valid_resistances = [r for r in resistance_levels if r > price]
+                resistance_stop = min(valid_resistances) * 1.01 if valid_resistances else atr_stop
+            else:
+                resistance_stop = atr_stop
+            
+            # Trailing stop loss
+            trailing_stop = price * 1.05  # 5% trailing stop
+            
+            # Recommended stop (most conservative)
+            recommended_stop = min(atr_stop, percentage_stop, resistance_stop)
         
         return {
             'atr_based': round(atr_stop, 2),
             'percentage_based': round(percentage_stop, 2),
-            'support_based': round(support_stop, 2),
+            'support_based': round(support_stop if is_bullish else resistance_stop, 2),
             'trailing': round(trailing_stop, 2),
             'recommended': round(recommended_stop, 2),
-            'stop_distance': round(price - recommended_stop, 2),
-            'stop_percentage': round(((price - recommended_stop) / price) * 100, 2)
+            'stop_distance': round(abs(price - recommended_stop), 2),
+            'stop_percentage': round((abs(price - recommended_stop) / price) * 100, 2)
         }
     
     def _calculate_take_profit(self, price: float, atr: float, 
@@ -145,27 +176,56 @@ class RiskRewardCalculator:
         # Risk/reward based targets
         min_rr_ratio = self.risk_params['take_profit_ratio']
         
-        # ATR-based targets
-        target_1 = price + (atr * min_rr_ratio)
-        target_2 = price + (atr * min_rr_ratio * 1.5)
-        target_3 = price + (atr * min_rr_ratio * 2)
+        # Determine if signal is bullish or bearish
+        is_bullish = signal_strength > 0
         
-        # Resistance-based targets
-        resistance_levels = support_resistance.get('resistance', [])
-        if resistance_levels:
-            # Filter resistances above current price
-            valid_resistances = [r for r in resistance_levels if r > price]
-            if valid_resistances:
-                resistance_targets = valid_resistances[:3]
+        if is_bullish:
+            # For bullish signals, calculate upside targets
+            # ATR-based targets
+            target_1 = price + (atr * min_rr_ratio)
+            target_2 = price + (atr * min_rr_ratio * 1.5)
+            target_3 = price + (atr * min_rr_ratio * 2)
+            
+            # Resistance-based targets
+            resistance_levels = support_resistance.get('resistance', [])
+            if resistance_levels:
+                # Filter resistances above current price
+                valid_resistances = [r for r in resistance_levels if r > price]
+                if valid_resistances:
+                    resistance_targets = valid_resistances[:3]
+                else:
+                    resistance_targets = [target_1, target_2, target_3]
             else:
                 resistance_targets = [target_1, target_2, target_3]
+            
+            # Fibonacci extension targets
+            fib_target_1 = price * 1.0236  # 2.36% extension
+            fib_target_2 = price * 1.0382  # 3.82% extension
+            fib_target_3 = price * 1.0618  # 6.18% extension
+            
         else:
-            resistance_targets = [target_1, target_2, target_3]
-        
-        # Fibonacci extension targets
-        fib_target_1 = price * 1.0236  # 2.36% extension
-        fib_target_2 = price * 1.0382  # 3.82% extension
-        fib_target_3 = price * 1.0618  # 6.18% extension
+            # For bearish signals, calculate downside targets
+            # ATR-based targets
+            target_1 = price - (atr * min_rr_ratio)
+            target_2 = price - (atr * min_rr_ratio * 1.5)
+            target_3 = price - (atr * min_rr_ratio * 2)
+            
+            # Support-based targets
+            support_levels = support_resistance.get('support', [])
+            if support_levels:
+                # Filter supports below current price
+                valid_supports = [s for s in support_levels if s < price]
+                if valid_supports:
+                    support_targets = valid_supports[:3]
+                else:
+                    support_targets = [target_1, target_2, target_3]
+            else:
+                support_targets = [target_1, target_2, target_3]
+            
+            # Fibonacci extension targets (downside)
+            fib_target_1 = price * 0.9764  # 2.36% decline
+            fib_target_2 = price * 0.9618  # 3.82% decline
+            fib_target_3 = price * 0.9382  # 6.18% decline
         
         # Adjust based on signal strength
         if abs(signal_strength) > 70:
@@ -175,13 +235,29 @@ class RiskRewardCalculator:
         else:
             multiplier = 0.8
         
+        # Calculate profit potential
+        profit_potential = abs(target_1 - price) / price * 100
+        
+        # For bearish signals, make sure targets are below current price
+        if not is_bullish:
+            # Ensure targets are properly calculated as downside targets
+            adjusted_target_1 = target_1 * multiplier
+            adjusted_target_2 = target_2 * multiplier
+            adjusted_target_3 = target_3 * multiplier
+        else:
+            # For bullish signals, targets should be above current price
+            adjusted_target_1 = target_1 * multiplier
+            adjusted_target_2 = target_2 * multiplier
+            adjusted_target_3 = target_3 * multiplier
+        
         return {
-            'target_1': round(min(target_1 * multiplier, resistance_targets[0] if resistance_targets else target_1), 2),
-            'target_2': round(target_2 * multiplier, 2),
-            'target_3': round(target_3 * multiplier, 2),
-            'resistance_based': [round(r, 2) for r in resistance_targets],
+            'target_1': round(adjusted_target_1, 2),
+            'target_2': round(adjusted_target_2, 2),
+            'target_3': round(adjusted_target_3, 2),
+            'resistance_based': [round(r, 2) for r in (resistance_targets if is_bullish else support_targets)],
             'fibonacci_based': [round(fib_target_1, 2), round(fib_target_2, 2), round(fib_target_3, 2)],
-            'profit_potential': round(((target_1 - price) / price) * 100, 2)
+            'profit_potential': round(profit_potential, 2),
+            'signal_direction': 'bullish' if is_bullish else 'bearish'
         }
     
     def _calculate_position_size(self, account_balance: float, entry_price: float, 
@@ -224,8 +300,8 @@ class RiskRewardCalculator:
         """Calculate comprehensive risk metrics"""
         
         # Basic risk/reward ratio
-        stop_distance = price - stop_loss['recommended']
-        profit_distance = take_profit['target_1'] - price
+        stop_distance = abs(price - stop_loss['recommended'])
+        profit_distance = abs(take_profit['target_1'] - price)
         risk_reward_ratio = profit_distance / stop_distance if stop_distance > 0 else 0
         
         # Sharpe ratio approximation
