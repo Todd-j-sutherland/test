@@ -11,6 +11,8 @@ from datetime import datetime, timedelta
 from typing import Any, Optional
 import hashlib
 import logging
+import pandas as pd
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +95,7 @@ class CacheManager:
         # Save to cache file
         try:
             with open(cache_file, 'w') as f:
-                json.dump(value, f, default=str)
+                json.dump(value, f, default=self._json_serializer)
             
             # Update index
             self.cache_index[key] = {
@@ -107,6 +109,29 @@ class CacheManager:
             
         except Exception as e:
             logger.error(f"Error caching data for {key}: {str(e)}")
+    
+    def _json_serializer(self, obj):
+        """Custom JSON serializer for pandas and numpy objects"""
+        if isinstance(obj, pd.Timestamp):
+            return obj.isoformat()
+        elif isinstance(obj, datetime):
+            return obj.isoformat()
+        elif isinstance(obj, pd.Series):
+            return obj.tolist()
+        elif isinstance(obj, pd.DataFrame):
+            return obj.to_dict()
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, (np.int64, np.int32, np.int16, np.int8)):
+            return int(obj)
+        elif isinstance(obj, (np.float64, np.float32, np.float16)):
+            return float(obj)
+        elif isinstance(obj, np.bool_):
+            return bool(obj)
+        elif hasattr(obj, '__dict__'):
+            return str(obj)
+        else:
+            return str(obj)
     
     def delete(self, key: str):
         """Delete item from cache"""

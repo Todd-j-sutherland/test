@@ -6,7 +6,7 @@ Implements professional risk management strategies
 
 import pandas as pd
 import numpy as np
-from typing import Dict, Optional, Tuple,List
+from typing import Dict, Optional, Tuple, List
 import logging
 from datetime import datetime, timedelta
 

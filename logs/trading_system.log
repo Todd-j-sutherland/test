@@ -1,0 +1,9 @@
+2025-07-05 20:17:19,420 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-05 20:17:19,420 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-05 20:17:19,420 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-05 20:17:19,998 - utils.cache_manager - ERROR - Error caching data for hist_CBA.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:17:26,793 - __main__ - ERROR - Error in analyze_bank for CBA.AX: 'str' object has no attribute 'get'
+2025-07-05 20:17:27,793 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-05 20:17:27,989 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:17:33,794 - __main__ - ERROR - Error in analyze_bank for WBC.AX: 'str' object has no attribute 'get'
+2025-07-05 20:17:34,217 - __main__ - INFO - System shutdown requested

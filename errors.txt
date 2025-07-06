@@ -1,0 +1,38 @@
+venv) Todds-MacBook-Pro:trading_analysis toddsutherland$ python3 main.py analyze
+2025-07-05 20:01:01,414 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-05 20:01:01,414 - __main__ - INFO - Starting analysis of all ASX banks...
+2025-07-05 20:01:01,415 - __main__ - INFO - Analyzing CBA.AX...
+2025-07-05 20:01:01,425 - src.technical_analysis - ERROR - Error in technical analysis for CBA.AX: 'numpy.float64' object has no attribute 'rolling'
+2025-07-05 20:01:01,426 - src.market_predictor - ERROR - Error in prediction for CBA.AX: 'MarketPredictor' object has no attribute '_fundamental_prediction'
+2025-07-05 20:01:01,426 - __main__ - ERROR - Error in analyze_bank for CBA.AX: 'MarketPredictor' object has no attribute '_default_prediction'
+2025-07-05 20:01:02,430 - __main__ - INFO - Analyzing WBC.AX...
+2025-07-05 20:01:03,289 - utils.cache_manager - ERROR - Error caching data for hist_WBC.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:01:03,297 - src.technical_analysis - ERROR - Error in technical analysis for WBC.AX: 'numpy.float64' object has no attribute 'rolling'
+2025-07-05 20:01:03,298 - src.market_predictor - ERROR - Error in prediction for WBC.AX: 'MarketPredictor' object has no attribute '_fundamental_prediction'
+2025-07-05 20:01:03,298 - __main__ - ERROR - Error in analyze_bank for WBC.AX: 'MarketPredictor' object has no attribute '_default_prediction'
+2025-07-05 20:01:04,303 - __main__ - INFO - Analyzing ANZ.AX...
+2025-07-05 20:01:04,498 - utils.cache_manager - ERROR - Error caching data for hist_ANZ.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:01:04,506 - src.technical_analysis - ERROR - Error in technical analysis for ANZ.AX: 'numpy.float64' object has no attribute 'rolling'
+2025-07-05 20:01:04,507 - src.market_predictor - ERROR - Error in prediction for ANZ.AX: 'MarketPredictor' object has no attribute '_fundamental_prediction'
+2025-07-05 20:01:04,507 - __main__ - ERROR - Error in analyze_bank for ANZ.AX: 'MarketPredictor' object has no attribute '_default_prediction'
+2025-07-05 20:01:05,511 - __main__ - INFO - Analyzing NAB.AX...
+2025-07-05 20:01:05,691 - utils.cache_manager - ERROR - Error caching data for hist_NAB.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:01:05,700 - src.technical_analysis - ERROR - Error in technical analysis for NAB.AX: 'numpy.float64' object has no attribute 'rolling'
+2025-07-05 20:01:09,363 - src.market_predictor - ERROR - Error in prediction for NAB.AX: 'MarketPredictor' object has no attribute '_fundamental_prediction'
+2025-07-05 20:01:09,363 - __main__ - ERROR - Error in analyze_bank for NAB.AX: 'MarketPredictor' object has no attribute '_default_prediction'
+2025-07-05 20:01:10,368 - __main__ - INFO - Analyzing MQG.AX...
+2025-07-05 20:01:10,540 - utils.cache_manager - ERROR - Error caching data for hist_MQG.AX_3mo_1d: keys must be str, int, float, bool or None, not Timestamp
+2025-07-05 20:01:10,548 - src.technical_analysis - ERROR - Error in technical analysis for MQG.AX: 'numpy.float64' object has no attribute 'rolling'
+2025-07-05 20:01:13,713 - src.market_predictor - ERROR - Error in prediction for MQG.AX: 'MarketPredictor' object has no attribute '_fundamental_prediction'
+2025-07-05 20:01:13,713 - __main__ - ERROR - Error in analyze_bank for MQG.AX: 'MarketPredictor' object has no attribute '_default_prediction'
+2025-07-05 20:01:14,939 - src.report_generator - INFO - Weekly report generated: reports/daily_report_20250705_200114.html
+2025-07-05 20:01:14,940 - __main__ - INFO - Report generated: reports/daily_report_20250705_200114.html
+
+==================================================
+ASX BANK ANALYSIS COMPLETE
+==================================================
+CBA.AX: ERROR - 'MarketPredictor' object has no attribute '_default_prediction'
+WBC.AX: ERROR - 'MarketPredictor' object has no attribute '_default_prediction'
+ANZ.AX: ERROR - 'MarketPredictor' object has no attribute '_default_prediction'
+NAB.AX: ERROR - 'MarketPredictor' object has no attribute '_default_prediction'
+MQG.AX: ERROR - 'MarketPredictor' object has no attribute '_default_prediction'

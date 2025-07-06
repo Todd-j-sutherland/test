@@ -105,9 +105,9 @@ class TechnicalAnalyzer:
         
         # Volume indicators
         indicators['volume'] = {
-            'current': float(data['Volume'].iloc[-1]) if 'Volume' in data and len(data) > 0 else 0,
-            'average': float(data['Volume'].rolling(window=self.indicators['VOLUME']['ma_period']).mean().iloc[-1]) if 'Volume' in data and len(data) >= self.indicators['VOLUME']['ma_period'] else 0,
-            'ratio': float(data['Volume'].iloc[-1] / data['Volume'].rolling(window=20).mean().iloc[-1]) if 'Volume' in data and len(data) >= 20 and data['Volume'].rolling(window=20).mean().iloc[-1] > 0 else 1
+            'current': data['Volume'].iloc[-1] if 'Volume' in data else 0,
+            'average': data['Volume'].rolling(window=self.indicators['VOLUME']['ma_period']).mean().iloc[-1] if 'Volume' in data else 0,
+            'ratio': data['Volume'].iloc[-1] / data['Volume'].rolling(window=20).mean().iloc[-1] if 'Volume' in data and data['Volume'].rolling(window=20).mean().iloc[-1] > 0 else 1
         }
         
         # Stochastic
@@ -121,25 +121,17 @@ class TechnicalAnalyzer:
     
     def _calculate_rsi(self, prices: pd.Series, period: int = 14) -> float:
         """Calculate Relative Strength Index"""
-        if len(prices) < period:
-            return 50.0
-        
         delta = prices.diff()
         gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
         loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
         
-        # Handle division by zero
-        with np.errstate(divide='ignore', invalid='ignore'):
-            rs = gain / loss
-            rsi = 100 - (100 / (1 + rs))
+        rs = gain / loss
+        rsi = 100 - (100 / (1 + rs))
         
-        return float(rsi.iloc[-1]) if not rsi.empty and not np.isnan(rsi.iloc[-1]) else 50.0
+        return rsi.iloc[-1] if not rsi.empty else 50
     
     def _calculate_macd(self, prices: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9) -> Tuple[float, float, float]:
         """Calculate MACD"""
-        if len(prices) < slow:
-            return 0.0, 0.0, 0.0
-        
         ema_fast = prices.ewm(span=fast, adjust=False).mean()
         ema_slow = prices.ewm(span=slow, adjust=False).mean()
         
@@ -148,17 +140,13 @@ class TechnicalAnalyzer:
         macd_histogram = macd - macd_signal
         
         return (
-            float(macd.iloc[-1]) if not macd.empty and not np.isnan(macd.iloc[-1]) else 0.0,
-            float(macd_signal.iloc[-1]) if not macd_signal.empty and not np.isnan(macd_signal.iloc[-1]) else 0.0,
-            float(macd_histogram.iloc[-1]) if not macd_histogram.empty and not np.isnan(macd_histogram.iloc[-1]) else 0.0
+            macd.iloc[-1] if not macd.empty else 0,
+            macd_signal.iloc[-1] if not macd_signal.empty else 0,
+            macd_histogram.iloc[-1] if not macd_histogram.empty else 0
         )
     
     def _calculate_bollinger_bands(self, prices: pd.Series, period: int = 20, std: int = 2) -> Tuple[float, float, float]:
         """Calculate Bollinger Bands"""
-        if len(prices) < period:
-            current_price = float(prices.iloc[-1]) if len(prices) > 0 else 0.0
-            return current_price, current_price, current_price
-        
         middle = prices.rolling(window=period).mean()
         std_dev = prices.rolling(window=period).std()
         
@@ -166,32 +154,23 @@ class TechnicalAnalyzer:
         lower = middle - (std_dev * std)
         
         return (
-            float(upper.iloc[-1]) if not upper.empty and not np.isnan(upper.iloc[-1]) else 0.0,
-            float(middle.iloc[-1]) if not middle.empty and not np.isnan(middle.iloc[-1]) else 0.0,
-            float(lower.iloc[-1]) if not lower.empty and not np.isnan(lower.iloc[-1]) else 0.0
+            upper.iloc[-1] if not upper.empty else 0,
+            middle.iloc[-1] if not middle.empty else 0,
+            lower.iloc[-1] if not lower.empty else 0
         )
     
     def _calculate_sma(self, prices: pd.Series, period: int) -> float:
         """Calculate Simple Moving Average"""
-        if len(prices) < period:
-            return float(prices.iloc[-1]) if len(prices) > 0 else 0.0
-        
         sma = prices.rolling(window=period).mean()
-        return float(sma.iloc[-1]) if not sma.empty and not np.isnan(sma.iloc[-1]) else float(prices.iloc[-1])
-
+        return sma.iloc[-1] if not sma.empty and not np.isnan(sma.iloc[-1]) else prices.iloc[-1]
+    
     def _calculate_ema(self, prices: pd.Series, period: int) -> float:
         """Calculate Exponential Moving Average"""
-        if len(prices) < period:
-            return float(prices.iloc[-1]) if len(prices) > 0 else 0.0
-        
         ema = prices.ewm(span=period, adjust=False).mean()
-        return float(ema.iloc[-1]) if not ema.empty and not np.isnan(ema.iloc[-1]) else float(prices.iloc[-1])
+        return ema.iloc[-1] if not ema.empty and not np.isnan(ema.iloc[-1]) else prices.iloc[-1]
     
     def _calculate_atr(self, high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> float:
         """Calculate Average True Range"""
-        if len(high) < period:
-            return 0.0
-        
         tr1 = high - low
         tr2 = abs(high - close.shift())
         tr3 = abs(low - close.shift())
@@ -199,13 +178,10 @@ class TechnicalAnalyzer:
         tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
         atr = tr.rolling(window=period).mean()
         
-        return float(atr.iloc[-1]) if not atr.empty and not np.isnan(atr.iloc[-1]) else 0.0
+        return atr.iloc[-1] if not atr.empty else 0
     
     def _calculate_stochastic(self, high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> Dict:
         """Calculate Stochastic Oscillator"""
-        if len(high) < period:
-            return {'k': 50.0, 'd': 50.0}
-        
         lowest_low = low.rolling(window=period).min()
         highest_high = high.rolling(window=period).max()
         
@@ -213,58 +189,63 @@ class TechnicalAnalyzer:
         d_percent = k_percent.rolling(window=3).mean()
         
         return {
-            'k': float(k_percent.iloc[-1]) if not k_percent.empty and not np.isnan(k_percent.iloc[-1]) else 50.0,
-            'd': float(d_percent.iloc[-1]) if not d_percent.empty and not np.isnan(d_percent.iloc[-1]) else 50.0
+            'k': k_percent.iloc[-1] if not k_percent.empty else 50,
+            'd': d_percent.iloc[-1] if not d_percent.empty else 50
         }
     
     def _calculate_adx(self, high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> float:
         """Calculate Average Directional Index"""
-        if len(high) < period:
-            return 25.0
-        
-        # Simplified ADX calculation
-        plus_dm = high.diff()
-        minus_dm = low.diff()
-        
-        plus_dm[plus_dm < 0] = 0
-        minus_dm[minus_dm > 0] = 0
-        minus_dm = abs(minus_dm)
-        
-        # Calculate True Range
-        tr1 = high - low
-        tr2 = abs(high - close.shift())
-        tr3 = abs(low - close.shift())
-        tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
-        
-        # Calculate directional indicators
-        plus_di = 100 * (plus_dm.rolling(window=period).mean() / tr.rolling(window=period).mean())
-        minus_di = 100 * (minus_dm.rolling(window=period).mean() / tr.rolling(window=period).mean())
-        
-        # Calculate ADX
-        dx = 100 * abs(plus_di - minus_di) / (plus_di + minus_di)
-        adx = dx.rolling(window=period).mean()
-        
-        return float(adx.iloc[-1]) if not adx.empty and not np.isnan(adx.iloc[-1]) else 25.0
+        try:
+            # Calculate True Range
+            tr1 = high - low
+            tr2 = abs(high - close.shift())
+            tr3 = abs(low - close.shift())
+            
+            true_range = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+            
+            # Calculate Directional Movement
+            plus_dm = high.diff()
+            minus_dm = low.diff()
+            
+            plus_dm[plus_dm < 0] = 0
+            minus_dm[minus_dm > 0] = 0
+            minus_dm = abs(minus_dm)
+            
+            # Calculate smoothed values
+            tr_smooth = true_range.rolling(window=period).mean()
+            plus_dm_smooth = plus_dm.rolling(window=period).mean()
+            minus_dm_smooth = minus_dm.rolling(window=period).mean()
+            
+            # Calculate DI
+            plus_di = 100 * (plus_dm_smooth / tr_smooth)
+            minus_di = 100 * (minus_dm_smooth / tr_smooth)
+            
+            # Calculate DX
+            dx = 100 * abs(plus_di - minus_di) / (plus_di + minus_di)
+            
+            # Calculate ADX
+            adx = dx.rolling(window=period).mean()
+            
+            return adx.iloc[-1] if not adx.empty and not np.isnan(adx.iloc[-1]) else 25
+            
+        except Exception as e:
+            logger.warning(f"Error calculating ADX: {str(e)}")
+            return 25
     
     def _calculate_cci(self, high: pd.Series, low: pd.Series, close: pd.Series, period: int = 20) -> float:
         """Calculate Commodity Channel Index"""
-        if len(high) < period:
-            return 0.0
-        
         typical_price = (high + low + close) / 3
         sma = typical_price.rolling(window=period).mean()
         mean_deviation = (typical_price - sma).abs().rolling(window=period).mean()
         
-        # Avoid division by zero
-        with np.errstate(divide='ignore', invalid='ignore'):
-            cci = (typical_price - sma) / (0.015 * mean_deviation)
+        cci = (typical_price - sma) / (0.015 * mean_deviation)
         
-        return float(cci.iloc[-1]) if not cci.empty and not np.isnan(cci.iloc[-1]) else 0.0
+        return cci.iloc[-1] if not cci.empty else 0
     
     def _generate_signals(self, indicators: Dict, data: pd.DataFrame) -> Dict:
         """Generate trading signals from indicators"""
         signals = {}
-        current_price = float(data['Close'].iloc[-1]) if len(data) > 0 else 0.0
+        current_price = data['Close'].iloc[-1]
         
         # RSI signals
         rsi = indicators['rsi']
@@ -391,7 +372,7 @@ class TechnicalAnalyzer:
     def _determine_trend(self, indicators: Dict, data: pd.DataFrame) -> Dict:
         """Determine the current trend"""
         trends = []
-        current_price = float(data['Close'].iloc[-1]) if len(data) > 0 else 0.0
+        current_price = data['Close'].iloc[-1]
         
         # Price vs moving averages
         sma_20 = indicators['sma'].get('sma_20', current_price)
@@ -509,7 +490,7 @@ class TechnicalAnalyzer:
         if len(data) < 20:
             return {}
         
-        current_price = float(data['Close'].iloc[-1]) if len(data) > 0 else 0.0
+        current_price = data['Close'].iloc[-1]
         
         # Recent high/low
         recent_high = data['High'].tail(20).max()
