@@ -1,0 +1,299 @@
+2025-07-06 16:52:17,323 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 16:52:17,338 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 16:52:17,339 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 16:52:18,146 - src.async_main - INFO - Async analysis completed in 0.81s for 5 symbols
+2025-07-06 16:52:18,154 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 16:52:18,388 - src.data_feed - ERROR - Error in validated data fetch for CBA.AX: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-07-06 16:52:18,388 - __main__ - ERROR - Error enhancing results for CBA.AX: type object 'DataValidator' has no attribute 'DataQuality'
+2025-07-06 16:52:18,605 - src.data_feed - ERROR - Error in validated data fetch for WBC.AX: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-07-06 16:52:18,605 - __main__ - ERROR - Error enhancing results for WBC.AX: type object 'DataValidator' has no attribute 'DataQuality'
+2025-07-06 16:52:18,815 - src.data_feed - ERROR - Error in validated data fetch for ANZ.AX: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-07-06 16:52:18,816 - __main__ - ERROR - Error enhancing results for ANZ.AX: type object 'DataValidator' has no attribute 'DataQuality'
+2025-07-06 16:52:19,034 - src.data_feed - ERROR - Error in validated data fetch for NAB.AX: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-07-06 16:52:19,034 - __main__ - ERROR - Error enhancing results for NAB.AX: type object 'DataValidator' has no attribute 'DataQuality'
+2025-07-06 16:52:19,226 - src.data_feed - ERROR - Error in validated data fetch for MQG.AX: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-07-06 16:52:19,226 - __main__ - ERROR - Error enhancing results for MQG.AX: type object 'DataValidator' has no attribute 'DataQuality'
+2025-07-06 16:52:19,226 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 16:57:16,041 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 16:57:16,055 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 16:57:16,055 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 16:57:16,154 - src.async_main - INFO - Async analysis completed in 0.10s for 5 symbols
+2025-07-06 16:57:16,154 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 16:57:16,168 - src.data_feed - ERROR - Error in validated data fetch for CBA.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 16:57:16,168 - __main__ - WARNING - Data validation failed for CBA.AX
+2025-07-06 16:57:16,180 - src.data_feed - ERROR - Error in validated data fetch for WBC.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 16:57:16,180 - __main__ - WARNING - Data validation failed for WBC.AX
+2025-07-06 16:57:16,192 - src.data_feed - ERROR - Error in validated data fetch for ANZ.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 16:57:16,192 - __main__ - WARNING - Data validation failed for ANZ.AX
+2025-07-06 16:57:16,203 - src.data_feed - ERROR - Error in validated data fetch for NAB.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 16:57:16,203 - __main__ - WARNING - Data validation failed for NAB.AX
+2025-07-06 16:57:16,215 - src.data_feed - ERROR - Error in validated data fetch for MQG.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 16:57:16,215 - __main__ - WARNING - Data validation failed for MQG.AX
+2025-07-06 16:57:16,215 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 17:01:26,546 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 17:01:26,560 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 17:01:26,560 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 17:01:26,654 - src.async_main - INFO - Async analysis completed in 0.09s for 5 symbols
+2025-07-06 17:01:26,654 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 17:01:26,673 - src.data_feed - ERROR - Error in validated data fetch for CBA.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:01:26,673 - __main__ - WARNING - Data validation failed for CBA.AX
+2025-07-06 17:01:26,685 - src.data_feed - ERROR - Error in validated data fetch for WBC.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:01:26,685 - __main__ - WARNING - Data validation failed for WBC.AX
+2025-07-06 17:01:26,696 - src.data_feed - ERROR - Error in validated data fetch for ANZ.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:01:26,696 - __main__ - WARNING - Data validation failed for ANZ.AX
+2025-07-06 17:01:26,708 - src.data_feed - ERROR - Error in validated data fetch for NAB.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:01:26,709 - __main__ - WARNING - Data validation failed for NAB.AX
+2025-07-06 17:01:26,720 - src.data_feed - ERROR - Error in validated data fetch for MQG.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:01:26,720 - __main__ - WARNING - Data validation failed for MQG.AX
+2025-07-06 17:01:26,720 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 17:03:49,704 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 17:03:49,716 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 17:03:49,716 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 17:03:49,810 - src.async_main - INFO - Async analysis completed in 0.09s for 5 symbols
+2025-07-06 17:03:49,811 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 17:03:49,821 - src.data_feed - ERROR - Error in validated data fetch for CBA.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:03:49,822 - __main__ - WARNING - No market data available for CBA.AX
+2025-07-06 17:03:49,833 - src.data_feed - ERROR - Error in validated data fetch for WBC.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:03:49,834 - __main__ - WARNING - No market data available for WBC.AX
+2025-07-06 17:03:49,844 - src.data_feed - ERROR - Error in validated data fetch for ANZ.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:03:49,844 - __main__ - WARNING - No market data available for ANZ.AX
+2025-07-06 17:03:49,855 - src.data_feed - ERROR - Error in validated data fetch for NAB.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:03:49,856 - __main__ - WARNING - No market data available for NAB.AX
+2025-07-06 17:03:49,867 - src.data_feed - ERROR - Error in validated data fetch for MQG.AX: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2025-07-06 17:03:49,867 - __main__ - WARNING - No market data available for MQG.AX
+2025-07-06 17:03:49,867 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 17:13:42,171 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 17:13:42,176 - utils.cache_manager - INFO - Cleaned up 5 expired cache entries
+2025-07-06 17:13:42,188 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 17:13:42,189 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 17:13:55,828 - src.sentiment_history - INFO - Stored sentiment data for WBC.AX
+2025-07-06 17:13:56,996 - src.sentiment_history - INFO - Stored sentiment data for ANZ.AX
+2025-07-06 17:13:57,710 - src.sentiment_history - INFO - Stored sentiment data for NAB.AX
+2025-07-06 17:13:58,550 - src.sentiment_history - INFO - Stored sentiment data for CBA.AX
+2025-07-06 17:13:59,000 - src.sentiment_history - INFO - Stored sentiment data for MQG.AX
+2025-07-06 17:13:59,019 - src.async_main - INFO - Async analysis completed in 16.83s for 5 symbols
+2025-07-06 17:13:59,035 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 17:13:59,041 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 17:14:33,729 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 17:14:33,741 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 17:14:33,741 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 17:14:33,835 - src.async_main - INFO - Async analysis completed in 0.09s for 5 symbols
+2025-07-06 17:14:33,835 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 17:14:33,836 - __main__ - INFO - Got market data for CBA.AX: 22 rows
+2025-07-06 17:14:33,836 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 17:14:33,836 - __main__ - ERROR - Risk analysis error for CBA.AX: Insufficient data for risk calculation (minimum 30 days required)
+2025-07-06 17:14:33,837 - __main__ - INFO - Got market data for WBC.AX: 22 rows
+2025-07-06 17:14:33,837 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 17:14:33,838 - __main__ - ERROR - Risk analysis error for WBC.AX: Insufficient data for risk calculation (minimum 30 days required)
+2025-07-06 17:14:33,838 - __main__ - INFO - Got market data for ANZ.AX: 22 rows
+2025-07-06 17:14:33,838 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 17:14:33,839 - __main__ - ERROR - Risk analysis error for ANZ.AX: Insufficient data for risk calculation (minimum 30 days required)
+2025-07-06 17:14:33,839 - __main__ - INFO - Got market data for NAB.AX: 22 rows
+2025-07-06 17:14:33,840 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 17:14:33,840 - __main__ - ERROR - Risk analysis error for NAB.AX: Insufficient data for risk calculation (minimum 30 days required)
+2025-07-06 17:14:33,841 - __main__ - INFO - Got market data for MQG.AX: 22 rows
+2025-07-06 17:14:33,841 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 17:14:33,841 - __main__ - ERROR - Risk analysis error for MQG.AX: Insufficient data for risk calculation (minimum 30 days required)
+2025-07-06 17:14:33,841 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 17:15:01,803 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 17:15:01,815 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 17:15:01,815 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 17:15:01,910 - src.async_main - INFO - Async analysis completed in 0.09s for 5 symbols
+2025-07-06 17:15:01,910 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 17:15:01,911 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 17:15:01,916 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,916 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 17:15:01,916 - __main__ - ERROR - Risk analysis error for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,918 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 17:15:01,922 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,923 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 17:15:01,923 - __main__ - ERROR - Risk analysis error for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,924 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 17:15:01,930 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,930 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 17:15:01,930 - __main__ - ERROR - Risk analysis error for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,931 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 17:15:01,935 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,935 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 17:15:01,936 - __main__ - ERROR - Risk analysis error for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,937 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 17:15:01,941 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,941 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 17:15:01,941 - __main__ - ERROR - Risk analysis error for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 17:15:01,941 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:15:49,245 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:15:49,248 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:16:02,750 - src.sentiment_history - INFO - Stored sentiment data for WBC.AX
+2025-07-06 18:16:03,195 - src.sentiment_history - INFO - Stored sentiment data for NAB.AX
+2025-07-06 18:16:04,358 - src.sentiment_history - INFO - Stored sentiment data for ANZ.AX
+2025-07-06 18:16:05,614 - src.sentiment_history - INFO - Stored sentiment data for MQG.AX
+2025-07-06 18:16:05,633 - src.async_main - INFO - Async analysis completed in 16.39s for 5 symbols
+2025-07-06 18:16:20,611 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:16:20,622 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:16:20,623 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:16:24,730 - src.async_main - INFO - Async analysis completed in 4.11s for 5 symbols
+2025-07-06 18:16:24,736 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:16:24,952 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:16:24,969 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:16:25,265 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:16:25,278 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:16:25,519 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:16:25,535 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:16:25,736 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:16:25,748 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:16:25,927 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:16:25,939 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:16:25,939 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:16:35,169 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:16:35,181 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:16:35,181 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:16:35,277 - src.async_main - INFO - Async analysis completed in 0.10s for 5 symbols
+2025-07-06 18:16:35,278 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:16:35,279 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:16:35,284 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,285 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:16:35,285 - __main__ - ERROR - Risk analysis error for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,286 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:16:35,290 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,290 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:16:35,290 - __main__ - ERROR - Risk analysis error for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,291 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:16:35,296 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,296 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:16:35,296 - __main__ - ERROR - Risk analysis error for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,298 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:16:35,302 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,302 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:16:35,302 - __main__ - ERROR - Risk analysis error for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,304 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:16:35,310 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,310 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:16:35,310 - __main__ - ERROR - Risk analysis error for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:35,310 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:16:49,848 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:16:49,858 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:16:49,859 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:16:49,954 - src.async_main - INFO - Async analysis completed in 0.09s for 5 symbols
+2025-07-06 18:16:49,954 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:16:49,955 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:16:49,960 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,960 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:16:49,960 - __main__ - ERROR - Risk analysis error for CBA.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,961 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:16:49,967 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,967 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:16:49,967 - __main__ - ERROR - Risk analysis error for WBC.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,968 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:16:49,972 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,972 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:16:49,972 - __main__ - ERROR - Risk analysis error for ANZ.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,974 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:16:49,978 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,978 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:16:49,978 - __main__ - ERROR - Risk analysis error for NAB.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,979 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:16:49,984 - src.advanced_risk_manager - ERROR - Error in comprehensive risk calculation for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,984 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:16:49,984 - __main__ - ERROR - Risk analysis error for MQG.AX: 'int' object has no attribute 'days'
+2025-07-06 18:16:49,984 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:32:50,763 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:32:50,775 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:32:50,776 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:32:50,895 - src.async_main - INFO - Async analysis completed in 0.12s for 5 symbols
+2025-07-06 18:32:50,896 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:32:50,900 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:32:50,913 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:32:50,919 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:32:50,931 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:32:50,936 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:32:50,948 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:32:50,952 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:32:50,965 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:32:50,969 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:32:50,981 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:32:50,981 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:36:03,506 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:36:03,517 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:36:03,518 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:36:03,639 - src.async_main - INFO - Async analysis completed in 0.12s for 5 symbols
+2025-07-06 18:36:03,639 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:36:03,643 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:36:03,656 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:36:03,660 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:36:03,672 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:36:03,675 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:36:03,687 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:36:03,691 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:36:03,703 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:36:03,707 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:36:03,719 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:36:03,719 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:41:24,771 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:41:24,782 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:41:24,783 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:41:24,901 - src.async_main - INFO - Async analysis completed in 0.12s for 5 symbols
+2025-07-06 18:41:24,902 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:41:24,906 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:41:24,919 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:41:24,923 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:41:24,935 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:41:24,939 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:41:24,950 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:41:24,956 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:41:24,967 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:41:24,971 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:41:24,983 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:41:24,983 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:47:06,586 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:47:06,590 - utils.cache_manager - INFO - Cleaned up 5 expired cache entries
+2025-07-06 18:47:06,602 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:47:06,602 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:47:19,560 - src.sentiment_history - INFO - Stored sentiment data for WBC.AX
+2025-07-06 18:47:20,218 - src.sentiment_history - INFO - Stored sentiment data for NAB.AX
+2025-07-06 18:47:20,616 - src.sentiment_history - INFO - Stored sentiment data for ANZ.AX
+2025-07-06 18:47:20,880 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:47:20,892 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:47:20,936 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:47:21,944 - src.sentiment_history - INFO - Stored sentiment data for CBA.AX
+2025-07-06 18:47:22,161 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:47:22,491 - src.sentiment_history - INFO - Stored sentiment data for MQG.AX
+2025-07-06 18:47:22,698 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:47:22,717 - src.async_main - INFO - Async analysis completed in 16.12s for 5 symbols
+2025-07-06 18:47:22,734 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:47:22,739 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:47:22,752 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:47:22,756 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:47:22,768 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:47:22,772 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:47:22,784 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:47:22,788 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:47:22,801 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:47:22,805 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:47:22,817 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:47:22,817 - __main__ - INFO - 📊 Calculating portfolio-level risk...
+2025-07-06 18:48:33,278 - __main__ - INFO - 🚀 Starting Enhanced ASX Bank Trading Analysis...
+2025-07-06 18:48:33,289 - src.alert_system - INFO - Alert channels enabled - Discord: False, Telegram: False, Email: False
+2025-07-06 18:48:33,290 - src.async_main - INFO - Starting async analysis of all ASX banks...
+2025-07-06 18:48:46,302 - src.sentiment_history - INFO - Stored sentiment data for WBC.AX
+2025-07-06 18:48:46,306 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:48:47,083 - src.sentiment_history - INFO - Stored sentiment data for NAB.AX
+2025-07-06 18:48:47,088 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:48:47,908 - src.sentiment_history - INFO - Stored sentiment data for ANZ.AX
+2025-07-06 18:48:47,912 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:48:48,680 - src.sentiment_history - INFO - Stored sentiment data for MQG.AX
+2025-07-06 18:48:48,684 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:48:48,930 - src.sentiment_history - INFO - Stored sentiment data for CBA.AX
+2025-07-06 18:48:48,934 - src.news_impact_analyzer - ERROR - Error aligning sentiment and price data: cannot insert Date, already exists
+2025-07-06 18:48:48,952 - src.async_main - INFO - Async analysis completed in 15.66s for 5 symbols
+2025-07-06 18:48:48,967 - __main__ - INFO - 🔍 Enhancing results with advanced risk management...
+2025-07-06 18:48:48,971 - __main__ - INFO - Got market data for CBA.AX: 62 rows
+2025-07-06 18:48:48,985 - __main__ - INFO - Risk analysis result for CBA.AX: <class 'dict'>
+2025-07-06 18:48:48,989 - __main__ - INFO - Got market data for WBC.AX: 62 rows
+2025-07-06 18:48:49,001 - __main__ - INFO - Risk analysis result for WBC.AX: <class 'dict'>
+2025-07-06 18:48:49,005 - __main__ - INFO - Got market data for ANZ.AX: 62 rows
+2025-07-06 18:48:49,016 - __main__ - INFO - Risk analysis result for ANZ.AX: <class 'dict'>
+2025-07-06 18:48:49,020 - __main__ - INFO - Got market data for NAB.AX: 62 rows
+2025-07-06 18:48:49,032 - __main__ - INFO - Risk analysis result for NAB.AX: <class 'dict'>
+2025-07-06 18:48:49,036 - __main__ - INFO - Got market data for MQG.AX: 62 rows
+2025-07-06 18:48:49,049 - __main__ - INFO - Risk analysis result for MQG.AX: <class 'dict'>
+2025-07-06 18:48:49,049 - __main__ - INFO - 📊 Calculating portfolio-level risk...

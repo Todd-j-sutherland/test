@@ -1,1 +1,59 @@
-{"symbol": "NAB.AX", "timestamp": "2025-07-06T13:27:07.448368", "metrics": {"pe_ratio": 17.477678, "forward_pe": 16.588984, "peg_ratio": 0, "price_to_book": 1.9237385, "enterprise_value": 231690633216, "profit_margin": 0.34287998, "operating_margin": 0.53080004, "roe": 0.111999996, "roa": 0.00644, "current_ratio": 0, "debt_to_equity": 0, "quick_ratio": 0, "dividend_yield": 4.28, "dividend_rate": 1.7, "payout_ratio": 0.7551, "book_value_per_share": 20.351, "earnings_per_share": 2.24, "market_cap": 119598948352, "beta": 0.728}, "valuation": {"score": 35, "rating": "slightly_undervalued", "factors": ["High dividend yield"]}, "bank_specific": {"net_interest_margin": 0.022, "npl_ratio": 0.02, "tier1_ratio": 0.12, "efficiency_ratio": 0.46919995999999997, "loan_to_deposit": 0.85, "book_value_growth": 10.57888065347759}, "growth": {"price_growth_2y": 61.77665669960071, "dividend_growth": 12.292358803986716, "earnings_growth": -1.0999999999999999, "revenue_growth": 1.4000000000000001}, "peer_comparison": {"pe_vs_peers": "undervalued", "roe_vs_peers": "inline", "dividend_vs_peers": "inline", "relative_value": 20}, "score": 68.0, "rating": "BUY", "strengths": ["Attractive dividend yield", "Conservative capital structure"], "weaknesses": []}
+{
+  "symbol": "NAB.AX",
+  "timestamp": "2025-07-06T18:16:24.460761",
+  "metrics": {
+    "pe_ratio": 17.477678,
+    "forward_pe": 16.588984,
+    "peg_ratio": 0,
+    "price_to_book": 1.9237385,
+    "enterprise_value": 231690633216,
+    "profit_margin": 0.34287998,
+    "operating_margin": 0.53080004,
+    "roe": 0.111999996,
+    "roa": 0.00644,
+    "current_ratio": 0,
+    "debt_to_equity": 0,
+    "quick_ratio": 0,
+    "dividend_yield": 4.28,
+    "dividend_rate": 1.7,
+    "payout_ratio": 0.7551,
+    "book_value_per_share": 20.351,
+    "earnings_per_share": 2.24,
+    "market_cap": 119598948352,
+    "beta": 0.728
+  },
+  "valuation": {
+    "score": 35,
+    "rating": "slightly_undervalued",
+    "factors": [
+      "High dividend yield"
+    ]
+  },
+  "bank_specific": {
+    "net_interest_margin": 0.022,
+    "npl_ratio": 0.02,
+    "tier1_ratio": 0.12,
+    "efficiency_ratio": 0.46919995999999997,
+    "loan_to_deposit": 0.85,
+    "book_value_growth": 10.57888065347759
+  },
+  "growth": {
+    "price_growth_2y": 61.77665669960071,
+    "dividend_growth": 12.292358803986716,
+    "earnings_growth": -1.0999999999999999,
+    "revenue_growth": 1.4000000000000001
+  },
+  "peer_comparison": {
+    "pe_vs_peers": "undervalued",
+    "roe_vs_peers": "inline",
+    "dividend_vs_peers": "inline",
+    "relative_value": 20
+  },
+  "score": 68.0,
+  "rating": "BUY",
+  "strengths": [
+    "Attractive dividend yield",
+    "Conservative capital structure"
+  ],
+  "weaknesses": []
+}

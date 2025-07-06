@@ -89,7 +89,7 @@ class MarketPredictor:
                 'timestamp': datetime.now().isoformat(),
                 'direction': direction,
                 'strength': strength,
-                'confidence': abs(weighted_score),
+                'confidence': min(abs(weighted_score) / 100, 1.0),  # Normalize confidence to 0-1 scale
                 'score': weighted_score,
                 'timeframes': {
                     'short_term': short_term,

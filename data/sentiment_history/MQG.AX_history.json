@@ -153,5 +153,849 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-06T16:43:20.238980",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.008690499999999993,
+      "positive_count": 2,
+      "negative_count": 1,
+      "neutral_count": 17,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 18,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.4348049999999999,
+      "news_count": 20
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 8,
+      "average_sentiment": 0.16764195983515276,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.5,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.44,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "Home loan finance- Macquarie bank",
+          "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+          "score": 4,
+          "num_comments": 12,
+          "created": "2025-06-29 17:16:31",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.65,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+        },
+        {
+          "title": "Home loan finance- Macquarie bank",
+          "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+          "score": 3,
+          "num_comments": 12,
+          "created": "2025-06-29 17:16:31",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.64,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 4,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 2,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 6,
+          "average_sentiment": 0.19222973250622163,
+          "bullish": 6,
+          "bearish": 0
+        },
+        "investing": {
+          "posts": 2,
+          "average_sentiment": 0.09387864182194616,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": true,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-06T16:43:08.015717",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-06T16:43:08.015760",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T16:43:08.015989",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "scandal_investigation",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T16:43:08.015989",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.6
+        }
+      ]
+    },
+    "overall_sentiment": 0.20644473283151885,
+    "sentiment_components": {
+      "news": -0.0034761999999999974,
+      "reddit": 0.025146293975272915,
+      "events": 0.18900000000000003,
+      "volume": -0.0010815327249999991,
+      "momentum": 0.0
+    },
+    "confidence": 0.9500000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-06T17:13:58.995468",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.000550666666666662,
+      "positive_count": 3,
+      "negative_count": 1,
+      "neutral_count": 16,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 17,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.4348049999999999,
+      "news_count": 20
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 8,
+      "average_sentiment": 0.14695228328706317,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.47,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.39,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "Home loan finance- Macquarie bank",
+          "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+          "score": 3,
+          "num_comments": 12,
+          "created": "2025-06-29 17:16:31",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.62,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+        },
+        {
+          "title": "Home loan finance- Macquarie bank",
+          "selftext": "We have purchased a property and are settling in 2 weeks time. Our broker put us with HSBC, good rate but they made us jump through a couple hoops including paying off my HECS debt (haven\u2019t yet finalised). They also used an old return to work letter for my wife and wouldn\u2019t accept the updated one, meaning our borrowing power was reduced and our shortfall went from being nothing to a further $7,000 on settlement. I spoke to my broker concerned about this all and they have set up an application for Macquarie bank. Apparently Macquarie said they can have settlement sorted for the end of not this week but next with no worries at all. This loan was applied for late on Friday, around 4:30pm. We\u2019ve been told Macquarie have insanely fast turnaround times for approving a loan. I\u2019ve been told they will pick up the file in 2 business hours and can approve as quickly as 2 hours after that, all in all, being a 4 hour turnaround. My broker has said that we have provided them with all documentation that they will need. My broker also said speaking to her representative at Macquarie that our loan seems pretty straight forward. They have said that they will need an in person evaluation completed rather than a digital one. We brought the property significantly cheaper than what it should have been due to vendor situation so I\u2019m not concerned about the pricing of the evaluation. HSBC evaluated the property $90,000 over what we paid for it so I have no doubt this new evaluation will be fine price wise. \n\nMy question is, will they be able to provide approval tomorrow (Monday) pending the valuation? This way we at least know that the loan is sorted without having the big shortfall and paying the remainder of my HECS off (~$11K) and we will then just need to go through a couple steps to finalise. I also wonder, are Macquarie really that quick to approve? And how quick will they organise the evaluation? This was ordered late on Friday.",
+          "score": 3,
+          "num_comments": 12,
+          "created": "2025-06-29 17:16:31",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.62,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ln8mgy/home_loan_finance_macquarie_bank/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 3,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.71,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 2,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 6,
+          "average_sentiment": 0.16464349710876883,
+          "bullish": 6,
+          "bearish": 0
+        },
+        "investing": {
+          "posts": 2,
+          "average_sentiment": 0.09387864182194616,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": true,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-06T17:13:46.427001",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-06T17:13:46.427088",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-06T17:13:46.427294",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T17:13:46.427333",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "scandal_investigation",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T17:13:46.427333",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.6
+        }
+      ]
+    },
+    "overall_sentiment": 0.18690903645533027,
+    "sentiment_components": {
+      "news": -0.0002202666666666648,
+      "reddit": 0.022042842493059475,
+      "events": 0.16800000000000004,
+      "volume": -6.72088666666661e-05,
+      "momentum": 0.0
+    },
+    "confidence": 0.9500000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-06T18:16:05.609844",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.008690499999999993,
+      "positive_count": 2,
+      "negative_count": 1,
+      "neutral_count": 17,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 18,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.4348049999999999,
+      "news_count": 20
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 6,
+      "average_sentiment": 0.15235926949620426,
+      "bullish_count": 4,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.42,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.45,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 4,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 2,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.63,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "selftext": "Hey everyone,\nLooking for some advice on relocating an old Roth IRA that my mom helped me open when I was 18. It\u2019s been managed by LPL Financial ever since, and now that I\u2019m older (32), I\u2019m realizing it\u2019s full of actively managed mutual funds with higher fees. I\u2019d prefer to move the account to something simpler and more efficient, like ETFs or index funds.\n\nHere\u2019s what\u2019s currently in the account (all in a Roth IRA, so no taxes on trades):\n\t\u2022\tICIEX \u2013 Macquarie Core Equity Cl I: $28,072.22\n\t\u2022\tIYGIX \u2013 Macquarie Large Cap Growth Cl I: $17,022.79\n\t\u2022\tISTIX \u2013 Macquarie Science & Technology Cl I: $13,525.63\n\t\u2022\tIVOIX \u2013 Macquarie Mid Cap Income Oppty Cl I: $6,930.84\n\t\u2022\tICEIX \u2013 Macquarie Intl Core Equity Cl I: $6,149.78\n\t\u2022\tIYSIX \u2013 Macquarie Small Cap Growth Cl I: $4,358.86\n\t\u2022\tIPOIX \u2013 Macquarie Systematic Emerging Markets Cl I: $4,212.26\n\nTotal Value: ~$80,312\n\nA couple years ago, I opened a second Roth IRA with Fidelity, and I\u2019ve maxed it out each year since (only contributing the $7K annual limit total across both accounts, of course). So yes, I have two Roth IRAs, but I only contribute to the Fidelity one now and stay within the annual IRS limits.\n\nI\u2019d like to transfer this old LPL account over to Fidelity as well and consolidate things. I\u2019m thinking of moving into a low-cost ETF portfolio like:\n\t\u2022\tVTI \u2013 Total U.S. Market\n\t\u2022\tVXUS \u2013 International\n\t\u2022\tVUG or VGT \u2013 Growth/Tech tilt\n\t\u2022\tVB \u2013 Small Cap\n\t\u2022\tVWO \u2013 Emerging Markets\n\nMy investing style is more buy-and-hold, growth-focused, and I don\u2019t need this money anytime soon. Any tips on:\n\t\u2022\tHow to best structure this portfolio?\n\t\u2022\tThings to watch out for when transferring from LPL?\n\t\u2022\tWhether I should tweak my ETF mix?\n\nAppreciate the help!",
+          "score": 1,
+          "num_comments": 7,
+          "created": "2025-07-05 00:39:47",
+          "subreddit": "investing",
+          "upvote_ratio": 0.6,
+          "url": "https://www.reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 2,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 4,
+          "average_sentiment": 0.18159958333333331,
+          "bullish": 4,
+          "bearish": 0
+        },
+        "investing": {
+          "posts": 2,
+          "average_sentiment": 0.09387864182194616,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": true,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-06T18:15:53.920402",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-06T18:15:53.920444",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:15:53.920690",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "scandal_investigation",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:15:53.920690",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.6
+        }
+      ]
+    },
+    "overall_sentiment": 0.2041867153339392,
+    "sentiment_components": {
+      "news": -0.0034761999999999974,
+      "reddit": 0.022853890424430638,
+      "events": 0.18900000000000003,
+      "volume": -0.0010815327249999991,
+      "momentum": 0.0
+    },
+    "confidence": 0.9500000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-06T18:47:22.486091",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.000550666666666662,
+      "positive_count": 3,
+      "negative_count": 1,
+      "neutral_count": 16,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 17,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.4348049999999999,
+      "news_count": 20
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 6,
+      "average_sentiment": 0.16402593616287092,
+      "bullish_count": 4,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.47,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.5,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 3,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.71,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 3,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.71,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "selftext": "Hey everyone,\nLooking for some advice on relocating an old Roth IRA that my mom helped me open when I was 18. It\u2019s been managed by LPL Financial ever since, and now that I\u2019m older (32), I\u2019m realizing it\u2019s full of actively managed mutual funds with higher fees. I\u2019d prefer to move the account to something simpler and more efficient, like ETFs or index funds.\n\nHere\u2019s what\u2019s currently in the account (all in a Roth IRA, so no taxes on trades):\n\t\u2022\tICIEX \u2013 Macquarie Core Equity Cl I: $28,072.22\n\t\u2022\tIYGIX \u2013 Macquarie Large Cap Growth Cl I: $17,022.79\n\t\u2022\tISTIX \u2013 Macquarie Science & Technology Cl I: $13,525.63\n\t\u2022\tIVOIX \u2013 Macquarie Mid Cap Income Oppty Cl I: $6,930.84\n\t\u2022\tICEIX \u2013 Macquarie Intl Core Equity Cl I: $6,149.78\n\t\u2022\tIYSIX \u2013 Macquarie Small Cap Growth Cl I: $4,358.86\n\t\u2022\tIPOIX \u2013 Macquarie Systematic Emerging Markets Cl I: $4,212.26\n\nTotal Value: ~$80,312\n\nA couple years ago, I opened a second Roth IRA with Fidelity, and I\u2019ve maxed it out each year since (only contributing the $7K annual limit total across both accounts, of course). So yes, I have two Roth IRAs, but I only contribute to the Fidelity one now and stay within the annual IRS limits.\n\nI\u2019d like to transfer this old LPL account over to Fidelity as well and consolidate things. I\u2019m thinking of moving into a low-cost ETF portfolio like:\n\t\u2022\tVTI \u2013 Total U.S. Market\n\t\u2022\tVXUS \u2013 International\n\t\u2022\tVUG or VGT \u2013 Growth/Tech tilt\n\t\u2022\tVB \u2013 Small Cap\n\t\u2022\tVWO \u2013 Emerging Markets\n\nMy investing style is more buy-and-hold, growth-focused, and I don\u2019t need this money anytime soon. Any tips on:\n\t\u2022\tHow to best structure this portfolio?\n\t\u2022\tThings to watch out for when transferring from LPL?\n\t\u2022\tWhether I should tweak my ETF mix?\n\nAppreciate the help!",
+          "score": 1,
+          "num_comments": 7,
+          "created": "2025-07-05 00:39:47",
+          "subreddit": "investing",
+          "upvote_ratio": 0.6,
+          "url": "https://www.reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 2,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 4,
+          "average_sentiment": 0.1990995833333333,
+          "bullish": 4,
+          "bearish": 0
+        },
+        "investing": {
+          "posts": 2,
+          "average_sentiment": 0.09387864182194616,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": true,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-06T18:47:11.328024",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-06T18:47:11.328117",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-06T18:47:11.328330",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:47:11.328377",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "scandal_investigation",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:47:11.328377",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.6
+        }
+      ]
+    },
+    "overall_sentiment": 0.1894316686677309,
+    "sentiment_components": {
+      "news": -0.0002202666666666648,
+      "reddit": 0.024603890424430636,
+      "events": 0.16800000000000004,
+      "volume": -6.72088666666661e-05,
+      "momentum": 0.0
+    },
+    "confidence": 0.9500000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-06T18:48:48.677739",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.000550666666666662,
+      "positive_count": 3,
+      "negative_count": 1,
+      "neutral_count": 16,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 17,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.4348049999999999,
+      "news_count": 20
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 6,
+      "average_sentiment": 0.16317084357027833,
+      "bullish_count": 4,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.39,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "High interest savings account. Who to go with?",
+          "selftext": "Which one has good interest earn?\nWhich one is good customer service and reliable?\nWhich one is a balance? \nWhy? Your experience?\n\nThanks.\n\nWhat do you think of bank of Queensland or Macquarie bank?",
+          "score": 0,
+          "num_comments": 35,
+          "created": "2025-07-04 07:38:06",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.47,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lr1nbs/high_interest_savings_account_who_to_go_with/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 4,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Macquarie or UBank?",
+          "selftext": "Sorry, I know this question gets done to death.\n\nI have $240k I\u2019d like transfer from my current institution into the best HISA I can find. I know everyone touts UBank and/or ING, however Macquarie seem to have a similar product that appears more competitive. 4.85% rate compared to UBank\u2019s 4.40% and no minimum monthly spend or deposit from what I can tell. \n\nCurrently leaning towards Macquarie and hoping for some insight from those far more adept than I. Please \ud83d\ude4f\ud83c\udffb",
+          "score": 4,
+          "num_comments": 9,
+          "created": "2025-07-01 20:26:46",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1loy4nx/macquarie_or_ubank/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "selftext": "Hey everyone,\nLooking for some advice on relocating an old Roth IRA that my mom helped me open when I was 18. It\u2019s been managed by LPL Financial ever since, and now that I\u2019m older (32), I\u2019m realizing it\u2019s full of actively managed mutual funds with higher fees. I\u2019d prefer to move the account to something simpler and more efficient, like ETFs or index funds.\n\nHere\u2019s what\u2019s currently in the account (all in a Roth IRA, so no taxes on trades):\n\t\u2022\tICIEX \u2013 Macquarie Core Equity Cl I: $28,072.22\n\t\u2022\tIYGIX \u2013 Macquarie Large Cap Growth Cl I: $17,022.79\n\t\u2022\tISTIX \u2013 Macquarie Science & Technology Cl I: $13,525.63\n\t\u2022\tIVOIX \u2013 Macquarie Mid Cap Income Oppty Cl I: $6,930.84\n\t\u2022\tICEIX \u2013 Macquarie Intl Core Equity Cl I: $6,149.78\n\t\u2022\tIYSIX \u2013 Macquarie Small Cap Growth Cl I: $4,358.86\n\t\u2022\tIPOIX \u2013 Macquarie Systematic Emerging Markets Cl I: $4,212.26\n\nTotal Value: ~$80,312\n\nA couple years ago, I opened a second Roth IRA with Fidelity, and I\u2019ve maxed it out each year since (only contributing the $7K annual limit total across both accounts, of course). So yes, I have two Roth IRAs, but I only contribute to the Fidelity one now and stay within the annual IRS limits.\n\nI\u2019d like to transfer this old LPL account over to Fidelity as well and consolidate things. I\u2019m thinking of moving into a low-cost ETF portfolio like:\n\t\u2022\tVTI \u2013 Total U.S. Market\n\t\u2022\tVXUS \u2013 International\n\t\u2022\tVUG or VGT \u2013 Growth/Tech tilt\n\t\u2022\tVB \u2013 Small Cap\n\t\u2022\tVWO \u2013 Emerging Markets\n\nMy investing style is more buy-and-hold, growth-focused, and I don\u2019t need this money anytime soon. Any tips on:\n\t\u2022\tHow to best structure this portfolio?\n\t\u2022\tThings to watch out for when transferring from LPL?\n\t\u2022\tWhether I should tweak my ETF mix?\n\nAppreciate the help!",
+          "score": 1,
+          "num_comments": 7,
+          "created": "2025-07-05 00:39:47",
+          "subreddit": "investing",
+          "upvote_ratio": 0.6,
+          "url": "https://www.reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 2,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 4,
+          "average_sentiment": 0.19781694444444442,
+          "bullish": 4,
+          "bearish": 0
+        },
+        "investing": {
+          "posts": 2,
+          "average_sentiment": 0.09387864182194616,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": true,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-06T18:48:37.496985",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-06T18:48:37.497076",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-06T18:48:37.497288",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:48:37.497333",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "scandal_investigation",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-06T18:48:37.497333",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.6
+        }
+      ]
+    },
+    "overall_sentiment": 0.18930532873717532,
+    "sentiment_components": {
+      "news": -0.0002202666666666648,
+      "reddit": 0.02447562653554175,
+      "events": 0.16800000000000004,
+      "volume": -6.72088666666661e-05,
+      "momentum": 0.0
+    },
+    "confidence": 0.9500000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

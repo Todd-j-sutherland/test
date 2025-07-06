@@ -23,6 +23,14 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config.settings import Settings
 from utils.cache_manager import CacheManager
 
+# Enhanced data validation import
+try:
+    from src.data_validator import DataValidator, ValidationResult
+except ImportError:
+    # Fallback if data_validator not available
+    DataValidator = None
+    ValidationResult = None
+
 logger = logging.getLogger(__name__)
 
 class ASXDataFeed:
@@ -35,6 +43,13 @@ class ASXDataFeed:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
+        # Add data validation if available
+        if DataValidator is not None:
+            self.validator = DataValidator()
+            self.enable_validation = True
+        else:
+            self.validator = None
+            self.enable_validation = False
     
     def get_current_data(self, symbol: str) -> Dict:
         """Get current price and basic data for a symbol"""
@@ -132,7 +147,12 @@ class ASXDataFeed:
         cached_data = self.cache.get(cache_key)
         
         if cached_data is not None:
-            return pd.DataFrame(cached_data)
+            df = pd.DataFrame(cached_data)
+            # Restore date index if it was cached with reset_index
+            if 'Date' in df.columns:
+                df['Date'] = pd.to_datetime(df['Date'])
+                df = df.set_index('Date')
+            return df
         
         try:
             ticker = yf.Ticker(symbol)
@@ -148,6 +168,55 @@ class ASXDataFeed:
             logger.error(f"Error fetching historical data for {symbol}: {str(e)}")
         
         return pd.DataFrame()
+    
+    def get_historical_data_validated(self, symbol: str, period: str = '1y') -> tuple:
+        """Get historical data with validation"""
+        try:
+            # Get data using existing method
+            data = self.get_historical_data(symbol, period)
+            
+            if data is None or data.empty:
+                if ValidationResult is not None and DataValidator is not None:
+                    from src.data_validator import DataQuality
+                    validation = ValidationResult(
+                        False, 
+                        DataQuality.INVALID, 
+                        ["No data available"], 
+                        [], 
+                        0.0
+                    )
+                else:
+                    validation = {'error': 'No validation available'}
+                return data, validation
+            
+            # Validate the data if validator is available
+            if self.validator is not None:
+                validation = self.validator.validate_market_data(data, symbol)
+                
+                if not validation.is_valid:
+                    logger.warning(f"Data validation failed for {symbol}: {validation}")
+                else:
+                    logger.info(f"Data validation passed for {symbol}: {validation}")
+            else:
+                # Create a simple validation result if validator not available
+                validation = {'is_valid': True, 'quality': 'unknown', 'confidence_score': 1.0}
+            
+            return data, validation
+            
+        except Exception as e:
+            logger.error(f"Error in validated data fetch for {symbol}: {str(e)}")
+            if ValidationResult is not None and DataValidator is not None:
+                from src.data_validator import DataQuality
+                validation = ValidationResult(
+                    False, 
+                    DataQuality.INVALID, 
+                    [str(e)], 
+                    [], 
+                    0.0
+                )
+            else:
+                validation = {'error': str(e)}
+            return None, validation
     
     def get_intraday_data(self, symbol: str) -> pd.DataFrame:
         """Get intraday 5-minute data"""
