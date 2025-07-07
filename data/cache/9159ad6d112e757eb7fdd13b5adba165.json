@@ -1,9 +1,9 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-06T19:35:45.500694",
+  "timestamp": "2025-07-07T07:31:59.107951",
   "news_count": 19,
   "sentiment_scores": {
-    "average_sentiment": 0.04927045454545454,
+    "average_sentiment": 0.04991703349282296,
     "positive_count": 5,
     "negative_count": 0,
     "neutral_count": 14,
@@ -18,11 +18,11 @@
     "news_count": 19
   },
   "reddit_sentiment": {
-    "posts_analyzed": 15,
-    "average_sentiment": 0.041340042573518435,
-    "bullish_count": 5,
+    "posts_analyzed": 13,
+    "average_sentiment": 0.02511898346672485,
+    "bullish_count": 4,
     "bearish_count": 3,
-    "neutral_count": 7,
+    "neutral_count": 6,
     "top_posts": [
       {
         "title": "Which Australian bank has the least restrictive withdrawal limits?",
@@ -31,7 +31,7 @@
         "num_comments": 24,
         "created": "2025-07-06T10:44:10",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.27,
+        "upvote_ratio": 0.33,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
       },
       {
@@ -41,7 +41,7 @@
         "num_comments": 13,
         "created": "2025-07-04T04:07:49",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.25,
+        "upvote_ratio": 0.21,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
@@ -55,16 +55,6 @@
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
-        "title": "I built a tool that tracks ASX short selling daily. Thought this community might find it useful",
-        "selftext": "Hey folks,\n\nI\u2019ve been working on a tool called **Aussie Shorts** that tracks daily short position disclosures from ASIC and turns them into interactive dashboards and AI-generated summaries.\n\nIt started as a data engineering project. Working with ASIC\u2019s CSVs, automating ingestion, and building a daily summarisation engine. It was a fun challenge to build this with AI commentary. Playing around with some new tooling. \n\nNow it\u2019s a live app where you can:\n\n* Explore short interest by company (e.g. CBA) or sector (e.g. Basic Materials)\n* Skim daily summaries of the biggest moves\n* Spot sentiment shifts or pressure on individual stocks\n\nWould love feedback, especially from traders or anyone keeping a close eye on the ASX.\n\n[https://aussieshorts.report/](https://aussieshorts.report/)",
-        "score": 5,
-        "num_comments": 5,
-        "created": "2025-07-01T09:56:40",
-        "subreddit": "AusFinance",
-        "upvote_ratio": 0.78,
-        "url": "https://www.reddit.com/r/AusFinance/comments/1lon9mh/i_built_a_tool_that_tracks_asx_short_selling/"
-      },
-      {
         "title": "Best way to be paid by US company?",
         "selftext": "I\u2019m a freelancer and have accepted an ongoing job with a US company. They will be paying monthly in USD. I have a Commbank account but seen they could charge $11 for receiving overseas US payment and also extra for converting to AUD. \n\nAny advice on the most cost efficient way to be paid my wage? \n\nThe payment is a flat rate in USD so will fluctuate with exchange rates if that matters at all. \n\nAny insights appreciated, thank you \ud83d\ude4f ",
         "score": 1,
@@ -73,19 +63,29 @@
         "subreddit": "AusFinance",
         "upvote_ratio": 0.67,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lorlkk/best_way_to_be_paid_by_us_company/"
+      },
+      {
+        "title": "Anyone work at CBA?",
+        "selftext": "Im going for a job at CBA - I understand salaries have an \"additional pay of $xx per year\". What does this additional pay mean/consist of?",
+        "score": 0,
+        "num_comments": 9,
+        "created": "2025-07-04T14:25:15",
+        "subreddit": "AusFinance",
+        "upvote_ratio": 0.3,
+        "url": "https://www.reddit.com/r/AusFinance/comments/1lr9q2k/anyone_work_at_cba/"
       }
     ],
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 5,
-      "neutral": 7,
+      "positive": 4,
+      "neutral": 6,
       "negative": 3,
       "very_negative": 0
     },
     "subreddit_breakdown": {
       "AusFinance": {
-        "posts": 13,
-        "average_sentiment": 0.024722517432758814,
+        "posts": 12,
+        "average_sentiment": 0.024382400198620032,
         "bullish": 4,
         "bearish": 3
       },
@@ -93,12 +93,6 @@
         "posts": 1,
         "average_sentiment": 0.03395798268398268,
         "bullish": 0,
-        "bearish": 0
-      },
-      "SecurityAnalysis": {
-        "posts": 1,
-        "average_sentiment": 0.2647499292929293,
-        "bullish": 1,
         "bearish": 0
       }
     }
@@ -120,7 +114,7 @@
       {
         "type": "partnership_deal",
         "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
-        "date": "2025-07-06T19:35:34.301581",
+        "date": "2025-07-07T07:31:48.079611",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
@@ -128,22 +122,30 @@
       {
         "type": "partnership_deal",
         "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
-        "date": "2025-07-06T19:35:34.301840",
+        "date": "2025-07-07T07:31:48.079864",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.1
+      },
+      {
+        "type": "partnership_deal",
+        "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
+        "date": "2025-07-07T07:31:48.079945",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
       }
     ]
   },
-  "overall_sentiment": 0.03652067092426663,
+  "overall_sentiment": 0.03714312308098369,
   "sentiment_components": {
-    "news": 0.01970818181818182,
-    "reddit": 0.006201006386027765,
-    "events": 0.005000000000000001,
-    "volume": 0.005831929425837321,
+    "news": 0.019966813397129187,
+    "reddit": 0.0037678475200087274,
+    "events": 0.0075000000000000015,
+    "volume": 0.005908462163845777,
     "momentum": 0.0
   },
-  "confidence": 0.9800000000000001,
+  "confidence": 1.0,
   "recent_headlines": [
     "ASX closes above 8600 for first time; CBA slips",
     "",

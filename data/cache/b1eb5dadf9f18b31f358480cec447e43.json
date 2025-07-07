@@ -1,6 +1,6 @@
 {
   "symbol": "WBC.AX",
-  "timestamp": "2025-07-06T18:16:24.712584",
+  "timestamp": "2025-07-07T07:22:20.811671",
   "metrics": {
     "pe_ratio": 17.158163,
     "forward_pe": 16.325243,
@@ -38,7 +38,7 @@
     "book_value_growth": 13.197099657490568
   },
   "growth": {
-    "price_growth_2y": 73.00453867172813,
+    "price_growth_2y": 73.00455564705858,
     "dividend_growth": 17.25490196078433,
     "earnings_growth": 3.1,
     "revenue_growth": 4.5

@@ -1,6 +1,6 @@
 {
   "symbol": "NAB.AX",
-  "timestamp": "2025-07-06T18:16:24.460761",
+  "timestamp": "2025-07-07T07:22:57.212112",
   "metrics": {
     "pe_ratio": 17.477678,
     "forward_pe": 16.588984,
@@ -38,7 +38,7 @@
     "book_value_growth": 10.57888065347759
   },
   "growth": {
-    "price_growth_2y": 61.77665669960071,
+    "price_growth_2y": 61.776643949019636,
     "dividend_growth": 12.292358803986716,
     "earnings_growth": -1.0999999999999999,
     "revenue_growth": 1.4000000000000001

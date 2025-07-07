@@ -36,6 +36,31 @@ fi
 
 # Run the system
 echo "Starting analysis..."
-python main.py analyze
+echo
+echo "Choose your option:"
+echo "1. Run original analysis (main.py)"
+echo "2. Run enhanced analysis (enhanced_main.py) [RECOMMENDED]"
+echo "3. Run backtesting system (backtesting_system.py)"
+echo "4. Run test suite (test_improvements.py)"
+read -p "Enter your choice (1-4): " choice
+
+case $choice in
+    1)
+        python main.py analyze
+        ;;
+    2)
+        python enhanced_main.py
+        ;;
+    3)
+        python backtesting_system.py
+        ;;
+    4)
+        python test_improvements.py
+        ;;
+    *)
+        echo "Invalid choice. Running enhanced analysis by default..."
+        python enhanced_main.py
+        ;;
+esac
 
 echo "Done!"

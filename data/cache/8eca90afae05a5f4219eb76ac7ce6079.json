@@ -1,6 +1,6 @@
 {
   "symbol": "ANZ.AX",
-  "timestamp": "2025-07-06T18:16:24.688891",
+  "timestamp": "2025-07-07T07:22:38.217444",
   "metrics": {
     "pe_ratio": 13.596413,
     "forward_pe": 12.957265,
@@ -38,7 +38,7 @@
     "book_value_growth": 19.1846286245509
   },
   "growth": {
-    "price_growth_2y": 41.589968892164705,
+    "price_growth_2y": 41.589956280691425,
     "dividend_growth": 15.15461605503786,
     "earnings_growth": 7.000000000000001,
     "revenue_growth": 9.5

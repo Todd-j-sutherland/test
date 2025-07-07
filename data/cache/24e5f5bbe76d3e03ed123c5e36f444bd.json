@@ -1,25 +1,25 @@
 {
   "symbol": "WBC.AX",
-  "timestamp": "2025-07-06T19:35:43.799668",
-  "news_count": 19,
+  "timestamp": "2025-07-07T07:31:56.300356",
+  "news_count": 20,
   "sentiment_scores": {
-    "average_sentiment": 0.03761143540669856,
-    "positive_count": 4,
+    "average_sentiment": 0.05280036363636363,
+    "positive_count": 5,
     "negative_count": 0,
     "neutral_count": 15,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 4,
+      "positive": 5,
       "neutral": 15,
       "negative": 0,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.245805,
-    "news_count": 19
+    "strongest_sentiment": 0.34138999999999997,
+    "news_count": 20
   },
   "reddit_sentiment": {
     "posts_analyzed": 7,
-    "average_sentiment": 0.1224029411805126,
+    "average_sentiment": 0.12229649220092077,
     "bullish_count": 5,
     "bearish_count": 0,
     "neutral_count": 2,
@@ -58,7 +58,7 @@
         "title": "Boomerang Claims - Westpac Junk Insurance",
         "selftext": "Hi All,\n\n  \nAnyone familiar with these guys\n\n\n\n>Boomerang Claims Pty Ltd \u00a9\n\n>(02) 7503 5087\n\n>[www.boomerangclaims.com](http://www.boomerangclaims.com)\n\n>ABN 71 623 924 087 \n\n>Boomerang Claims Pty Limited 526/368, Sussex St, Sydney NSW 2000\n\n\n\nThey are emailing me about Westpac Junk Insurance.\n\n  \n",
         "score": 2,
-        "num_comments": 1,
+        "num_comments": 2,
         "created": "2025-07-03T18:24:26",
         "subreddit": "AusFinance",
         "upvote_ratio": 0.75,
@@ -68,7 +68,7 @@
         "title": "Boomerang Claims - Westpac Junk Insurance",
         "selftext": "Hi All,\n\n  \nAnyone familiar with these guys\n\n\n\n>Boomerang Claims Pty Ltd \u00a9\n\n>(02) 7503 5087\n\n>[www.boomerangclaims.com](http://www.boomerangclaims.com)\n\n>ABN 71 623 924 087 \n\n>Boomerang Claims Pty Limited 526/368, Sussex St, Sydney NSW 2000\n\n\n\nThey are emailing me about Westpac Junk Insurance.\n\n  \n",
         "score": 2,
-        "num_comments": 1,
+        "num_comments": 2,
         "created": "2025-07-03T18:24:26",
         "subreddit": "AusFinance",
         "upvote_ratio": 0.75,
@@ -85,7 +85,7 @@
     "subreddit_breakdown": {
       "AusFinance": {
         "posts": 7,
-        "average_sentiment": 0.1224029411805126,
+        "average_sentiment": 0.12229649220092077,
         "bullish": 5,
         "bearish": 0
       }
@@ -106,17 +106,9 @@
     "legal_action": false,
     "events_detected": [
       {
-        "type": "rating_change",
-        "headline": "Fitch Gives 'AAA' Rating to Westpac New Zealand's Mortgage-Covered Bond Issuance",
-        "date": "2025-07-06T19:35:34.491963",
-        "source": "Google News",
-        "relevance": "medium",
-        "sentiment_impact": 0.0
-      },
-      {
         "type": "dividend_announcement",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T19:35:34.492009",
+        "date": "2025-07-07T07:31:47.680910",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.3
@@ -124,27 +116,35 @@
       {
         "type": "earnings_report",
         "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
-        "date": "2025-07-06T19:35:34.492009",
+        "date": "2025-07-07T07:31:47.680910",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
       },
       {
+        "type": "rating_change",
+        "headline": "Fitch Gives 'AAA' Rating to Westpac New Zealand's Mortgage-Covered Bond Issuance",
+        "date": "2025-07-07T07:31:47.680949",
+        "source": "Google News",
+        "relevance": "medium",
+        "sentiment_impact": 0.0
+      },
+      {
         "type": "earnings_report",
         "headline": "Australia's Westpac flags global trade risks, shares slide after profit miss",
-        "date": "2025-07-06T19:35:34.492053",
+        "date": "2025-07-07T07:31:47.680988",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": -0.4
       }
     ]
   },
-  "overall_sentiment": -0.01362311198527172,
+  "overall_sentiment": -0.005925107470495795,
   "sentiment_components": {
-    "news": 0.015044574162679425,
-    "reddit": 0.01836044117707689,
+    "news": 0.021120145454545453,
+    "reddit": 0.018344473830138115,
     "events": -0.05175000000000002,
-    "volume": 0.0045144141168206335,
+    "volume": 0.0062700431818181815,
     "momentum": 0.0
   },
   "confidence": 0.9500000000000001,

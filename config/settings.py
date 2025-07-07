@@ -122,7 +122,12 @@ class Settings:
             'afr_companies': 'https://www.afr.com/rss/companies',
             'smh_business': 'https://www.smh.com.au/rss/business.xml',
             'market_index': 'https://www.marketindex.com.au/rss/asx-news',
-            'investing_au': 'https://au.investing.com/rss/news_301.rss'
+            'investing_au': 'https://au.investing.com/rss/news_301.rss',
+            'afr_rss': 'https://www.afr.com/rss/companies',
+            'smh_business': 'https://www.smh.com.au/rss/business.xml',
+            'financial_review': 'https://www.financialstandard.com.au/rss.xml',
+            'market_index': 'https://www.marketindex.com.au/rss',
+            'investing_com_au': 'https://au.investing.com/rss/news.rss'
         }
     }
     

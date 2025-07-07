@@ -133,6 +133,7 @@ class NewsSentimentAnalyzer:
                 'confidence': overall_sentiment['confidence'],
                 'recent_headlines': [news['title'] for news in all_news[:5]]
             }
+            logger.info(f"Sentiment analysis result for {symbol}: {result}")
             
             # Cache for 30 minutes
             self.cache.set(cache_key, result, expiry_minutes=30)

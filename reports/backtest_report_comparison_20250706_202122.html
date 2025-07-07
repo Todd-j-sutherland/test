@@ -1,0 +1,84 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>ASX Trading System Backtest Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                .summary { background: #f0f8ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .metric { display: inline-block; margin: 10px; padding: 10px; background: white; border-radius: 5px; }
+                table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                .good { color: green; font-weight: bold; }
+                .bad { color: red; font-weight: bold; }
+                .neutral { color: orange; font-weight: bold; }
+            </style>
+        </head>
+        <body>
+            <h1>🧪 ASX Trading System Backtest Report</h1>
+            <p>Generated: 2025-07-06 20:21:22</p>
+            
+            <div class="summary">
+                <h2>📊 Overall Performance Summary</h2>
+                <div class="metric">
+                    <h3>Total Tests</h3>
+                    <div>80</div>
+                </div>
+                <div class="metric">
+                    <h3>5-Day Accuracy</h3>
+                    <div class="good">82.5%</div>
+                </div>
+                <div class="metric">
+                    <h3>VaR Accuracy</h3>
+                    <div class="bad">55.0%</div>
+                </div>
+                <div class="metric">
+                    <h3>Win Rate</h3>
+                    <div class="bad">0.0%</div>
+                </div>
+                <div class="metric">
+                    <h3>Total Return</h3>
+                    <div class="bad">0.00%</div>
+                </div>
+            </div>
+            
+            <h2>🎯 Prediction Accuracy by Time Horizon</h2>
+            <table>
+                <tr><th>Time Horizon</th><th>Accuracy</th><th>Assessment</th></tr>
+                <tr><td>1 Day</td><td>95.0%</td><td>Good</td></tr>
+                <tr><td>5 Days</td><td>82.5%</td><td>Good</td></tr>
+                <tr><td>20 Days</td><td>52.5%</td><td>Good</td></tr>
+            </table>
+            
+            <h2>💰 Trading Performance Details</h2>
+            <table>
+                <tr><th>Metric</th><th>Value</th><th>Benchmark</th><th>Status</th></tr>
+                <tr><td>Win Rate</td><td>0.0%</td><td>>55%</td><td>❌</td></tr>
+                <tr><td>Average Return per Trade</td><td>0.00%</td><td>>0%</td><td>❌</td></tr>
+                <tr><td>Total Return</td><td>0.00%</td><td>>0%</td><td>❌</td></tr>
+                <tr><td>Trades Taken</td><td>80</td><td>-</td><td>-</td></tr>
+            </table>
+            
+            <h2>⚠️ Risk Management Assessment</h2>
+            <p><strong>VaR Model Accuracy:</strong> 55.0%</p>
+            <p>The VaR (Value at Risk) model should be accurate ~95% of the time. Current accuracy: ❌ Poor - Requires Attention</p>
+            
+            <h2>🏆 Recommendations</h2>
+            <ul>
+        <li>✅ Prediction accuracy is acceptable. Continue monitoring.</li><li>❌ Win rate is low. Consider increasing confidence threshold or improving entry signals.</li><li>⚠️ VaR model needs recalibration. Risk estimates may be inaccurate.</li>
+            </ul>
+            
+            <h2>📈 Next Steps</h2>
+            <ol>
+                <li>If accuracy is low, consider adding more technical indicators or improving the ML model</li>
+                <li>If win rate is poor, adjust confidence thresholds or position sizing</li>
+                <li>If VaR accuracy is off, recalibrate risk models with more recent data</li>
+                <li>Consider running longer backtests for more robust statistics</li>
+            </ol>
+            
+            <p><em>This backtest uses simulated sentiment data due to historical news limitations. 
+            For production use, consider integrating historical news feeds for more accurate sentiment analysis.</em></p>
+        </body>
+        </html>
+        
