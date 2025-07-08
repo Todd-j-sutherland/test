@@ -89,16 +89,29 @@ class NewsImpactAnalyzer:
         try:
             aligned_data = []
             
-            # Convert price data to daily format - handle index properly
-            if 'Date' not in price_data.columns:
-                price_data = price_data.reset_index()
-                if 'Date' not in price_data.columns:
-                    price_data['Date'] = pd.to_datetime(price_data.index).date
-            else:
-                price_data = price_data.reset_index(drop=True)
+            # Ensure we have a proper date index/column
+            price_data = price_data.copy()  # Avoid modifying original data
             
-            # Ensure Date column is in proper format
-            price_data['Date'] = pd.to_datetime(price_data['Date']).dt.date
+            if isinstance(price_data.index, pd.DatetimeIndex):
+                # Data has datetime index (common with yfinance)
+                price_data['Date'] = price_data.index.date
+            else:
+                # Try to find or create a date column
+                date_col = None
+                for col in ['Date', 'date', 'Datetime', 'datetime', 'timestamp']:
+                    if col in price_data.columns:
+                        date_col = col
+                        break
+                
+                if date_col:
+                    price_data['Date'] = pd.to_datetime(price_data[date_col]).dt.date
+                elif price_data.index.name in ['Date', 'date', 'Datetime', 'datetime']:
+                    # Index might be named but not datetime
+                    price_data = price_data.reset_index()
+                    price_data['Date'] = pd.to_datetime(price_data[price_data.index.name]).dt.date
+                else:
+                    logger.error("No date information found in price data columns or index")
+                    return []
             
             for sentiment_entry in sentiment_history:
                 sentiment_date = datetime.fromisoformat(sentiment_entry['timestamp']).date()
@@ -114,9 +127,15 @@ class NewsImpactAnalyzer:
                         # Get previous day's close for comparison
                         prev_close = None
                         if len(price_data) > 1:
-                            prev_idx = price_data[price_data['Date'] == sentiment_date].index[0]
-                            if prev_idx > 0:
-                                prev_close = price_data.iloc[prev_idx - 1]['Close']
+                            # Get the index position in the DataFrame
+                            current_indices = price_data[price_data['Date'] == sentiment_date].index
+                            if len(current_indices) > 0:
+                                current_idx = current_indices[0]
+                                # Find the position of this index in the DataFrame
+                                idx_position = price_data.index.get_loc(current_idx)
+                                if idx_position > 0:
+                                    # Get the previous row by position
+                                    prev_close = price_data.iloc[idx_position - 1]['Close']
                         
                         if prev_close is not None:
                             price_change_pct = ((price_row['Close'] - prev_close) / prev_close) * 100
@@ -590,3 +609,100 @@ class NewsImpactAnalyzer:
             
         except Exception as e:
             return f"Error generating multi-symbol summary: {e}"
+    
+    def _calculate_time_decay_weight(self, published_date: str) -> float:
+        """Calculate time decay weight for news items"""
+        try:
+            # Handle different date formats
+            if published_date.endswith('Z'):
+                pub_date = datetime.fromisoformat(published_date.replace('Z', '+00:00'))
+            else:
+                pub_date = datetime.fromisoformat(published_date)
+            
+            # Remove timezone info for comparison if present
+            if pub_date.tzinfo:
+                pub_date = pub_date.replace(tzinfo=None)
+            
+            hours_old = (datetime.now() - pub_date).total_seconds() / 3600
+            
+            # Exponential decay: half-life of 24 hours
+            # Fresh news (< 6 hours) gets full weight
+            # 24-hour old news gets 50% weight
+            # 48-hour old news gets 25% weight
+            if hours_old <= 6:
+                return 1.0
+            else:
+                decay_rate = 0.5 ** ((hours_old - 6) / 24)
+                return max(decay_rate, 0.1)  # Minimum 10% weight
+        except Exception as e:
+            logger.warning(f"Error calculating time decay for date {published_date}: {e}")
+            return 0.5  # Default weight if date parsing fails
+
+    def _detect_sentiment_divergence(self, source_sentiments: Dict[str, float]) -> Dict:
+        """Detect significant divergence between different sentiment sources"""
+        try:
+            if len(source_sentiments) < 2:
+                return {'divergence_detected': False}
+            
+            sentiment_values = list(source_sentiments.values())
+            max_sentiment = max(sentiment_values)
+            min_sentiment = min(sentiment_values)
+            divergence = abs(max_sentiment - min_sentiment)
+            
+            # Calculate standard deviation for multiple sources
+            mean_sentiment = sum(sentiment_values) / len(sentiment_values)
+            variance = sum((x - mean_sentiment) ** 2 for x in sentiment_values) / len(sentiment_values)
+            std_dev = variance ** 0.5
+            
+            if divergence > 0.5 or std_dev > 0.3:
+                return {
+                    'divergence_detected': True,
+                    'magnitude': divergence,
+                    'std_deviation': std_dev,
+                    'source_agreement': 'low',
+                    'interpretation': 'Major disagreement between sentiment sources',
+                    'trading_implication': 'Higher volatility expected - conflicting signals'
+                }
+            elif divergence > 0.3 or std_dev > 0.2:
+                return {
+                    'divergence_detected': True,
+                    'magnitude': divergence,
+                    'std_deviation': std_dev,
+                    'source_agreement': 'moderate',
+                    'interpretation': 'Moderate disagreement between sentiment sources',
+                    'trading_implication': 'Some uncertainty in sentiment signal'
+                }
+            else:
+                return {
+                    'divergence_detected': False,
+                    'magnitude': divergence,
+                    'std_deviation': std_dev,
+                    'source_agreement': 'high',
+                    'interpretation': 'Strong agreement between sentiment sources',
+                    'trading_implication': 'High confidence in sentiment signal'
+                }
+                
+        except Exception as e:
+            logger.error(f"Error detecting sentiment divergence: {e}")
+            return {'divergence_detected': False, 'error': str(e)}
+    
+    def _get_cached_ml_features(self, text_hash: str) -> Optional[Dict]:
+        """Get cached ML features for text"""
+        try:
+            cache_key = f"ml_features_{text_hash}"
+            # This would integrate with a caching system like Redis or simple file cache
+            # For now, return None to indicate no cache
+            return None
+        except Exception as e:
+            logger.warning(f"Error accessing ML features cache: {e}")
+            return None
+
+    def _cache_ml_features(self, text_hash: str, features: Dict, expiry_minutes: int = 1440):
+        """Cache ML features for text"""
+        try:
+            cache_key = f"ml_features_{text_hash}"
+            # This would integrate with a caching system
+            # For now, just log that we would cache
+            logger.debug(f"Would cache ML features for hash {text_hash[:8]}...")
+        except Exception as e:
+            logger.warning(f"Error caching ML features: {e}")

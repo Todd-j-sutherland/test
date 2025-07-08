@@ -1,6 +1,6 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-08T17:18:16.772435",
+  "timestamp": "2025-07-08T18:56:36.875716",
   "news_count": 15,
   "sentiment_scores": {
     "average_sentiment": 0.012319515151515152,
@@ -41,9 +41,9 @@
     "transformer_available": false
   },
   "reddit_sentiment": {
-    "posts_analyzed": 14,
-    "average_sentiment": 0.01215842042868404,
-    "bullish_count": 2,
+    "posts_analyzed": 13,
+    "average_sentiment": -0.010868807064381477,
+    "bullish_count": 1,
     "bearish_count": 3,
     "neutral_count": 9,
     "top_posts": [
@@ -51,10 +51,10 @@
         "title": "Sold my house and got slammed with a $7000 Early Repayment Adjustment (ERA)",
         "selftext": "We fixed our home loan for 5 years back in Jun 2022 at 4.49% with CBA. Sold our house Jun 2025 so still have 2 years left on the loan. Because the current rate is much higher than 4.49%, our mortgage broker told us that there wouldn\u2019t incur any ERA. We only just saw that we got charged around $7000 for ERA, which is about our 3 months home loan repayment. This is a third of the capital gain we made from selling the house so we are just really shocked. Tried contracting them, each time the wait time is over 1 hour and never actually spoke to anyone. Lodged complaint, got a reply saying it\u2019s going to take them 30 days to investigate. We can\u2019t live without $7000 for that long in this economy, so we went into a branch, and someone helped us got in contact with the complaints team, and finally someone emailed us back, and said nope, the ERA is correct. We challenged on how that is calculated, she said nope, it\u2019s sensitive information so can\u2019t give that to you. She gave us a formula of how the ERA is calculated, but a part of that formula which is the swap rates are completely closed off to the public, so how can we calculate it without any numbers? CBA can just unilaterally decide to take our money, at an amount they decide, and without any explanation of how they come to that amount? ",
         "score": 0,
-        "num_comments": 63,
+        "num_comments": 64,
         "created": "2025-07-08T11:49:34",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.44,
+        "upvote_ratio": 0.46,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lucfph/sold_my_house_and_got_slammed_with_a_7000_early/"
       },
       {
@@ -74,7 +74,7 @@
         "num_comments": 24,
         "created": "2025-07-06T10:44:10",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.28,
+        "upvote_ratio": 0.35,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
       },
       {
@@ -84,7 +84,7 @@
         "num_comments": 13,
         "created": "2025-07-04T04:07:49",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.25,
+        "upvote_ratio": 0.21,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
@@ -94,22 +94,22 @@
         "num_comments": 13,
         "created": "2025-07-04T04:07:49",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.25,
+        "upvote_ratio": 0.21,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       }
     ],
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 2,
+      "positive": 1,
       "neutral": 9,
       "negative": 3,
       "very_negative": 0
     },
     "subreddit_breakdown": {
       "AusFinance": {
-        "posts": 13,
-        "average_sentiment": 0.010481531024430299,
-        "bullish": 2,
+        "posts": 12,
+        "average_sentiment": -0.014604372876745155,
+        "bullish": 1,
         "bearish": 3
       },
       "fiaustralia": {
@@ -137,7 +137,7 @@
       {
         "type": "partnership_deal",
         "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
-        "date": "2025-07-08T17:18:01.437247",
+        "date": "2025-07-08T18:56:25.938420",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
@@ -145,21 +145,21 @@
       {
         "type": "partnership_deal",
         "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
-        "date": "2025-07-08T17:18:01.437669",
+        "date": "2025-07-08T18:56:25.938817",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
       }
     ]
   },
-  "overall_sentiment": -0.040449424334946,
+  "overall_sentiment": -0.043488483115763,
   "sentiment_components": {
     "news": 0.004188635151515152,
-    "reddit": 0.0018237630643026057,
+    "reddit": -0.0016303210596572216,
     "events": 0.003600000000000001,
     "volume": 0.0015555441131313132,
     "momentum": 0.0,
-    "ml_trading": -0.051984717641709914
+    "ml_trading": -0.051597292226949885
   },
   "confidence": 0.9700000000000001,
   "recent_headlines": [
