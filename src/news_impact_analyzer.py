@@ -89,9 +89,16 @@ class NewsImpactAnalyzer:
         try:
             aligned_data = []
             
-            # Convert price data to daily format
-            price_data['Date'] = pd.to_datetime(price_data.index).date
-            price_data = price_data.reset_index()
+            # Convert price data to daily format - handle index properly
+            if 'Date' not in price_data.columns:
+                price_data = price_data.reset_index()
+                if 'Date' not in price_data.columns:
+                    price_data['Date'] = pd.to_datetime(price_data.index).date
+            else:
+                price_data = price_data.reset_index(drop=True)
+            
+            # Ensure Date column is in proper format
+            price_data['Date'] = pd.to_datetime(price_data['Date']).dt.date
             
             for sentiment_entry in sentiment_history:
                 sentiment_date = datetime.fromisoformat(sentiment_entry['timestamp']).date()

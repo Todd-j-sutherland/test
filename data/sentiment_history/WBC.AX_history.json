@@ -1979,5 +1979,179 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-08T16:06:36.005188",
+    "news_count": 18,
+    "sentiment_scores": {
+      "average_sentiment": 0.06401777777777778,
+      "positive_count": 5,
+      "negative_count": 0,
+      "neutral_count": 13,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 13,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.39016000000000006,
+      "news_count": 18,
+      "method_breakdown": {
+        "traditional": {
+          "mean": 0.08002222222222223,
+          "std": 0.15109812045876958,
+          "positive_ratio": 0.2777777777777778,
+          "negative_ratio": 0.0
+        },
+        "transformer": {
+          "mean": 0.0,
+          "std": 0.0,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0
+        },
+        "composite": {
+          "mean": 0.06401777777777778,
+          "std": 0.12087849636701567,
+          "positive_ratio": 0.2777777777777778,
+          "negative_ratio": 0.0
+        },
+        "correlation": 0,
+        "transformer_enabled": false
+      },
+      "transformer_available": false
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 9,
+      "average_sentiment": 0.015453419859975417,
+      "bullish_count": 3,
+      "bearish_count": 2,
+      "neutral_count": 4,
+      "top_posts": [
+        {
+          "title": "Debt pay down or save/invest",
+          "selftext": "I have started the debt snowball method to get out of debt asap. I also want to start building savings and investing (starting with Raiz but also have a WBC share account that I need larger amounts to buy shares)\n\nIf I do the snowball method I will be debt free in about 4-5 years however it leave very little to save or invest. \n\nI\u2019m 41 with 2 kids. I don\u2019t have an emergency fund. I basically leave pay check to pay check with a slight buffer. I use YNAB to budget so I have some money put towards yearly expenses (but none are fully covered) \n\nI\u2019ve paid off my smallest debt and I\u2019m wondering if I should use that money to build my emergency fund or put it straight toward the next debt as the snowball method instructs. \n\nWhat\u2019s the best way to get out of debt but also start saving?\n\nI already salary sacrifice to my super for retirement and have $165k super. So I\u2019m not too worried about putting more in super at the moment. \n\nEdit to add financial situation:\n\nIncome $2744/fortnight (included work & centrelink)\nI haven\u2019t included child support as it\u2019s unreliable and currently in arrears. \n\nDebt break down:\n$800 Centrelink advance - no interest & minimum payments debt will be cleared in under 4-6mths\n$1270 ZipPay - no interest (I stopped using this a few months ago)\n$2550 Orthodontist for child - no interest *one child will need braces in 4 months and the other will need braces in the next 12-18mths - estimating $3000-5000 per child?*\n$7500 personal loan - 6.79%\n$51300 HELP debt - inflation (I estimate average 4%/year)\n\nExpenses \nRent $920/fortnight\nGroceries $250/wk\nPetrol $100/fortnight\nGas & electricity $187/fortnight (account in credit by 1-2months)\nSteaming services $49/mth\nCar insurance & Roadside assist $134/mth\nContents insurance $43/mth\nPhone plan $54/mth ( total for myself and son)\nNBN $94/mth\nWater $20/mth (in credit by 1-2 months)\nKids sports $1000 year plus other expenses (shoes/upgrading equipment, etc)\nKids school expenses $2000 year (public school-expenses for camps, book packs, uniforms,etc)\nPet expenses $75/fortnight \nPet rego $100 year\nCar rego $400 year (have 1/4 saved for this already)\nCar service $800 (big service due - have this saved & usually budget $400 year)\nAmbo cover $106 year\nKids pocket money $23/week (they have chores to earn this) \nKids clothing ?? As minimal as I can\nChemist $20-30/mth depending on needs. \n\n\nI have 2 expenses that are for me\n$50/mth personal care (use to be higher but cut out other expenses)\n$80/mth reading/books \n\nI rarely go out, maybe once every 4-6 months if it can\u2019t be avoided. \n\nI have a small amount put aside for Christmas already. \n\n\n\n",
+          "score": 1,
+          "num_comments": 31,
+          "created": "2025-07-05 14:56:52",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.57,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ls1wzx/debt_pay_down_or_saveinvest/"
+        },
+        {
+          "title": "Bank Transfer Issues",
+          "selftext": "On Thursday at 4:50pm, I tried to transfer some money from a NAB account to a WESTPAC account. This was a first time transfer. The payment was sent but then it bounced back ? Then it sent itself again? Just wondering if it\u2019s still processing as it hasn\u2019t returned to my account. The payment status is \u201cPayment Unsuccessful\u201d. And the message reads, \u201cThe payee's account can't receive Osko Payments.\nIt's been sent, but will take 1 to 2 business days to process. If you entered a description, it won't be sent in full\u201d. I assumed it would have gone through by Monday, as of Tuesday, almost 4am, it still hasn\u2019t. Just stressing as I need the money to go through ASAP!!",
+          "score": 0,
+          "num_comments": 4,
+          "created": "2025-07-08 03:53:29",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.25,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lu108v/bank_transfer_issues/"
+        },
+        {
+          "title": "Boomerang Claims - Westpac Junk Insurance",
+          "selftext": "Hi All,\n\n  \nAnyone familiar with these guys\n\n\n\n>Boomerang Claims Pty Ltd \u00a9\n\n>(02) 7503 5087\n\n>[www.boomerangclaims.com](http://www.boomerangclaims.com)\n\n>ABN 71 623 924 087 \n\n>Boomerang Claims Pty Limited 526/368, Sussex St, Sydney NSW 2000\n\n\n\nThey are emailing me about Westpac Junk Insurance.\n\n  \n",
+          "score": 2,
+          "num_comments": 2,
+          "created": "2025-07-03 18:24:26",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqkaaq/boomerang_claims_westpac_junk_insurance/"
+        },
+        {
+          "title": "Bank Transfer Issues",
+          "selftext": "On Thursday at 4:50pm, I tried to transfer some money from a NAB account to a WESTPAC account. This was a first time transfer. The payment was sent but then it bounced back ? Then it sent itself again? Just wondering if it\u2019s still processing as it hasn\u2019t returned to my account. The payment status is \u201cPayment Unsuccessful\u201d. And the message reads, \u201cThe payee's account can't receive Osko Payments.\nIt's been sent, but will take 1 to 2 business days to process. If you entered a description, it won't be sent in full\u201d. I assumed it would have gone through by Monday, as of Tuesday, almost 4am, it still hasn\u2019t. Just stressing as I need the money to go through ASAP!!",
+          "score": 0,
+          "num_comments": 4,
+          "created": "2025-07-08 03:53:29",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.25,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lu108v/bank_transfer_issues/"
+        },
+        {
+          "title": "Boomerang Claims - Westpac Junk Insurance",
+          "selftext": "Hi All,\n\n  \nAnyone familiar with these guys\n\n\n\n>Boomerang Claims Pty Ltd \u00a9\n\n>(02) 7503 5087\n\n>[www.boomerangclaims.com](http://www.boomerangclaims.com)\n\n>ABN 71 623 924 087 \n\n>Boomerang Claims Pty Limited 526/368, Sussex St, Sydney NSW 2000\n\n\n\nThey are emailing me about Westpac Junk Insurance.\n\n  \n",
+          "score": 2,
+          "num_comments": 2,
+          "created": "2025-07-03 18:24:26",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.75,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqkaaq/boomerang_claims_westpac_junk_insurance/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 3,
+        "neutral": 4,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 9,
+          "average_sentiment": 0.015453419859975417,
+          "bullish": 3,
+          "bearish": 2
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
+          "date": "2025-07-08T16:06:27.059553",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.3
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Westpac Banking Corp's dividend sustainability called into question after H1 results miss",
+          "date": "2025-07-08T16:06:27.059553",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Australia's Westpac flags global trade risks, shares slide after profit miss",
+          "date": "2025-07-08T16:06:27.059692",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.4
+        }
+      ]
+    },
+    "overall_sentiment": 0.021983445927068662,
+    "sentiment_components": {
+      "news": 0.021125866666666666,
+      "reddit": 0.0023180129789963123,
+      "events": -0.03910000000000002,
+      "volume": 0.007551726748971194,
+      "momentum": 0.0,
+      "ml_trading": 0.03022053638913713
+    },
+    "confidence": 0.98,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

@@ -1,16 +1,17 @@
-# Enhanced ASX Bank Trading System 🏦
+# News-Based Trading Analysis System 🏦
 
 ## 🚀 Overview
 
-The Enhanced ASX Bank Trading System is a comprehensive financial analysis platform that provides institutional-grade analysis of Australian bank stocks. It combines async processing, advanced risk management, data validation, and machine learning predictions to deliver actionable trading insights.
+The News-Based Trading Analysis System is a comprehensive tool designed for analyzing Australian banking stocks using advanced news sentiment analysis. It integrates various data sources, performs ML-enhanced sentiment scoring, and provides trading insights based on news sentiment with full Python 3.12 compatibility for transformer models.
 
 ## ✨ Key Features
 
-### 🔥 Performance Improvements
-- **5x Faster Processing** - Async concurrent analysis
-- **Real-time Data Validation** - Prevents bad trading decisions
-- **Advanced Risk Management** - Professional-grade risk metrics
-- **Machine Learning Predictions** - Multi-factor prediction engine
+### 🔥 Core Capabilities
+- **Advanced News Sentiment Analysis** - VADER sentiment with ML feature engineering
+- **Real-time News Processing** - Live news feeds and sentiment scoring
+- **Trading Signal Generation** - HOLD/BUY/SELL signals with confidence levels
+- **Multi-Bank Analysis** - Individual or all major Australian banks
+- **Python 3.12 Compatible** - Full support for modern ML libraries and transformers
 
 ### 📊 What It Analyzes
 - **CBA.AX** - Commonwealth Bank of Australia
@@ -84,229 +85,125 @@ Enhanced ASX Trading System
 5. **Risk Assessment** - VaR, drawdown, and portfolio risk metrics
 6. **Report Generation** - Comprehensive analysis reports
 
-## 📊 Key Metrics Explained
+## 🛠️ Installation & Setup
 
-### Price & Prediction
-- **Current Price**: Latest stock price in AUD
-- **Direction**: BULLISH / BEARISH / NEUTRAL prediction
-- **Confidence**: Prediction confidence (0-100%)
+### Prerequisites
+- **Python 3.12** (Required for full ML/transformer compatibility)
+- **pyenv** (recommended for Python version management)
 
-### Risk Analysis
-- **Risk Level**: LOW / MEDIUM / HIGH (0-100 scale)
-- **VaR(95%)**: Maximum expected daily loss with 95% confidence
-- **Max Drawdown**: Largest peak-to-trough decline
-
-### Portfolio Metrics
-- **Portfolio Volatility**: Overall portfolio risk
-- **Sharpe Ratio**: Risk-adjusted returns (>1.0 is good)
-- **Diversification**: EXCELLENT / GOOD / POOR
-
-### Data Quality
-- **VALIDATED**: Passed all quality checks
-- **BASIC**: Using basic validation
-- **NO_DATA**: Insufficient data
-
-## 🔍 Advanced Risk Management
-
-### Value at Risk (VaR)
-- **Historical VaR**: Based on actual price movements
-- **Parametric VaR**: Normal distribution assumption
-- **Cornish-Fisher VaR**: Adjusts for skewness and kurtosis
-
-### Drawdown Analysis
-- **Maximum Drawdown**: Worst decline from peak
-- **Drawdown Duration**: How long declines last
-- **Recovery Factor**: Speed of recovery
-
-### Portfolio Risk
-- **Correlation Analysis**: How stocks move together
-- **Concentration Risk**: Portfolio diversification level
-- **Stress Testing**: Performance under adverse conditions
-
-## 🤖 Machine Learning Predictions
-
-### Prediction Components
-- **Technical Analysis** (35%): Price patterns and indicators
-- **Fundamental Analysis** (25%): Financial metrics and ratios
-- **Sentiment Analysis** (20%): News and social media sentiment
-- **Market Structure** (15%): Overall market conditions
-- **Seasonality** (5%): Historical seasonal patterns
-
-### Time Horizons
-- **Short-term**: 1-5 days
-- **Medium-term**: 1-4 weeks
-- **Long-term**: 1-3 months
-
-## 💡 Interpretation Guide
-
-### Reading the Analysis
-```
-📈 CBA.AX: $178.00 | NEUTRAL (9.1%) | Risk: LOW (36/100) | Data: VALIDATED
-    🔍 VaR(95%): 2.2% | Max Drawdown: 7.0%
-```
-
-**This means:**
-- CBA is trading at $178.00
-- Neutral prediction with low confidence (9.1%)
-- Low risk score (36/100)
-- High-quality validated data
-- 5% chance of losing more than 2.2% in one day
-- Stock declined 7% from recent peak
-
-### Risk Level Guidelines
-- **LOW (0-33)**: Conservative, stable returns
-- **MEDIUM (34-66)**: Balanced risk-reward
-- **HIGH (67-100)**: Aggressive, higher volatility
-
-## 🎛️ Configuration
-
-### Risk Thresholds
-Customize in `src/advanced_risk_manager.py`:
-```python
-self.risk_thresholds = {
-    'var_95_high': 0.05,        # 5% daily VaR
-    'max_drawdown_high': 0.20,  # 20% max drawdown
-    'volatility_high': 0.25,    # 25% annual volatility
-}
-```
-
-### Prediction Weights
-Customize in `src/market_predictor.py`:
-```python
-self.prediction_weights = {
-    'technical': 0.35,
-    'fundamental': 0.25,
-    'sentiment': 0.20,
-    'market_structure': 0.15,
-    'seasonality': 0.05
-}
-```
-
-## 📁 Project Structure
-
-```
-trading_analysis/
-├── enhanced_main.py            # Main enhanced system
-├── requirements.txt           # Python dependencies
-├── config/
-│   └── settings.py           # Configuration settings
-├── src/
-│   ├── async_main.py         # Async processing engine
-│   ├── data_validator.py     # Data validation pipeline
-│   ├── advanced_risk_manager.py # Risk management system
-│   ├── data_feed.py          # Data collection
-│   ├── technical_analysis.py # Technical indicators
-│   ├── fundamental_analysis.py # Financial metrics
-│   ├── news_sentiment.py     # Sentiment analysis
-│   └── market_predictor.py   # ML predictions
-├── reports/                  # Analysis reports
-├── logs/                     # System logs
-└── docs/                     # Documentation
-```
-
-## 🚀 Performance Improvements
-
-### Before vs After
-| Metric | Before | After | Improvement |
-|--------|--------|--------|-------------|
-| **Processing Speed** | 15.2s | 3.2s | **5x faster** |
-| **Data Quality** | Basic | Validated | **Risk prevention** |
-| **Risk Analysis** | Simple | Advanced VaR | **Professional grade** |
-| **Predictions** | None | ML-based | **Predictive insights** |
-
-### Speed Optimization
-- **Async Processing**: Concurrent analysis of all symbols
-- **Connection Pooling**: Efficient HTTP connections
-- **Caching**: Reduces redundant API calls
-- **Thread Pool**: CPU-intensive tasks in parallel
-
-## 🔧 Testing & Validation
-
-### Run Tests
+### Step 1: Ensure Python 3.12 is Available
 ```bash
-# Test all improvements
-python test_improvements.py
+# Install pyenv if not already installed (macOS)
+brew install pyenv
 
-# Test specific components
-python -m pytest tests/
+# Install Python 3.12.7
+pyenv install 3.12.7
 
-# Performance benchmark
-python demo_improvements.py
+# Set Python 3.12 for this project
+cd /path/to/trading_analysis
+pyenv local 3.12.7
+
+# Verify Python version
+python --version  # Should show Python 3.12.7
 ```
 
-### Validation Methods
-- **Data Quality Tests**: Ensure data integrity
-- **Risk Model Validation**: Backtesting VaR models
-- **Prediction Accuracy**: Historical success rates
-- **Performance Monitoring**: Speed and memory usage
+### Step 2: Create Virtual Environment
+```bash
+# Create virtual environment with Python 3.12
+python -m venv .venv312
 
-## 📚 Documentation
+# Activate on macOS/Linux
+source .venv312/bin/activate
 
-### Complete Guides
-- **[Complete Metrics Guide](COMPLETE_METRICS_GUIDE.md)** - Every metric explained
-- **[Improvements README](IMPROVEMENTS_README.md)** - Implementation details
-- **[Data Feed Fix Summary](DATA_FEED_FIX_SUMMARY.md)** - Recent fixes
+# Activate on Windows
+.venv312\Scripts\activate
+```
 
-### Key Files
-- **enhanced_main.py** - Main system entry point
-- **src/async_main.py** - Async processing engine
-- **src/advanced_risk_manager.py** - Risk management
-- **src/data_validator.py** - Data validation
+### Step 3: Install Dependencies
+```bash
+# Install core dependencies
+pip install -r requirements.txt
 
-## 🎯 Use Cases
+# Install additional required packages
+pip install requests yfinance beautifulsoup4 feedparser textblob vaderSentiment optuna
 
-### For Traders
-- **Risk Assessment**: Understand downside risk before trading
-- **Entry/Exit Points**: ML predictions for optimal timing
-- **Portfolio Management**: Diversification and correlation analysis
+# Optional: Install transformer models for advanced sentiment analysis
+pip install transformers torch
+```
 
-### For Analysts
-- **Comprehensive Analysis**: All metrics in one place
-- **Data Quality**: Validated data for reliable analysis
-- **Performance Monitoring**: Track system accuracy
+### Step 4: Verify Installation
+```bash
+# Test the main analyzer
+python news_trading_analyzer.py --help
 
-### For Developers
-- **Async Architecture**: Learn high-performance data processing
-- **Risk Management**: Professional-grade risk calculations
-- **ML Integration**: Practical machine learning implementation
+# Run a quick analysis
+python news_trading_analyzer.py --symbol CBA.AX --detailed
+```
 
-## 🚨 Important Notes
+## 🚀 Usage
 
-### Data Sources
-- **yfinance**: Primary data source for price data
-- **Web Scraping**: Real-time price updates
-- **News APIs**: Sentiment analysis data
-- **Cache System**: Reduces API calls and improves speed
+### Command Line Interface
+```bash
+# Analyze a specific bank
+python news_trading_analyzer.py --symbol CBA.AX --detailed
 
-### Limitations
-- **Market Hours**: Data quality depends on market open times
-- **API Limits**: Some data sources have rate limits
-- **Prediction Accuracy**: Past performance doesn't guarantee future results
+# Analyze all major banks
+python news_trading_analyzer.py --all
 
-### Risk Disclaimer
-This system is for educational and research purposes. Always consult with financial professionals before making investment decisions.
+# Export results to JSON
+python news_trading_analyzer.py --symbol CBA.AX --export
 
-## 🔮 Future Enhancements
+# Set detailed logging
+python news_trading_analyzer.py --symbol CBA.AX --log-level DEBUG
+```
 
-### Planned Features
-- **Real-time WebSocket Feeds**: Live price updates
-- **Additional Markets**: Expand beyond Australian banks
-- **Mobile App**: React Native mobile interface
-- **Advanced ML Models**: Deep learning integration
+### Supported Banks
+- **CBA.AX** - Commonwealth Bank of Australia
+- **WBC.AX** - Westpac Banking Corporation  
+- **ANZ.AX** - Australia and New Zealand Banking Group
+- **NAB.AX** - National Australia Bank
+- **MQG.AX** - Macquarie Group
 
-### Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new features
-4. Submit a pull request
+### Output Example
+```
+============================================================
+NEWS TRADING ANALYSIS: CBA.AX
+============================================================
+Sentiment Score: -0.027
+Confidence: 0.990
+Trading Signal: HOLD
+Recommendation: HOLD
+Strategy: moderate
+News Articles: 18
+============================================================
+```
 
-## 📞 Support
+## 🔧 Environment Management
 
-For questions or issues:
-1. Check the [Complete Metrics Guide](COMPLETE_METRICS_GUIDE.md)
-2. Review the logs in `logs/enhanced_trading_system.log`
-3. Run the test suite with `python test_improvements.py`
+### Switching Between Python Versions
+```bash
+# Check current Python version
+python --version
 
----
+# List available versions with pyenv
+pyenv versions
 
-**The Enhanced ASX Bank Trading System - Professional-grade analysis for Australian bank stocks! 🚀**
+# Switch to Python 3.12 for this project
+pyenv local 3.12.7
+
+# Activate the virtual environment
+source .venv312/bin/activate
+```
+
+### Troubleshooting
+If you encounter "Module not found" errors:
+```bash
+# Ensure you're in the correct virtual environment
+which python  # Should point to .venv312/bin/python
+
+# Reinstall dependencies if needed
+pip install -r requirements.txt
+
+# Check if all packages are installed
+pip list | grep -E "(numpy|pandas|requests|yfinance)"
+```

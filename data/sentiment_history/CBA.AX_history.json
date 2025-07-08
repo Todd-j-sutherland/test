@@ -2702,5 +2702,537 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-08T16:05:47.638001",
+    "news_count": 16,
+    "sentiment_scores": {
+      "average_sentiment": 0.023897045454545456,
+      "positive_count": 2,
+      "negative_count": 0,
+      "neutral_count": 14,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 14,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.19756,
+      "news_count": 16,
+      "method_breakdown": {
+        "traditional": {
+          "mean": 0.029871306818181818,
+          "std": 0.06997202681772369,
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.0
+        },
+        "transformer": {
+          "mean": 0.0,
+          "std": 0.0,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0
+        },
+        "composite": {
+          "mean": 0.023897045454545456,
+          "std": 0.05597762145417895,
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.0
+        },
+        "correlation": 0,
+        "transformer_enabled": false
+      },
+      "transformer_available": false
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 14,
+      "average_sentiment": 0.01322984900011261,
+      "bullish_count": 2,
+      "bearish_count": 3,
+      "neutral_count": 9,
+      "top_posts": [
+        {
+          "title": "Sold my house and got slammed with a $7000 Early Repayment Adjustment (ERA)",
+          "selftext": "We fixed our home loan for 5 years back in Jun 2022 at 4.49% with CBA. Sold our house Jun 2025 so still have 2 years left on the loan. Because the current rate is much higher than 4.49%, our mortgage broker told us that there wouldn\u2019t incur any ERA. We only just saw that we got charged around $7000 for ERA, which is about our 3 months home loan repayment. This is a third of the capital gain we made from selling the house so we are just really shocked. Tried contracting them, each time the wait time is over 1 hour and never actually spoke to anyone. Lodged complaint, got a reply saying it\u2019s going to take them 30 days to investigate. We can\u2019t live without $7000 for that long in this economy, so we went into a branch, and someone helped us got in contact with the complaints team, and finally someone emailed us back, and said nope, the ERA is correct. We challenged on how that is calculated, she said nope, it\u2019s sensitive information so can\u2019t give that to you. She gave us a formula of how the ERA is calculated, but a part of that formula which is the swap rates are completely closed off to the public, so how can we calculate it without any numbers? CBA can just unilaterally decide to take our money, at an amount they decide, and without any explanation of how they come to that amount? ",
+          "score": 0,
+          "num_comments": 63,
+          "created": "2025-07-08 11:49:34",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.47,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lucfph/sold_my_house_and_got_slammed_with_a_7000_early/"
+        },
+        {
+          "title": "Add car loan to home loan?",
+          "selftext": "Hi guys  just need a bit of help. Spoke to the bank about refinancing today to get some equity out. The broker told me to consolidate my car loan into the home loan as it's better and i can get more out of it or i might risk getting rejected. I have about 30k left to lay on the car and 4 years left on the loan.  \n\nIs he onto something or trying to do what's best for the bank? Also what's the general consensus with ANZ as a home loan provider, im currently with commbank. ",
+          "score": 0,
+          "num_comments": 27,
+          "created": "2025-07-07 12:46:42",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.43,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ltj5yh/add_car_loan_to_home_loan/"
+        },
+        {
+          "title": "Which Australian bank has the least restrictive withdrawal limits?",
+          "selftext": "Hello, maybe a super silly and mundane question, but which Australian bank with decent coverage across the country actually has decent in-person withdrawal limits for cash anymore?\n\nI was without my card and I needed cash to pay for something (which I routinely pay for using that amount of withdrawed cash, and it's not even remotely sus) and it became apparent at Commbank that I could only make a cardless cash withdrawal of up to 500 dollars a day. Furthermore, no human being could override this, and it was supposed to be 2000 dollars a day but had been arbitrarily reduced to 500 by \"the system\". This is strange because I have never been in any sort of big debt, financial distress, scams or any other reason I shouldn't be able to withdraw more money. Was I flagged for some weird reason they can't tell me or is a computer with no human supervision really all you can grapple with unless your local branch is open?\n\nShould I go to another bank that doesn't handhold me and withhold my money from me when I'm actually in a bit of a pickle? Yes, admittedly everyone should have some cash on hand for power outages/situations like this, but your bank should not make your life harder for no reason. ",
+          "score": 0,
+          "num_comments": 24,
+          "created": "2025-07-06 10:44:10",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.32,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.2,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.21,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 9,
+        "negative": 3,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 13,
+          "average_sentiment": 0.011635377178276451,
+          "bullish": 2,
+          "bearish": 3
+        },
+        "fiaustralia": {
+          "posts": 1,
+          "average_sentiment": 0.03395798268398268,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "partnership_deal",
+          "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
+          "date": "2025-07-08T16:05:33.781827",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
+          "date": "2025-07-08T16:05:33.782291",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
+          "date": "2025-07-08T16:05:33.782380",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.035721894828919167,
+    "sentiment_components": {
+      "news": 0.008124995454545455,
+      "reddit": 0.0019844773500168915,
+      "events": 0.005400000000000002,
+      "volume": 0.002949791548295455,
+      "momentum": 0.0,
+      "ml_trading": -0.054288647330710524
+    },
+    "confidence": 0.9900000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-08T16:06:21.708928",
+    "news_count": 15,
+    "sentiment_scores": {
+      "average_sentiment": 0.012319515151515152,
+      "positive_count": 1,
+      "negative_count": 0,
+      "neutral_count": 14,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 14,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.136,
+      "news_count": 15,
+      "method_breakdown": {
+        "traditional": {
+          "mean": 0.01539939393939394,
+          "std": 0.043260952079667674,
+          "positive_ratio": 0.06666666666666667,
+          "negative_ratio": 0.0
+        },
+        "transformer": {
+          "mean": 0.0,
+          "std": 0.0,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0
+        },
+        "composite": {
+          "mean": 0.012319515151515152,
+          "std": 0.03460876166373413,
+          "positive_ratio": 0.06666666666666667,
+          "negative_ratio": 0.0
+        },
+        "correlation": 0,
+        "transformer_enabled": false
+      },
+      "transformer_available": false
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 14,
+      "average_sentiment": 0.008944134714398325,
+      "bullish_count": 2,
+      "bearish_count": 3,
+      "neutral_count": 9,
+      "top_posts": [
+        {
+          "title": "Sold my house and got slammed with a $7000 Early Repayment Adjustment (ERA)",
+          "selftext": "We fixed our home loan for 5 years back in Jun 2022 at 4.49% with CBA. Sold our house Jun 2025 so still have 2 years left on the loan. Because the current rate is much higher than 4.49%, our mortgage broker told us that there wouldn\u2019t incur any ERA. We only just saw that we got charged around $7000 for ERA, which is about our 3 months home loan repayment. This is a third of the capital gain we made from selling the house so we are just really shocked. Tried contracting them, each time the wait time is over 1 hour and never actually spoke to anyone. Lodged complaint, got a reply saying it\u2019s going to take them 30 days to investigate. We can\u2019t live without $7000 for that long in this economy, so we went into a branch, and someone helped us got in contact with the complaints team, and finally someone emailed us back, and said nope, the ERA is correct. We challenged on how that is calculated, she said nope, it\u2019s sensitive information so can\u2019t give that to you. She gave us a formula of how the ERA is calculated, but a part of that formula which is the swap rates are completely closed off to the public, so how can we calculate it without any numbers? CBA can just unilaterally decide to take our money, at an amount they decide, and without any explanation of how they come to that amount? ",
+          "score": 0,
+          "num_comments": 63,
+          "created": "2025-07-08 11:49:34",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.44,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lucfph/sold_my_house_and_got_slammed_with_a_7000_early/"
+        },
+        {
+          "title": "Add car loan to home loan?",
+          "selftext": "Hi guys  just need a bit of help. Spoke to the bank about refinancing today to get some equity out. The broker told me to consolidate my car loan into the home loan as it's better and i can get more out of it or i might risk getting rejected. I have about 30k left to lay on the car and 4 years left on the loan.  \n\nIs he onto something or trying to do what's best for the bank? Also what's the general consensus with ANZ as a home loan provider, im currently with commbank. ",
+          "score": 0,
+          "num_comments": 27,
+          "created": "2025-07-07 12:46:42",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.33,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ltj5yh/add_car_loan_to_home_loan/"
+        },
+        {
+          "title": "Which Australian bank has the least restrictive withdrawal limits?",
+          "selftext": "Hello, maybe a super silly and mundane question, but which Australian bank with decent coverage across the country actually has decent in-person withdrawal limits for cash anymore?\n\nI was without my card and I needed cash to pay for something (which I routinely pay for using that amount of withdrawed cash, and it's not even remotely sus) and it became apparent at Commbank that I could only make a cardless cash withdrawal of up to 500 dollars a day. Furthermore, no human being could override this, and it was supposed to be 2000 dollars a day but had been arbitrarily reduced to 500 by \"the system\". This is strange because I have never been in any sort of big debt, financial distress, scams or any other reason I shouldn't be able to withdraw more money. Was I flagged for some weird reason they can't tell me or is a computer with no human supervision really all you can grapple with unless your local branch is open?\n\nShould I go to another bank that doesn't handhold me and withhold my money from me when I'm actually in a bit of a pickle? Yes, admittedly everyone should have some cash on hand for power outages/situations like this, but your bank should not make your life harder for no reason. ",
+          "score": 0,
+          "num_comments": 24,
+          "created": "2025-07-06 10:44:10",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.32,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.21,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.21,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 9,
+        "negative": 3,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 13,
+          "average_sentiment": 0.0070199925628918365,
+          "bullish": 2,
+          "bearish": 3
+        },
+        "fiaustralia": {
+          "posts": 1,
+          "average_sentiment": 0.03395798268398268,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "partnership_deal",
+          "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
+          "date": "2025-07-08T16:06:10.480582",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
+          "date": "2025-07-08T16:06:10.480959",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.0435402901790339,
+    "sentiment_components": {
+      "news": 0.004188635151515152,
+      "reddit": 0.0013416202071597487,
+      "events": 0.003600000000000001,
+      "volume": 0.0015555441131313132,
+      "momentum": 0.0,
+      "ml_trading": -0.05462151105508967
+    },
+    "confidence": 0.9700000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-08T16:42:42.133915",
+    "news_count": 18,
+    "sentiment_scores": {
+      "average_sentiment": 0.03992181818181818,
+      "positive_count": 4,
+      "negative_count": 0,
+      "neutral_count": 14,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 14,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.19756,
+      "news_count": 18,
+      "method_breakdown": {
+        "traditional": {
+          "mean": 0.049902272727272726,
+          "std": 0.08719613246642792,
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.0
+        },
+        "transformer": {
+          "mean": 0.0,
+          "std": 0.0,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0
+        },
+        "composite": {
+          "mean": 0.03992181818181818,
+          "std": 0.06975690597314235,
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.0
+        },
+        "correlation": 0,
+        "transformer_enabled": false
+      },
+      "transformer_available": false
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 14,
+      "average_sentiment": 0.005729849000112609,
+      "bullish_count": 2,
+      "bearish_count": 3,
+      "neutral_count": 9,
+      "top_posts": [
+        {
+          "title": "Sold my house and got slammed with a $7000 Early Repayment Adjustment (ERA)",
+          "selftext": "We fixed our home loan for 5 years back in Jun 2022 at 4.49% with CBA. Sold our house Jun 2025 so still have 2 years left on the loan. Because the current rate is much higher than 4.49%, our mortgage broker told us that there wouldn\u2019t incur any ERA. We only just saw that we got charged around $7000 for ERA, which is about our 3 months home loan repayment. This is a third of the capital gain we made from selling the house so we are just really shocked. Tried contracting them, each time the wait time is over 1 hour and never actually spoke to anyone. Lodged complaint, got a reply saying it\u2019s going to take them 30 days to investigate. We can\u2019t live without $7000 for that long in this economy, so we went into a branch, and someone helped us got in contact with the complaints team, and finally someone emailed us back, and said nope, the ERA is correct. We challenged on how that is calculated, she said nope, it\u2019s sensitive information so can\u2019t give that to you. She gave us a formula of how the ERA is calculated, but a part of that formula which is the swap rates are completely closed off to the public, so how can we calculate it without any numbers? CBA can just unilaterally decide to take our money, at an amount they decide, and without any explanation of how they come to that amount? ",
+          "score": 0,
+          "num_comments": 63,
+          "created": "2025-07-08 11:49:34",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.44,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lucfph/sold_my_house_and_got_slammed_with_a_7000_early/"
+        },
+        {
+          "title": "Add car loan to home loan?",
+          "selftext": "Hi guys  just need a bit of help. Spoke to the bank about refinancing today to get some equity out. The broker told me to consolidate my car loan into the home loan as it's better and i can get more out of it or i might risk getting rejected. I have about 30k left to lay on the car and 4 years left on the loan.  \n\nIs he onto something or trying to do what's best for the bank? Also what's the general consensus with ANZ as a home loan provider, im currently with commbank. ",
+          "score": 0,
+          "num_comments": 27,
+          "created": "2025-07-07 12:46:42",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.29,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1ltj5yh/add_car_loan_to_home_loan/"
+        },
+        {
+          "title": "Which Australian bank has the least restrictive withdrawal limits?",
+          "selftext": "Hello, maybe a super silly and mundane question, but which Australian bank with decent coverage across the country actually has decent in-person withdrawal limits for cash anymore?\n\nI was without my card and I needed cash to pay for something (which I routinely pay for using that amount of withdrawed cash, and it's not even remotely sus) and it became apparent at Commbank that I could only make a cardless cash withdrawal of up to 500 dollars a day. Furthermore, no human being could override this, and it was supposed to be 2000 dollars a day but had been arbitrarily reduced to 500 by \"the system\". This is strange because I have never been in any sort of big debt, financial distress, scams or any other reason I shouldn't be able to withdraw more money. Was I flagged for some weird reason they can't tell me or is a computer with no human supervision really all you can grapple with unless your local branch is open?\n\nShould I go to another bank that doesn't handhold me and withhold my money from me when I'm actually in a bit of a pickle? Yes, admittedly everyone should have some cash on hand for power outages/situations like this, but your bank should not make your life harder for no reason. ",
+          "score": 0,
+          "num_comments": 24,
+          "created": "2025-07-06 10:44:10",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.28,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.2,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        },
+        {
+          "title": "Car loan impossible due to not having a 9-5, \u201cself employed\u201d",
+          "selftext": "I\u2019m trying to get a loan to purchase a new car as mine is getting on now, and will only lose me money from here the longer I keep it. Unfortunately at this stage I\u2019m in no position to be buying the cars I\u2019m after outright, as I\u2019ve done so in the past for years. \n\nI am a beneficiary of a family trust, and recieve tax free money every month, around the 10k margin. I also have another vehicle, both vehicles are in my name and fully owned outright, that I have mentioned I\u2019m wanting to sell privately as the dealer prices on trade-ins are pitiful. Still, every finance broker, especially my bank, commonwealth bank, don\u2019t care. \n\nMy partner who earns a lot less than me, managed to get a personal loan overnight from commonwealth bank, despite her having debt, not a lot, but debt, but she does have a shift work job as a registered nurse. \n\nI have no debt, I never have, my credit is extremely good, and I cannot understand why nobody considered a trust fund monthly payment \u201cunsuitable income\u201d. I\u2019ve been able to prove I\u2019ve been receiving payments for going on 6 years now, and it\u2019s been impossible! Especially with commonwealth bank. I just cannot understand what the issue is, except that I\u2019m not a \u201c9-5\u201d worker, and they don\u2019t like that. \n\nIt\u2019s really frustrating, especially when you\u2019re declined and then offered financial support. Treating you like you\u2019re useless because you aren\u2019t the typical 9-5, and yet, people who genuinely need the support, are also denied the help. Ive known countless people personally who are swimming in debt, who have 9-5\u2019s and are STILL getting approved for personal loans, it\u2019s madness! \n\nAnybody else have this issue? \n\nEdit: I\u2019ll add I\u2019ve also offered to put the vehicle as security against the loan, and also, proved ownership of my second vehicle as well as what it\u2019s worth on the used market, to pay off a chunk of the personal loan and the interest, but STILL they REFUSE. So now, the dealer will have to put the car back on the market; as they cannot hold it any longer for me. I\u2019m extremely disheartened. ",
+          "score": 0,
+          "num_comments": 13,
+          "created": "2025-07-04 04:07:49",
+          "subreddit": "AusFinance",
+          "upvote_ratio": 0.21,
+          "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
+        }
+      ],
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 9,
+        "negative": 3,
+        "very_negative": 0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "posts": 13,
+          "average_sentiment": 0.003558454101353373,
+          "bullish": 2,
+          "bearish": 3
+        },
+        "fiaustralia": {
+          "posts": 1,
+          "average_sentiment": 0.03395798268398268,
+          "bullish": 0,
+          "bearish": 0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "partnership_deal",
+          "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
+          "date": "2025-07-08T16:42:30.318526",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
+          "date": "2025-07-08T16:42:30.318786",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
+          "date": "2025-07-08T16:42:30.318897",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.02659681627533527,
+    "sentiment_components": {
+      "news": 0.01357341818181818,
+      "reddit": 0.0008594773500168913,
+      "events": 0.005400000000000002,
+      "volume": 0.0047758323232323235,
+      "momentum": 0.0,
+      "ml_trading": -0.051285574670850015
+    },
+    "confidence": 0.9900000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]
