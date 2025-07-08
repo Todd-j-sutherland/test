@@ -154,6 +154,13 @@ class NewsSentimentAnalyzer:
             
             # Start with a simple model to test if transformers work
             logger.info("Testing transformer functionality with basic model...")
+            logger.warning("⚠️  This will download ~268MB model files. Set SKIP_TRANSFORMERS=1 to disable.")
+            
+            # Check if user wants to skip transformer downloads
+            if os.environ.get('SKIP_TRANSFORMERS', '0') == '1':
+                logger.info("🚫 Skipping transformer downloads (SKIP_TRANSFORMERS=1)")
+                return
+            
             test_model = pipeline(
                 "sentiment-analysis",
                 model="distilbert-base-uncased-finetuned-sst-2-english",

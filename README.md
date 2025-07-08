@@ -178,6 +178,30 @@ News Articles: 18
 ============================================================
 ```
 
+### Quick Start (No Transformer Downloads)
+```bash
+# Run analyzer without downloading large ML models (recommended for quick testing)
+SKIP_TRANSFORMERS=1 python news_trading_analyzer.py --symbol CBA.AX
+
+# Or use the simple runner script
+python run_analyzer.py --symbol CBA.AX
+
+# Analyze all banks quickly
+SKIP_TRANSFORMERS=1 python news_trading_analyzer.py --all
+```
+
+### Advanced Mode (With Transformers)
+If you want to enable advanced transformer-based sentiment analysis:
+```bash
+# Install transformer libraries (will download ~268MB of models)
+pip install transformers torch
+
+# Run without SKIP_TRANSFORMERS flag
+python news_trading_analyzer.py --symbol CBA.AX --detailed
+```
+
+**Note:** Transformer models provide more accurate sentiment analysis but require downloading large model files (~268MB). For most use cases, the VADER sentiment analysis (default) provides excellent results without any downloads.
+
 ## 🔧 Environment Management
 
 ### Switching Between Python Versions

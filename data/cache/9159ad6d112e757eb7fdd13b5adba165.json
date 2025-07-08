@@ -1,26 +1,26 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-08T13:59:10.339078",
-  "news_count": 17,
+  "timestamp": "2025-07-08T17:18:16.772435",
+  "news_count": 15,
   "sentiment_scores": {
-    "average_sentiment": 0.03147486631016043,
-    "positive_count": 3,
+    "average_sentiment": 0.012319515151515152,
+    "positive_count": 1,
     "negative_count": 0,
     "neutral_count": 14,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 3,
+      "positive": 1,
       "neutral": 14,
       "negative": 0,
       "very_negative": 0
     },
-    "strongest_sentiment": 0.19756,
-    "news_count": 17,
+    "strongest_sentiment": 0.136,
+    "news_count": 15,
     "method_breakdown": {
       "traditional": {
-        "mean": 0.03934358288770053,
-        "std": 0.07774100454207888,
-        "positive_ratio": 0.17647058823529413,
+        "mean": 0.01539939393939394,
+        "std": 0.043260952079667674,
+        "positive_ratio": 0.06666666666666667,
         "negative_ratio": 0.0
       },
       "transformer": {
@@ -30,9 +30,9 @@
         "negative_ratio": 0.0
       },
       "composite": {
-        "mean": 0.03147486631016043,
-        "std": 0.062192803633663106,
-        "positive_ratio": 0.17647058823529413,
+        "mean": 0.012319515151515152,
+        "std": 0.03460876166373413,
+        "positive_ratio": 0.06666666666666667,
         "negative_ratio": 0.0
       },
       "correlation": 0,
@@ -41,20 +41,20 @@
     "transformer_available": false
   },
   "reddit_sentiment": {
-    "posts_analyzed": 15,
-    "average_sentiment": 0.010520904847891234,
-    "bullish_count": 3,
-    "bearish_count": 4,
-    "neutral_count": 8,
+    "posts_analyzed": 14,
+    "average_sentiment": 0.01215842042868404,
+    "bullish_count": 2,
+    "bearish_count": 3,
+    "neutral_count": 9,
     "top_posts": [
       {
         "title": "Sold my house and got slammed with a $7000 Early Repayment Adjustment (ERA)",
         "selftext": "We fixed our home loan for 5 years back in Jun 2022 at 4.49% with CBA. Sold our house Jun 2025 so still have 2 years left on the loan. Because the current rate is much higher than 4.49%, our mortgage broker told us that there wouldn\u2019t incur any ERA. We only just saw that we got charged around $7000 for ERA, which is about our 3 months home loan repayment. This is a third of the capital gain we made from selling the house so we are just really shocked. Tried contracting them, each time the wait time is over 1 hour and never actually spoke to anyone. Lodged complaint, got a reply saying it\u2019s going to take them 30 days to investigate. We can\u2019t live without $7000 for that long in this economy, so we went into a branch, and someone helped us got in contact with the complaints team, and finally someone emailed us back, and said nope, the ERA is correct. We challenged on how that is calculated, she said nope, it\u2019s sensitive information so can\u2019t give that to you. She gave us a formula of how the ERA is calculated, but a part of that formula which is the swap rates are completely closed off to the public, so how can we calculate it without any numbers? CBA can just unilaterally decide to take our money, at an amount they decide, and without any explanation of how they come to that amount? ",
         "score": 0,
-        "num_comments": 56,
+        "num_comments": 63,
         "created": "2025-07-08T11:49:34",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.46,
+        "upvote_ratio": 0.44,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lucfph/sold_my_house_and_got_slammed_with_a_7000_early/"
       },
       {
@@ -64,7 +64,7 @@
         "num_comments": 27,
         "created": "2025-07-07T12:46:42",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.43,
+        "upvote_ratio": 0.33,
         "url": "https://www.reddit.com/r/AusFinance/comments/1ltj5yh/add_car_loan_to_home_loan/"
       },
       {
@@ -74,7 +74,7 @@
         "num_comments": 24,
         "created": "2025-07-06T10:44:10",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.29,
+        "upvote_ratio": 0.28,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lsolrt/which_australian_bank_has_the_least_restrictive/"
       },
       {
@@ -84,7 +84,7 @@
         "num_comments": 13,
         "created": "2025-07-04T04:07:49",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.21,
+        "upvote_ratio": 0.25,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       },
       {
@@ -94,23 +94,23 @@
         "num_comments": 13,
         "created": "2025-07-04T04:07:49",
         "subreddit": "AusFinance",
-        "upvote_ratio": 0.21,
+        "upvote_ratio": 0.25,
         "url": "https://www.reddit.com/r/AusFinance/comments/1lqwixh/car_loan_impossible_due_to_not_having_a_95_self/"
       }
     ],
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 3,
-      "neutral": 8,
-      "negative": 4,
+      "positive": 2,
+      "neutral": 9,
+      "negative": 3,
       "very_negative": 0
     },
     "subreddit_breakdown": {
       "AusFinance": {
-        "posts": 14,
-        "average_sentiment": 0.008846827859598989,
-        "bullish": 3,
-        "bearish": 4
+        "posts": 13,
+        "average_sentiment": 0.010481531024430299,
+        "bullish": 2,
+        "bearish": 3
       },
       "fiaustralia": {
         "posts": 1,
@@ -137,7 +137,7 @@
       {
         "type": "partnership_deal",
         "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
-        "date": "2025-07-08T13:58:58.390805",
+        "date": "2025-07-08T17:18:01.437247",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
@@ -145,31 +145,23 @@
       {
         "type": "partnership_deal",
         "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
-        "date": "2025-07-08T13:58:58.391110",
-        "source": "Google News",
-        "relevance": "medium",
-        "sentiment_impact": 0.1
-      },
-      {
-        "type": "partnership_deal",
-        "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
-        "date": "2025-07-08T13:58:58.391212",
+        "date": "2025-07-08T17:18:01.437669",
         "source": "Google News",
         "relevance": "medium",
         "sentiment_impact": 0.1
       }
     ]
   },
-  "overall_sentiment": -0.030018302390447543,
+  "overall_sentiment": -0.040449424334946,
   "sentiment_components": {
-    "news": 0.010701454545454545,
-    "reddit": 0.001578135727183685,
-    "events": 0.005400000000000002,
-    "volume": 0.003817280498862017,
+    "news": 0.004188635151515152,
+    "reddit": 0.0018237630643026057,
+    "events": 0.003600000000000001,
+    "volume": 0.0015555441131313132,
     "momentum": 0.0,
-    "ml_trading": -0.05160549904677361
+    "ml_trading": -0.051984717641709914
   },
-  "confidence": 0.9900000000000001,
+  "confidence": 0.9700000000000001,
   "recent_headlines": [
     "",
     "",
