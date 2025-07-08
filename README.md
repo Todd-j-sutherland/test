@@ -231,3 +231,167 @@ pip install -r requirements.txt
 # Check if all packages are installed
 pip list | grep -E "(numpy|pandas|requests|yfinance)"
 ```
+
+---
+
+## 📁 File Structure & Definitions
+
+### 🎯 **Active Core Files** (Used by the application)
+
+#### **Main Entry Points**
+- **`news_trading_analyzer.py`** - 🎯 **PRIMARY ENTRY POINT**
+  - Command-line interface for news sentiment analysis
+  - Orchestrates all analysis components
+  - Provides trading recommendations with confidence scores
+  - Exports results to JSON format
+
+- **`run_analyzer.py`** - 🚀 **SIMPLE RUNNER**
+  - Convenience script that runs analyzer without transformer downloads
+  - Sets `SKIP_TRANSFORMERS=1` environment variable automatically
+  - Ideal for quick testing and daily use
+
+#### **Core Analysis Engine (`src/`)**
+- **`src/news_sentiment.py`** - 📰 **CORE SENTIMENT ANALYSIS**
+  - Multi-source news collection (RSS, Yahoo Finance, Google News, Reddit)
+  - Advanced sentiment analysis using VADER, TextBlob, and optional transformers
+  - ML-enhanced feature engineering for trading-specific insights
+  - Dynamic confidence weighting and sentiment aggregation
+
+- **`src/ml_trading_config.py`** - 🤖 **ML FEATURE ENGINEERING**
+  - Extracts 30+ trading-relevant features from news text
+  - Financial entity recognition (currencies, percentages, companies)
+  - Temporal analysis (urgency detection, time references)
+  - Trading pattern recognition (bull/bear language, action words)
+  - Model optimization and hyperparameter tuning
+
+- **`src/news_impact_analyzer.py`** - 📊 **NEWS IMPACT CORRELATION**
+  - Analyzes correlation between news sentiment and price movements
+  - Event impact analysis with time decay modeling
+  - Predictive metrics for trading accuracy
+  - Multi-symbol comparative analysis
+
+- **`src/sentiment_history.py`** - 📈 **HISTORICAL TRACKING**
+  - Stores and manages historical sentiment data
+  - Trend analysis and momentum calculations
+  - Data persistence and retrieval for correlation studies
+
+- **`src/data_feed.py`** - 📡 **MARKET DATA INTERFACE**
+  - Fetches real-time and historical market data using yfinance
+  - Provides price data for sentiment-price correlation analysis
+  - Handles data validation and error recovery
+
+#### **Configuration & Support**
+- **`config/settings.py`** - ⚙️ **CONFIGURATION MANAGEMENT**
+  - Application settings and parameters
+  - News source URLs and API configurations
+  - Trading strategy thresholds and weights
+
+- **`config/__init__.py`** - 📦 **PACKAGE MARKER**
+  - Makes config directory a Python package
+
+- **`utils/cache_manager.py`** - 💾 **CACHING SYSTEM**
+  - Implements intelligent caching for news and market data
+  - Reduces API calls and improves performance
+  - TTL-based cache expiration
+
+- **`utils/__init__.py`** - 📦 **PACKAGE MARKER**
+  - Makes utils directory a Python package
+
+- **`src/__init__.py`** - 📦 **PACKAGE MARKER**
+  - Makes src directory a Python package
+
+#### **Configuration Files**
+- **`requirements.txt`** - 📋 **PYTHON DEPENDENCIES**
+  - Complete list of required Python packages
+  - Version specifications for reproducible environments
+
+- **`.python-version`** - 🐍 **PYTHON VERSION LOCK**
+  - Specifies Python 3.12.7 for pyenv compatibility
+  - Ensures consistent Python version across environments
+
+- **`.gitignore`** - 🚫 **GIT IGNORE RULES**
+  - Excludes logs, virtual environments, cache files, and temporary data
+  - Prevents sensitive and generated files from being committed
+
+### 🗂️ **Directory Structure**
+- **`data/`** - 💾 **DATA STORAGE**
+  - `data/cache/` - Cached API responses and news data
+  - `data/historical/` - Historical price and sentiment data
+  - `data/sentiment_history/` - Stored sentiment analysis results
+
+- **`logs/`** - 📝 **APPLICATION LOGS**
+  - `news_trading_analyzer.log` - Main application log
+  - `enhanced_trading_system.log` - Legacy system logs
+
+- **`reports/`** - 📊 **ANALYSIS OUTPUTS**
+  - Generated analysis reports in JSON and HTML formats
+  - Backtesting results and correlation studies
+
+### ❌ **Unused Files** (Safe to remove or ignore)
+
+#### **Cleanup & Development Files**
+- **`cleanup_project.py`** - 🧹 **ONE-TIME CLEANUP SCRIPT**
+  - Used once to organize project structure
+  - Can be safely removed or archived
+
+- **`install_transformers.sh`** - 📥 **MANUAL INSTALLATION SCRIPT**
+  - Shell script for installing transformer libraries
+  - Not automatically used by the application
+
+#### **Legacy & Backup Files**
+- **`backtesting_system.py`** - 📈 **LEGACY BACKTESTING**
+  - Old backtesting system not integrated with current analyzer
+  - Standalone system not used by main application
+
+- **`archive/`** - 📦 **ARCHIVED FILES**
+  - Contains old main files, demos, and unused components
+  - Preserved for reference but not actively used
+
+- **`backup_before_cleanup/`** - 💾 **PRE-CLEANUP BACKUP**
+  - Backup of files before project reorganization
+  - Can be safely removed once satisfied with current system
+
+#### **Documentation & Alternatives**
+- **`README_CLEAN.md`** - 📖 **ALTERNATIVE README**
+  - Simplified version of documentation
+  - Redundant with main README.md
+
+- **`IMPROVEMENTS_README.md`** - 📋 **DEVELOPMENT NOTES**
+  - Development notes and improvement ideas
+  - Not part of production system
+
+- **`PROJECT_CLEANUP_SUMMARY.md`** - 📝 **CLEANUP DOCUMENTATION**
+  - Documents the cleanup process performed
+  - Reference document, not operational
+
+#### **Test Files**
+- **`tests/test_*.py`** - 🧪 **UNIT TESTS**
+  - Test files for development and validation
+  - Not used in production runtime but valuable for development
+
+#### **Unused Utilities**
+- **`utils/helpers.py`** - 🔧 **UNUSED HELPER FUNCTIONS**
+  - Helper functions not currently imported by any active component
+
+- **`utils/validators.py`** - ✅ **UNUSED VALIDATION FUNCTIONS**
+  - Data validation functions not currently used
+
+### 🎯 **Summary**
+
+**Active System (12 core files):**
+```
+news_trading_analyzer.py     # Main entry point
+run_analyzer.py             # Simple runner
+src/news_sentiment.py       # Core sentiment analysis
+src/ml_trading_config.py    # ML feature engineering  
+src/news_impact_analyzer.py # Impact correlation
+src/sentiment_history.py    # Historical tracking
+src/data_feed.py            # Market data
+config/settings.py          # Configuration
+utils/cache_manager.py      # Caching
+requirements.txt            # Dependencies
+.python-version             # Python version
+.gitignore                  # Git ignore rules
+```
+
+**The system is lean, focused, and production-ready with minimal dependencies and clear separation of concerns.**
