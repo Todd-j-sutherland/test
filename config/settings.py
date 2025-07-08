@@ -106,14 +106,22 @@ class Settings:
     EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS', '')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD', '')
     
-    # Free News Sources
+    # Free News Sources (Expanded with additional Australian sources)
     NEWS_SOURCES = {
         'urls': {
             'afr': 'https://www.afr.com/companies/financial-services',
             'abc': 'https://www.abc.net.au/news/business/',
             'smh': 'https://www.smh.com.au/business/banking-and-finance',
             'reuters': 'https://www.reuters.com/world/asia-pacific/',
-            'bloomberg_au': 'https://www.bloomberg.com/australia'
+            'bloomberg_au': 'https://www.bloomberg.com/australia',
+            # New Australian news sources
+            'news_com_au': 'https://www.news.com.au/finance',
+            'investing_au': 'https://au.investing.com/',
+            'market_online': 'https://themarketonline.com.au/',
+            'motley_fool_au': 'https://www.fool.com.au/',
+            'investor_daily': 'https://www.investordaily.com.au/',
+            'aba_news': 'https://ausbanking.org.au/news/',
+            'asx_announcements': 'https://www.asx.com.au/markets/trade-our-cash-market/todays-announcements'
         },
         'rss_feeds': {
             'rba': 'https://www.rba.gov.au/rss/rss-cb.xml',
@@ -127,7 +135,22 @@ class Settings:
             'smh_business': 'https://www.smh.com.au/rss/business.xml',
             'financial_review': 'https://www.financialstandard.com.au/rss.xml',
             'market_index': 'https://www.marketindex.com.au/rss',
-            'investing_com_au': 'https://au.investing.com/rss/news.rss'
+            'investing_com_au': 'https://au.investing.com/rss/news.rss',
+            # New RSS feeds
+            'motley_fool_au': 'https://www.fool.com.au/feed/',
+            'investor_daily': 'https://www.investordaily.com.au/feed/',
+            'aba_news': 'https://ausbanking.org.au/feed/',
+            'news_com_finance': 'https://www.news.com.au/finance/rss'
+        },
+        # Google Alerts integration for targeted monitoring
+        'google_alerts': {
+            'cba_alerts': 'Commonwealth Bank OR CBA.AX OR "CommBank"',
+            'westpac_alerts': 'Westpac OR WBC.AX OR "Westpac Banking"',
+            'anz_alerts': 'ANZ Bank OR ANZ.AX OR "Australia and New Zealand Banking"',
+            'nab_alerts': 'NAB OR NAB.AX OR "National Australia Bank"',
+            'mqg_alerts': 'Macquarie Group OR MQG.AX OR Macquarie Bank',
+            'banking_sector': 'Australian banking OR RBA interest rates OR APRA regulations',
+            'regulatory': 'ASIC banking OR APRA requirements OR "Reserve Bank Australia"'
         }
     }
     

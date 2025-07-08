@@ -295,9 +295,35 @@ class NewsSentimentAnalyzer:
             yahoo_news = self._fetch_yahoo_news(symbol)
             all_news.extend(yahoo_news)
             
-            # Web scraping
+            # Original web scraping (Google News)
             scraped_news = self._scrape_news_sites(symbol)
             all_news.extend(scraped_news)
+            
+            # Additional Australian news sources
+            abc_news = self._scrape_abc_news(symbol)
+            all_news.extend(abc_news)
+            
+            news_com_au = self._scrape_news_com_au(symbol)
+            all_news.extend(news_com_au)
+            
+            motley_fool = self._scrape_motley_fool_au(symbol)
+            all_news.extend(motley_fool)
+            
+            market_online = self._scrape_market_online(symbol)
+            all_news.extend(market_online)
+            
+            investing_au = self._scrape_investing_au(symbol)
+            all_news.extend(investing_au)
+            
+            # Industry and regulatory news (applies to all banks)
+            aba_news = self._scrape_aba_news(symbol)
+            all_news.extend(aba_news)
+            
+            # Official ASX announcements
+            asx_announcements = self._scrape_asx_announcements(symbol)
+            all_news.extend(asx_announcements)
+            
+            logger.info(f"Collected {len(all_news)} news articles from {7} sources for {symbol}")
             
             # Reddit sentiment
             reddit_sentiment = self._get_reddit_sentiment(symbol)
@@ -792,14 +818,462 @@ class NewsSentimentAnalyzer:
         except Exception as e:
             logger.warning(f"Error scraping Google News: {str(e)}")
         
+        # Scrape additional Australian news sources
+        try:
+            abc_news = self._scrape_abc_news(symbol)
+            news_items.extend(abc_news)
+        except Exception as e:
+            logger.warning(f"Error scraping ABC News: {str(e)}")
+        
+        try:
+            news_com_au_news = self._scrape_news_com_au(symbol)
+            news_items.extend(news_com_au_news)
+        except Exception as e:
+            logger.warning(f"Error scraping News.com.au: {str(e)}")
+        
+        try:
+            motley_fool_au_news = self._scrape_motley_fool_au(symbol)
+            news_items.extend(motley_fool_au_news)
+        except Exception as e:
+            logger.warning(f"Error scraping Motley Fool AU: {str(e)}")
+        
+        try:
+            market_online_news = self._scrape_market_online(symbol)
+            news_items.extend(market_online_news)
+        except Exception as e:
+            logger.warning(f"Error scraping The Market Online: {str(e)}")
+        
+        try:
+            investing_au_news = self._scrape_investing_au(symbol)
+            news_items.extend(investing_au_news)
+        except Exception as e:
+            logger.warning(f"Error scraping Investing.com AU: {str(e)}")
+        
+        try:
+            aba_news = self._scrape_aba_news(symbol)
+            news_items.extend(aba_news)
+        except Exception as e:
+            logger.warning(f"Error scraping ABA news: {str(e)}")
+        
+        try:
+            asx_announcements = self._scrape_asx_announcements(symbol)
+            news_items.extend(asx_announcements)
+        except Exception as e:
+            logger.warning(f"Error scraping ASX announcements: {str(e)}")
+        
         return news_items
+    
+    def _scrape_abc_news(self, symbol: str) -> List[Dict]:
+        """Scrape ABC News business section"""
+        news_items = []
+        keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
+        
+        try:
+            # ABC News Business section
+            url = "https://www.abc.net.au/news/business/"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find article links
+                articles = soup.find_all('a', class_='_2EXSs _3a_TV _3DJPT')[:15]
+                
+                for article in articles:
+                    title = article.get_text(strip=True)
+                    article_url = article.get('href', '')
+                    
+                    # Make URL absolute if relative
+                    if article_url.startswith('/'):
+                        article_url = f"https://www.abc.net.au{article_url}"
+                    
+                    # Check relevance
+                    if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'finance', 'RBA']):
+                        news_items.append({
+                            'title': title,
+                            'summary': '',
+                            'source': 'ABC News',
+                            'url': article_url,
+                            'published': datetime.now().isoformat(),
+                            'relevance': self._calculate_relevance(title, keywords)
+                        })
+            
+            time.sleep(1)  # Rate limiting
+            
+        except Exception as e:
+            logger.warning(f"Error scraping ABC News: {str(e)}")
+        
+        return news_items
+    
+    def _scrape_news_com_au(self, symbol: str) -> List[Dict]:
+        """Scrape News.com.au finance section"""
+        news_items = []
+        keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
+        
+        try:
+            url = "https://www.news.com.au/finance"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find article headlines
+                articles = soup.find_all('h3', class_='story-headline')[:15]
+                
+                for article in articles:
+                    title_link = article.find('a')
+                    if title_link:
+                        title = title_link.get_text(strip=True)
+                        article_url = title_link.get('href', '')
+                        
+                        # Make URL absolute if relative
+                        if article_url.startswith('/'):
+                            article_url = f"https://www.news.com.au{article_url}"
+                        
+                        # Check relevance
+                        if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX', 'finance']):
+                            news_items.append({
+                                'title': title,
+                                'summary': '',
+                                'source': 'News.com.au',
+                                'url': article_url,
+                                'published': datetime.now().isoformat(),
+                                'relevance': self._calculate_relevance(title, keywords)
+                            })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping News.com.au: {str(e)}")
+        
+        return news_items
+    
+    def _scrape_motley_fool_au(self, symbol: str) -> List[Dict]:
+        """Scrape Motley Fool Australia"""
+        news_items = []
+        keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
+        
+        try:
+            url = "https://www.fool.com.au/"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find article links
+                articles = soup.find_all('a', class_='text-link')[:20]
+                
+                for article in articles:
+                    title = article.get_text(strip=True)
+                    article_url = article.get('href', '')
+                    
+                    # Make URL absolute if relative
+                    if article_url.startswith('/'):
+                        article_url = f"https://www.fool.com.au{article_url}"
+                    
+                    # Check relevance to banking
+                    if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX', 'share', 'dividend']):
+                        news_items.append({
+                            'title': title,
+                            'summary': '',
+                            'source': 'Motley Fool Australia',
+                            'url': article_url,
+                            'published': datetime.now().isoformat(),
+                            'relevance': self._calculate_relevance(title, keywords)
+                        })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping Motley Fool AU: {str(e)}")
+        
+        return news_items
+    
+    def _scrape_market_online(self, symbol: str) -> List[Dict]:
+        """Scrape The Market Online for ASX news"""
+        news_items = []
+        keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
+        
+        try:
+            url = "https://themarketonline.com.au/"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find news articles
+                articles = soup.find_all('h2', class_='entry-title')[:15]
+                
+                for article in articles:
+                    title_link = article.find('a')
+                    if title_link:
+                        title = title_link.get_text(strip=True)
+                        article_url = title_link.get('href', '')
+                        
+                        # Check relevance
+                        if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX', 'finance']):
+                            news_items.append({
+                                'title': title,
+                                'summary': '',
+                                'source': 'The Market Online',
+                                'url': article_url,
+                                'published': datetime.now().isoformat(),
+                                'relevance': self._calculate_relevance(title, keywords)
+                            })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping The Market Online: {str(e)}")
+        
+        return news_items
+    
+    def _scrape_investing_au(self, symbol: str) -> List[Dict]:
+        """Scrape Investing.com Australia"""
+        news_items = []
+        keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
+        
+        try:
+            # Try to get ASX-specific news
+            url = f"https://au.investing.com/search/?q={symbol}"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find news articles
+                articles = soup.find_all('a', class_='title')[:10]
+                
+                for article in articles:
+                    title = article.get_text(strip=True)
+                    article_url = article.get('href', '')
+                    
+                    # Make URL absolute if relative
+                    if article_url.startswith('/'):
+                        article_url = f"https://au.investing.com{article_url}"
+                    
+                    # Check relevance
+                    if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX']):
+                        news_items.append({
+                            'title': title,
+                            'summary': '',
+                            'source': 'Investing.com Australia',
+                            'url': article_url,
+                            'published': datetime.now().isoformat(),
+                            'relevance': self._calculate_relevance(title, keywords)
+                        })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping Investing.com AU: {str(e)}")
+        
+        return news_items
+    
+    def _scrape_aba_news(self, symbol: str) -> List[Dict]:
+        """Scrape Australian Banking Association news"""
+        news_items = []
+        
+        try:
+            url = "https://ausbanking.org.au/news/"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find news articles
+                articles = soup.find_all('h3', class_='entry-title')[:10]
+                
+                for article in articles:
+                    title_link = article.find('a')
+                    if title_link:
+                        title = title_link.get_text(strip=True)
+                        article_url = title_link.get('href', '')
+                        
+                        # ABA news is always relevant to banking sector
+                        news_items.append({
+                            'title': title,
+                            'summary': '',
+                            'source': 'Australian Banking Association',
+                            'url': article_url,
+                            'published': datetime.now().isoformat(),
+                            'relevance': 'high'  # Industry association news is always relevant
+                        })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping ABA news: {str(e)}")
+        
+        return news_items
+
+    def _scrape_asx_announcements(self, symbol: str) -> List[Dict]:
+        """Scrape ASX announcements for specific symbol"""
+        news_items = []
+        
+        try:
+            # Get company announcements from ASX
+            company_code = symbol.replace('.AX', '')
+            url = f"https://www.asx.com.au/markets/trade-our-cash-market/todays-announcements"
+            response = self.session.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Find announcement rows
+                rows = soup.find_all('tr')[:20]
+                
+                for row in rows:
+                    cells = row.find_all('td')
+                    if len(cells) >= 3:
+                        code_cell = cells[0]
+                        title_cell = cells[1]
+                        
+                        if code_cell and company_code.upper() in code_cell.get_text().upper():
+                            title = title_cell.get_text(strip=True)
+                            
+                            news_items.append({
+                                'title': f"ASX: {title}",
+                                'summary': '',
+                                'source': 'ASX Announcements',
+                                'url': url,
+                                'published': datetime.now().isoformat(),
+                                'relevance': 'high'  # Official ASX announcements are highly relevant
+                            })
+            
+            time.sleep(1)
+            
+        except Exception as e:
+            logger.warning(f"Error scraping ASX announcements: {str(e)}")
+        
+        return news_items
+
+    def _calculate_relevance(self, title: str, keywords: List[str]) -> str:
+        """Calculate relevance score for news article"""
+        title_lower = title.lower()
+        keyword_count = sum(1 for keyword in keywords if keyword.lower() in title_lower)
+        
+        if keyword_count >= 2:
+            return 'high'
+        elif keyword_count == 1:
+            return 'medium'
+        else:
+            return 'low'
     
     def _get_reddit_sentiment(self, symbol: str) -> Dict:
         """Get sentiment from Reddit financial subreddits"""
         try:
             keywords = self.bank_keywords.get(symbol, [symbol.replace('.AX', '')])
             
-            reddit_data = {
+            if not self.reddit:
+                return {
+                    'posts_analyzed': 0,
+                    'average_sentiment': 0,
+                    'bullish_count': 0,
+                    'bearish_count': 0,
+                    'neutral_count': 0,
+                    'top_posts': [],
+                    'sentiment_distribution': {},
+                    'subreddit_breakdown': {}
+                }
+            
+            subreddits = ['ASX_Bets', 'AusFinance', 'fiaustralia', 'ASX', 'investing']
+            all_posts = []
+            
+            for subreddit_name in subreddits:
+                try:
+                    subreddit = self.reddit.subreddit(subreddit_name)
+                    
+                    # Search for posts mentioning the bank
+                    for keyword in keywords:
+                        search_results = subreddit.search(keyword, time_filter='week', limit=10)
+                        
+                        for post in search_results:
+                            # Basic sentiment analysis
+                            text = f"{post.title} {post.selftext}"
+                            blob = TextBlob(text)
+                            
+                            sentiment_score = blob.sentiment.polarity
+                            
+                            # Categorize sentiment
+                            if sentiment_score > 0.1:
+                                sentiment_category = 'bullish'
+                            elif sentiment_score < -0.1:
+                                sentiment_category = 'bearish'
+                            else:
+                                sentiment_category = 'neutral'
+                            
+                            all_posts.append({
+                                'title': post.title,
+                                'score': post.score,
+                                'sentiment': sentiment_score,
+                                'category': sentiment_category,
+                                'subreddit': subreddit_name,
+                                'url': f"https://reddit.com{post.permalink}"
+                            })
+                    
+                    time.sleep(1)  # Rate limiting
+                    
+                except Exception as e:
+                    logger.warning(f"Error accessing subreddit {subreddit_name}: {str(e)}")
+                    continue
+            
+            if not all_posts:
+                return {
+                    'posts_analyzed': 0,
+                    'average_sentiment': 0,
+                    'bullish_count': 0,
+                    'bearish_count': 0,
+                    'neutral_count': 0,
+                    'top_posts': [],
+                    'sentiment_distribution': {},
+                    'subreddit_breakdown': {}
+                }
+            
+            # Calculate aggregate sentiment
+            avg_sentiment = sum(post['sentiment'] for post in all_posts) / len(all_posts)
+            
+            # Count categories
+            bullish_count = len([p for p in all_posts if p['category'] == 'bullish'])
+            bearish_count = len([p for p in all_posts if p['category'] == 'bearish'])
+            neutral_count = len([p for p in all_posts if p['category'] == 'neutral'])
+            
+            # Get top posts by score
+            top_posts = sorted(all_posts, key=lambda x: x['score'], reverse=True)[:5]
+            
+            # Sentiment distribution
+            sentiment_distribution = {
+                'bullish': bullish_count / len(all_posts) * 100,
+                'bearish': bearish_count / len(all_posts) * 100,
+                'neutral': neutral_count / len(all_posts) * 100
+            }
+            
+            # Subreddit breakdown
+            subreddit_breakdown = {}
+            for post in all_posts:
+                sub = post['subreddit']
+                if sub not in subreddit_breakdown:
+                    subreddit_breakdown[sub] = {'count': 0, 'avg_sentiment': 0}
+                subreddit_breakdown[sub]['count'] += 1
+            
+            for sub in subreddit_breakdown:
+                sub_posts = [p for p in all_posts if p['subreddit'] == sub]
+                subreddit_breakdown[sub]['avg_sentiment'] = sum(p['sentiment'] for p in sub_posts) / len(sub_posts)
+            
+            return {
+                'posts_analyzed': len(all_posts),
+                'average_sentiment': avg_sentiment,
+                'bullish_count': bullish_count,
+                'bearish_count': bearish_count,
+                'neutral_count': neutral_count,
+                'top_posts': top_posts,
+                'sentiment_distribution': sentiment_distribution,
+                'subreddit_breakdown': subreddit_breakdown
+            }
+            
+        except Exception as e:
+            logger.warning(f"Error getting Reddit sentiment for {symbol}: {str(e)}")
+            return {
                 'posts_analyzed': 0,
                 'average_sentiment': 0,
                 'bullish_count': 0,
@@ -809,340 +1283,163 @@ class NewsSentimentAnalyzer:
                 'sentiment_distribution': {},
                 'subreddit_breakdown': {}
             }
-            
-            if not self.reddit:
-                logger.warning("Reddit client not available, using fallback")
-                return reddit_data
-            
-            # Search across financial subreddits
-            all_posts = []
-            
-            for subreddit_name in self.financial_subreddits:
-                try:
-                    subreddit = self.reddit.subreddit(subreddit_name)
-                    
-                    # Search for posts mentioning the bank
-                    for keyword in keywords:
-                        try:
-                            # Search recent posts (last week)
-                            posts = subreddit.search(
-                                keyword, 
-                                sort='new', 
-                                time_filter='week',
-                                limit=20
-                            )
-                            
-                            for post in posts:
-                                # Check if post is recent (last 7 days)
-                                post_date = datetime.fromtimestamp(post.created_utc)
-                                if post_date > datetime.now() - timedelta(days=7):
-                                    all_posts.append({
-                                        'title': post.title,
-                                        'selftext': post.selftext,
-                                        'score': post.score,
-                                        'num_comments': post.num_comments,
-                                        'created': post_date,
-                                        'subreddit': subreddit_name,
-                                        'upvote_ratio': post.upvote_ratio,
-                                        'url': post.url
-                                    })
-                        except Exception as e:
-                            logger.warning(f"Error searching {subreddit_name} for {keyword}: {e}")
-                            continue
-                            
-                except Exception as e:
-                    logger.warning(f"Error accessing subreddit {subreddit_name}: {e}")
-                    continue
-            
-            # Analyze sentiment of collected posts
-            if all_posts:
-                sentiments = []
-                subreddit_sentiments = {}
-                
-                for post in all_posts:
-                    # Combine title and text for analysis
-                    text = f"{post['title']} {post['selftext']}"
-                    
-                    # Analyze sentiment
-                    blob = TextBlob(text)
-                    vader_scores = self.vader.polarity_scores(text)
-                    
-                    # Weighted sentiment (TextBlob + VADER + Reddit metrics)
-                    textblob_sentiment = blob.sentiment.polarity
-                    vader_sentiment = vader_scores['compound']
-                    
-                    # Weight by Reddit engagement (upvotes, comments)
-                    engagement_weight = min(1.0, (post['score'] + post['num_comments']) / 100)
-                    upvote_influence = (post['upvote_ratio'] - 0.5) * 0.5  # Convert 0-1 to -0.25 to +0.25
-                    
-                    combined_sentiment = (textblob_sentiment + vader_sentiment) / 2
-                    weighted_sentiment = combined_sentiment * engagement_weight + upvote_influence
-                    
-                    # Clamp to -1 to 1
-                    weighted_sentiment = max(-1, min(1, weighted_sentiment))
-                    
-                    sentiments.append(weighted_sentiment)
-                    
-                    # Track by subreddit
-                    if post['subreddit'] not in subreddit_sentiments:
-                        subreddit_sentiments[post['subreddit']] = []
-                    subreddit_sentiments[post['subreddit']].append(weighted_sentiment)
-                    
-                    # Categorize
-                    if weighted_sentiment > 0.1:
-                        reddit_data['bullish_count'] += 1
-                    elif weighted_sentiment < -0.1:
-                        reddit_data['bearish_count'] += 1
-                    else:
-                        reddit_data['neutral_count'] += 1
-                
-                # Calculate averages
-                reddit_data['posts_analyzed'] = len(all_posts)
-                reddit_data['average_sentiment'] = sum(sentiments) / len(sentiments)
-                
-                # Top posts by engagement
-                reddit_data['top_posts'] = sorted(
-                    all_posts, 
-                    key=lambda x: x['score'] + x['num_comments'], 
-                    reverse=True
-                )[:5]
-                
-                # Sentiment distribution
-                reddit_data['sentiment_distribution'] = {
-                    'very_positive': sum(1 for s in sentiments if s > 0.5),
-                    'positive': sum(1 for s in sentiments if 0.1 < s <= 0.5),
-                    'neutral': sum(1 for s in sentiments if -0.1 <= s <= 0.1),
-                    'negative': sum(1 for s in sentiments if -0.5 <= s < -0.1),
-                    'very_negative': sum(1 for s in sentiments if s < -0.5)
-                }
-                
-                # Subreddit breakdown
-                for subreddit, sents in subreddit_sentiments.items():
-                    reddit_data['subreddit_breakdown'][subreddit] = {
-                        'posts': len(sents),
-                        'average_sentiment': sum(sents) / len(sents),
-                        'bullish': sum(1 for s in sents if s > 0.1),
-                        'bearish': sum(1 for s in sents if s < -0.1)
-                    }
-            
-            return reddit_data
-            
-        except Exception as e:
-            logger.warning(f"Error fetching Reddit sentiment: {str(e)}")
-            return {
+
+    def _default_sentiment(self) -> Dict:
+        """Return default sentiment structure when analysis fails"""
+        return {
+            'symbol': 'UNKNOWN',
+            'timestamp': datetime.now().isoformat(),
+            'news_count': 0,
+            'sentiment_scores': {
+                'average_sentiment': 0.0,
+                'positive_count': 0,
+                'negative_count': 0,
+                'neutral_count': 0,
+                'sentiment_distribution': {
+                    'very_positive': 0,
+                    'positive': 0,
+                    'neutral': 0,
+                    'negative': 0,
+                    'very_negative': 0
+                },
+                'strongest_sentiment': 0.0
+            },
+            'reddit_sentiment': {
                 'posts_analyzed': 0,
                 'average_sentiment': 0,
                 'bullish_count': 0,
                 'bearish_count': 0,
                 'neutral_count': 0,
-                'error': str(e)
-            }
+                'top_posts': [],
+                'sentiment_distribution': {},
+                'subreddit_breakdown': {}
+            },
+            'significant_events': {},
+            'overall_sentiment': 0.0,
+            'sentiment_components': {},
+            'confidence': 0.0,
+            'recent_headlines': [],
+            'trend_analysis': {},
+            'impact_analysis': {}
+        }
     
-    def _analyze_news_sentiment(self, news_items: List[Dict]) -> Dict:
-        """Analyze sentiment of news articles using multiple methods including transformers"""
+    def _analyze_news_sentiment(self, news_articles: List[Dict]) -> Dict:
+        """Analyze sentiment from news articles using multiple methods"""
         
-        if not news_items:
+        if not news_articles:
             return {
-                'average_sentiment': 0,
+                'average_sentiment': 0.0,
                 'positive_count': 0,
                 'negative_count': 0,
                 'neutral_count': 0,
-                'sentiment_distribution': {},
-                'news_count': 0,
-                'method_breakdown': {}
+                'sentiment_distribution': {
+                    'very_positive': 0,
+                    'positive': 0,
+                    'neutral': 0,
+                    'negative': 0,
+                    'very_negative': 0
+                },
+                'strongest_sentiment': 0.0
             }
         
         sentiments = []
-        positive_count = 0
-        negative_count = 0
-        neutral_count = 0
-        method_results = {
-            'traditional': [],
-            'transformer': [],
-            'composite': []
+        sentiment_categories = {
+            'very_positive': 0,
+            'positive': 0,
+            'neutral': 0,
+            'negative': 0,
+            'very_negative': 0
         }
         
-        for news in news_items:
-            # Combine title and summary for analysis
-            text = f"{news['title']} {news.get('summary', '')}"
+        for article in news_articles:
+            title = article.get('title', '')
+            summary = article.get('summary', '')
+            text = f"{title} {summary}".strip()
             
-            # Method 1: Traditional approach (TextBlob + VADER)
-            traditional_sentiment = self._analyze_traditional_sentiment(text)
-            method_results['traditional'].append(traditional_sentiment)
+            if not text:
+                continue
             
-            # Method 2: Transformer approach (if available)
-            transformer_sentiment = 0
-            transformer_confidence = 0
-            transformer_details = {}
+            # Multiple sentiment analysis methods
+            sentiment_scores = []
             
-            if self.transformer_models:
-                transformer_result = self._analyze_with_transformers(text)
-                if 'composite' in transformer_result:
-                    transformer_sentiment = transformer_result['composite']['score']
-                    transformer_confidence = transformer_result['composite']['confidence']
-                    transformer_details = transformer_result
-                method_results['transformer'].append(transformer_sentiment)
-            else:
-                method_results['transformer'].append(0)
+            # TextBlob sentiment
+            try:
+                blob = TextBlob(text)
+                textblob_score = blob.sentiment.polarity
+                sentiment_scores.append(textblob_score)
+            except Exception:
+                pass
             
-            # Method 3: Composite approach (weighted combination)
-            composite_sentiment = self._calculate_composite_sentiment(
-                traditional_sentiment, 
-                transformer_sentiment, 
-                transformer_confidence,
-                news['relevance']
-            )
-            method_results['composite'].append(composite_sentiment)
+            # VADER sentiment
+            try:
+                vader_scores = self.vader.polarity_scores(text)
+                # Convert compound score to -1 to 1 range
+                vader_score = vader_scores['compound']
+                sentiment_scores.append(vader_score)
+            except Exception:
+                pass
             
-            # Store the composite sentiment for this news item
-            sentiments.append(composite_sentiment)
+            # Transformer sentiment (if available)
+            if self.transformer_models.get('general_sentiment'):
+                try:
+                    transformer_result = self.transformer_models['general_sentiment'](text)
+                    if transformer_result:
+                        # Convert to -1 to 1 scale
+                        if transformer_result[0]['label'] == 'POSITIVE':
+                            transformer_score = transformer_result[0]['score']
+                        elif transformer_result[0]['label'] == 'NEGATIVE':
+                            transformer_score = -transformer_result[0]['score']
+                        else:
+                            transformer_score = 0.0
+                        sentiment_scores.append(transformer_score)
+                except Exception:
+                    pass
             
-            # Store additional analysis details
-            news['sentiment_analysis'] = {
-                'traditional': traditional_sentiment,
-                'transformer': transformer_sentiment,
-                'transformer_confidence': transformer_confidence,
-                'transformer_details': transformer_details,
-                'composite': composite_sentiment
+            # Average the sentiment scores
+            if sentiment_scores:
+                avg_sentiment = sum(sentiment_scores) / len(sentiment_scores)
+                sentiments.append(avg_sentiment)
+                
+                # Categorize sentiment
+                if avg_sentiment > 0.5:
+                    sentiment_categories['very_positive'] += 1
+                elif avg_sentiment > 0.1:
+                    sentiment_categories['positive'] += 1
+                elif avg_sentiment < -0.5:
+                    sentiment_categories['very_negative'] += 1
+                elif avg_sentiment < -0.1:
+                    sentiment_categories['negative'] += 1
+                else:
+                    sentiment_categories['neutral'] += 1
+        
+        if not sentiments:
+            return {
+                'average_sentiment': 0.0,
+                'positive_count': 0,
+                'negative_count': 0,
+                'neutral_count': 0,
+                'sentiment_distribution': sentiment_categories,
+                'strongest_sentiment': 0.0
             }
-            
-            # Categorize based on composite sentiment
-            if composite_sentiment > 0.1:
-                positive_count += 1
-            elif composite_sentiment < -0.1:
-                negative_count += 1
-            else:
-                neutral_count += 1
         
-        # Calculate average sentiment
-        avg_sentiment = sum(sentiments) / len(sentiments) if sentiments else 0
-        
-        # Calculate method performance comparison
-        method_breakdown = self._analyze_method_performance(method_results)
+        # Calculate overall metrics
+        average_sentiment = sum(sentiments) / len(sentiments)
+        positive_count = len([s for s in sentiments if s > 0.1])
+        negative_count = len([s for s in sentiments if s < -0.1])
+        neutral_count = len(sentiments) - positive_count - negative_count
+        strongest_sentiment = max(sentiments, key=abs) if sentiments else 0.0
         
         return {
-            'average_sentiment': avg_sentiment,
+            'average_sentiment': average_sentiment,
             'positive_count': positive_count,
             'negative_count': negative_count,
             'neutral_count': neutral_count,
-            'sentiment_distribution': {
-                'very_positive': sum(1 for s in sentiments if s > 0.5),
-                'positive': sum(1 for s in sentiments if 0.1 < s <= 0.5),
-                'neutral': sum(1 for s in sentiments if -0.1 <= s <= 0.1),
-                'negative': sum(1 for s in sentiments if -0.5 <= s < -0.1),
-                'very_negative': sum(1 for s in sentiments if s < -0.5)
-            },
-            'strongest_sentiment': max(sentiments, key=abs) if sentiments else 0,
-            'news_count': len(news_items),
-            'method_breakdown': method_breakdown,
-            'transformer_available': bool(self.transformer_models)
+            'sentiment_distribution': sentiment_categories,
+            'strongest_sentiment': strongest_sentiment
         }
     
-    def _analyze_traditional_sentiment(self, text: str) -> float:
-        """Analyze sentiment using traditional methods (TextBlob + VADER)"""
-        # TextBlob sentiment
-        blob = TextBlob(text)
-        polarity = blob.sentiment.polarity  # -1 to 1
-        
-        # VADER sentiment
-        vader_scores = self.vader.polarity_scores(text)
-        compound = vader_scores['compound']  # -1 to 1
-        
-        # Average the two methods
-        return (polarity + compound) / 2
-    
-    def _calculate_composite_sentiment(self, traditional: float, transformer: float, 
-                                     transformer_confidence: float, relevance: str) -> float:
-        """Calculate composite sentiment score from multiple methods"""
-        
-        # Base weights
-        if self.transformer_models and transformer_confidence > 0.7:
-            # High confidence transformer result gets more weight
-            traditional_weight = 0.3
-            transformer_weight = 0.7
-        elif self.transformer_models and transformer_confidence > 0.5:
-            # Medium confidence transformer result
-            traditional_weight = 0.4
-            transformer_weight = 0.6
-        elif self.transformer_models:
-            # Low confidence transformer result
-            traditional_weight = 0.6
-            transformer_weight = 0.4
-        else:
-            # No transformer available
-            traditional_weight = 1.0
-            transformer_weight = 0.0
-        
-        # Calculate weighted sentiment
-        composite = (traditional * traditional_weight + transformer * transformer_weight)
-        
-        # Apply relevance weighting
-        relevance_weight = 1.0 if relevance == 'high' else 0.8
-        
-        return composite * relevance_weight
-    
-    def _analyze_method_performance(self, method_results: Dict) -> Dict:
-        """Analyze performance comparison between different methods"""
-        
-        traditional_scores = method_results['traditional']
-        transformer_scores = method_results['transformer']
-        composite_scores = method_results['composite']
-        
-        # Calculate statistics for each method
-        def calculate_stats(scores):
-            if not scores:
-                return {'mean': 0, 'std': 0, 'positive_ratio': 0, 'negative_ratio': 0}
-            
-            mean_score = sum(scores) / len(scores)
-            variance = sum((x - mean_score) ** 2 for x in scores) / len(scores)
-            std_score = variance ** 0.5
-            
-            positive_ratio = sum(1 for s in scores if s > 0.1) / len(scores)
-            negative_ratio = sum(1 for s in scores if s < -0.1) / len(scores)
-            
-            return {
-                'mean': mean_score,
-                'std': std_score,
-                'positive_ratio': positive_ratio,
-                'negative_ratio': negative_ratio
-            }
-        
-        return {
-            'traditional': calculate_stats(traditional_scores),
-            'transformer': calculate_stats(transformer_scores),
-            'composite': calculate_stats(composite_scores),
-            'correlation': self._calculate_method_correlation(traditional_scores, transformer_scores),
-            'transformer_enabled': bool(self.transformer_models)
-        }
-    
-    def _calculate_method_correlation(self, traditional: List[float], transformer: List[float]) -> float:
-        """Calculate correlation between traditional and transformer methods"""
-        if not traditional or not transformer or len(traditional) != len(transformer):
-            return 0
-        
-        # Simple correlation calculation
-        n = len(traditional)
-        if n < 2:
-            return 0
-        
-        mean_trad = sum(traditional) / n
-        mean_trans = sum(transformer) / n
-        
-        numerator = sum((traditional[i] - mean_trad) * (transformer[i] - mean_trans) for i in range(n))
-        
-        sum_sq_trad = sum((traditional[i] - mean_trad) ** 2 for i in range(n))
-        sum_sq_trans = sum((transformer[i] - mean_trans) ** 2 for i in range(n))
-        
-        denominator = (sum_sq_trad * sum_sq_trans) ** 0.5
-        
-        if denominator == 0:
-            return 0
-        
-        return numerator / denominator
-        
-    
-    def _check_significant_events(self, news_items: List[Dict], symbol: str) -> Dict:
-        """Check for significant events in the news with enhanced pattern matching"""
+    def _check_significant_events(self, news_articles: List[Dict], symbol: str) -> Dict:
+        """Check for significant events in news articles"""
         
         events = {
             'dividend_announcement': False,
@@ -1160,646 +1457,55 @@ class NewsSentimentAnalyzer:
             'events_detected': []
         }
         
-        # Enhanced keywords with regex patterns for better matching
-        event_patterns = {
-            'dividend_announcement': {
-                'keywords': ['dividend', 'distribution', 'payout', 'interim dividend', 'final dividend', 'special dividend'],
-                'regex': [
-                    r'dividend.*\$[\d.]+',
-                    r'(interim|final|special)\s+dividend',
-                    r'dividend.*(?:increased|raised|maintained|cut|suspended)'
-                ]
-            },
-            'earnings_report': {
-                'keywords': ['earnings', 'profit', 'results', 'quarterly', 'half-year', 'full-year', 'net income'],
-                'regex': [
-                    r'(quarterly|half-year|full-year)\s+results',
-                    r'profit.*\$[\d.]+(?:million|billion)',
-                    r'earnings.*(?:beat|miss|exceed|below)',
-                    r'net\s+income.*\$[\d.]+'
-                ]
-            },
-            'management_change': {
-                'keywords': ['CEO', 'CFO', 'director', 'chairman', 'appoint', 'resign', 'retirement', 'succession'],
-                'regex': [
-                    r'(CEO|CFO|chairman|director).*(?:appoint|resign|retire|step down)',
-                    r'new\s+(CEO|CFO|chairman|director)',
-                    r'(appoint|announce).*(?:CEO|CFO|chairman|director)',
-                    r'management\s+change'
-                ]
-            },
-            'regulatory_news': {
-                'keywords': ['APRA', 'ASIC', 'regulator', 'compliance', 'investigation', 'audit', 'prudential'],
-                'regex': [
-                    r'(APRA|ASIC).*(?:investigation|audit|review|action)',
-                    r'regulatory.*(?:action|review|investigation|compliance)',
-                    r'prudential.*(?:requirement|review|standard)',
-                    r'compliance.*(?:breach|issue|review)'
-                ]
-            },
-            'merger_acquisition': {
-                'keywords': ['merger', 'acquisition', 'takeover', 'buyout', 'combine', 'acquire'],
-                'regex': [
-                    r'(merger|acquisition|takeover).*\$[\d.]+(?:million|billion)',
-                    r'acquire.*(?:stake|interest|business)',
-                    r'(merge|combine)\s+with',
-                    r'takeover.*(?:bid|offer)'
-                ]
-            },
-            'scandal_investigation': {
-                'keywords': ['scandal', 'probe', 'misconduct', 'penalty', 'fine', 'breach', 'violation'],
-                'regex': [
-                    r'(fine|penalty).*\$[\d.]+(?:million|billion)',
-                    r'(scandal|misconduct|breach).*(?:investigation|probe)',
-                    r'(AUSTRAC|ASIC|APRA).*(?:fine|penalty|action)',
-                    r'compliance.*(?:breach|failure|issue)'
-                ]
-            },
-            'rating_change': {
-                'keywords': ['upgrade', 'downgrade', 'rating', 'outlook', 'Moody\'s', 'S&P', 'Fitch'],
-                'regex': [
-                    r'(Moody\'s|S&P|Fitch).*(?:upgrade|downgrade|rating)',
-                    r'credit\s+rating.*(?:upgrade|downgrade|affirm)',
-                    r'outlook.*(?:positive|negative|stable)',
-                    r'rating.*(?:AA|A|BBB|BB|B)'
-                ]
-            },
-            'capital_raising': {
-                'keywords': ['capital raising', 'share issue', 'equity raising', 'rights issue', 'placement'],
-                'regex': [
-                    r'(capital|equity)\s+raising.*\$[\d.]+(?:million|billion)',
-                    r'(rights|share)\s+issue',
-                    r'placement.*\$[\d.]+(?:million|billion)',
-                    r'raise.*capital'
-                ]
-            },
-            'branch_closure': {
-                'keywords': ['branch closure', 'branch closing', 'close branches', 'branch network'],
-                'regex': [
-                    r'clos(?:e|ing).*\d+.*branches?',
-                    r'branch.*(?:closure|closing|reduction)',
-                    r'reduce.*branch.*network'
-                ]
-            },
-            'product_launch': {
-                'keywords': ['launch', 'new product', 'introduce', 'unveil', 'digital platform'],
-                'regex': [
-                    r'launch.*(?:new|digital).*(?:product|service|platform)',
-                    r'introduce.*(?:banking|financial).*(?:product|service)',
-                    r'unveil.*(?:new|digital).*(?:platform|service)'
-                ]
-            },
-            'partnership_deal': {
-                'keywords': ['partnership', 'joint venture', 'alliance', 'collaboration', 'agreement'],
-                'regex': [
-                    r'(partnership|alliance).*with',
-                    r'joint\s+venture',
-                    r'(sign|announce).*(?:partnership|agreement|deal)',
-                    r'collaboration.*with'
-                ]
-            },
-            'legal_action': {
-                'keywords': ['lawsuit', 'legal action', 'court case', 'litigation', 'class action'],
-                'regex': [
-                    r'(lawsuit|litigation).*(?:filed|against)',
-                    r'class\s+action',
-                    r'legal\s+action.*(?:taken|filed)',
-                    r'court.*(?:case|action|ruling)'
-                ]
-            }
+        # Keywords for different event types
+        event_keywords = {
+            'dividend_announcement': ['dividend', 'payout', 'distribution', 'yield'],
+            'earnings_report': ['earnings', 'profit', 'revenue', 'quarterly', 'annual', 'results'],
+            'management_change': ['ceo', 'chairman', 'executive', 'director', 'appointment', 'resignation'],
+            'regulatory_news': ['apra', 'asic', 'rba', 'regulation', 'compliance', 'audit'],
+            'merger_acquisition': ['merger', 'acquisition', 'takeover', 'bid', 'combine'],
+            'scandal_investigation': ['investigation', 'scandal', 'misconduct', 'fraud', 'inquiry'],
+            'rating_change': ['rating', 'upgrade', 'downgrade', 'outlook', 'moody', 'fitch', 's&p'],
+            'capital_raising': ['capital raising', 'share issue', 'equity', 'funding', 'placement'],
+            'branch_closure': ['branch closure', 'closing branches', 'shut down', 'consolidation'],
+            'product_launch': ['launch', 'new product', 'service', 'offering', 'introduce'],
+            'partnership_deal': ['partnership', 'deal', 'alliance', 'agreement', 'collaborate'],
+            'legal_action': ['lawsuit', 'legal action', 'court', 'litigation', 'settlement']
         }
         
-        for news in news_items:
-            text = f"{news['title']} {news.get('summary', '')}".lower()
+        for article in news_articles:
+            title = article.get('title', '').lower()
+            summary = article.get('summary', '').lower()
+            text = f"{title} {summary}"
             
-            for event_type, patterns in event_patterns.items():
-                # Check keywords
-                keyword_match = any(keyword.lower() in text for keyword in patterns['keywords'])
-                
-                # Check regex patterns
-                regex_match = False
-                if 'regex' in patterns:
-                    for pattern in patterns['regex']:
-                        if re.search(pattern, text, re.IGNORECASE):
-                            regex_match = True
-                            break
-                
-                if keyword_match or regex_match:
+            for event_type, keywords in event_keywords.items():
+                if any(keyword in text for keyword in keywords):
                     events[event_type] = True
                     
-                    # Extract relevant details
-                    event_details = {
+                    # Determine sentiment impact
+                    sentiment_impact = 0.0
+                    if event_type in ['dividend_announcement', 'earnings_report', 'product_launch', 'partnership_deal']:
+                        sentiment_impact = 0.1  # Generally positive
+                    elif event_type in ['rating_change']:
+                        if any(word in text for word in ['upgrade', 'positive', 'improve']):
+                            sentiment_impact = 0.15
+                        elif any(word in text for word in ['downgrade', 'negative', 'lower']):
+                            sentiment_impact = -0.15
+                    elif event_type in ['scandal_investigation', 'legal_action']:
+                        sentiment_impact = -0.2  # Generally negative
+                    elif event_type in ['management_change']:
+                        if any(word in text for word in ['new', 'appointed', 'joins']):
+                            sentiment_impact = 0.05
+                        else:
+                            sentiment_impact = -0.05
+                    
+                    events['events_detected'].append({
                         'type': event_type,
-                        'headline': news['title'],
-                        'date': news.get('published', ''),
-                        'source': news.get('source', ''),
-                        'relevance': news.get('relevance', 'medium'),
-                        'sentiment_impact': self._calculate_event_sentiment_impact(event_type, text)
-                    }
-                    
-                    # Try to extract specific values (amounts, percentages, etc.)
-                    extracted_values = self._extract_event_values(text, event_type)
-                    if extracted_values:
-                        event_details['extracted_values'] = extracted_values
-                    
-                    events['events_detected'].append(event_details)
+                        'headline': article.get('title', ''),
+                        'date': article.get('published', datetime.now().isoformat()),
+                        'source': article.get('source', 'Unknown'),
+                        'relevance': article.get('relevance', 'medium'),
+                        'sentiment_impact': sentiment_impact
+                    })
         
         return events
-    
-    def _calculate_event_sentiment_impact(self, event_type: str, text: str) -> float:
-        """Calculate the expected sentiment impact of an event"""
-        
-        # Base sentiment impact by event type
-        base_impacts = {
-            'dividend_announcement': 0.3,
-            'earnings_report': 0.0,  # Depends on results
-            'management_change': -0.1,
-            'regulatory_news': -0.4,
-            'merger_acquisition': 0.2,
-            'scandal_investigation': -0.6,
-            'rating_change': 0.0,  # Depends on direction
-            'capital_raising': -0.2,
-            'branch_closure': -0.1,
-            'product_launch': 0.1,
-            'partnership_deal': 0.1,
-            'legal_action': -0.3
-        }
-        
-        base_impact = base_impacts.get(event_type, 0)
-        
-        # Adjust based on context
-        if event_type == 'earnings_report':
-            if any(word in text for word in ['beat', 'exceed', 'strong', 'record']):
-                base_impact = 0.4
-            elif any(word in text for word in ['miss', 'below', 'weak', 'disappoint']):
-                base_impact = -0.4
-        
-        elif event_type == 'rating_change':
-            if any(word in text for word in ['upgrade', 'positive', 'improve']):
-                base_impact = 0.3
-            elif any(word in text for word in ['downgrade', 'negative', 'lower']):
-                base_impact = -0.3
-        
-        elif event_type == 'dividend_announcement':
-            if any(word in text for word in ['increase', 'raise', 'higher']):
-                base_impact = 0.4
-            elif any(word in text for word in ['cut', 'reduce', 'suspend']):
-                base_impact = -0.4
-        
-        return base_impact
-    
-    def _extract_event_values(self, text: str, event_type: str) -> Dict:
-        """Extract specific values from event text (amounts, percentages, etc.)"""
-        
-        extracted = {}
-        
-        # Extract dollar amounts
-        dollar_pattern = r'\$[\d,]+(?:\.\d{1,2})?(?:\s*(?:million|billion|m|b|mn|bn))?'
-        dollar_matches = re.findall(dollar_pattern, text, re.IGNORECASE)
-        if dollar_matches:
-            extracted['amounts'] = dollar_matches
-        
-        # Extract percentages
-        percentage_pattern = r'\d+(?:\.\d+)?%'
-        percentage_matches = re.findall(percentage_pattern, text)
-        if percentage_matches:
-            extracted['percentages'] = percentage_matches
-        
-        # Extract numbers (for branch closures, etc.)
-        if event_type == 'branch_closure':
-            number_pattern = r'\d+(?:\s*(?:branches?|locations?))'
-            number_matches = re.findall(number_pattern, text, re.IGNORECASE)
-            if number_matches:
-                extracted['branch_numbers'] = number_matches
-        
-        # Extract dates
-        date_pattern = r'(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}'
-        date_matches = re.findall(date_pattern, text, re.IGNORECASE)
-        if date_matches:
-            extracted['dates'] = date_matches
-        
-        return extracted
-    
-    def _calculate_overall_sentiment(self, news_sentiment: Dict, 
-                                   reddit_sentiment: Dict, events: Dict) -> float:
-        """Calculate overall sentiment score (-1 to 1) - DEPRECATED: Use _calculate_overall_sentiment_improved"""
-        
-        # This method is kept for backward compatibility
-        # It now calls the improved version and returns just the score
-        market_context = self._get_market_context()
-        result = self._calculate_overall_sentiment_improved(
-            news_sentiment, reddit_sentiment, events, market_context
-        )
-        return result['score']
-    
-    def get_market_sentiment(self) -> Dict:
-        """Get overall market sentiment"""
-        
-        try:
-            # Analyze general market news
-            market_news = self._fetch_market_news()
-            
-            # RBA sentiment
-            rba_sentiment = self._analyze_rba_sentiment()
-            
-            # Economic indicators sentiment
-            economic_sentiment = self._analyze_economic_sentiment()
-            
-            # Calculate overall market sentiment
-            sentiments = []
-            
-            if market_news:
-                sentiments.append(market_news['sentiment'])
-            if rba_sentiment:
-                sentiments.append(rba_sentiment['sentiment'])
-            if economic_sentiment:
-                sentiments.append(economic_sentiment['sentiment'])
-            
-            overall_market_sentiment = sum(sentiments) / len(sentiments) if sentiments else 0
-            
-            return {
-                'overall_sentiment': overall_market_sentiment,
-                'market_news': market_news,
-                'rba_sentiment': rba_sentiment,
-                'economic_sentiment': economic_sentiment,
-                'sentiment_description': self._describe_sentiment(overall_market_sentiment)
-            }
-            
-        except Exception as e:
-            logger.error(f"Error getting market sentiment: {str(e)}")
-            return {
-                'overall_sentiment': 0,
-                'sentiment_description': 'neutral'
-            }
-    
-    def _fetch_market_news(self) -> Dict:
-        """Fetch general market news"""
-        
-        try:
-            # Use ASX market news RSS or scraping
-            market_keywords = ['ASX', 'Australian market', 'All Ordinaries', 'ASX 200']
-            
-            # This would fetch and analyze market news
-            # For now, return placeholder
-            return {
-                'sentiment': 0,
-                'headlines': []
-            }
-            
-        except Exception as e:
-            logger.warning(f"Error fetching market news: {str(e)}")
-            return None
-    
-    def _analyze_rba_sentiment(self) -> Dict:
-        """Analyze RBA (Reserve Bank of Australia) sentiment"""
-        
-        try:
-            # Check RBA RSS feed for recent announcements
-            rba_feed = feedparser.parse(self.settings.NEWS_SOURCES['rss_feeds']['rba'])
-            
-            if rba_feed.entries:
-                latest_entry = rba_feed.entries[0]
-                title = latest_entry.get('title', '').lower()
-                summary = latest_entry.get('summary', '').lower()
-                
-                # Simple keyword analysis for RBA stance
-                hawkish_keywords = ['raise', 'increase', 'inflation', 'tighten', 'hike']
-                dovish_keywords = ['cut', 'reduce', 'stimulus', 'accommodate', 'pause']
-                
-                hawkish_count = sum(1 for k in hawkish_keywords if k in title or k in summary)
-                dovish_count = sum(1 for k in dovish_keywords if k in title or k in summary)
-                
-                if hawkish_count > dovish_count:
-                    sentiment = -0.3  # Negative for banks (higher rates = lower margins)
-                elif dovish_count > hawkish_count:
-                    sentiment = 0.3   # Positive for banks
-                else:
-                    sentiment = 0
-                
-                return {
-                    'sentiment': sentiment,
-                    'stance': 'hawkish' if hawkish_count > dovish_count else 'dovish' if dovish_count > hawkish_count else 'neutral',
-                    'latest_announcement': latest_entry.get('title', '')
-                }
-            
-        except Exception as e:
-            logger.warning(f"Error analyzing RBA sentiment: {str(e)}")
-        
-        return None
-    
-    def _analyze_economic_sentiment(self) -> Dict:
-        """Analyze economic indicators sentiment"""
-        
-        # This would analyze recent economic data releases
-        # For now, return neutral
-        return {
-            'sentiment': 0,
-            'indicators': {}
-        }
-    
-    def _describe_sentiment(self, score: float) -> str:
-        """Convert sentiment score to description"""
-        
-        if score > 0.5:
-            return 'very_positive'
-        elif score > 0.2:
-            return 'positive'
-        elif score > -0.2:
-            return 'neutral'
-        elif score > -0.5:
-            return 'negative'
-        else:
-            return 'very_negative'
-    
-    def _default_sentiment(self) -> Dict:
-        """Return default sentiment when analysis fails"""
-        
-        return {
-            'symbol': '',
-            'timestamp': datetime.now().isoformat(),
-            'news_count': 0,
-            'sentiment_scores': {
-                'average_sentiment': 0,
-                'positive_count': 0,
-                'negative_count': 0,
-                'neutral_count': 0
-            },
-            'overall_sentiment': 0,
-            'recent_headlines': [],
-            'error': 'Sentiment analysis temporarily unavailable'
-        }
-    
-    def get_overnight_news(self) -> List[Dict]:
-        """Get overnight news for morning analysis"""
-        
-        overnight_news = []
-        
-        # Calculate overnight period (last 12 hours)
-        overnight_start = datetime.now() - timedelta(hours=12)
-        
-        # Fetch news from all sources
-        for symbol in self.settings.BANK_SYMBOLS:
-            news = self._fetch_rss_news(symbol)
-            
-            # Filter for overnight news
-            for item in news:
-                try:
-                    pub_date = datetime.fromisoformat(item['published'].replace('Z', '+00:00'))
-                    if pub_date > overnight_start:
-                        overnight_news.append(item)
-                except:
-                    continue
-        
-        # Sort by date
-        overnight_news.sort(key=lambda x: x['published'], reverse=True)
-        
-        return overnight_news[:10]  # Top 10 overnight news items
-    
-    def _extract_ml_trading_features(self, news_items: List[Dict], market_data: Optional[pd.DataFrame] = None) -> Dict:
-        """Extract advanced ML trading features from news items"""
-        
-        if not self.feature_engineer:
-            return {'features': None, 'feature_names': None}
-        
-        try:
-            # Extract text from news items
-            texts = []
-            for news in news_items:
-                text = f"{news['title']} {news.get('summary', '')}"
-                texts.append(text)
-            
-            if not texts:
-                return {'features': None, 'feature_names': None}
-            
-            # Use the FeatureEngineer to extract advanced features
-            feature_matrix, feature_names = self.feature_engineer.create_trading_features(
-                texts, market_data
-            )
-            
-            # Calculate aggregated features across all news items
-            aggregated_features = self._aggregate_news_features(feature_matrix, feature_names)
-            
-            return {
-                'features': feature_matrix,
-                'feature_names': feature_names,
-                'aggregated_features': aggregated_features,
-                'news_count': len(texts)
-            }
-            
-        except Exception as e:
-            logger.error(f"Error extracting ML trading features: {e}")
-            return {'features': None, 'feature_names': None}
-    
-    def _aggregate_news_features(self, feature_matrix, feature_names: List[str]) -> Dict:
-        """Aggregate features across multiple news items for overall sentiment"""
-        
-        import numpy as np
-        
-        if feature_matrix is None or len(feature_matrix) == 0:
-            return {}
-        
-        aggregated = {}
-        
-        for i, feature_name in enumerate(feature_names):
-            feature_values = feature_matrix[:, i]
-            
-            # Calculate various aggregations
-            aggregated[f'{feature_name}_mean'] = np.mean(feature_values)
-            aggregated[f'{feature_name}_max'] = np.max(feature_values)
-            aggregated[f'{feature_name}_min'] = np.min(feature_values)
-            aggregated[f'{feature_name}_std'] = np.std(feature_values)
-            aggregated[f'{feature_name}_sum'] = np.sum(feature_values)
-        
-        # Add some meta-features
-        aggregated['feature_diversity'] = np.mean(np.std(feature_matrix, axis=0))
-        aggregated['feature_intensity'] = np.mean(np.abs(feature_matrix))
-        
-        return aggregated
-    
-    def _calculate_ml_trading_score(self, news_items: List[Dict], market_data: Optional[pd.DataFrame] = None) -> Dict:
-        """Calculate ML-enhanced trading score for sentiment analysis"""
-        
-        if not self.feature_engineer:
-            return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-        
-        try:
-            # Extract ML features
-            ml_features = self._extract_ml_trading_features(news_items, market_data)
-            
-            if ml_features['features'] is None:
-                return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-            
-            # Analyze feature patterns
-            feature_analysis = self._analyze_feature_patterns(ml_features)
-            
-            # Calculate trading-specific sentiment score
-            ml_score = self._compute_ml_sentiment_score(feature_analysis)
-            
-            # Calculate confidence based on feature quality
-            confidence = self._calculate_ml_confidence(feature_analysis, len(news_items))
-            
-            return {
-                'ml_score': ml_score,
-                'confidence': confidence,
-                'feature_analysis': feature_analysis,
-                'feature_count': len(ml_features['feature_names']) if ml_features['feature_names'] else 0
-            }
-            
-        except Exception as e:
-            logger.error(f"Error calculating ML trading score: {e}")
-            return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-    
-    def _analyze_feature_patterns(self, ml_features: Dict) -> Dict:
-        """Analyze patterns in ML features for trading signals"""
-        
-        analysis = {}
-        
-        if not ml_features.get('aggregated_features'):
-            return analysis
-        
-        features = ml_features['aggregated_features']
-        
-        # Analyze bullish/bearish signals
-        bullish_signals = features.get('bullish_score_sum', 0)
-        bearish_signals = features.get('bearish_score_sum', 0)
-        
-        analysis['bull_bear_ratio'] = bullish_signals / (bearish_signals + 1e-8)
-        analysis['sentiment_intensity'] = bullish_signals + bearish_signals
-        
-        # Analyze confidence indicators
-        confidence_high = features.get('confidence_high_sum', 0)
-        confidence_low = features.get('confidence_low_sum', 0)
-        
-        analysis['confidence_ratio'] = confidence_high / (confidence_low + 1e-8)
-        
-        # Analyze financial metrics mentions
-        financial_mentions = sum(features.get(f'metric_{metric}_sum', 0) 
-                               for metric in ['revenue', 'profit', 'earnings', 'growth'])
-        
-        analysis['financial_focus'] = financial_mentions / ml_features.get('news_count', 1)
-        
-        # Analyze urgency and timing
-        analysis['urgency_score'] = features.get('urgency_score_mean', 0)
-        analysis['temporal_relevance'] = sum(features.get(f'contains_{time}_sum', 0) 
-                                           for time in ['today', 'week', 'month'])
-        
-        # Market context analysis
-        analysis['market_volatility'] = features.get('market_volatility_mean', 0)
-        analysis['market_trend'] = features.get('market_trend_mean', 0)
-        analysis['volume_spike'] = features.get('volume_spike_mean', 1.0)
-        
-        return analysis
-    
-    def _compute_ml_sentiment_score(self, feature_analysis: Dict) -> float:
-        """Compute sentiment score from ML feature analysis"""
-        
-        import numpy as np
-        
-        if not feature_analysis:
-            return 0
-        
-        # Weight different factors
-        weights = {
-            'bull_bear_ratio': 0.3,
-            'confidence_ratio': 0.2,
-            'financial_focus': 0.15,
-            'market_trend': 0.15,
-            'urgency_score': 0.1,
-            'volume_spike': 0.1
-        }
-        
-        score = 0
-        total_weight = 0
-        
-        for factor, weight in weights.items():
-            if factor in feature_analysis:
-                value = feature_analysis[factor]
-                
-                # Normalize different factors to [-1, 1] range
-                if factor == 'bull_bear_ratio':
-                    # Convert ratio to sentiment (-1 to 1)
-                    normalized = np.tanh(np.log(value + 1e-8))
-                elif factor == 'confidence_ratio':
-                    # Higher confidence ratio = more positive
-                    normalized = np.tanh(np.log(value + 1e-8)) * 0.5
-                elif factor == 'financial_focus':
-                    # More financial focus = more relevant
-                    normalized = min(value, 1.0) * 0.3
-                elif factor == 'market_trend':
-                    # Direct market trend
-                    normalized = np.clip(value, -1, 1)
-                elif factor == 'urgency_score':
-                    # Urgent news might be more impactful
-                    normalized = min(value / 5.0, 1.0) * 0.2
-                elif factor == 'volume_spike':
-                    # Volume spike indicates attention
-                    normalized = np.tanh(value - 1) * 0.2
-                else:
-                    normalized = 0
-                
-                score += normalized * weight
-                total_weight += weight
-        
-        # Normalize final score
-        if total_weight > 0:
-            score = score / total_weight
-        
-        return np.clip(score, -1, 1)
-    
-    def _calculate_ml_confidence(self, feature_analysis: Dict, news_count: int) -> float:
-        """Calculate confidence in ML analysis"""
-        
-        confidence = 0.5  # Base confidence
-        
-        # More news items = higher confidence
-        confidence += min(news_count / 20.0, 0.2)
-        
-        # Strong bull/bear signals = higher confidence
-        if 'sentiment_intensity' in feature_analysis:
-            intensity = feature_analysis['sentiment_intensity']
-            confidence += min(intensity / 10.0, 0.1)
-        
-        # Financial focus = higher confidence
-        if 'financial_focus' in feature_analysis:
-            focus = feature_analysis['financial_focus']
-            confidence += min(focus, 0.1)
-        
-        # Market context available = higher confidence
-        if 'market_volatility' in feature_analysis and feature_analysis['market_volatility'] > 0:
-            confidence += 0.05
-        
-        return min(confidence, 1.0)
-    
-    def _get_market_data_for_ml(self) -> Optional[pd.DataFrame]:
-        """Get market data for ML feature engineering"""
-        
-        try:
-            # Try to fetch basic market data for feature engineering
-            # This is a simplified version - in production you'd use real market data
-            
-            # Create a dummy DataFrame with some basic market indicators
-            # In a real implementation, this would fetch actual market data
-            import pandas as pd
-            import numpy as np
-            from datetime import datetime, timedelta
-            
-            # Generate sample market data for demonstration
-            dates = pd.date_range(end=datetime.now(), periods=30, freq='D')
-            base_price = 100
-            returns = np.random.normal(0, 0.02, 30)  # 2% daily volatility
-            prices = [base_price]
-            
-            for ret in returns[1:]:
-                prices.append(prices[-1] * (1 + ret))
-            
-            market_data = pd.DataFrame({
-                'Date': dates,
-                'Close': prices,
-                'Volume': np.random.uniform(1000000, 5000000, 30)
-            })
-            
-            return market_data
-            
-        except Exception as e:
-            logger.warning(f"Could not fetch market data for ML features: {e}")
-            return None
