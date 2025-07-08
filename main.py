@@ -119,10 +119,10 @@ class ASXBankTradingSystem:
             }
             
             # Check for alerts
-            alerts = self.alert_system.check_alert_thresholds(analysis_result)
-            if alerts:
-                for alert in alerts:
-                    self.alert_system.send_alert(alert)
+            # alerts = self.alert_system.check_alert_thresholds(analysis_result)
+            # if alerts:
+            #     for alert in alerts:
+            #         self.alert_system.send_alert(alert)
             
             return analysis_result
             

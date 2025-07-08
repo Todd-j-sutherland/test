@@ -97,10 +97,5 @@ aiofiles==23.2.1
 zopfli==0.2.3.post1
 praw==7.7.1
 scipy>=1.11.0
-
-# Transformer-based models for advanced sentiment analysis
-transformers>=4.21.0
-torch>=1.12.0
-# Alternative: tensorflow>=2.9.0 (if you prefer TensorFlow backend)
-# sentencepiece>=0.1.97  # Required for some models
-# tokenizers>=0.13.0     # Usually included with transformers
+transformers==4.36.0
+torch>=2.0.0

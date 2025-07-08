@@ -16,36 +16,14 @@ from typing import Dict, List, Optional
 import time
 import praw
 import os
-import numpy as np  # Add numpy import at the top
 
 # Transformers for advanced sentiment analysis
 try:
-    from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
-    # Try importing torch or tensorflow
-    backend_available = False
-    try:
-        import torch
-        backend_available = True
-        BACKEND_TYPE = "torch"
-    except ImportError:
-        try:
-            import tensorflow as tf
-            backend_available = True
-            BACKEND_TYPE = "tensorflow"
-        except ImportError:
-            pass
-    
-    TRANSFORMERS_AVAILABLE = backend_available
-    if not backend_available:
-        logging.warning("Neither PyTorch nor TensorFlow available. Transformers will not work.")
-        logging.warning("For Python 3.13: Consider using Python 3.11 or 3.12 for full transformer support.")
+    from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
+    TRANSFORMERS_AVAILABLE = True
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
-    BACKEND_TYPE = "none"
-    logging.warning("Transformers not available. Install with: pip install transformers torch")
-
-import yfinance as yf
-import pandas as pd
+    logging.warning("Transformers not available. Falling back to TextBlob and VADER.")
 
 # Import settings
 import sys
@@ -55,14 +33,6 @@ from config.settings import Settings
 from utils.cache_manager import CacheManager
 from src.sentiment_history import SentimentHistoryManager
 from src.news_impact_analyzer import NewsImpactAnalyzer
-
-# Import ML trading components for enhanced analysis
-try:
-    from src.ml_trading_config import FeatureEngineer, TradingModelOptimizer
-    ML_TRADING_AVAILABLE = True
-except ImportError:
-    ML_TRADING_AVAILABLE = False
-    logging.warning("ML trading components not available")
 
 logger = logging.getLogger(__name__)
 
@@ -80,15 +50,19 @@ class NewsSentimentAnalyzer:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
         
-        # Initialize Transformers models for advanced sentiment analysis
-        self.transformer_models = {}
+        # Initialize transformers-based sentiment analysis
+        self.transformer_classifier = None
         if TRANSFORMERS_AVAILABLE:
             try:
-                # Initialize multiple models for different aspects
-                self._initialize_transformer_models()
+                # For now, let's use a simpler model that doesn't require PyTorch/TensorFlow
+                # We'll use VADER and TextBlob as primary, but enhance the logic
+                logger.info("Transformers library available - using enhanced sentiment analysis")
+                self.use_enhanced_sentiment = True
             except Exception as e:
-                logger.warning(f"Failed to initialize Transformers models: {e}")
-                self.transformer_models = {}
+                logger.warning(f"Enhanced sentiment analysis setup failed: {e}")
+                self.use_enhanced_sentiment = False
+        else:
+            self.use_enhanced_sentiment = False
         
         # Initialize Reddit client (read-only)
         self.reddit = None
@@ -123,149 +97,6 @@ class NewsSentimentAnalyzer:
             'investing',
             'stocks'
         ]
-        
-        # Initialize ML Trading components for enhanced analysis
-        self.feature_engineer = None
-        self.ml_models = {}
-        self.trading_features_cache = {}
-        
-        if ML_TRADING_AVAILABLE:
-            try:
-                self.feature_engineer = FeatureEngineer()
-                logger.info("✅ ML Trading feature engineer initialized")
-                
-                # Initialize basic models for sentiment scoring
-                self._initialize_ml_trading_models()
-                
-            except Exception as e:
-                logger.warning(f"Failed to initialize ML trading components: {e}")
-                self.feature_engineer = None
-    
-    def _initialize_transformer_models(self):
-        """Initialize various transformer models for sentiment analysis"""
-        
-        if not TRANSFORMERS_AVAILABLE:
-            logger.warning("Transformers backend not available. Skipping transformer model initialization.")
-            logger.info("For Python 3.13 users: Consider using Python 3.11 or 3.12 for full transformer support.")
-            return
-        
-        try:
-            logger.info(f"Initializing transformer models with {BACKEND_TYPE} backend...")
-            
-            # Start with a simple model to test if transformers work
-            logger.info("Testing transformer functionality with basic model...")
-            test_model = pipeline(
-                "sentiment-analysis",
-                model="distilbert-base-uncased-finetuned-sst-2-english",
-                return_all_scores=True
-            )
-            
-            # Test the model
-            test_result = test_model("This is a test sentence.")
-            logger.info("✅ Basic transformer model working!")
-            
-            # Store the working basic model
-            self.transformer_models['basic'] = test_model
-            
-            # Try to load more advanced models
-            try:
-                # 1. General Financial Sentiment - FinBERT
-                logger.info("Loading FinBERT for financial sentiment analysis...")
-                self.transformer_models['financial'] = pipeline(
-                    "sentiment-analysis",
-                    model="ProsusAI/finbert",
-                    tokenizer="ProsusAI/finbert",
-                    return_all_scores=True
-                )
-                logger.info("✅ FinBERT loaded successfully!")
-                
-            except Exception as e:
-                logger.warning(f"Could not load FinBERT: {e}")
-            
-            try:
-                # 2. General Sentiment - RoBERTa optimized for social media
-                logger.info("Loading RoBERTa for general sentiment analysis...")
-                self.transformer_models['general'] = pipeline(
-                    "sentiment-analysis",
-                    model="cardiffnlp/twitter-roberta-base-sentiment-latest",
-                    tokenizer="cardiffnlp/twitter-roberta-base-sentiment-latest",
-                    return_all_scores=True
-                )
-                logger.info("✅ RoBERTa loaded successfully!")
-                
-            except Exception as e:
-                logger.warning(f"Could not load RoBERTa: {e}")
-            
-            try:
-                # 3. Emotion Detection - for nuanced analysis
-                logger.info("Loading emotion detection model...")
-                self.transformer_models['emotion'] = pipeline(
-                    "text-classification",
-                    model="j-hartmann/emotion-english-distilroberta-base",
-                    tokenizer="j-hartmann/emotion-english-distilroberta-base",
-                    return_all_scores=True
-                )
-                logger.info("✅ Emotion detection model loaded successfully!")
-                
-            except Exception as e:
-                logger.warning(f"Could not load emotion detection model: {e}")
-            
-            try:
-                # 4. News Classification - for identifying financial news types
-                logger.info("Loading news classification model...")
-                self.transformer_models['news_type'] = pipeline(
-                    "zero-shot-classification",
-                    model="facebook/bart-large-mnli"
-                )
-                logger.info("✅ News classification model loaded successfully!")
-                
-            except Exception as e:
-                logger.warning(f"Could not load news classification model: {e}")
-            
-            logger.info(f"Transformer model initialization complete! Loaded {len(self.transformer_models)} models.")
-            
-        except Exception as e:
-            logger.error(f"Error initializing transformer models: {e}")
-            logger.warning("Falling back to traditional sentiment analysis methods only.")
-            logger.info("For Python 3.13 users: Consider using Python 3.11 or 3.12 for full transformer support.")
-            self.transformer_models = {}
-    
-    def _initialize_ml_trading_models(self):
-        """Initialize ML models optimized for trading sentiment analysis"""
-        
-        try:
-            from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
-            from sklearn.linear_model import LogisticRegression
-            import numpy as np
-            
-            logger.info("Initializing ML trading models...")
-            
-            # Initialize basic models that can be trained on news data
-            self.ml_models = {
-                'random_forest': RandomForestClassifier(
-                    n_estimators=100,
-                    max_depth=10,
-                    random_state=42,
-                    class_weight='balanced'
-                ),
-                'gradient_boosting': GradientBoostingClassifier(
-                    n_estimators=100,
-                    learning_rate=0.1,
-                    max_depth=6,
-                    random_state=42
-                ),
-                'logistic_regression': LogisticRegression(
-                    random_state=42,
-                    class_weight='balanced',
-                    max_iter=1000
-                )
-            }
-            
-            logger.info(f"✅ Initialized {len(self.ml_models)} ML trading models")
-            
-        except Exception as e:
-            logger.error(f"Error initializing ML trading models: {e}")
-            self.ml_models = {}
     
     def analyze_bank_sentiment(self, symbol: str) -> Dict:
         """Analyze sentiment for a specific bank"""
@@ -309,8 +140,7 @@ class NewsSentimentAnalyzer:
                 sentiment_analysis,
                 reddit_sentiment,
                 event_analysis,
-                market_context,
-                all_news  # Pass all_news to the improved calculation
+                market_context
             )
             
             result = {
@@ -351,79 +181,32 @@ class NewsSentimentAnalyzer:
     def _calculate_overall_sentiment_improved(self, news_sentiment: Dict, 
                                             reddit_sentiment: Dict, 
                                             events: Dict,
-                                            market_context: Dict,
-                                            all_news: List[Dict] = None) -> Dict:
-        """Enhanced sentiment calculation with ML trading features and dynamic weighting"""
+                                            market_context: Dict) -> Dict:
+        """Enhanced sentiment calculation with dynamic weighting"""
         
-        # Base weights - now includes ML trading features
+        # Base weights
         weights = {
-            'news': 0.35,           # Reduced to make room for ML features
+            'news': 0.4,
             'reddit': 0.15,
-            'events': 0.2,          # Reduced slightly
+            'events': 0.25,
             'volume': 0.1,
-            'momentum': 0.1,
-            'ml_trading': 0.1       # New ML trading component
+            'momentum': 0.1
         }
         
         # Adjust weights based on data quality
         news_count = news_sentiment.get('news_count', 0) if isinstance(news_sentiment, dict) else 0
         reddit_posts = reddit_sentiment.get('posts_analyzed', 0)
         
-        # Check if transformers are being used and their confidence
-        transformer_confidence = 0
-        if isinstance(news_sentiment, dict) and 'method_breakdown' in news_sentiment:
-            method_breakdown = news_sentiment['method_breakdown']
-            transformer_confidence = method_breakdown.get('transformer', {}).get('confidence', 0)
-        
-        # Calculate ML trading features and score
-        ml_trading_result = {'ml_score': 0, 'confidence': 0}
-        if all_news and self.feature_engineer:
-            try:
-                # Fetch market data for ML features (optional)
-                market_data = self._get_market_data_for_ml()
-                ml_trading_result = self._calculate_ml_trading_score(all_news, market_data)
-                logger.info(f"ML Trading Score: {ml_trading_result['ml_score']:.3f}, Confidence: {ml_trading_result['confidence']:.3f}")
-            except Exception as e:
-                logger.warning(f"ML trading score calculation failed: {e}")
-        
-        ml_score = ml_trading_result['ml_score']
-        ml_confidence = ml_trading_result['confidence']
-        
-        # Boost news weight if transformers are working well
-        if transformer_confidence > 0.8:
-            weights['news'] += 0.05  # High confidence transformer boosts news reliability
-        elif transformer_confidence > 0.6:
-            weights['news'] += 0.03  # Medium confidence
-        
-        # Boost ML trading weight if ML confidence is high
-        if ml_confidence > 0.8:
-            weights['ml_trading'] += 0.05
-            weights['news'] -= 0.02  # Slight reduction to maintain balance
-            weights['events'] -= 0.03
-        elif ml_confidence > 0.6:
-            weights['ml_trading'] += 0.03
-            weights['news'] -= 0.01
-            weights['events'] -= 0.02
-        
         # Dynamic weight adjustment based on data availability
         if news_count < 5:
             weights['news'] *= 0.5
-            weights['reddit'] += weights['news'] * 0.2  # Transfer some weight to reddit
-            weights['events'] += weights['news'] * 0.15
-            weights['ml_trading'] += weights['news'] * 0.15  # Transfer some to ML trading
+            weights['reddit'] += weights['news'] * 0.3  # Transfer some weight to reddit
+            weights['events'] += weights['news'] * 0.2
         
         if reddit_posts < 3:
             weights['reddit'] *= 0.3
-            weights['news'] += weights['reddit'] * 0.4  # Transfer weight back to news
-            weights['events'] += weights['reddit'] * 0.15
-            weights['ml_trading'] += weights['reddit'] * 0.15
-        
-        # Reduce ML trading weight if ML features are unavailable
-        if not self.feature_engineer or ml_confidence < 0.3:
-            transferred_weight = weights['ml_trading']
-            weights['ml_trading'] = 0
-            weights['news'] += transferred_weight * 0.6
-            weights['events'] += transferred_weight * 0.4
+            weights['news'] += weights['reddit'] * 0.5  # Transfer weight back to news
+            weights['events'] += weights['reddit'] * 0.2
         
         # Calculate component scores
         news_score = news_sentiment.get('average_sentiment', 0) if isinstance(news_sentiment, dict) else 0
@@ -448,22 +231,15 @@ class NewsSentimentAnalyzer:
             reddit_score * normalized_weights['reddit'] +
             events_score * normalized_weights['events'] +
             volume_sentiment * normalized_weights['volume'] +
-            momentum_score * normalized_weights['momentum'] +
-            ml_score * normalized_weights['ml_trading']
+            momentum_score * normalized_weights['momentum']
         )
         
         # Apply market context modifier
         market_modifier = market_context.get('volatility_factor', 1.0)
         overall *= market_modifier
         
-        # Calculate confidence factor based on data quality including transformer and ML confidence
-        confidence = self._calculate_confidence_factor(
-            news_count, 
-            reddit_posts, 
-            len(events.get('events_detected', [])),
-            transformer_confidence,
-            ml_confidence  # Add ML confidence to overall confidence calculation
-        )
+        # Calculate confidence factor based on data quality
+        confidence = self._calculate_confidence_factor(news_count, reddit_posts, len(events.get('events_detected', [])))
         
         # Apply confidence adjustment (less aggressive than full multiplication)
         confidence_adjusted = overall * (0.7 + 0.3 * confidence)
@@ -475,15 +251,11 @@ class NewsSentimentAnalyzer:
                 'reddit': reddit_score * normalized_weights['reddit'],
                 'events': events_score * normalized_weights['events'],
                 'volume': volume_sentiment * normalized_weights['volume'],
-                'momentum': momentum_score * normalized_weights['momentum'],
-                'ml_trading': ml_score * normalized_weights['ml_trading']
+                'momentum': momentum_score * normalized_weights['momentum']
             },
             'weights': normalized_weights,
             'confidence': confidence,
-            'market_modifier': market_modifier,
-            'ml_trading_details': ml_trading_result.get('feature_analysis', {}),
-            'transformer_confidence': transformer_confidence,
-            'ml_confidence': ml_confidence
+            'market_modifier': market_modifier
         }
     
     def _calculate_event_impact_score(self, events: Dict) -> float:
@@ -598,18 +370,17 @@ class NewsSentimentAnalyzer:
             logger.warning(f"Error calculating sentiment momentum: {e}")
             return 0
     
-    def _calculate_confidence_factor(self, news_count: int, reddit_posts: int, event_count: int, 
-                                   transformer_confidence: float = 0, ml_confidence: float = 0) -> float:
-        """Calculate confidence in the sentiment analysis including transformer and ML performance"""
+    def _calculate_confidence_factor(self, news_count: int, reddit_posts: int, event_count: int) -> float:
+        """Calculate confidence in the sentiment analysis"""
         
         # Base confidence
         confidence = 0.5
         
-        # News contribution (up to 0.25 to make room for transformer boost)
+        # News contribution (up to 0.3)
         if news_count >= 10:
-            confidence += 0.25
+            confidence += 0.3
         elif news_count >= 5:
-            confidence += 0.18
+            confidence += 0.2
         elif news_count >= 2:
             confidence += 0.1
         
@@ -626,34 +397,6 @@ class NewsSentimentAnalyzer:
             confidence += 0.05
         elif event_count >= 1:
             confidence += 0.03
-        
-        # Transformer contribution (up to 0.12 - reduced to make room for ML)
-        if transformer_confidence > 0:
-            # High confidence transformers significantly boost overall confidence
-            if transformer_confidence > 0.9:
-                confidence += 0.12
-            elif transformer_confidence > 0.8:
-                confidence += 0.09
-            elif transformer_confidence > 0.7:
-                confidence += 0.06
-            elif transformer_confidence > 0.6:
-                confidence += 0.04
-            elif transformer_confidence > 0.5:
-                confidence += 0.02
-        
-        # ML Trading contribution (up to 0.08 - new addition)
-        if ml_confidence > 0:
-            # ML trading features boost confidence
-            if ml_confidence > 0.9:
-                confidence += 0.08
-            elif ml_confidence > 0.8:
-                confidence += 0.06
-            elif ml_confidence > 0.7:
-                confidence += 0.04
-            elif ml_confidence > 0.6:
-                confidence += 0.03
-            elif ml_confidence > 0.5:
-                confidence += 0.01
         
         return min(1.0, confidence)
     
@@ -932,7 +675,7 @@ class NewsSentimentAnalyzer:
             }
     
     def _analyze_news_sentiment(self, news_items: List[Dict]) -> Dict:
-        """Analyze sentiment of news articles using multiple methods including transformers"""
+        """Analyze sentiment of news articles using enhanced multi-method approach"""
         
         if not news_items:
             return {
@@ -942,76 +685,41 @@ class NewsSentimentAnalyzer:
                 'neutral_count': 0,
                 'sentiment_distribution': {},
                 'news_count': 0,
-                'method_breakdown': {}
+                'analysis_method': 'none'
             }
         
         sentiments = []
         positive_count = 0
         negative_count = 0
         neutral_count = 0
-        method_results = {
-            'traditional': [],
-            'transformer': [],
-            'composite': []
-        }
+        analysis_method = "enhanced" if self.use_enhanced_sentiment else "basic"
         
         for news in news_items:
             # Combine title and summary for analysis
             text = f"{news['title']} {news.get('summary', '')}"
             
-            # Method 1: Traditional approach (TextBlob + VADER)
-            traditional_sentiment = self._analyze_traditional_sentiment(text)
-            method_results['traditional'].append(traditional_sentiment)
-            
-            # Method 2: Transformer approach (if available)
-            transformer_sentiment = 0
-            transformer_confidence = 0
-            transformer_details = {}
-            
-            if self.transformer_models:
-                transformer_result = self._analyze_with_transformers(text)
-                if 'composite' in transformer_result:
-                    transformer_sentiment = transformer_result['composite']['score']
-                    transformer_confidence = transformer_result['composite']['confidence']
-                    transformer_details = transformer_result
-                method_results['transformer'].append(transformer_sentiment)
+            # Use enhanced sentiment analysis if available
+            if self.use_enhanced_sentiment:
+                sentiment_score = self._enhanced_sentiment_analysis(text)
             else:
-                method_results['transformer'].append(0)
+                sentiment_score = self._fallback_sentiment_analysis(text)
             
-            # Method 3: Composite approach (weighted combination)
-            composite_sentiment = self._calculate_composite_sentiment(
-                traditional_sentiment, 
-                transformer_sentiment, 
-                transformer_confidence,
-                news['relevance']
-            )
-            method_results['composite'].append(composite_sentiment)
+            # Weight by relevance
+            relevance_weight = 1.0 if news['relevance'] == 'high' else 0.7
+            weighted_sentiment = sentiment_score * relevance_weight
             
-            # Store the composite sentiment for this news item
-            sentiments.append(composite_sentiment)
+            sentiments.append(weighted_sentiment)
             
-            # Store additional analysis details
-            news['sentiment_analysis'] = {
-                'traditional': traditional_sentiment,
-                'transformer': transformer_sentiment,
-                'transformer_confidence': transformer_confidence,
-                'transformer_details': transformer_details,
-                'composite': composite_sentiment
-            }
-            
-            # Categorize based on composite sentiment
-            if composite_sentiment > 0.1:
+            # Categorize
+            if weighted_sentiment > 0.1:
                 positive_count += 1
-            elif composite_sentiment < -0.1:
+            elif weighted_sentiment < -0.1:
                 negative_count += 1
             else:
                 neutral_count += 1
         
         # Calculate average sentiment
         avg_sentiment = sum(sentiments) / len(sentiments) if sentiments else 0
-        
-        # Calculate method performance comparison
-        method_breakdown = self._analyze_method_performance(method_results)
         
         return {
             'average_sentiment': avg_sentiment,
@@ -1027,12 +735,124 @@ class NewsSentimentAnalyzer:
             },
             'strongest_sentiment': max(sentiments, key=abs) if sentiments else 0,
             'news_count': len(news_items),
-            'method_breakdown': method_breakdown,
-            'transformer_available': bool(self.transformer_models)
+            'analysis_method': analysis_method
         }
     
-    def _analyze_traditional_sentiment(self, text: str) -> float:
-        """Analyze sentiment using traditional methods (TextBlob + VADER)"""
+    def _enhanced_sentiment_analysis(self, text: str) -> float:
+        """Enhanced sentiment analysis using multiple methods and financial keywords"""
+        
+        # Basic sentiment from TextBlob and VADER
+        basic_sentiment = self._fallback_sentiment_analysis(text)
+        
+        # Financial sentiment keywords analysis
+        financial_sentiment = self._analyze_financial_keywords(text)
+        
+        # Combine the methods with weights
+        # 60% basic sentiment, 40% financial keyword sentiment
+        enhanced_sentiment = (basic_sentiment * 0.6) + (financial_sentiment * 0.4)
+        
+        return enhanced_sentiment
+    
+    def _analyze_financial_keywords(self, text: str) -> float:
+        """Analyze financial-specific keywords for sentiment"""
+        
+        text_lower = text.lower()
+        
+        # Positive financial keywords
+        positive_keywords = {
+            'strong': 0.3, 'growth': 0.4, 'profit': 0.5, 'revenue': 0.3, 'beat': 0.6,
+            'exceed': 0.5, 'outperform': 0.6, 'record': 0.4, 'high': 0.2, 'surge': 0.7,
+            'boost': 0.4, 'gain': 0.4, 'rise': 0.3, 'increase': 0.3, 'upgrade': 0.6,
+            'positive': 0.4, 'bullish': 0.7, 'dividend': 0.3, 'buyback': 0.4,
+            'partnership': 0.3, 'acquisition': 0.2, 'expansion': 0.4, 'recovery': 0.5,
+            'milestone': 0.4, 'breakthrough': 0.6, 'success': 0.5, 'achievement': 0.4,
+            'resilient': 0.4, 'robust': 0.5, 'stable': 0.2, 'momentum': 0.3
+        }
+        
+        # Negative financial keywords
+        negative_keywords = {
+            'loss': -0.5, 'decline': -0.4, 'fall': -0.3, 'drop': -0.4, 'weak': -0.4,
+            'miss': -0.6, 'disappoint': -0.6, 'concern': -0.3, 'risk': -0.2, 'worry': -0.4,
+            'pressure': -0.3, 'challenge': -0.3, 'struggle': -0.5, 'difficulty': -0.4,
+            'downgrade': -0.6, 'negative': -0.4, 'bearish': -0.7, 'cut': -0.4,
+            'reduce': -0.3, 'slash': -0.5, 'suspend': -0.6, 'crisis': -0.8,
+            'scandal': -0.8, 'fraud': -0.9, 'investigation': -0.5, 'lawsuit': -0.6,
+            'penalty': -0.6, 'fine': -0.5, 'breach': -0.6, 'violation': -0.5,
+            'volatile': -0.3, 'uncertain': -0.3, 'unstable': -0.4
+        }
+        
+        # Calculate sentiment based on keyword presence and frequency
+        sentiment_score = 0.0
+        total_weight = 0.0
+        
+        # Check positive keywords
+        for keyword, weight in positive_keywords.items():
+            count = text_lower.count(keyword)
+            if count > 0:
+                # Use logarithmic scaling to prevent over-weighting of repeated keywords
+                impact = weight * (1 + 0.3 * (count - 1))  # Additional 30% for each repeat
+                sentiment_score += impact
+                total_weight += abs(weight)
+        
+        # Check negative keywords
+        for keyword, weight in negative_keywords.items():
+            count = text_lower.count(keyword)
+            if count > 0:
+                # Use logarithmic scaling
+                impact = weight * (1 + 0.3 * (count - 1))
+                sentiment_score += impact
+                total_weight += abs(weight)
+        
+        # Normalize the score
+        if total_weight > 0:
+            normalized_score = sentiment_score / total_weight
+        else:
+            normalized_score = 0.0
+        
+        # Apply context modifiers
+        normalized_score = self._apply_context_modifiers(text_lower, normalized_score)
+        
+        # Clamp to [-1, 1] range
+        return max(-1, min(1, normalized_score))
+    
+    def _apply_context_modifiers(self, text_lower: str, base_score: float) -> float:
+        """Apply context-based modifiers to sentiment score"""
+        
+        modified_score = base_score
+        
+        # Negation handling
+        negation_words = ['not', 'no', 'never', 'neither', 'none', 'nothing', 'nowhere', 
+                         'hardly', 'scarcely', 'barely', 'little', 'few', 'seldom', 'rarely']
+        
+        # Check for negations near sentiment words
+        for negation in negation_words:
+            if negation in text_lower:
+                # Reduce the magnitude of sentiment if negation is present
+                modified_score *= 0.7
+        
+        # Uncertainty modifiers
+        uncertainty_words = ['might', 'may', 'could', 'possibly', 'perhaps', 'maybe', 
+                           'uncertain', 'unclear', 'potential', 'likely', 'probable']
+        
+        uncertainty_count = sum(1 for word in uncertainty_words if word in text_lower)
+        if uncertainty_count > 0:
+            # Reduce confidence in sentiment
+            modified_score *= (1 - 0.1 * uncertainty_count)
+        
+        # Emphasis modifiers
+        emphasis_words = ['very', 'extremely', 'highly', 'significantly', 'substantially', 
+                         'dramatically', 'remarkably', 'exceptionally', 'particularly']
+        
+        emphasis_count = sum(1 for word in emphasis_words if word in text_lower)
+        if emphasis_count > 0:
+            # Amplify sentiment
+            modified_score *= (1 + 0.2 * emphasis_count)
+        
+        return modified_score
+    
+    def _fallback_sentiment_analysis(self, text: str) -> float:
+        """Fallback sentiment analysis using TextBlob and VADER"""
+        
         # TextBlob sentiment
         blob = TextBlob(text)
         polarity = blob.sentiment.polarity  # -1 to 1
@@ -1042,97 +862,9 @@ class NewsSentimentAnalyzer:
         compound = vader_scores['compound']  # -1 to 1
         
         # Average the two methods
-        return (polarity + compound) / 2
-    
-    def _calculate_composite_sentiment(self, traditional: float, transformer: float, 
-                                     transformer_confidence: float, relevance: str) -> float:
-        """Calculate composite sentiment score from multiple methods"""
+        combined_sentiment = (polarity + compound) / 2
         
-        # Base weights
-        if self.transformer_models and transformer_confidence > 0.7:
-            # High confidence transformer result gets more weight
-            traditional_weight = 0.3
-            transformer_weight = 0.7
-        elif self.transformer_models and transformer_confidence > 0.5:
-            # Medium confidence transformer result
-            traditional_weight = 0.4
-            transformer_weight = 0.6
-        elif self.transformer_models:
-            # Low confidence transformer result
-            traditional_weight = 0.6
-            transformer_weight = 0.4
-        else:
-            # No transformer available
-            traditional_weight = 1.0
-            transformer_weight = 0.0
-        
-        # Calculate weighted sentiment
-        composite = (traditional * traditional_weight + transformer * transformer_weight)
-        
-        # Apply relevance weighting
-        relevance_weight = 1.0 if relevance == 'high' else 0.8
-        
-        return composite * relevance_weight
-    
-    def _analyze_method_performance(self, method_results: Dict) -> Dict:
-        """Analyze performance comparison between different methods"""
-        
-        traditional_scores = method_results['traditional']
-        transformer_scores = method_results['transformer']
-        composite_scores = method_results['composite']
-        
-        # Calculate statistics for each method
-        def calculate_stats(scores):
-            if not scores:
-                return {'mean': 0, 'std': 0, 'positive_ratio': 0, 'negative_ratio': 0}
-            
-            mean_score = sum(scores) / len(scores)
-            variance = sum((x - mean_score) ** 2 for x in scores) / len(scores)
-            std_score = variance ** 0.5
-            
-            positive_ratio = sum(1 for s in scores if s > 0.1) / len(scores)
-            negative_ratio = sum(1 for s in scores if s < -0.1) / len(scores)
-            
-            return {
-                'mean': mean_score,
-                'std': std_score,
-                'positive_ratio': positive_ratio,
-                'negative_ratio': negative_ratio
-            }
-        
-        return {
-            'traditional': calculate_stats(traditional_scores),
-            'transformer': calculate_stats(transformer_scores),
-            'composite': calculate_stats(composite_scores),
-            'correlation': self._calculate_method_correlation(traditional_scores, transformer_scores),
-            'transformer_enabled': bool(self.transformer_models)
-        }
-    
-    def _calculate_method_correlation(self, traditional: List[float], transformer: List[float]) -> float:
-        """Calculate correlation between traditional and transformer methods"""
-        if not traditional or not transformer or len(traditional) != len(transformer):
-            return 0
-        
-        # Simple correlation calculation
-        n = len(traditional)
-        if n < 2:
-            return 0
-        
-        mean_trad = sum(traditional) / n
-        mean_trans = sum(transformer) / n
-        
-        numerator = sum((traditional[i] - mean_trad) * (transformer[i] - mean_trans) for i in range(n))
-        
-        sum_sq_trad = sum((traditional[i] - mean_trad) ** 2 for i in range(n))
-        sum_sq_trans = sum((transformer[i] - mean_trans) ** 2 for i in range(n))
-        
-        denominator = (sum_sq_trad * sum_sq_trans) ** 0.5
-        
-        if denominator == 0:
-            return 0
-        
-        return numerator / denominator
-        
+        return combined_sentiment
     
     def _check_significant_events(self, news_items: List[Dict], symbol: str) -> Dict:
         """Check for significant events in the news with enhanced pattern matching"""
@@ -1547,252 +1279,3 @@ class NewsSentimentAnalyzer:
         overnight_news.sort(key=lambda x: x['published'], reverse=True)
         
         return overnight_news[:10]  # Top 10 overnight news items
-    
-    def _extract_ml_trading_features(self, news_items: List[Dict], market_data: Optional[pd.DataFrame] = None) -> Dict:
-        """Extract advanced ML trading features from news items"""
-        
-        if not self.feature_engineer:
-            return {'features': None, 'feature_names': None}
-        
-        try:
-            # Extract text from news items
-            texts = []
-            for news in news_items:
-                text = f"{news['title']} {news.get('summary', '')}"
-                texts.append(text)
-            
-            if not texts:
-                return {'features': None, 'feature_names': None}
-            
-            # Use the FeatureEngineer to extract advanced features
-            feature_matrix, feature_names = self.feature_engineer.create_trading_features(
-                texts, market_data
-            )
-            
-            # Calculate aggregated features across all news items
-            aggregated_features = self._aggregate_news_features(feature_matrix, feature_names)
-            
-            return {
-                'features': feature_matrix,
-                'feature_names': feature_names,
-                'aggregated_features': aggregated_features,
-                'news_count': len(texts)
-            }
-            
-        except Exception as e:
-            logger.error(f"Error extracting ML trading features: {e}")
-            return {'features': None, 'feature_names': None}
-    
-    def _aggregate_news_features(self, feature_matrix, feature_names: List[str]) -> Dict:
-        """Aggregate features across multiple news items for overall sentiment"""
-        
-        import numpy as np
-        
-        if feature_matrix is None or len(feature_matrix) == 0:
-            return {}
-        
-        aggregated = {}
-        
-        for i, feature_name in enumerate(feature_names):
-            feature_values = feature_matrix[:, i]
-            
-            # Calculate various aggregations
-            aggregated[f'{feature_name}_mean'] = np.mean(feature_values)
-            aggregated[f'{feature_name}_max'] = np.max(feature_values)
-            aggregated[f'{feature_name}_min'] = np.min(feature_values)
-            aggregated[f'{feature_name}_std'] = np.std(feature_values)
-            aggregated[f'{feature_name}_sum'] = np.sum(feature_values)
-        
-        # Add some meta-features
-        aggregated['feature_diversity'] = np.mean(np.std(feature_matrix, axis=0))
-        aggregated['feature_intensity'] = np.mean(np.abs(feature_matrix))
-        
-        return aggregated
-    
-    def _calculate_ml_trading_score(self, news_items: List[Dict], market_data: Optional[pd.DataFrame] = None) -> Dict:
-        """Calculate ML-enhanced trading score for sentiment analysis"""
-        
-        if not self.feature_engineer:
-            return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-        
-        try:
-            # Extract ML features
-            ml_features = self._extract_ml_trading_features(news_items, market_data)
-            
-            if ml_features['features'] is None:
-                return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-            
-            # Analyze feature patterns
-            feature_analysis = self._analyze_feature_patterns(ml_features)
-            
-            # Calculate trading-specific sentiment score
-            ml_score = self._compute_ml_sentiment_score(feature_analysis)
-            
-            # Calculate confidence based on feature quality
-            confidence = self._calculate_ml_confidence(feature_analysis, len(news_items))
-            
-            return {
-                'ml_score': ml_score,
-                'confidence': confidence,
-                'feature_analysis': feature_analysis,
-                'feature_count': len(ml_features['feature_names']) if ml_features['feature_names'] else 0
-            }
-            
-        except Exception as e:
-            logger.error(f"Error calculating ML trading score: {e}")
-            return {'ml_score': 0, 'confidence': 0, 'feature_analysis': {}}
-    
-    def _analyze_feature_patterns(self, ml_features: Dict) -> Dict:
-        """Analyze patterns in ML features for trading signals"""
-        
-        analysis = {}
-        
-        if not ml_features.get('aggregated_features'):
-            return analysis
-        
-        features = ml_features['aggregated_features']
-        
-        # Analyze bullish/bearish signals
-        bullish_signals = features.get('bullish_score_sum', 0)
-        bearish_signals = features.get('bearish_score_sum', 0)
-        
-        analysis['bull_bear_ratio'] = bullish_signals / (bearish_signals + 1e-8)
-        analysis['sentiment_intensity'] = bullish_signals + bearish_signals
-        
-        # Analyze confidence indicators
-        confidence_high = features.get('confidence_high_sum', 0)
-        confidence_low = features.get('confidence_low_sum', 0)
-        
-        analysis['confidence_ratio'] = confidence_high / (confidence_low + 1e-8)
-        
-        # Analyze financial metrics mentions
-        financial_mentions = sum(features.get(f'metric_{metric}_sum', 0) 
-                               for metric in ['revenue', 'profit', 'earnings', 'growth'])
-        
-        analysis['financial_focus'] = financial_mentions / ml_features.get('news_count', 1)
-        
-        # Analyze urgency and timing
-        analysis['urgency_score'] = features.get('urgency_score_mean', 0)
-        analysis['temporal_relevance'] = sum(features.get(f'contains_{time}_sum', 0) 
-                                           for time in ['today', 'week', 'month'])
-        
-        # Market context analysis
-        analysis['market_volatility'] = features.get('market_volatility_mean', 0)
-        analysis['market_trend'] = features.get('market_trend_mean', 0)
-        analysis['volume_spike'] = features.get('volume_spike_mean', 1.0)
-        
-        return analysis
-    
-    def _compute_ml_sentiment_score(self, feature_analysis: Dict) -> float:
-        """Compute sentiment score from ML feature analysis"""
-        
-        import numpy as np
-        
-        if not feature_analysis:
-            return 0
-        
-        # Weight different factors
-        weights = {
-            'bull_bear_ratio': 0.3,
-            'confidence_ratio': 0.2,
-            'financial_focus': 0.15,
-            'market_trend': 0.15,
-            'urgency_score': 0.1,
-            'volume_spike': 0.1
-        }
-        
-        score = 0
-        total_weight = 0
-        
-        for factor, weight in weights.items():
-            if factor in feature_analysis:
-                value = feature_analysis[factor]
-                
-                # Normalize different factors to [-1, 1] range
-                if factor == 'bull_bear_ratio':
-                    # Convert ratio to sentiment (-1 to 1)
-                    normalized = np.tanh(np.log(value + 1e-8))
-                elif factor == 'confidence_ratio':
-                    # Higher confidence ratio = more positive
-                    normalized = np.tanh(np.log(value + 1e-8)) * 0.5
-                elif factor == 'financial_focus':
-                    # More financial focus = more relevant
-                    normalized = min(value, 1.0) * 0.3
-                elif factor == 'market_trend':
-                    # Direct market trend
-                    normalized = np.clip(value, -1, 1)
-                elif factor == 'urgency_score':
-                    # Urgent news might be more impactful
-                    normalized = min(value / 5.0, 1.0) * 0.2
-                elif factor == 'volume_spike':
-                    # Volume spike indicates attention
-                    normalized = np.tanh(value - 1) * 0.2
-                else:
-                    normalized = 0
-                
-                score += normalized * weight
-                total_weight += weight
-        
-        # Normalize final score
-        if total_weight > 0:
-            score = score / total_weight
-        
-        return np.clip(score, -1, 1)
-    
-    def _calculate_ml_confidence(self, feature_analysis: Dict, news_count: int) -> float:
-        """Calculate confidence in ML analysis"""
-        
-        confidence = 0.5  # Base confidence
-        
-        # More news items = higher confidence
-        confidence += min(news_count / 20.0, 0.2)
-        
-        # Strong bull/bear signals = higher confidence
-        if 'sentiment_intensity' in feature_analysis:
-            intensity = feature_analysis['sentiment_intensity']
-            confidence += min(intensity / 10.0, 0.1)
-        
-        # Financial focus = higher confidence
-        if 'financial_focus' in feature_analysis:
-            focus = feature_analysis['financial_focus']
-            confidence += min(focus, 0.1)
-        
-        # Market context available = higher confidence
-        if 'market_volatility' in feature_analysis and feature_analysis['market_volatility'] > 0:
-            confidence += 0.05
-        
-        return min(confidence, 1.0)
-    
-    def _get_market_data_for_ml(self) -> Optional[pd.DataFrame]:
-        """Get market data for ML feature engineering"""
-        
-        try:
-            # Try to fetch basic market data for feature engineering
-            # This is a simplified version - in production you'd use real market data
-            
-            # Create a dummy DataFrame with some basic market indicators
-            # In a real implementation, this would fetch actual market data
-            import pandas as pd
-            import numpy as np
-            from datetime import datetime, timedelta
-            
-            # Generate sample market data for demonstration
-            dates = pd.date_range(end=datetime.now(), periods=30, freq='D')
-            base_price = 100
-            returns = np.random.normal(0, 0.02, 30)  # 2% daily volatility
-            prices = [base_price]
-            
-            for ret in returns[1:]:
-                prices.append(prices[-1] * (1 + ret))
-            
-            market_data = pd.DataFrame({
-                'Date': dates,
-                'Close': prices,
-                'Volume': np.random.uniform(1000000, 5000000, 30)
-            })
-            
-            return market_data
-            
-        except Exception as e:
-            logger.warning(f"Could not fetch market data for ML features: {e}")
-            return None
