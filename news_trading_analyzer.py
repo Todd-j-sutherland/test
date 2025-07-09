@@ -270,6 +270,50 @@ class NewsTradingAnalyzer:
         
         logger.info(f"📄 Analysis exported to: {filepath}")
         return filepath
+    
+    def get_enhanced_analysis(self, symbol: str) -> dict:
+        """
+        Get enhanced analysis including detailed keyword filtering insights
+        
+        Args:
+            symbol: Bank symbol (e.g., 'CBA.AX')
+            
+        Returns:
+            Dict with comprehensive analysis including filtering insights
+        """
+        logger.info(f"🔍 Running enhanced analysis for {symbol}...")
+        
+        try:
+            # Get standard sentiment analysis
+            standard_result = self.analyze_single_bank(symbol, detailed=True)
+            
+            # Get filtering insights
+            filtering_summary = self.sentiment_analyzer.get_filtered_news_summary(symbol)
+            
+            # Combine results
+            enhanced_result = standard_result.copy()
+            enhanced_result['filtering_insights'] = filtering_summary
+            
+            # Add recommendation confidence based on filtering quality
+            filtering_efficiency = filtering_summary.get('filtering_summary', {}).get('filtering_efficiency', 0)
+            avg_relevance = filtering_summary.get('filtering_summary', {}).get('avg_relevance_score', 0)
+            
+            # Adjust confidence based on filtering quality
+            original_confidence = enhanced_result.get('confidence', 0)
+            filtering_boost = min(filtering_efficiency * avg_relevance * 0.2, 0.15)
+            enhanced_result['enhanced_confidence'] = min(original_confidence + filtering_boost, 1.0)
+            
+            return enhanced_result
+            
+        except Exception as e:
+            logger.error(f"❌ Error in enhanced analysis for {symbol}: {e}")
+            return {
+                'symbol': symbol,
+                'error': str(e),
+                'timestamp': datetime.now().isoformat()
+            }
+    
+    # ...existing code...
 
 def main():
     """Main entry point with command line interface"""
@@ -282,6 +326,10 @@ def main():
                        help='Include detailed breakdown in results')
     parser.add_argument('--export', '-e', action='store_true',
                        help='Export results to JSON file')
+    parser.add_argument('--enhanced', '-en', action='store_true',
+                       help='Use enhanced keyword filtering and analysis')
+    parser.add_argument('--filtering-test', '-ft', action='store_true',
+                       help='Test the enhanced keyword filtering system')
     parser.add_argument('--log-level', default='INFO',
                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
                        help='Set logging level')
@@ -296,9 +344,65 @@ def main():
     analyzer = NewsTradingAnalyzer()
     
     try:
-        if args.symbol:
+        if args.filtering_test:
+            # Test the enhanced filtering system
+            print("\n🧪 Testing Enhanced Keyword Filtering System")
+            print("=" * 60)
+            
+            from src.bank_keywords import BankNewsFilter
+            filter_system = BankNewsFilter()
+            
+            test_titles = [
+                "NAB announces record profit amid rising interest rates",
+                "RBA holds cash rate steady at 4.35%",
+                "Commonwealth Bank faces ASIC investigation over fees",
+                "Westpac launches new digital banking platform",
+                "Major scam warning for ANZ customers",
+                "Tech stocks surge on Wall Street overnight"  # Should not match
+            ]
+            
+            for title in test_titles:
+                result = filter_system.is_relevant_banking_news(title)
+                print(f"\nTitle: {title}")
+                print(f"Relevant: {result['is_relevant']} (Score: {result['relevance_score']:.2f})")
+                print(f"Categories: {', '.join(result['categories'])}")
+                if result['matched_keywords']:
+                    print(f"Keywords: {', '.join(result['matched_keywords'][:3])}")
+            
+            print(f"\n✅ Enhanced filtering system test complete!")
+            return
+        
+        elif args.symbol:
             # Analyze single bank
-            result = analyzer.analyze_single_bank(args.symbol, args.detailed)
+            if args.enhanced:
+                result = analyzer.get_enhanced_analysis(args.symbol)
+                
+                print(f"\n{'='*60}")
+                print(f"ENHANCED NEWS TRADING ANALYSIS: {args.symbol}")
+                print(f"{'='*60}")
+                print(f"Sentiment Score: {result.get('sentiment_score', 'N/A'):.3f}")
+                print(f"Standard Confidence: {result.get('confidence', 'N/A'):.3f}")
+                print(f"Enhanced Confidence: {result.get('enhanced_confidence', 'N/A'):.3f}")
+                print(f"Trading Signal: {result.get('signal', 'N/A')}")
+                print(f"Recommendation: {result.get('trading_recommendation', {}).get('action', 'N/A')}")
+                
+                # Show filtering insights
+                filtering = result.get('filtering_insights', {})
+                if filtering and 'filtering_summary' in filtering:
+                    fs = filtering['filtering_summary']
+                    print(f"\n📊 Filtering Performance:")
+                    print(f"  Articles Found: {fs.get('total_articles_found', 'N/A')}")
+                    print(f"  Relevant Articles: {fs.get('relevant_articles', 'N/A')}")
+                    print(f"  Filtering Efficiency: {fs.get('filtering_efficiency', 0):.1%}")
+                    print(f"  Avg Relevance Score: {fs.get('avg_relevance_score', 0):.3f}")
+                
+                if filtering and 'high_priority_articles' in filtering:
+                    print(f"\n🎯 Top Priority Articles:")
+                    for i, article in enumerate(filtering['high_priority_articles'][:3], 1):
+                        print(f"  {i}. {article['title'][:60]}...")
+                        print(f"     Priority: {article['priority_score']:.3f} | Source: {article['source']}")
+            else:
+                result = analyzer.analyze_single_bank(args.symbol, args.detailed)
             
             print(f"\n{'='*60}")
             print(f"NEWS TRADING ANALYSIS: {args.symbol}")

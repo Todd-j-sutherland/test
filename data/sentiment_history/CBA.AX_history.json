@@ -4250,5 +4250,522 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-09T07:23:46.917798",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.11518321308321308,
+      "positive_count": 6,
+      "negative_count": 0,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 5,
+        "neutral": 8,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.6312240740740741
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 28,
+      "average_sentiment": 0.06139210480797207,
+      "bullish_count": 9,
+      "bearish_count": 1,
+      "neutral_count": 18,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 345,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Not having Dominos anymore",
+          "score": 93,
+          "sentiment": -0.3,
+          "category": "bearish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lpk8p2/not_having_dominos_anymore/"
+        },
+        {
+          "title": "Did you outperform the ASX bets official Boomer portfolio?",
+          "score": 30,
+          "sentiment": -0.000347222222222221,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lpocse/did_you_outperform_the_asx_bets_official_boomer/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Can't see my 'essential super' balance on my CBA anymore. How can I track it down?",
+          "score": 3,
+          "sentiment": 0.09741161616161616,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lpkjb4/cant_see_my_essential_super_balance_on_my_cba/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 32.142857142857146,
+        "bearish": 3.571428571428571,
+        "neutral": 64.28571428571429
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.011631944444444443
+        },
+        "AusFinance": {
+          "count": 24,
+          "avg_sentiment": 0.08672471901718914
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": -0.03915043290043291
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": -0.3
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "partnership_deal",
+          "headline": "Gooooal! CommBank and Football Australia sign landmark deal to lift Australia\u2019s biggest game to new heights",
+          "date": "2025-07-09T07:23:08.603426",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CommBank expands strategic partnership with generative AI company, Anthropic",
+          "date": "2025-07-09T07:23:08.603726",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "CBA announces agreement to sell remaining shareholding in Bank of Hangzhou",
+          "date": "2025-07-09T07:23:08.603781",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.04840923765893957,
+    "sentiment_components": {
+      "news": 0.031651715814373343,
+      "reddit": 0.012446618509013515,
+      "events": 0.009098630136986302,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.7000000000000001,
+    "recent_headlines": [
+      "5 best ASX 200 financial shares of FY25 (CBA didn't make the cut!)",
+      "$1 in every $11 for CBA: Should you still buy the Vanguard Australian Shares ETF (VAS)?",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-09T18:53:36.940123",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 28,
+      "average_sentiment": 0.05773538676547816,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 17,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 345,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Not having Dominos anymore",
+          "score": 95,
+          "sentiment": -0.3,
+          "category": "bearish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lpk8p2/not_having_dominos_anymore/"
+        },
+        {
+          "title": "Did you outperform the ASX bets official Boomer portfolio?",
+          "score": 31,
+          "sentiment": -0.000347222222222221,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lpocse/did_you_outperform_the_asx_bets_official_boomer/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 13,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Home loan calculator",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqaxs9/home_loan_calculator/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 35.714285714285715,
+        "bearish": 3.571428571428571,
+        "neutral": 60.71428571428571
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.011631944444444443
+        },
+        "AusFinance": {
+          "count": 23,
+          "avg_sentiment": 0.08774589496187578
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": -0.03915043290043291
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": -0.3
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.013580737934922874,
+    "sentiment_components": {
+      "news": 0.0034687523709167533,
+      "reddit": 0.01170525649491886,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-09T19:31:15.082212",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 28,
+      "average_sentiment": 0.05773538676547816,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 17,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 344,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Not having Dominos anymore",
+          "score": 93,
+          "sentiment": -0.3,
+          "category": "bearish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lpk8p2/not_having_dominos_anymore/"
+        },
+        {
+          "title": "Did you outperform the ASX bets official Boomer portfolio?",
+          "score": 32,
+          "sentiment": -0.000347222222222221,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lpocse/did_you_outperform_the_asx_bets_official_boomer/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 14,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Home loan calculator",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqaxs9/home_loan_calculator/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 35.714285714285715,
+        "bearish": 3.571428571428571,
+        "neutral": 60.71428571428571
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.011631944444444443
+        },
+        "AusFinance": {
+          "count": 23,
+          "avg_sentiment": 0.08774589496187578
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": -0.03915043290043291
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": -0.3
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.013580737934922874,
+    "sentiment_components": {
+      "news": 0.0034687523709167533,
+      "reddit": 0.01170525649491886,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-09T20:04:22.091000",
+    "news_count": 21,
+    "sentiment_scores": {
+      "average_sentiment": 0.06549545454545455,
+      "positive_count": 4,
+      "negative_count": 0,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 7,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.2294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 28,
+      "average_sentiment": 0.05773538676547816,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 17,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 345,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Not having Dominos anymore",
+          "score": 92,
+          "sentiment": -0.3,
+          "category": "bearish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lpk8p2/not_having_dominos_anymore/"
+        },
+        {
+          "title": "Did you outperform the ASX bets official Boomer portfolio?",
+          "score": 31,
+          "sentiment": -0.000347222222222221,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lpocse/did_you_outperform_the_asx_bets_official_boomer/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 13,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Home loan calculator",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqaxs9/home_loan_calculator/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 35.714285714285715,
+        "bearish": 3.571428571428571,
+        "neutral": 60.71428571428571
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.011631944444444443
+        },
+        "AusFinance": {
+          "count": 23,
+          "avg_sentiment": 0.08774589496187578
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": -0.03915043290043291
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": -0.3
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.02658422842970207,
+    "sentiment_components": {
+      "news": 0.01799779202988792,
+      "reddit": 0.01170525649491886,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

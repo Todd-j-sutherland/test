@@ -64,6 +64,9 @@ except ImportError:
     ML_TRADING_AVAILABLE = False
     logging.warning("ML trading components not available")
 
+# Import enhanced keyword system
+from src.bank_keywords import BankNewsFilter
+
 logger = logging.getLogger(__name__)
 
 class NewsSentimentAnalyzer:
@@ -103,14 +106,11 @@ class NewsSentimentAnalyzer:
             logger.warning(f"Reddit client initialization failed: {e}")
             logger.info("Reddit integration will use fallback mode")
         
-        # Bank name variations for searching
-        self.bank_keywords = {
-            'CBA.AX': ['Commonwealth Bank', 'CommBank', 'CBA', 'commonwealth'],
-            'WBC.AX': ['Westpac', 'WBC', 'westpac'],
-            'ANZ.AX': ['ANZ', 'Australia and New Zealand Banking', 'anz'],
-            'NAB.AX': ['National Australia Bank', 'NAB', 'nab'],
-            'MQG.AX': ['Macquarie', 'MQG', 'Macquarie Group', 'macquarie']
-        }
+        # Initialize enhanced keyword filtering system
+        self.news_filter = BankNewsFilter()
+        
+        # Bank name variations for searching (enhanced)
+        self.bank_keywords = self.news_filter.bank_keywords
         
         # Reddit subreddits for financial discussion
         self.financial_subreddits = [
@@ -887,15 +887,21 @@ class NewsSentimentAnalyzer:
                     if article_url.startswith('/'):
                         article_url = f"https://www.abc.net.au{article_url}"
                     
-                    # Check relevance
-                    if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'finance', 'RBA']):
+                    # Check relevance using enhanced filtering
+                    filter_result = self.news_filter.is_relevant_banking_news(title, bank_symbol=symbol)
+                    
+                    if filter_result['is_relevant'] and filter_result['relevance_score'] >= 0.3:
                         news_items.append({
                             'title': title,
                             'summary': '',
                             'source': 'ABC News',
                             'url': article_url,
                             'published': datetime.now().isoformat(),
-                            'relevance': self._calculate_relevance(title, keywords)
+                            'relevance': self._calculate_relevance(title, symbol=symbol),
+                            'relevance_score': filter_result['relevance_score'],
+                            'matched_keywords': filter_result['matched_keywords'],
+                            'categories': filter_result['categories'],
+                            'urgency_score': filter_result['urgency_score']
                         })
             
             time.sleep(1)  # Rate limiting
@@ -930,15 +936,21 @@ class NewsSentimentAnalyzer:
                         if article_url.startswith('/'):
                             article_url = f"https://www.news.com.au{article_url}"
                         
-                        # Check relevance
-                        if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX', 'finance']):
+                        # Check relevance using enhanced filtering
+                        filter_result = self.news_filter.is_relevant_banking_news(title, bank_symbol=symbol)
+                        
+                        if filter_result['is_relevant'] and filter_result['relevance_score'] >= 0.3:
                             news_items.append({
                                 'title': title,
                                 'summary': '',
                                 'source': 'News.com.au',
                                 'url': article_url,
                                 'published': datetime.now().isoformat(),
-                                'relevance': self._calculate_relevance(title, keywords)
+                                'relevance': self._calculate_relevance(title, symbol=symbol),
+                                'relevance_score': filter_result['relevance_score'],
+                                'matched_keywords': filter_result['matched_keywords'],
+                                'categories': filter_result['categories'],
+                                'urgency_score': filter_result['urgency_score']
                             })
             
             time.sleep(1)
@@ -971,15 +983,21 @@ class NewsSentimentAnalyzer:
                     if article_url.startswith('/'):
                         article_url = f"https://www.fool.com.au{article_url}"
                     
-                    # Check relevance to banking
-                    if any(keyword.lower() in title.lower() for keyword in keywords + ['bank', 'ASX', 'share', 'dividend']):
+                    # Check relevance using enhanced filtering
+                    filter_result = self.news_filter.is_relevant_banking_news(title, bank_symbol=symbol)
+                    
+                    if filter_result['is_relevant'] and filter_result['relevance_score'] >= 0.3:
                         news_items.append({
                             'title': title,
                             'summary': '',
                             'source': 'Motley Fool Australia',
                             'url': article_url,
                             'published': datetime.now().isoformat(),
-                            'relevance': self._calculate_relevance(title, keywords)
+                            'relevance': self._calculate_relevance(title, symbol=symbol),
+                            'relevance_score': filter_result['relevance_score'],
+                            'matched_keywords': filter_result['matched_keywords'],
+                            'categories': filter_result['categories'],
+                            'urgency_score': filter_result['urgency_score']
                         })
             
             time.sleep(1)
@@ -1132,13 +1150,20 @@ class NewsSentimentAnalyzer:
                         if code_cell and company_code.upper() in code_cell.get_text().upper():
                             title = title_cell.get_text(strip=True)
                             
+                            # Enhance ASX announcements with filtering analysis
+                            filter_result = self.news_filter.is_relevant_banking_news(title, bank_symbol=symbol)
+                            
                             news_items.append({
                                 'title': f"ASX: {title}",
                                 'summary': '',
                                 'source': 'ASX Announcements',
                                 'url': url,
                                 'published': datetime.now().isoformat(),
-                                'relevance': 'high'  # Official ASX announcements are highly relevant
+                                'relevance': 'high',  # Official ASX announcements are highly relevant
+                                'relevance_score': max(filter_result['relevance_score'], 0.8),  # Minimum 0.8 for ASX
+                                'matched_keywords': filter_result['matched_keywords'],
+                                'categories': filter_result['categories'] + ['official_announcement'],
+                                'urgency_score': filter_result['urgency_score']
                             })
             
             time.sleep(1)
@@ -1148,16 +1173,36 @@ class NewsSentimentAnalyzer:
         
         return news_items
 
-    def _calculate_relevance(self, title: str, keywords: List[str]) -> str:
-        """Calculate relevance score for news article"""
-        title_lower = title.lower()
-        keyword_count = sum(1 for keyword in keywords if keyword.lower() in title_lower)
-        
-        if keyword_count >= 2:
-            return 'high'
-        elif keyword_count == 1:
-            return 'medium'
-        else:
+    def _calculate_relevance(self, title: str, keywords: List[str] = None, content: str = "", symbol: str = None) -> str:
+        """Calculate relevance score for news article using enhanced filtering"""
+        try:
+            # Use enhanced filtering system
+            filter_result = self.news_filter.is_relevant_banking_news(title, content, symbol)
+            
+            # Convert relevance score to category
+            relevance_score = filter_result['relevance_score']
+            
+            if relevance_score >= 0.7:
+                return 'high'
+            elif relevance_score >= 0.4:
+                return 'medium'
+            elif relevance_score >= 0.2:
+                return 'low'
+            else:
+                return 'very_low'
+                
+        except Exception as e:
+            # Fallback to simple keyword matching
+            if keywords:
+                title_lower = title.lower()
+                keyword_count = sum(1 for keyword in keywords if keyword.lower() in title_lower)
+                
+                if keyword_count >= 2:
+                    return 'high'
+                elif keyword_count == 1:
+                    return 'medium'
+                else:
+                    return 'low'
             return 'low'
     
     def _get_reddit_sentiment(self, symbol: str) -> Dict:
@@ -1509,3 +1554,190 @@ class NewsSentimentAnalyzer:
                     })
         
         return events
+
+    def analyze_news_relevance(self, articles: List[Dict], symbol: str = None) -> List[Dict]:
+        """
+        Analyze and prioritize news articles using enhanced filtering
+        
+        Args:
+            articles: List of news articles
+            symbol: Bank symbol for enhanced filtering
+            
+        Returns:
+            List of articles with enhanced relevance analysis, sorted by priority
+        """
+        enhanced_articles = []
+        
+        for article in articles:
+            title = article.get('title', '')
+            summary = article.get('summary', '')
+            
+            # Skip if already has enhanced data
+            if 'relevance_score' in article:
+                enhanced_articles.append(article)
+                continue
+            
+            # Get enhanced filtering results
+            filter_result = self.news_filter.is_relevant_banking_news(
+                title, summary, symbol
+            )
+            
+            # Add enhanced metadata
+            enhanced_article = article.copy()
+            enhanced_article.update({
+                'enhanced_relevance_score': filter_result['relevance_score'],
+                'matched_keywords': filter_result['matched_keywords'],
+                'categories': filter_result['categories'],
+                'urgency_score': filter_result['urgency_score'],
+                'sentiment_indicators': filter_result['sentiment_indicators'],
+                'priority_score': self._calculate_priority_score(filter_result)
+            })
+            
+            # Only include relevant articles
+            if filter_result['is_relevant']:
+                enhanced_articles.append(enhanced_article)
+        
+        # Sort by priority score (highest first)
+        enhanced_articles.sort(key=lambda x: x.get('priority_score', x.get('enhanced_relevance_score', 0)), reverse=True)
+        
+        return enhanced_articles
+    
+    def _calculate_priority_score(self, filter_result: dict) -> float:
+        """
+        Calculate priority score for news article based on multiple factors
+        
+        Args:
+            filter_result: Result from enhanced filtering
+            
+        Returns:
+            Priority score (0-1, higher is more important)
+        """
+        base_score = filter_result['relevance_score']
+        urgency_bonus = filter_result['urgency_score'] * 0.3
+        
+        # Category bonuses
+        category_bonus = 0
+        categories = filter_result['categories']
+        
+        # High priority categories
+        if any('regulatory' in cat for cat in categories):
+            category_bonus += 0.2
+        if any('financial_results' in cat for cat in categories):
+            category_bonus += 0.2
+        if any('risk' in cat for cat in categories):
+            category_bonus += 0.15
+        if any('leadership' in cat for cat in categories):
+            category_bonus += 0.1
+        if any('specific_bank' in cat for cat in categories):
+            category_bonus += 0.1
+        if any('official_announcement' in cat for cat in categories):
+            category_bonus += 0.25  # ASX announcements get high priority
+        
+        # Risk sentiment bonus
+        risk_indicators = len(filter_result['sentiment_indicators']['risk'])
+        risk_bonus = min(risk_indicators * 0.05, 0.15)
+        
+        total_score = min(base_score + urgency_bonus + category_bonus + risk_bonus, 1.0)
+        return total_score
+    
+    def get_filtered_news_summary(self, symbol: str) -> Dict:
+        """
+        Get a summary of news filtering performance and statistics
+        
+        Args:
+            symbol: Bank symbol
+            
+        Returns:
+            Dict with filtering statistics and insights
+        """
+        try:
+            # Collect all news sources
+            all_news = []
+            
+            # Get news from all sources
+            rss_news = self._fetch_rss_news(symbol)
+            yahoo_news = self._fetch_yahoo_news(symbol)
+            abc_news = self._scrape_abc_news(symbol)
+            news_com_au = self._scrape_news_com_au(symbol)
+            motley_fool = self._scrape_motley_fool_au(symbol)
+            
+            all_raw_news = rss_news + yahoo_news + abc_news + news_com_au + motley_fool
+            
+            # Analyze with enhanced filtering
+            enhanced_news = self.analyze_news_relevance(all_raw_news, symbol)
+            
+            # Calculate statistics
+            total_articles = len(all_raw_news)
+            relevant_articles = len(enhanced_news)
+            
+            # Category breakdown
+            category_counts = {}
+            urgency_distribution = {'low': 0, 'medium': 0, 'high': 0}
+            
+            for article in enhanced_news:
+                # Count categories
+                for category in article.get('categories', []):
+                    category_counts[category] = category_counts.get(category, 0) + 1
+                
+                # Urgency distribution
+                urgency = article.get('urgency_score', 0)
+                if urgency >= 0.7:
+                    urgency_distribution['high'] += 1
+                elif urgency >= 0.3:
+                    urgency_distribution['medium'] += 1
+                else:
+                    urgency_distribution['low'] += 1
+            
+            # Top categories
+            top_categories = sorted(category_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+            
+            # Top keywords
+            all_keywords = []
+            for article in enhanced_news:
+                all_keywords.extend(article.get('matched_keywords', []))
+            
+            keyword_counts = {}
+            for keyword in all_keywords:
+                keyword_counts[keyword] = keyword_counts.get(keyword, 0) + 1
+            
+            top_keywords = sorted(keyword_counts.items(), key=lambda x: x[1], reverse=True)[:10]
+            
+            return {
+                'symbol': symbol,
+                'timestamp': datetime.now().isoformat(),
+                'filtering_summary': {
+                    'total_articles_found': total_articles,
+                    'relevant_articles': relevant_articles,
+                    'filtering_efficiency': relevant_articles / max(total_articles, 1),
+                    'avg_relevance_score': sum(a.get('enhanced_relevance_score', 0) for a in enhanced_news) / max(relevant_articles, 1),
+                    'avg_priority_score': sum(a.get('priority_score', 0) for a in enhanced_news) / max(relevant_articles, 1)
+                },
+                'category_breakdown': {
+                    'top_categories': top_categories,
+                    'total_categories': len(category_counts)
+                },
+                'urgency_analysis': urgency_distribution,
+                'keyword_analysis': {
+                    'top_keywords': top_keywords,
+                    'unique_keywords': len(keyword_counts)
+                },
+                'high_priority_articles': [
+                    {
+                        'title': a['title'],
+                        'source': a['source'],
+                        'priority_score': a.get('priority_score', 0),
+                        'categories': a.get('categories', [])
+                    }
+                    for a in enhanced_news[:5]  # Top 5 by priority
+                ]
+            }
+            
+        except Exception as e:
+            logger.error(f"Error generating filtered news summary: {e}")
+            return {
+                'symbol': symbol,
+                'error': str(e),
+                'timestamp': datetime.now().isoformat()
+            }
+    
+    # ...existing code...

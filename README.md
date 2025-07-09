@@ -142,6 +142,23 @@ python news_trading_analyzer.py --symbol CBA.AX --detailed
 
 ## 🚀 Usage
 
+### 📊 Dashboard (Recommended)
+Launch the interactive dashboard with news sentiment and technical analysis:
+
+```bash
+# Quick launch (recommended)
+cd /Users/toddsutherland/Repos/trading_analysis && source .venv/bin/activate && python launch_dashboard_auto.py
+
+# Or run manually
+streamlit run news_analysis_dashboard.py
+```
+
+The dashboard will open at http://localhost:8501 and includes:
+- News sentiment analysis
+- Technical indicators (RSI, MACD, momentum)
+- Combined trading recommendations
+- Individual bank analysis
+
 ### Command Line Interface
 ```bash
 # Analyze a specific bank

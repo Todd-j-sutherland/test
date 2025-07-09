@@ -2809,5 +2809,501 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-09T07:28:33.778980",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.07958777777777779,
+      "positive_count": 6,
+      "negative_count": 0,
+      "neutral_count": 9,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 9,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.23256666666666664
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 20,
+      "average_sentiment": 0.23890005824763733,
+      "bullish_count": 14,
+      "bearish_count": 0,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 347,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 342,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "ING savings Maximizer liquidity hack",
+          "score": 19,
+          "sentiment": 0.006704053522235346,
+          "category": "neutral",
+          "subreddit": "fiaustralia",
+          "url": "https://reddit.com/r/fiaustralia/comments/1lp0ug1/ing_savings_maximizer_liquidity_hack/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 70.0,
+        "bearish": 0.0,
+        "neutral": 30.0
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.28394131042568543
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.006704053522235346
+        },
+        "investing": {
+          "count": 2,
+          "avg_sentiment": 0.11076604554865424
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-09T07:27:51.983032",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASIC prepared 17 files on Macquarie in 10 months",
+          "date": "2025-07-09T07:27:51.983129",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "Macquarie accused of \u2018significant compliance failures\u2019 in derivatives trade",
+          "date": "2025-07-09T07:27:51.983311",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-09T07:27:51.983356",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T07:28:04.791912",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T07:28:18.521655",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.09025180154385481,
+    "sentiment_components": {
+      "news": 0.021870285235920852,
+      "reddit": 0.04843453235705524,
+      "events": 0.028872986301369866,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.7000000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-09T18:58:15.860640",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.07650724747474748,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.5962666666666667
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 14,
+      "average_sentiment": 0.24555239686511104,
+      "bullish_count": 12,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 342,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 21,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Travel card for South America",
+          "score": 1,
+          "sentiment": 0.7,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltt5yj/travel_card_for_south_america/"
+        },
+        {
+          "title": "NZ moving to Aus - What bank?",
+          "score": 1,
+          "sentiment": 0.15324675324675324,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luafvd/nz_moving_to_aus_what_bank/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 85.71428571428571,
+        "bearish": 0.0,
+        "neutral": 14.285714285714285
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.28231231086050834
+        },
+        "investing": {
+          "count": 3,
+          "avg_sentiment": 0.11076604554865425
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-09T18:57:24.528744",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-09T18:57:24.528898",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-09T18:57:24.529214",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Australia's Macquarie says first-quarter operating performance flat, shares slide",
+          "date": "2025-07-09T18:57:24.529265",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T18:57:34.432597",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T18:57:48.963304",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.09264072822920329,
+    "sentiment_components": {
+      "news": 0.02102377238826622,
+      "reddit": 0.049783225665803336,
+      "events": 0.030996000000000003,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.7000000000000001,
+    "recent_headlines": [
+      "Up 78% in a year, what's Macquarie's price target for Gold Road shares now?",
+      "Macquarie tips 28% upside for this ASX healthcare stock",
+      "What does Macquarie think Origin Energy shares are worth?",
+      "Up 34% this year, can Challenger shares keep rising according to Macquarie?",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-09T19:39:27.973673",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.07650724747474748,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.5962666666666667
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 14,
+      "average_sentiment": 0.24555239686511104,
+      "bullish_count": 12,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "Australian banks finally stopping deposit scams",
+          "score": 341,
+          "sentiment": 0.096875,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Travel card for South America",
+          "score": 1,
+          "sentiment": 0.7,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltt5yj/travel_card_for_south_america/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 85.71428571428571,
+        "bearish": 0.0,
+        "neutral": 14.285714285714285
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.28231231086050834
+        },
+        "investing": {
+          "count": 3,
+          "avg_sentiment": 0.11076604554865425
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-09T19:38:41.305974",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-09T19:38:41.306111",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-09T19:38:41.306407",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Australia's Macquarie says first-quarter operating performance flat, shares slide",
+          "date": "2025-07-09T19:38:41.306455",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T19:38:50.905513",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-09T19:39:03.049208",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.09264072822920329,
+    "sentiment_components": {
+      "news": 0.02102377238826622,
+      "reddit": 0.049783225665803336,
+      "events": 0.030996000000000003,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.7000000000000001,
+    "recent_headlines": [
+      "Up 78% in a year, what's Macquarie's price target for Gold Road shares now?",
+      "Macquarie tips 28% upside for this ASX healthcare stock",
+      "What does Macquarie think Origin Energy shares are worth?",
+      "Up 34% this year, can Challenger shares keep rising according to Macquarie?",
+      ""
+    ]
   }
 ]

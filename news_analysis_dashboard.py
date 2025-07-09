@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-News Analysis Dashboard
-Interactive web dashboard displaying news sentiment analysis results for Australian banks
+News Analysis Dashboard with Technical Analysis Integration
+Interactive web dashboard displaying news sentiment analysis and technical indicators for Australian banks
 """
 
 import streamlit as st
@@ -13,6 +13,9 @@ import plotly.express as px
 from datetime import datetime, timedelta
 from typing import Dict, List, Any
 import logging
+
+# Import technical analysis
+from src.technical_analysis import TechnicalAnalyzer, get_market_data
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -81,7 +84,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 class NewsAnalysisDashboard:
-    """Dashboard for displaying news analysis results"""
+    """Dashboard for displaying news analysis and technical analysis results"""
     
     def __init__(self):
         self.data_path = "data/sentiment_history"
@@ -93,7 +96,10 @@ class NewsAnalysisDashboard:
             "NAB.AX": "National Australia Bank",
             "MQG.AX": "Macquarie Group"
         }
-        
+        # Initialize technical analyzer
+        self.tech_analyzer = TechnicalAnalyzer()
+        self.technical_data = {}  # Cache for technical analysis
+    
     def load_sentiment_data(self) -> Dict[str, List[Dict]]:
         """Load sentiment history data for all banks"""
         all_data = {}
@@ -493,20 +499,113 @@ class NewsAnalysisDashboard:
         # Reddit sentiment if available
         if 'reddit_sentiment' in latest:
             reddit_data = latest['reddit_sentiment']
-            posts_analyzed = reddit_data.get('posts_analyzed', 0)
+            st.markdown("#### 🔴 Reddit Sentiment Analysis")
             
-            if posts_analyzed > 0:
-                st.markdown("#### 💬 Reddit Sentiment Analysis")
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("Reddit Score", f"{reddit_data.get('overall_sentiment', 0):.3f}")
+            with col2:
+                st.metric("Reddit Posts", reddit_data.get('post_count', 0))
+        
+        # Technical Analysis Section
+        st.markdown("#### 📈 Technical Analysis & Momentum")
+        
+        tech_analysis = self.get_technical_analysis(symbol)
+        if tech_analysis and tech_analysis.get('current_price', 0) > 0:
+            # Technical metrics
+            col1, col2, col3, col4 = st.columns(4)
+            
+            with col1:
+                current_price = tech_analysis.get('current_price', 0)
+                st.metric("Current Price", f"${current_price:.2f}")
+            
+            with col2:
+                momentum_score = tech_analysis.get('momentum', {}).get('score', 0)
+                delta_color = "normal" if -5 <= momentum_score <= 5 else "inverse" if momentum_score < 0 else "normal"
+                st.metric("Momentum Score", f"{momentum_score:.1f}", delta=momentum_score, delta_color=delta_color)
+            
+            with col3:
+                recommendation = tech_analysis.get('recommendation', 'HOLD')
+                st.metric("Technical Signal", recommendation)
+            
+            with col4:
+                rsi = tech_analysis.get('indicators', {}).get('rsi', 50)
+                rsi_status = "Overbought" if rsi > 70 else "Oversold" if rsi < 30 else "Normal"
+                st.metric("RSI", f"{rsi:.1f}", rsi_status)
+            
+            # Detailed technical indicators
+            st.markdown("**📊 Technical Indicators:**")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                indicators = tech_analysis.get('indicators', {})
+                macd = indicators.get('macd', {})
                 
-                col1, col2 = st.columns(2)
+                indicator_data = []
+                indicator_data.append({"Indicator": "RSI (14)", "Value": f"{indicators.get('rsi', 0):.2f}", "Signal": "Overbought" if indicators.get('rsi', 50) > 70 else "Oversold" if indicators.get('rsi', 50) < 30 else "Neutral"})
+                indicator_data.append({"Indicator": "MACD", "Value": f"{macd.get('line', 0):.4f}", "Signal": "Bullish" if macd.get('histogram', 0) > 0 else "Bearish"})
                 
-                with col1:
-                    st.metric("Posts Analyzed", posts_analyzed)
-                    st.metric("Average Sentiment", f"{reddit_data.get('average_sentiment', 0):.3f}")
+                if 'sma' in indicators:
+                    sma_20 = indicators['sma'].get('sma_20', 0)
+                    sma_50 = indicators['sma'].get('sma_50', 0)
+                    price_vs_sma20 = "Above" if current_price > sma_20 else "Below"
+                    price_vs_sma50 = "Above" if current_price > sma_50 else "Below"
+                    
+                    indicator_data.append({"Indicator": "SMA 20", "Value": f"${sma_20:.2f}", "Signal": f"Price {price_vs_sma20}"})
+                    indicator_data.append({"Indicator": "SMA 50", "Value": f"${sma_50:.2f}", "Signal": f"Price {price_vs_sma50}"})
                 
-                with col2:
-                    st.metric("Bullish Posts", reddit_data.get('bullish_count', 0))
-                    st.metric("Bearish Posts", reddit_data.get('bearish_count', 0))
+                st.dataframe(pd.DataFrame(indicator_data), use_container_width=True)
+            
+            with col2:
+                momentum = tech_analysis.get('momentum', {})
+                trend = tech_analysis.get('trend', {})
+                
+                momentum_data = []
+                momentum_data.append({"Metric": "1-Day Change", "Value": f"{momentum.get('price_change_1d', 0):.2f}%"})
+                momentum_data.append({"Metric": "5-Day Change", "Value": f"{momentum.get('price_change_5d', 0):.2f}%"})
+                momentum_data.append({"Metric": "20-Day Change", "Value": f"{momentum.get('price_change_20d', 0):.2f}%"})
+                momentum_data.append({"Metric": "Trend Direction", "Value": trend.get('direction', 'Unknown').replace('_', ' ').title()})
+                momentum_data.append({"Metric": "Volume Momentum", "Value": momentum.get('volume_momentum', 'Normal').title()})
+                
+                st.dataframe(pd.DataFrame(momentum_data), use_container_width=True)
+            
+            # Combined recommendation
+            sentiment_score = latest.get('overall_sentiment', 0)
+            
+            st.markdown("**🎯 Combined Analysis:**")
+            
+            # Simple combined logic
+            if sentiment_score > 0.1 and recommendation in ['BUY', 'STRONG_BUY'] and momentum_score > 5:
+                combined_signal = "🟢 **STRONG BUY** - Positive news sentiment + strong technical momentum"
+            elif sentiment_score > 0.05 and recommendation == 'BUY':
+                combined_signal = "🟢 **BUY** - Moderate positive sentiment + bullish technicals"
+            elif sentiment_score < -0.1 and recommendation in ['SELL', 'STRONG_SELL'] and momentum_score < -5:
+                combined_signal = "🔴 **STRONG SELL** - Negative sentiment + weak technicals"
+            elif sentiment_score < -0.05 and recommendation == 'SELL':
+                combined_signal = "🔴 **SELL** - Negative sentiment + bearish technicals"
+            else:
+                combined_signal = "🟡 **HOLD** - Mixed signals or neutral conditions"
+            
+            st.markdown(combined_signal)
+            
+        else:
+            st.warning("Technical analysis data not available - check if yfinance is installed and symbol is valid")
+    
+    def get_technical_analysis(self, symbol: str, force_refresh: bool = False) -> Dict:
+        """Get technical analysis for a symbol with caching"""
+        if symbol not in self.technical_data or force_refresh:
+            try:
+                market_data = get_market_data(symbol, period='3mo')
+                if not market_data.empty:
+                    self.technical_data[symbol] = self.tech_analyzer.analyze(symbol, market_data)
+                else:
+                    self.technical_data[symbol] = self.tech_analyzer._empty_analysis(symbol)
+            except Exception as e:
+                logger.error(f"Error getting technical analysis for {symbol}: {e}")
+                self.technical_data[symbol] = self.tech_analyzer._empty_analysis(symbol)
+        
+        return self.technical_data[symbol]
     
     def run_dashboard(self):
         """Main dashboard application"""
@@ -530,7 +629,16 @@ class NewsAnalysisDashboard:
         
         # Refresh button
         if st.sidebar.button("🔄 Refresh Data"):
+            # Clear technical analysis cache to get fresh data
+            self.technical_data = {}
             st.experimental_rerun()
+        
+        # Technical analysis refresh
+        if st.sidebar.button("📈 Refresh Technical Analysis"):
+            with st.spinner("Updating technical analysis..."):
+                for symbol in self.bank_symbols:
+                    self.get_technical_analysis(symbol, force_refresh=True)
+            st.success("Technical analysis updated!")
         
         # Display confidence legend and sentiment scale
         self.display_confidence_legend()
@@ -548,6 +656,104 @@ class NewsAnalysisDashboard:
         with col2:
             confidence_chart = self.create_confidence_distribution_chart(all_data)
             st.plotly_chart(confidence_chart, use_container_width=True)
+        
+        # Technical Analysis Section
+        st.markdown("## 📈 Technical Analysis & Momentum")
+        
+        # Load technical analysis data
+        with st.spinner("Loading technical analysis..."):
+            for symbol in self.bank_symbols:
+                self.get_technical_analysis(symbol)
+        
+        tab1, tab2, tab3 = st.tabs(["🎯 Momentum Analysis", "📊 Technical Signals", "🔄 Combined Analysis"])
+        
+        with tab1:
+            momentum_chart = self.create_momentum_chart(all_data)
+            st.plotly_chart(momentum_chart, use_container_width=True)
+            
+            st.markdown("### 📋 Momentum Summary")
+            momentum_data = []
+            for symbol in self.bank_symbols:
+                tech_analysis = self.get_technical_analysis(symbol)
+                if tech_analysis and 'momentum' in tech_analysis:
+                    momentum = tech_analysis['momentum']
+                    momentum_data.append({
+                        'Bank': self.bank_names.get(symbol, symbol),
+                        'Symbol': symbol,
+                        'Momentum Score': f"{momentum['score']:.1f}",
+                        'Strength': momentum['strength'].replace('_', ' ').title(),
+                        '1D Change %': f"{momentum['price_change_1d']:.2f}%",
+                        '5D Change %': f"{momentum['price_change_5d']:.2f}%",
+                        'Volume Momentum': momentum['volume_momentum'].title()
+                    })
+            
+            if momentum_data:
+                st.dataframe(pd.DataFrame(momentum_data), use_container_width=True)
+        
+        with tab2:
+            signals_chart = self.create_technical_signals_chart(all_data)
+            st.plotly_chart(signals_chart, use_container_width=True)
+            
+            st.markdown("### 📊 Technical Indicators Summary")
+            tech_data = []
+            for symbol in self.bank_symbols:
+                tech_analysis = self.get_technical_analysis(symbol)
+                if tech_analysis:
+                    indicators = tech_analysis.get('indicators', {})
+                    tech_data.append({
+                        'Bank': self.bank_names.get(symbol, symbol),
+                        'Symbol': symbol,
+                        'Price': f"${tech_analysis.get('current_price', 0):.2f}",
+                        'RSI': f"{indicators.get('rsi', 0):.1f}",
+                        'MACD Signal': 'Bullish' if indicators.get('macd', {}).get('histogram', 0) > 0 else 'Bearish',
+                        'Trend': tech_analysis.get('trend', {}).get('direction', 'Unknown').replace('_', ' ').title(),
+                        'Recommendation': tech_analysis.get('recommendation', 'HOLD')
+                    })
+            
+            if tech_data:
+                st.dataframe(pd.DataFrame(tech_data), use_container_width=True)
+        
+        with tab3:
+            combined_chart = self.create_combined_analysis_chart(all_data)
+            st.plotly_chart(combined_chart, use_container_width=True)
+            
+            st.markdown("### 🎯 Trading Recommendations")
+            st.info("This combines news sentiment analysis with technical momentum to provide comprehensive trading signals.")
+            
+            recommendations = []
+            for symbol in self.bank_symbols:
+                sentiment_data = self.get_latest_analysis(all_data.get(symbol, []))
+                tech_analysis = self.get_technical_analysis(symbol)
+                
+                if sentiment_data or tech_analysis:
+                    # Use 'overall_sentiment' instead of 'sentiment_score' to match the data structure
+                    sentiment_score = sentiment_data.get('overall_sentiment', 0) if sentiment_data else 0
+                    tech_recommendation = tech_analysis.get('recommendation', 'HOLD') if tech_analysis else 'HOLD'
+                    momentum_score = tech_analysis.get('momentum', {}).get('score', 0) if tech_analysis else 0
+                    
+                    # Simple combined recommendation logic
+                    if sentiment_score > 0.2 and tech_recommendation in ['BUY', 'STRONG_BUY'] and momentum_score > 10:
+                        combined_rec = '🟢 STRONG BUY'
+                    elif sentiment_score > 0.1 and tech_recommendation in ['BUY'] and momentum_score > 0:
+                        combined_rec = '🟢 BUY'
+                    elif sentiment_score < -0.2 and tech_recommendation in ['SELL', 'STRONG_SELL'] and momentum_score < -10:
+                        combined_rec = '🔴 STRONG SELL'
+                    elif sentiment_score < -0.1 and tech_recommendation in ['SELL'] and momentum_score < 0:
+                        combined_rec = '🔴 SELL'
+                    else:
+                        combined_rec = '🟡 HOLD'
+                    
+                    recommendations.append({
+                        'Bank': self.bank_names.get(symbol, symbol),
+                        'Symbol': symbol,
+                        'News Sentiment': f"{sentiment_score:.3f}",
+                        'Technical Rec': tech_recommendation,
+                        'Momentum': f"{momentum_score:.1f}",
+                        'Combined Recommendation': combined_rec
+                    })
+            
+            if recommendations:
+                st.dataframe(pd.DataFrame(recommendations), use_container_width=True)
         
         # Individual bank analysis
         st.markdown("## 🏦 Individual Bank Analysis")
@@ -587,7 +793,162 @@ class NewsAnalysisDashboard:
         st.markdown("---")
         st.markdown("**Last Updated:** " + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         st.markdown("**Data Source:** ASX Bank News Analysis System")
-
+    
+    def create_momentum_chart(self, all_data: Dict) -> go.Figure:
+        """Create momentum analysis chart showing technical momentum for all banks"""
+        symbols = []
+        momentum_scores = []
+        colors = []
+        
+        for symbol, data in all_data.items():
+            tech_analysis = self.get_technical_analysis(symbol)
+            if tech_analysis and 'momentum' in tech_analysis:
+                symbols.append(self.bank_names.get(symbol, symbol))
+                momentum_score = tech_analysis['momentum']['score']
+                momentum_scores.append(momentum_score)
+                
+                # Color based on momentum strength
+                if momentum_score > 20:
+                    colors.append('#00ff00')  # Strong green
+                elif momentum_score > 5:
+                    colors.append('#90EE90')  # Light green
+                elif momentum_score > -5:
+                    colors.append('#FFD700')  # Yellow (neutral)
+                elif momentum_score > -20:
+                    colors.append('#FFA07A')  # Light red
+                else:
+                    colors.append('#ff0000')  # Strong red
+        
+        fig = go.Figure(go.Bar(
+            x=symbols,
+            y=momentum_scores,
+            marker_color=colors,
+            text=[f"{s:.1f}" for s in momentum_scores],
+            textposition='auto',
+            hovertemplate='<b>%{x}</b><br>' +
+                         'Momentum Score: %{y:.1f}<br>' +
+                         '<extra></extra>'
+        ))
+        
+        fig.update_layout(
+            title="Technical Momentum Analysis",
+            xaxis_title="Banks",
+            yaxis_title="Momentum Score",
+            height=400,
+            showlegend=False,
+            yaxis=dict(range=[-100, 100])
+        )
+        
+        # Add horizontal line at zero
+        fig.add_hline(y=0, line_dash="dash", line_color="gray")
+        
+        return fig
+    
+    def create_technical_signals_chart(self, all_data: Dict) -> go.Figure:
+        """Create technical analysis signals chart"""
+        symbols = []
+        signals = []
+        colors = []
+        recommendations = []
+        
+        for symbol, data in all_data.items():
+            tech_analysis = self.get_technical_analysis(symbol)
+            if tech_analysis:
+                symbols.append(self.bank_names.get(symbol, symbol))
+                signal_score = tech_analysis.get('overall_signal', 0)
+                signals.append(signal_score)
+                recommendation = tech_analysis.get('recommendation', 'HOLD')
+                recommendations.append(recommendation)
+                
+                # Color based on recommendation
+                if recommendation in ['STRONG_BUY', 'BUY']:
+                    colors.append('#28a745')
+                elif recommendation in ['STRONG_SELL', 'SELL']:
+                    colors.append('#dc3545')
+                else:
+                    colors.append('#6c757d')
+        
+        fig = go.Figure(go.Bar(
+            x=symbols,
+            y=signals,
+            marker_color=colors,
+            text=recommendations,
+            textposition='auto',
+            hovertemplate='<b>%{x}</b><br>' +
+                         'Signal Score: %{y:.1f}<br>' +
+                         'Recommendation: %{text}<br>' +
+                         '<extra></extra>'
+        ))
+        
+        fig.update_layout(
+            title="Technical Analysis Signals",
+            xaxis_title="Banks",
+            yaxis_title="Signal Score",
+            height=400,
+            showlegend=False,
+            yaxis=dict(range=[-100, 100])
+        )
+        
+        # Add horizontal lines for signal thresholds
+        fig.add_hline(y=30, line_dash="dash", line_color="green", annotation_text="Strong Buy")
+        fig.add_hline(y=-30, line_dash="dash", line_color="red", annotation_text="Strong Sell")
+        fig.add_hline(y=0, line_dash="dash", line_color="gray")
+        
+        return fig
+    
+    def create_combined_analysis_chart(self, all_data: Dict) -> go.Figure:
+        """Create combined sentiment and technical analysis chart"""
+        symbols = []
+        sentiment_scores = []
+        technical_scores = []
+        
+        for symbol, data in all_data.items():
+            latest_sentiment = self.get_latest_analysis(data)
+            tech_analysis = self.get_technical_analysis(symbol)
+            
+            if latest_sentiment or tech_analysis:
+                symbols.append(self.bank_names.get(symbol, symbol))
+                
+                # Normalize sentiment score to -100 to 100 scale
+                sent_score = latest_sentiment.get('overall_sentiment', 0) * 100 if latest_sentiment else 0
+                sentiment_scores.append(sent_score)
+                
+                tech_score = tech_analysis.get('overall_signal', 0) if tech_analysis else 0
+                technical_scores.append(tech_score)
+        
+        fig = go.Figure()
+        
+        # Add sentiment bars
+        fig.add_trace(go.Bar(
+            name='News Sentiment',
+            x=symbols,
+            y=sentiment_scores,
+            marker_color='rgba(55, 128, 191, 0.7)',
+            yaxis='y'
+        ))
+        
+        # Add technical bars
+        fig.add_trace(go.Bar(
+            name='Technical Analysis',
+            x=symbols,
+            y=technical_scores,
+            marker_color='rgba(219, 64, 82, 0.7)',
+            yaxis='y'
+        ))
+        
+        fig.update_layout(
+            title="Combined Analysis: News Sentiment vs Technical Signals",
+            xaxis_title="Banks",
+            yaxis_title="Signal Strength",
+            height=500,
+            barmode='group',
+            yaxis=dict(range=[-100, 100])
+        )
+        
+        # Add horizontal line at zero
+        fig.add_hline(y=0, line_dash="dash", line_color="gray")
+        
+        return fig
 def main():
     """Run the dashboard"""
     dashboard = NewsAnalysisDashboard()
