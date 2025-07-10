@@ -21,6 +21,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from src.news_sentiment import NewsSentimentAnalyzer
 from src.ml_trading_config import TRADING_CONFIGS
 from config.settings import Settings
+from src.trading_outcome_tracker import TradingOutcomeTracker
 
 # Setup logging
 def setup_logging(log_level='INFO'):
@@ -55,6 +56,15 @@ class NewsTradingAnalyzer:
         logger.info("🚀 Initializing News Trading Analyzer...")
         self.settings = Settings()
         self.sentiment_analyzer = NewsSentimentAnalyzer()
+        
+        # Initialize outcome tracker
+        if hasattr(self.sentiment_analyzer, 'ml_pipeline'):
+            self.outcome_tracker = TradingOutcomeTracker(
+                self.sentiment_analyzer.ml_pipeline
+            )
+        else:
+            self.outcome_tracker = None
+            logger.warning("ML pipeline not available, outcome tracking disabled")
         
         # Default bank symbols to analyze
         self.bank_symbols = [
@@ -126,6 +136,30 @@ class NewsTradingAnalyzer:
                 'error': str(e),
                 'timestamp': datetime.now().isoformat()
             }
+    
+    def analyze_and_track(self, symbol: str) -> dict:
+        """Analyze sentiment and track for ML training"""
+        result = self.analyze_single_bank(symbol, detailed=True)
+        
+        # Record signal if it's actionable
+        if self.outcome_tracker and result.get('signal') not in ['HOLD', None]:
+            trade_id = self.outcome_tracker.record_signal(symbol, result)
+            result['trade_id'] = trade_id
+            logger.info(f"📝 Recorded trade signal: {trade_id}")
+        
+        return result
+    
+    def close_trade(self, trade_id: str, exit_price: float):
+        """Close a trade and record outcome"""
+        if self.outcome_tracker:
+            exit_data = {
+                'price': exit_price,
+                'timestamp': datetime.now().isoformat()
+            }
+            self.outcome_tracker.close_trade(trade_id, exit_data)
+            logger.info(f"🔚 Trade closed: {trade_id}")
+        else:
+            logger.warning("Outcome tracker not available")
     
     def analyze_all_banks(self, detailed: bool = False) -> dict:
         """

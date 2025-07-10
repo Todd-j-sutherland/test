@@ -4767,5 +4767,925 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T10:57:32.402255",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.05627584935043596,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 12,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 2,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Payday loans and negotiating a payment plan",
+          "score": 1,
+          "sentiment": 0.10293650793650792,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltn5yd/payday_loans_and_negotiating_a_payment_plan/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 33.33333333333333,
+        "bearish": 0.0,
+        "neutral": 66.66666666666666
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.060934232645559645
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.013315901871913982,
+    "sentiment_components": {
+      "news": 0.0034687523709167533,
+      "reddit": 0.011409350279266468,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T11:04:42.839423",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.05627584935043596,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 12,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 2,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 33.33333333333333,
+        "bearish": 0.0,
+        "neutral": 66.66666666666666
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.060934232645559645
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.013315901871913982,
+    "sentiment_components": {
+      "news": 0.0034687523709167533,
+      "reddit": 0.011409350279266468,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T11:37:21.706145",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.05627584935043596,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 12,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 33.33333333333333,
+        "bearish": 0.0,
+        "neutral": 66.66666666666666
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.060934232645559645
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.013315901871913982,
+    "sentiment_components": {
+      "news": 0.0034687523709167533,
+      "reddit": 0.011409350279266468,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.65,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T11:45:34.153288",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.05627584935043596,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 12,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 33.33333333333333,
+        "bearish": 0.0,
+        "neutral": 66.66666666666666
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.060934232645559645
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.012320562459616796,
+    "sentiment_components": {
+      "news": 0.0022700901278557947,
+      "reddit": 0.011224501832294039,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T12:18:56.778745",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.0582847227764364,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Payday loans and negotiating a payment plan",
+          "score": 1,
+          "sentiment": 0.10293650793650792,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltn5yd/payday_loans_and_negotiating_a_payment_plan/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 31.57894736842105,
+        "bearish": 0.0,
+        "neutral": 68.42105263157895
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 18,
+          "avg_sentiment": 0.06279591107883102
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.012686383236884076,
+    "sentiment_components": {
+      "news": 0.0022700901278557947,
+      "reddit": 0.0116251817635835,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T12:29:02.822658",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.0582847227764364,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 31.57894736842105,
+        "bearish": 0.0,
+        "neutral": 68.42105263157895
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 18,
+          "avg_sentiment": 0.06279591107883102
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.012686383236884076,
+    "sentiment_components": {
+      "news": 0.0022700901278557947,
+      "reddit": 0.0116251817635835,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T14:12:58.153664",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.0582847227764364,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 4,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 31.57894736842105,
+        "bearish": 0.0,
+        "neutral": 68.42105263157895
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 18,
+          "avg_sentiment": 0.06279591107883102
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.012686383236884076,
+    "sentiment_components": {
+      "news": 0.0022700901278557947,
+      "reddit": 0.0116251817635835,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-10T14:15:04.165303",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.012623076923076921,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.0582847227764364,
+      "bullish_count": 6,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Vanguard VTS EFT reinvestment",
+          "score": 3,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 2,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        },
+        {
+          "title": "Converting currency for HECS repayment",
+          "score": 1,
+          "sentiment": 0.031136363636363636,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 31.57894736842105,
+        "bearish": 0.0,
+        "neutral": 68.42105263157895
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.022916666666666665
+        },
+        "AusFinance": {
+          "count": 18,
+          "avg_sentiment": 0.06279591107883102
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.012686383236884076,
+    "sentiment_components": {
+      "news": 0.0022700901278557947,
+      "reddit": 0.0116251817635835,
+      "events": 0.0,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

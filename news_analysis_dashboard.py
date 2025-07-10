@@ -17,6 +17,11 @@ import logging
 # Import technical analysis
 from src.technical_analysis import TechnicalAnalyzer, get_market_data
 
+# Add ML imports
+import sqlite3
+import joblib
+import numpy as np
+
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -415,13 +420,39 @@ class NewsAnalysisDashboard:
             st.markdown("#### 📊 Sentiment Components Breakdown")
             components = latest['sentiment_components']
             
+            # Get technical analysis for additional components
+            tech_analysis = self.get_technical_analysis(symbol)
+            
+            # Calculate technical components
+            volume_score = 0
+            momentum_score = 0
+            ml_trading_score = 0
+            
+            if tech_analysis and 'momentum' in tech_analysis:
+                momentum_data = tech_analysis['momentum']
+                
+                # Convert momentum score to 0-100 scale
+                momentum_score = max(0, min(100, (momentum_data['score'] + 100) / 2))
+                
+                # Volume score based on volume momentum
+                if momentum_data['volume_momentum'] == 'high':
+                    volume_score = 75
+                elif momentum_data['volume_momentum'] == 'normal':
+                    volume_score = 50
+                else:
+                    volume_score = 25
+                
+                # ML Trading score based on overall signal
+                if 'overall_signal' in tech_analysis:
+                    ml_trading_score = max(0, min(100, (tech_analysis['overall_signal'] + 100) / 2))
+            
             comp_df = pd.DataFrame([
                 {'Component': 'News', 'Score': components.get('news', 0), 'Weight': '35%'},
                 {'Component': 'Reddit', 'Score': components.get('reddit', 0), 'Weight': '15%'},
                 {'Component': 'Events', 'Score': components.get('events', 0), 'Weight': '20%'},
-                {'Component': 'Volume', 'Score': components.get('volume', 0), 'Weight': '10%'},
-                {'Component': 'Momentum', 'Score': components.get('momentum', 0), 'Weight': '10%'},
-                {'Component': 'ML Trading', 'Score': components.get('ml_trading', 0), 'Weight': '10%'}
+                {'Component': 'Volume', 'Score': round(volume_score, 1), 'Weight': '10%'},
+                {'Component': 'Momentum', 'Score': round(momentum_score, 1), 'Weight': '10%'},
+                {'Component': 'ML Trading', 'Score': round(ml_trading_score, 1), 'Weight': '10%'}
             ])
             
             st.dataframe(comp_df, use_container_width=True)
@@ -569,28 +600,43 @@ class NewsAnalysisDashboard:
                 momentum_data.append({"Metric": "Volume Momentum", "Value": momentum.get('volume_momentum', 'Normal').title()})
                 
                 st.dataframe(pd.DataFrame(momentum_data), use_container_width=True)
-            
-            # Combined recommendation
-            sentiment_score = latest.get('overall_sentiment', 0)
-            
-            st.markdown("**🎯 Combined Analysis:**")
-            
-            # Simple combined logic
-            if sentiment_score > 0.1 and recommendation in ['BUY', 'STRONG_BUY'] and momentum_score > 5:
-                combined_signal = "🟢 **STRONG BUY** - Positive news sentiment + strong technical momentum"
-            elif sentiment_score > 0.05 and recommendation == 'BUY':
-                combined_signal = "🟢 **BUY** - Moderate positive sentiment + bullish technicals"
-            elif sentiment_score < -0.1 and recommendation in ['SELL', 'STRONG_SELL'] and momentum_score < -5:
-                combined_signal = "🔴 **STRONG SELL** - Negative sentiment + weak technicals"
-            elif sentiment_score < -0.05 and recommendation == 'SELL':
-                combined_signal = "🔴 **SELL** - Negative sentiment + bearish technicals"
-            else:
-                combined_signal = "🟡 **HOLD** - Mixed signals or neutral conditions"
-            
-            st.markdown(combined_signal)
-            
         else:
-            st.warning("Technical analysis data not available - check if yfinance is installed and symbol is valid")
+            st.info("Technical analysis data not available")
+        
+        # Add ML Prediction Section
+        st.markdown("#### 🤖 Machine Learning Prediction")
+        
+        ml_prediction = latest.get('ml_prediction', {})
+        
+        if ml_prediction and ml_prediction.get('prediction') != 'UNKNOWN':
+            col1, col2, col3, col4 = st.columns(4)
+            
+            with col1:
+                prediction = ml_prediction['prediction']
+                if prediction == 'PROFITABLE':
+                    st.metric("ML Signal", "📈 PROFITABLE", delta="BUY")
+                else:
+                    st.metric("ML Signal", "📉 UNPROFITABLE", delta="AVOID")
+            
+            with col2:
+                probability = ml_prediction.get('probability', 0)
+                st.metric("Probability", f"{probability:.1%}")
+            
+            with col3:
+                ml_confidence = ml_prediction.get('confidence', 0)
+                st.metric("ML Confidence", f"{ml_confidence:.1%}")
+            
+            with col4:
+                threshold = ml_prediction.get('threshold', 0.5)
+                st.metric("Decision Threshold", f"{threshold:.2f}")
+            
+            # Show ML model performance if available
+            if st.button("📊 Show ML Model Performance", key=f"ml_perf_{symbol}"):
+                self.display_ml_performance(symbol)
+        else:
+            st.info("ML predictions not available. Train models using: `python scripts/retrain_ml_models.py`")
+        
+        # Continue with existing sections...
     
     def get_technical_analysis(self, symbol: str, force_refresh: bool = False) -> Dict:
         """Get technical analysis for a symbol with caching"""
@@ -606,6 +652,88 @@ class NewsAnalysisDashboard:
                 self.technical_data[symbol] = self.tech_analyzer._empty_analysis(symbol)
         
         return self.technical_data[symbol]
+    
+    def display_ml_performance(self, symbol: str):
+        """Display ML model performance metrics"""
+        try:
+            # Load ML pipeline to access database
+            from src.ml_training_pipeline import MLTrainingPipeline
+            ml_pipeline = MLTrainingPipeline()
+            
+            conn = sqlite3.connect(ml_pipeline.db_path)
+            
+            # Get model performance
+            query = '''
+                SELECT * FROM model_performance 
+                ORDER BY training_date DESC 
+                LIMIT 5
+            '''
+            
+            performance_df = pd.read_sql_query(query, conn)
+            
+            if not performance_df.empty:
+                st.markdown("##### Recent Model Performance")
+                
+                # Display metrics
+                for idx, row in performance_df.iterrows():
+                    with st.expander(f"Model: {row['model_type']} - {row['model_version']}"):
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.metric("Validation Score", f"{row['validation_score']:.3f}")
+                        with col2:
+                            st.metric("Precision", f"{row['precision_score']:.3f}")
+                        with col3:
+                            st.metric("Recall", f"{row['recall_score']:.3f}")
+                        
+                        # Show feature importance if available
+                        if row['feature_importance']:
+                            try:
+                                importance = json.loads(row['feature_importance'])
+                                importance_df = pd.DataFrame(list(importance.items()), 
+                                                           columns=['Feature', 'Importance'])
+                                importance_df = importance_df.sort_values('Importance', ascending=False)
+                                
+                                st.markdown("**Feature Importance:**")
+                                st.dataframe(importance_df, use_container_width=True)
+                            except:
+                                st.info("Feature importance data not available")
+            
+            # Get recent predictions accuracy
+            query = '''
+                SELECT 
+                    COUNT(*) as total_predictions,
+                    SUM(CASE WHEN outcome_label = 1 THEN 1 ELSE 0 END) as profitable_trades,
+                    AVG(return_pct) as avg_return
+                FROM trading_outcomes
+                WHERE symbol = ?
+                AND exit_timestamp > datetime('now', '-30 days')
+            '''
+            
+            accuracy_df = pd.read_sql_query(query, conn, params=[symbol])
+            
+            if not accuracy_df.empty and accuracy_df['total_predictions'].iloc[0] > 0:
+                st.markdown("##### Recent Trading Performance (30 days)")
+                
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    total = accuracy_df['total_predictions'].iloc[0]
+                    st.metric("Total Trades", total)
+                
+                with col2:
+                    profitable = accuracy_df['profitable_trades'].iloc[0]
+                    win_rate = profitable / total if total > 0 else 0
+                    st.metric("Win Rate", f"{win_rate:.1%}")
+                
+                with col3:
+                    avg_return = accuracy_df['avg_return'].iloc[0]
+                    st.metric("Avg Return", f"{avg_return:.2f}%")
+            
+            conn.close()
+            
+        except Exception as e:
+            st.error(f"Error loading ML performance: {e}")
     
     def run_dashboard(self):
         """Main dashboard application"""

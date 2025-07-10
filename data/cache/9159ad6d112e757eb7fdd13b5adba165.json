@@ -1,90 +1,82 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-09T20:04:22.091000",
-  "news_count": 21,
+  "timestamp": "2025-07-10T14:15:04.165303",
+  "news_count": 23,
   "sentiment_scores": {
-    "average_sentiment": 0.06549545454545455,
-    "positive_count": 4,
-    "negative_count": 0,
-    "neutral_count": 7,
+    "average_sentiment": 0.012623076923076921,
+    "positive_count": 5,
+    "negative_count": 2,
+    "neutral_count": 6,
     "sentiment_distribution": {
       "very_positive": 0,
-      "positive": 4,
-      "neutral": 7,
-      "negative": 0,
-      "very_negative": 0
+      "positive": 5,
+      "neutral": 6,
+      "negative": 1,
+      "very_negative": 1
     },
-    "strongest_sentiment": 0.2294
+    "strongest_sentiment": -0.7294
   },
   "reddit_sentiment": {
-    "posts_analyzed": 28,
-    "average_sentiment": 0.05773538676547816,
-    "bullish_count": 10,
-    "bearish_count": 1,
-    "neutral_count": 17,
+    "posts_analyzed": 19,
+    "average_sentiment": 0.0582847227764364,
+    "bullish_count": 6,
+    "bearish_count": 0,
+    "neutral_count": 13,
     "top_posts": [
       {
-        "title": "Australian banks finally stopping deposit scams",
-        "score": 345,
-        "sentiment": 0.096875,
-        "category": "neutral",
-        "subreddit": "AusFinance",
-        "url": "https://reddit.com/r/AusFinance/comments/1lqakhx/australian_banks_finally_stopping_deposit_scams/"
-      },
-      {
-        "title": "Not having Dominos anymore",
-        "score": 92,
-        "sentiment": -0.3,
-        "category": "bearish",
-        "subreddit": "ASX",
-        "url": "https://reddit.com/r/ASX/comments/1lpk8p2/not_having_dominos_anymore/"
-      },
-      {
-        "title": "Did you outperform the ASX bets official Boomer portfolio?",
-        "score": 31,
-        "sentiment": -0.000347222222222221,
-        "category": "neutral",
-        "subreddit": "ASX_Bets",
-        "url": "https://reddit.com/r/ASX_Bets/comments/1lpocse/did_you_outperform_the_asx_bets_official_boomer/"
-      },
-      {
         "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
-        "score": 13,
+        "score": 12,
         "sentiment": -0.022916666666666665,
         "category": "neutral",
         "subreddit": "ASX_Bets",
         "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
       },
       {
-        "title": "Home loan calculator",
-        "score": 5,
-        "sentiment": 0.1,
+        "title": "Vanguard VTS EFT reinvestment",
+        "score": 3,
+        "sentiment": 0.5,
+        "category": "bullish",
+        "subreddit": "AusFinance",
+        "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
+      },
+      {
+        "title": "Invest in US Stock From Australia",
+        "score": 2,
+        "sentiment": -0.075,
         "category": "neutral",
         "subreddit": "AusFinance",
-        "url": "https://reddit.com/r/AusFinance/comments/1lqaxs9/home_loan_calculator/"
+        "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+      },
+      {
+        "title": "Converting currency for HECS repayment",
+        "score": 1,
+        "sentiment": 0.031136363636363636,
+        "category": "neutral",
+        "subreddit": "AusFinance",
+        "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
+      },
+      {
+        "title": "Converting currency for HECS repayment",
+        "score": 1,
+        "sentiment": 0.031136363636363636,
+        "category": "neutral",
+        "subreddit": "AusFinance",
+        "url": "https://reddit.com/r/AusFinance/comments/1lsdcij/converting_currency_for_hecs_repayment/"
       }
     ],
     "sentiment_distribution": {
-      "bullish": 35.714285714285715,
-      "bearish": 3.571428571428571,
-      "neutral": 60.71428571428571
+      "bullish": 31.57894736842105,
+      "bearish": 0.0,
+      "neutral": 68.42105263157895
     },
     "subreddit_breakdown": {
       "ASX_Bets": {
-        "count": 2,
-        "avg_sentiment": -0.011631944444444443
+        "count": 1,
+        "avg_sentiment": -0.022916666666666665
       },
       "AusFinance": {
-        "count": 23,
-        "avg_sentiment": 0.08774589496187578
-      },
-      "fiaustralia": {
-        "count": 2,
-        "avg_sentiment": -0.03915043290043291
-      },
-      "ASX": {
-        "count": 1,
-        "avg_sentiment": -0.3
+        "count": 18,
+        "avg_sentiment": 0.06279591107883102
       }
     }
   },
@@ -103,16 +95,16 @@
     "legal_action": false,
     "events_detected": []
   },
-  "overall_sentiment": 0.02658422842970207,
+  "overall_sentiment": 0.012686383236884076,
   "sentiment_components": {
-    "news": 0.01799779202988792,
-    "reddit": 0.01170525649491886,
+    "news": 0.0022700901278557947,
+    "reddit": 0.0116251817635835,
     "events": 0.0,
     "volume": 0.0,
     "momentum": 0.0,
     "ml_trading": 0.0
   },
-  "confidence": 0.65,
+  "confidence": 0.71,
   "recent_headlines": [
     "",
     "",

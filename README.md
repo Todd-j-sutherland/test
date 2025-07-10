@@ -1,19 +1,20 @@
-# News-Based Trading Analysis System 🏦
+# ML-Enhanced Trading Analysis System 🤖📈
 
 ## 🚀 Overview
 
-The News-Based Trading Analysis System is a comprehensive tool designed for analyzing Australian banking stocks using advanced news sentiment analysis. It integrates various data sources, performs ML-enhanced sentiment scoring, and provides trading insights based on news sentiment with full Python 3.12 compatibility for transformer models.
+A comprehensive ML-powered trading analysis system for Australian banking stocks. Combines advanced news sentiment analysis with machine learning predictions to generate intelligent trading signals. Features automated data collection, model training, and real-time ML predictions with full Python 3.12+ compatibility.
 
 ## ✨ Key Features
 
 ### 🔥 Core Capabilities
-- **Advanced News Sentiment Analysis** - VADER sentiment with ML feature engineering
-- **Real-time News Processing** - Live news feeds and sentiment scoring
-- **Trading Signal Generation** - HOLD/BUY/SELL signals with confidence levels
-- **Multi-Bank Analysis** - Individual or all major Australian banks
-- **Python 3.12 Compatible** - Full support for modern ML libraries and transformers
+- **🤖 ML-Enhanced Sentiment Analysis** - VADER sentiment with automated ML feature engineering
+- **📊 Real-time Trading Predictions** - ML models trained on your trading outcomes
+- **🎯 Intelligent Signal Generation** - HOLD/BUY/SELL signals with ML confidence scores
+- **📈 Automated Learning** - System learns from your trading decisions over time
+- **🏦 Multi-Bank Analysis** - Individual or all major Australian banks
+- **⚡ Modern Tech Stack** - Python 3.12+, SQLite, Streamlit dashboard
 
-### 📊 What It Analyzes
+### 🏦 Supported Stocks
 - **CBA.AX** - Commonwealth Bank of Australia
 - **WBC.AX** - Westpac Banking Corporation
 - **ANZ.AX** - Australia and New Zealand Banking Group
@@ -34,20 +35,38 @@ pip install -r requirements.txt
 
 ### Run Analysis
 ```bash
-# Full enhanced analysis (recommended)
-python enhanced_main.py
+# Analyze stocks and collect ML training data (recommended)
+python news_trading_analyzer.py --symbols CBA.AX,WBC.AX
 
-# Synchronous processing
-python enhanced_main.py --sync
+# Quick analysis with wrapper script
+python run_analyzer.py
 
-# Analyze specific symbols
-python enhanced_main.py --symbols CBA.AX ANZ.AX
+# Test ML integration
+python demo_ml_integration.py
+```
+
+### Launch Interactive Dashboard
+```bash
+# Launch dashboard (recommended)
+python launch_dashboard_auto.py
+
+# Alternative launcher with manual checks
+python launch_dashboard.py
 ```
 
 ### Example Output
 ```
-📊 INDIVIDUAL STOCK ANALYSIS:
---------------------------------------------------
+🤖 ML-ENHANCED TRADING ANALYSIS: CBA.AX
+============================================================
+Sentiment Score: -0.027
+ML Confidence: 0.875
+Trading Signal: HOLD
+ML Prediction: NEUTRAL (67% confidence)
+Strategy: moderate
+News Articles: 18
+ML Features Collected: ✅ (for training)
+============================================================
+```
 📈 CBA.AX: $178.00 | NEUTRAL (9.1%) | Risk: LOW (36/100) | Data: VALIDATED
     🔍 VaR(95%): 2.2% | Max Drawdown: 7.0%
 📈 WBC.AX: $33.63 | NEUTRAL (1.0%) | Risk: LOW (26/100) | Data: VALIDATED
@@ -131,23 +150,47 @@ pip install requests yfinance beautifulsoup4 feedparser textblob vaderSentiment 
 pip install transformers torch
 ```
 
-### Step 4: Verify Installation
-```bash
-# Test the main analyzer
-python news_trading_analyzer.py --help
-
-# Run a quick analysis
-python news_trading_analyzer.py --symbol CBA.AX --detailed
-```
-
 ## 🚀 Usage
 
-### 📊 Dashboard (Recommended)
-Launch the interactive dashboard with news sentiment and technical analysis:
+### 📊 Interactive Dashboard (Recommended)
+Launch the modern Streamlit dashboard with ML predictions and sentiment analysis:
 
 ```bash
-# Quick launch (recommended)
-cd /Users/toddsutherland/Repos/trading_analysis && source .venv/bin/activate && python launch_dashboard_auto.py
+# Quick launch with auto-setup
+python launch_dashboard_auto.py
+
+# Alternative launcher
+python launch_dashboard.py
+```
+
+The dashboard provides:
+- 📈 Real-time sentiment analysis
+- 🤖 ML prediction displays
+- 📊 Technical analysis charts
+- 🎯 Trading signal summaries
+
+### 🤖 ML-Enhanced Analysis
+```bash
+# Analyze stocks and collect ML training data
+python news_trading_analyzer.py --symbols CBA.AX,WBC.AX,ANZ.AX
+
+# Analyze all major banks
+python news_trading_analyzer.py --all
+
+# Quick analysis with simple wrapper
+python run_analyzer.py
+```
+
+### 🧪 ML System Testing
+```bash
+# Test the complete ML integration
+python demo_ml_integration.py
+
+# Generate demo training data for testing
+python create_demo_training_data.py
+```
+
+### 🎯 Supported Stocks
 
 # Or run manually
 streamlit run news_analysis_dashboard.py
@@ -183,232 +226,230 @@ python news_trading_analyzer.py --symbol CBA.AX --log-level DEBUG
 
 ### Output Example
 ```
-============================================================
-NEWS TRADING ANALYSIS: CBA.AX
+🤖 ML-ENHANCED TRADING ANALYSIS: CBA.AX
 ============================================================
 Sentiment Score: -0.027
-Confidence: 0.990
+ML Confidence: 0.875
 Trading Signal: HOLD
-Recommendation: HOLD
-Strategy: moderate
+ML Prediction: NEUTRAL (67% confidence)
 News Articles: 18
+Features Collected: ✅ (training data updated)
 ============================================================
 ```
 
-### Quick Start (No Transformer Downloads)
+## 🤖 Machine Learning Features
+
+### Automated Learning Pipeline
+The system automatically:
+- 📊 **Collects Features** - Extracts ML features from sentiment analysis
+- 🎯 **Tracks Outcomes** - Records your trading decisions and results
+- 🤖 **Trains Models** - Learns from your trading patterns (100+ samples needed)
+- 📈 **Makes Predictions** - Provides ML-enhanced trading signals
+
+### ML Model Training
 ```bash
-# Run analyzer without downloading large ML models (recommended for quick testing)
-SKIP_TRANSFORMERS=1 python news_trading_analyzer.py --symbol CBA.AX
+# Train models when you have enough data (100+ samples)
+python scripts/retrain_ml_models.py --min-samples 100
 
-# Or use the simple runner script
-python run_analyzer.py --symbol CBA.AX
+# Set up automated training schedule
+python scripts/schedule_ml_training.py
 
-# Analyze all banks quickly
-SKIP_TRANSFORMERS=1 python news_trading_analyzer.py --all
+# View model performance
+python src/ml_backtester.py
 ```
 
-### Advanced Mode (With Transformers)
-If you want to enable advanced transformer-based sentiment analysis:
+### Data Collection
+Every time you run the analyzer, it:
+1. Analyzes news sentiment
+2. Collects ML features automatically
+3. Stores data for future model training
+4. Shows current ML predictions (if models exist)
+
+## 🔧 Environment Setup
+
+### Python 3.12+ Requirement
+This system requires Python 3.12 or higher for optimal ML performance:
+
 ```bash
-# Install transformer libraries (will download ~268MB of models)
-pip install transformers torch
-
-# Run without SKIP_TRANSFORMERS flag
-python news_trading_analyzer.py --symbol CBA.AX --detailed
-```
-
-**Note:** Transformer models provide more accurate sentiment analysis but require downloading large model files (~268MB). For most use cases, the VADER sentiment analysis (default) provides excellent results without any downloads.
-
-## 🔧 Environment Management
-
-### Switching Between Python Versions
-```bash
-# Check current Python version
-python --version
-
-# List available versions with pyenv
-pyenv versions
-
-# Switch to Python 3.12 for this project
+# Install Python 3.12 using pyenv (recommended)
+pyenv install 3.12.7
 pyenv local 3.12.7
 
-# Activate the virtual environment
-source .venv312/bin/activate
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+# OR
+.venv\Scripts\activate     # Windows
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Troubleshooting
-If you encounter "Module not found" errors:
+### Optional: Transformer Models
+For advanced sentiment analysis (optional):
+```bash
+# Install transformer libraries (~268MB download)
+pip install transformers torch
+
+# Run with advanced models
+python news_trading_analyzer.py --symbols CBA.AX --detailed
+```
+
+**Note:** The system works excellently with VADER sentiment (default) without any large downloads. Transformers provide marginal improvements at the cost of ~268MB.
+
+---
+
+## 📁 Project Structure
+
+This is a modern, ML-enhanced trading analysis system with clean architecture:
+
+### 🎯 **Main Application Files**
+```
+news_trading_analyzer.py     # 🤖 Main ML-enhanced analyzer  
+run_analyzer.py             # ⚡ Simple wrapper script
+news_analysis_dashboard.py  # 📊 Interactive Streamlit dashboard
+launch_dashboard_auto.py    # 🚀 Auto dashboard launcher
+launch_dashboard.py         # 🔧 Manual dashboard launcher
+demo_ml_integration.py      # 🧪 ML system testing
+create_demo_training_data.py # 📊 Training data generator
+```
+
+### 🧠 **Core System (`src/`)**
+```
+src/news_sentiment.py           # 🔍 Sentiment analysis + ML features
+src/ml_training_pipeline.py     # 🤖 Complete ML pipeline
+src/trading_outcome_tracker.py  # 📈 Trading decision tracking  
+src/ml_backtester.py            # 📊 ML model performance testing
+src/technical_analysis.py       # 📈 Technical indicators
+```
+
+### ⚙️ **Configuration**
+```
+config/settings.py          # ⚙️ Application settings
+config/ml_config.yaml       # 🤖 ML hyperparameters
+requirements.txt            # 📦 Python dependencies
+.python-version             # 🐍 Python 3.12+ requirement
+```
+
+### 🔄 **Automation (`scripts/`)**
+```
+scripts/retrain_ml_models.py       # 🔄 Automated model training
+scripts/schedule_ml_training.py    # ⏰ Training scheduler
+```
+
+### 📊 **Data & Outputs**
+```
+data/cache/                 # 💾 Cached API responses
+data/historical/            # 📈 Historical price data
+data/sentiment_history/     # 🧠 ML training features
+data/impact_analysis/       # 📊 Trading outcomes
+logs/                       # 📝 Application logs
+reports/                    # 📋 Analysis reports
+```
+
+### 🗂️ **Archive**
+```
+archive/legacy_root_files/  # 📦 Moved legacy components
+archive/                    # 📚 Previous versions
+```
+
+## 🚀 How to Use
+
+### 1. **Daily Analysis & Data Collection**
+```bash
+# Analyze stocks and automatically collect ML training data
+python news_trading_analyzer.py --symbols CBA.AX,WBC.AX,ANZ.AX
+
+# Quick analysis with wrapper
+python run_analyzer.py
+```
+
+### 2. **Interactive Dashboard**
+```bash
+# Launch modern web dashboard
+python launch_dashboard_auto.py
+```
+
+### 3. **ML Model Training** (after collecting 100+ samples)
+```bash
+# Train your first ML model
+python scripts/retrain_ml_models.py --min-samples 100
+
+# Set up automated training
+python scripts/schedule_ml_training.py
+```
+
+### 4. **Testing & Verification**
+```bash
+# Test the complete ML integration
+python demo_ml_integration.py
+
+# Generate demo data for testing
+python create_demo_training_data.py
+```
+
+## 🤖 ML System Status
+
+**Current State**: ✅ Fully implemented and collecting data
+- ML pipeline is active and collecting features
+- Trading outcome tracker is ready  
+- Dashboard shows ML predictions (when models exist)
+- Need 100+ samples to train first model
+
+**Next Steps**:
+1. 📊 Run daily analysis to collect training data
+2. 🎯 Record your trading decisions in the system
+3. 🤖 Train your first ML model after collecting enough data
+4. 📈 Let the system learn from your trading patterns
+
+---
+
+## 📚 Documentation
+
+### Key Documents
+- **`ML_IMPLEMENTATION_STATUS.md`** - Complete ML system status
+- **`FILE_ORGANIZATION_ANALYSIS.md`** - Project structure analysis  
+- **`ml_trading_doc.md`** - Original ML implementation roadmap
+
+### Architecture
+This system follows a modern, modular architecture:
+- **Separation of Concerns** - Each module has a single responsibility
+- **ML Integration** - Every component feeds into the ML learning loop
+- **Clean Structure** - Legacy files moved to archive, clear entry points
+- **Automated Learning** - System learns from your trading decisions over time
+
+The goal is to create an AI trading assistant that learns your trading style and improves its predictions based on your actual trading outcomes.
+
+---
+
+## 🛠️ Troubleshooting
+
+### Common Issues
 ```bash
 # Ensure you're in the correct virtual environment
-which python  # Should point to .venv312/bin/python
+which python  # Should point to your venv
 
 # Reinstall dependencies if needed
 pip install -r requirements.txt
 
-# Check if all packages are installed
-pip list | grep -E "(numpy|pandas|requests|yfinance)"
+# Check Python version
+python --version  # Should be 3.12+
 ```
+
+### Performance Tips
+- The system works excellently with default VADER sentiment analysis
+- Transformer models are optional and provide only marginal improvements
+- Use `SKIP_TRANSFORMERS=1` for faster startup times
+- The ML system needs 100+ samples before training models
 
 ---
 
-## 📁 File Structure & Definitions
+## � Next Steps
 
-### 🎯 **Active Core Files** (Used by the application)
+1. **Start Data Collection** - Run the analyzer daily to collect training data
+2. **Use the Dashboard** - Monitor sentiment and predictions in real-time  
+3. **Record Trading Decisions** - Let the system learn from your trades
+4. **Train ML Models** - After 100+ samples, train your first AI model
+5. **Automated Learning** - Set up scheduled retraining for continuous improvement
 
-#### **Main Entry Points**
-- **`news_trading_analyzer.py`** - 🎯 **PRIMARY ENTRY POINT**
-  - Command-line interface for news sentiment analysis
-  - Orchestrates all analysis components
-  - Provides trading recommendations with confidence scores
-  - Exports results to JSON format
-
-- **`run_analyzer.py`** - 🚀 **SIMPLE RUNNER**
-  - Convenience script that runs analyzer without transformer downloads
-  - Sets `SKIP_TRANSFORMERS=1` environment variable automatically
-  - Ideal for quick testing and daily use
-
-#### **Core Analysis Engine (`src/`)**
-- **`src/news_sentiment.py`** - 📰 **CORE SENTIMENT ANALYSIS**
-  - Multi-source news collection (RSS, Yahoo Finance, Google News, Reddit)
-  - Advanced sentiment analysis using VADER, TextBlob, and optional transformers
-  - ML-enhanced feature engineering for trading-specific insights
-  - Dynamic confidence weighting and sentiment aggregation
-
-- **`src/ml_trading_config.py`** - 🤖 **ML FEATURE ENGINEERING**
-  - Extracts 30+ trading-relevant features from news text
-  - Financial entity recognition (currencies, percentages, companies)
-  - Temporal analysis (urgency detection, time references)
-  - Trading pattern recognition (bull/bear language, action words)
-  - Model optimization and hyperparameter tuning
-
-- **`src/news_impact_analyzer.py`** - 📊 **NEWS IMPACT CORRELATION**
-  - Analyzes correlation between news sentiment and price movements
-  - Event impact analysis with time decay modeling
-  - Predictive metrics for trading accuracy
-  - Multi-symbol comparative analysis
-
-- **`src/sentiment_history.py`** - 📈 **HISTORICAL TRACKING**
-  - Stores and manages historical sentiment data
-  - Trend analysis and momentum calculations
-  - Data persistence and retrieval for correlation studies
-
-- **`src/data_feed.py`** - 📡 **MARKET DATA INTERFACE**
-  - Fetches real-time and historical market data using yfinance
-  - Provides price data for sentiment-price correlation analysis
-  - Handles data validation and error recovery
-
-#### **Configuration & Support**
-- **`config/settings.py`** - ⚙️ **CONFIGURATION MANAGEMENT**
-  - Application settings and parameters
-  - News source URLs and API configurations
-  - Trading strategy thresholds and weights
-
-- **`config/__init__.py`** - 📦 **PACKAGE MARKER**
-  - Makes config directory a Python package
-
-- **`utils/cache_manager.py`** - 💾 **CACHING SYSTEM**
-  - Implements intelligent caching for news and market data
-  - Reduces API calls and improves performance
-  - TTL-based cache expiration
-
-- **`utils/__init__.py`** - 📦 **PACKAGE MARKER**
-  - Makes utils directory a Python package
-
-- **`src/__init__.py`** - 📦 **PACKAGE MARKER**
-  - Makes src directory a Python package
-
-#### **Configuration Files**
-- **`requirements.txt`** - 📋 **PYTHON DEPENDENCIES**
-  - Complete list of required Python packages
-  - Version specifications for reproducible environments
-
-- **`.python-version`** - 🐍 **PYTHON VERSION LOCK**
-  - Specifies Python 3.12.7 for pyenv compatibility
-  - Ensures consistent Python version across environments
-
-- **`.gitignore`** - 🚫 **GIT IGNORE RULES**
-  - Excludes logs, virtual environments, cache files, and temporary data
-  - Prevents sensitive and generated files from being committed
-
-### 🗂️ **Directory Structure**
-- **`data/`** - 💾 **DATA STORAGE**
-  - `data/cache/` - Cached API responses and news data
-  - `data/historical/` - Historical price and sentiment data
-  - `data/sentiment_history/` - Stored sentiment analysis results
-
-- **`logs/`** - 📝 **APPLICATION LOGS**
-  - `news_trading_analyzer.log` - Main application log
-  - `enhanced_trading_system.log` - Legacy system logs
-
-- **`reports/`** - 📊 **ANALYSIS OUTPUTS**
-  - Generated analysis reports in JSON and HTML formats
-  - Backtesting results and correlation studies
-
-### ❌ **Unused Files** (Safe to remove or ignore)
-
-#### **Cleanup & Development Files**
-- **`cleanup_project.py`** - 🧹 **ONE-TIME CLEANUP SCRIPT**
-  - Used once to organize project structure
-  - Can be safely removed or archived
-
-- **`install_transformers.sh`** - 📥 **MANUAL INSTALLATION SCRIPT**
-  - Shell script for installing transformer libraries
-  - Not automatically used by the application
-
-#### **Legacy & Backup Files**
-- **`backtesting_system.py`** - 📈 **LEGACY BACKTESTING**
-  - Old backtesting system not integrated with current analyzer
-  - Standalone system not used by main application
-
-- **`archive/`** - 📦 **ARCHIVED FILES**
-  - Contains old main files, demos, and unused components
-  - Preserved for reference but not actively used
-
-- **`backup_before_cleanup/`** - 💾 **PRE-CLEANUP BACKUP**
-  - Backup of files before project reorganization
-  - Can be safely removed once satisfied with current system
-
-#### **Documentation & Alternatives**
-- **`README_CLEAN.md`** - 📖 **ALTERNATIVE README**
-  - Simplified version of documentation
-  - Redundant with main README.md
-
-- **`IMPROVEMENTS_README.md`** - 📋 **DEVELOPMENT NOTES**
-  - Development notes and improvement ideas
-  - Not part of production system
-
-- **`PROJECT_CLEANUP_SUMMARY.md`** - 📝 **CLEANUP DOCUMENTATION**
-  - Documents the cleanup process performed
-  - Reference document, not operational
-
-#### **Test Files**
-- **`tests/test_*.py`** - 🧪 **UNIT TESTS**
-  - Test files for development and validation
-  - Not used in production runtime but valuable for development
-
-#### **Unused Utilities**
-- **`utils/helpers.py`** - 🔧 **UNUSED HELPER FUNCTIONS**
-  - Helper functions not currently imported by any active component
-
-- **`utils/validators.py`** - ✅ **UNUSED VALIDATION FUNCTIONS**
-  - Data validation functions not currently used
-
-### 🎯 **Summary**
-
-**Active System (12 core files):**
-```
-news_trading_analyzer.py     # Main entry point
-run_analyzer.py             # Simple runner
-src/news_sentiment.py       # Core sentiment analysis
-src/ml_trading_config.py    # ML feature engineering  
-src/news_impact_analyzer.py # Impact correlation
-src/sentiment_history.py    # Historical tracking
-src/data_feed.py            # Market data
-config/settings.py          # Configuration
-utils/cache_manager.py      # Caching
-requirements.txt            # Dependencies
-.python-version             # Python version
-.gitignore                  # Git ignore rules
-```
-
-**The system is lean, focused, and production-ready with minimal dependencies and clear separation of concerns.**
+**Your ML-powered trading assistant is ready to learn from your trading decisions!** 🤖📈

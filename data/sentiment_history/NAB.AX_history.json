@@ -3513,5 +3513,301 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-10T12:34:34.727921",
+    "news_count": 16,
+    "sentiment_scores": {
+      "average_sentiment": -0.14809999999999998,
+      "positive_count": 0,
+      "negative_count": 4,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 17,
+      "average_sentiment": 0.1291485048478234,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Internet banking fraudulent transactions",
+          "score": 12,
+          "sentiment": 0.23876623376623377,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lspeos/internet_banking_fraudulent_transactions/"
+        },
+        {
+          "title": "Internet banking fraudulent transactions",
+          "score": 9,
+          "sentiment": 0.23876623376623377,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lspeos/internet_banking_fraudulent_transactions/"
+        },
+        {
+          "title": "FHB Western Sydney Unit vs.  Rent & Nab Equity Builder",
+          "score": 2,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lttsgg/fhb_western_sydney_unit_vs_rent_nab_equity_builder/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 2,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 58.82352941176471,
+        "bearish": 0.0,
+        "neutral": 41.17647058823529
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12966511944766745
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.12088267125031832
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T12:33:48.706082",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T12:33:48.706219",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T12:34:03.576964",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T12:34:03.577162",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.005216044127822086,
+    "sentiment_components": {
+      "news": -0.02663378746594005,
+      "reddit": 0.02575932031297186,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-10T14:18:37.794827",
+    "news_count": 16,
+    "sentiment_scores": {
+      "average_sentiment": -0.14809999999999998,
+      "positive_count": 0,
+      "negative_count": 4,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 17,
+      "average_sentiment": 0.1291485048478234,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 21,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Internet banking fraudulent transactions",
+          "score": 11,
+          "sentiment": 0.23876623376623377,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lspeos/internet_banking_fraudulent_transactions/"
+        },
+        {
+          "title": "Internet banking fraudulent transactions",
+          "score": 9,
+          "sentiment": 0.23876623376623377,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lspeos/internet_banking_fraudulent_transactions/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 2,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "Can lenders use overseas equity to fund business acquisitions in Aus?",
+          "score": 1,
+          "sentiment": 0.016942148760330577,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ls005v/can_lenders_use_overseas_equity_to_fund_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 58.82352941176471,
+        "bearish": 0.0,
+        "neutral": 41.17647058823529
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12966511944766745
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.12088267125031832
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T14:17:55.793059",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T14:17:55.793215",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T14:18:08.522336",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T14:18:08.522540",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.005216044127822086,
+    "sentiment_components": {
+      "news": -0.02663378746594005,
+      "reddit": 0.02575932031297186,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

@@ -18,6 +18,9 @@ import praw
 import os
 import numpy as np  # Add numpy import at the top
 
+# Import ML pipeline at the top
+from src.ml_training_pipeline import MLTrainingPipeline
+
 # Transformers for advanced sentiment analysis
 try:
     from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
@@ -82,6 +85,14 @@ class NewsSentimentAnalyzer:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
+        
+        # Initialize ML training pipeline
+        self.ml_pipeline = MLTrainingPipeline()
+        
+        # Load latest trained model
+        self.ml_model = self._load_ml_model()
+        self.ml_feature_columns = []
+        self.ml_threshold = 0.5
         
         # Initialize Transformers models for advanced sentiment analysis
         self.transformer_models = {}
@@ -274,6 +285,33 @@ class NewsSentimentAnalyzer:
             logger.error(f"Error initializing ML trading models: {e}")
             self.ml_models = {}
     
+    def _load_ml_model(self):
+        """Load the latest trained ML model"""
+        try:
+            import joblib
+            import json
+            
+            model_path = os.path.join("data/ml_models/models", "current_model.pkl")
+            metadata_path = os.path.join("data/ml_models/models", "current_metadata.json")
+            
+            if os.path.exists(model_path) and os.path.exists(metadata_path):
+                model = joblib.load(model_path)
+                
+                # Load metadata
+                with open(metadata_path, 'r') as f:
+                    metadata = json.load(f)
+                self.ml_feature_columns = metadata.get('feature_columns', [])
+                
+                logger.info(f"Loaded ML model: {metadata.get('model_type', 'unknown')}")
+                return model
+            else:
+                logger.warning("No trained ML model found")
+                return None
+                
+        except Exception as e:
+            logger.error(f"Error loading ML model: {e}")
+            return None
+    
     def analyze_bank_sentiment(self, symbol: str) -> Dict:
         """Analyze sentiment for a specific bank"""
         
@@ -374,6 +412,16 @@ class NewsSentimentAnalyzer:
             if trend_data['data_points'] >= 5:
                 impact_analysis = self.impact_analyzer.analyze_sentiment_price_correlation(symbol, days=14)
                 result['impact_analysis'] = impact_analysis
+            
+            # Store data for ML training
+            if result and self.ml_pipeline:
+                feature_id = self.ml_pipeline.collect_training_data(result, symbol)
+                result['ml_feature_id'] = feature_id
+            
+            # Add ML prediction if model is available
+            if self.ml_model:
+                ml_prediction = self._get_ml_prediction(result)
+                result['ml_prediction'] = ml_prediction
             
             return result
             
@@ -689,6 +737,88 @@ class NewsSentimentAnalyzer:
                 confidence += 0.01
         
         return min(1.0, confidence)
+    
+    def _get_market_data_for_ml(self) -> Dict:
+        """Get market data for ML feature engineering"""
+        try:
+            # For now, return basic market context
+            # This could be enhanced to fetch real market data
+            return {
+                'market_volatility': 0.5,  # Placeholder volatility measure
+                'market_trend': 'neutral',
+                'trading_volume': 1.0,     # Normalized volume
+                'market_hours': self._is_market_hours(),
+                'day_of_week': datetime.now().weekday()
+            }
+        except Exception as e:
+            logger.warning(f"Error getting market data for ML: {e}")
+            return {}
+    
+    def _calculate_ml_trading_score(self, news_items: List[Dict], market_data: Dict) -> Dict:
+        """Calculate ML trading score based on news and market data"""
+        try:
+            if not news_items:
+                return {'ml_score': 0, 'confidence': 0}
+            
+            # Extract features from news
+            total_sentiment = 0
+            sentiment_variance = 0
+            news_count = len(news_items)
+            
+            # Calculate sentiment statistics
+            sentiments = []
+            for item in news_items:
+                if 'sentiment_analysis' in item:
+                    sentiment = item['sentiment_analysis'].get('composite', 0)
+                    sentiments.append(sentiment)
+                    total_sentiment += sentiment
+            
+            if sentiments:
+                avg_sentiment = total_sentiment / len(sentiments)
+                sentiment_variance = sum((s - avg_sentiment) ** 2 for s in sentiments) / len(sentiments)
+            else:
+                avg_sentiment = 0
+            
+            # Calculate ML score based on features
+            ml_score = avg_sentiment
+            
+            # Adjust for market conditions
+            market_factor = market_data.get('market_volatility', 0.5)
+            if market_data.get('market_trend') == 'bullish':
+                ml_score *= 1.1
+            elif market_data.get('market_trend') == 'bearish':
+                ml_score *= 0.9
+            
+            # Calculate confidence based on news volume and sentiment consistency
+            base_confidence = min(0.9, news_count / 10.0)  # More news = higher confidence
+            variance_penalty = min(0.3, sentiment_variance)  # High variance = lower confidence
+            confidence = max(0.1, base_confidence - variance_penalty)
+            
+            return {
+                'ml_score': float(ml_score),
+                'confidence': float(confidence),
+                'features': {
+                    'avg_sentiment': avg_sentiment,
+                    'sentiment_variance': sentiment_variance,
+                    'news_count': news_count,
+                    'market_factor': market_factor
+                }
+            }
+            
+        except Exception as e:
+            logger.error(f"Error calculating ML trading score: {e}")
+            return {'ml_score': 0, 'confidence': 0}
+    
+    def _is_market_hours(self) -> bool:
+        """Check if it's currently market hours (AEST)"""
+        try:
+            now = datetime.now()
+            # ASX market hours: 10:00 AM - 4:00 PM AEST (Monday-Friday)
+            if now.weekday() >= 5:  # Weekend
+                return False
+            return 10 <= now.hour < 16
+        except:
+            return False
     
     def _get_market_context(self) -> Dict:
         """Get market context for sentiment adjustment"""

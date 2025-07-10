@@ -4054,5 +4054,533 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-10T11:39:43.520388",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.0578740404040404,
+      "positive_count": 3,
+      "negative_count": 0,
+      "neutral_count": 12,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 3,
+        "neutral": 12,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.42929090909090906
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 23,
+      "average_sentiment": 0.08345721221632697,
+      "bullish_count": 8,
+      "bearish_count": 0,
+      "neutral_count": 15,
+      "top_posts": [
+        {
+          "title": "Kiwi who grew up in Australia and has now moved overseas. Can I access my super?",
+          "score": 6,
+          "sentiment": 0.2390277777777778,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltyc9l/kiwi_who_grew_up_in_australia_and_has_now_moved/"
+        },
+        {
+          "title": "Kiwi who grew up in Australia and has now moved overseas. Can I access my super?",
+          "score": 4,
+          "sentiment": 0.2390277777777778,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltyc9l/kiwi_who_grew_up_in_australia_and_has_now_moved/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 34.78260869565217,
+        "bearish": 0.0,
+        "neutral": 65.21739130434783
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.08810616554496786
+        },
+        "fiaustralia": {
+          "count": 4,
+          "avg_sentiment": 0.01791125541125541
+        },
+        "investing": {
+          "count": 2,
+          "avg_sentiment": 0.17503302253302258
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T11:38:49.193587",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "management_change",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T11:38:49.193587",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "product_launch",
+          "headline": "ANZ To Introduce Password-less Web Banking For ANZ Plus",
+          "date": "2025-07-10T11:38:49.194022",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T11:39:00.951329",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T11:39:00.951899",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T11:39:13.237151",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T11:39:13.237302",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.0437794267409464,
+    "sentiment_components": {
+      "news": 0.01590346918500069,
+      "reddit": 0.01692009233974848,
+      "events": 0.015285698630136986,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.7000000000000001,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-10T12:33:24.992156",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.02470919191919192,
+      "positive_count": 2,
+      "negative_count": 0,
+      "neutral_count": 13,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 13,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.20095
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 23,
+      "average_sentiment": 0.08345721221632697,
+      "bullish_count": 8,
+      "bearish_count": 0,
+      "neutral_count": 15,
+      "top_posts": [
+        {
+          "title": "Kiwi who grew up in Australia and has now moved overseas. Can I access my super?",
+          "score": 4,
+          "sentiment": 0.2390277777777778,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltyc9l/kiwi_who_grew_up_in_australia_and_has_now_moved/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 34.78260869565217,
+        "bearish": 0.0,
+        "neutral": 65.21739130434783
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.08810616554496786
+        },
+        "fiaustralia": {
+          "count": 4,
+          "avg_sentiment": 0.01791125541125541
+        },
+        "investing": {
+          "count": 2,
+          "avg_sentiment": 0.17503302253302258
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T12:32:24.359637",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "management_change",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T12:32:24.359637",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "product_launch",
+          "headline": "ANZ To Introduce Password-less Web Banking For ANZ Plus",
+          "date": "2025-07-10T12:32:24.360312",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T12:32:35.845266",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T12:32:35.845389",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T12:32:54.106516",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T12:32:54.106670",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.029498855884569134,
+    "sentiment_components": {
+      "news": 0.0044436148955495,
+      "reddit": 0.016645961673665218,
+      "events": 0.010697983651226158,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-10T14:17:28.389315",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.0578740404040404,
+      "positive_count": 3,
+      "negative_count": 0,
+      "neutral_count": 12,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 3,
+        "neutral": 12,
+        "negative": 0,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.42929090909090906
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 23,
+      "average_sentiment": 0.08345721221632697,
+      "bullish_count": 8,
+      "bearish_count": 0,
+      "neutral_count": 15,
+      "top_posts": [
+        {
+          "title": "Kiwi who grew up in Australia and has now moved overseas. Can I access my super?",
+          "score": 6,
+          "sentiment": 0.2390277777777778,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltyc9l/kiwi_who_grew_up_in_australia_and_has_now_moved/"
+        },
+        {
+          "title": "Kiwi who grew up in Australia and has now moved overseas. Can I access my super?",
+          "score": 4,
+          "sentiment": 0.2390277777777778,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltyc9l/kiwi_who_grew_up_in_australia_and_has_now_moved/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        },
+        {
+          "title": "Going in loops with ANZ supa",
+          "score": 3,
+          "sentiment": -0.001041666666666663,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqhbds/going_in_loops_with_anz_supa/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 34.78260869565217,
+        "bearish": 0.0,
+        "neutral": 65.21739130434783
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.08810616554496786
+        },
+        "fiaustralia": {
+          "count": 4,
+          "avg_sentiment": 0.01791125541125541
+        },
+        "investing": {
+          "count": 2,
+          "avg_sentiment": 0.17503302253302258
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T14:16:30.949678",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "management_change",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-10T14:16:30.949678",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "product_launch",
+          "headline": "ANZ To Introduce Password-less Web Banking For ANZ Plus",
+          "date": "2025-07-10T14:16:30.950228",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T14:16:45.302637",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T14:16:45.302801",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-10T14:16:59.106562",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-10T14:16:59.106760",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.03503368051672172,
+    "sentiment_components": {
+      "news": 0.01040786557674841,
+      "reddit": 0.016645961673665218,
+      "events": 0.010697983651226158,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]
