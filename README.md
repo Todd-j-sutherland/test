@@ -453,7 +453,7 @@ python --version  # Should be 3.12+
 5. **Automated Learning** - Set up scheduled retraining for continuous improvement
 
 **Your ML-powered trading assistant is ready to learn from your trading decisions!** 🤖📈
-
+python launch_dashboard_auto.py
 
 
 New Updates:
