@@ -93,13 +93,15 @@ class NewsAnalysisDashboard:
     
     def __init__(self):
         self.data_path = "data/sentiment_history"
-        self.bank_symbols = ["CBA.AX", "WBC.AX", "ANZ.AX", "NAB.AX", "MQG.AX"]
+        self.bank_symbols = ["CBA.AX", "WBC.AX", "ANZ.AX", "NAB.AX", "MQG.AX", "SUN.AX", "QBE.AX"]
         self.bank_names = {
             "CBA.AX": "Commonwealth Bank",
             "WBC.AX": "Westpac Banking Corp",
             "ANZ.AX": "ANZ Banking Group",
             "NAB.AX": "National Australia Bank",
-            "MQG.AX": "Macquarie Group"
+            "MQG.AX": "Macquarie Group",
+            "SUN.AX": "Suncorp Group",
+            "QBE.AX": "QBE Insurance Group"
         }
         # Initialize technical analyzer
         self.tech_analyzer = TechnicalAnalyzer()

@@ -30,6 +30,16 @@ BANK_KEYWORDS_COMPREHENSIVE = {
         'Macquarie', 'MQG', 'Macquarie Group', 'macquarie bank',
         'macquarie limited', 'macquarie australia', 'macquarie capital',
         'macquarie investment', 'macquarie wealth', 'macquarie app'
+    ],
+    'SUN.AX': [
+        'Suncorp', 'SUN', 'Suncorp Group', 'suncorp bank', 'suncorp banking',
+        'suncorp financial', 'suncorp insurance', 'aami', 'gig', 'vero',
+        'suncorp metway', 'suncorp app', 'suncorp business'
+    ],
+    'QBE.AX': [
+        'QBE', 'QBE Insurance', 'QBE Group', 'qbe insurance group',
+        'qbe international', 'qbe australia', 'qbe pacific', 'qbe americas',
+        'qbe re', 'qbe reinsurance', 'qbe app', 'qbe business'
     ]
 }
 

@@ -3809,5 +3809,161 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-10T14:43:01.705019",
+    "news_count": 18,
+    "sentiment_scores": {
+      "average_sentiment": -0.20390170454545456,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 3,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 3,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7562500000000001
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 15,
+      "average_sentiment": 0.114532807658702,
+      "bullish_count": 8,
+      "bearish_count": 0,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 19,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 2,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "Can lenders use overseas equity to fund business acquisitions in Aus?",
+          "score": 1,
+          "sentiment": 0.016942148760330577,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ls005v/can_lenders_use_overseas_equity_to_fund_business/"
+        },
+        {
+          "title": "FHB Western Sydney Unit vs.  Rent & Nab Equity Builder",
+          "score": 1,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lttsgg/fhb_western_sydney_unit_vs_rent_nab_equity_builder/"
+        },
+        {
+          "title": "Payday loans and negotiating a payment plan",
+          "score": 1,
+          "sentiment": 0.10293650793650792,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltn5yd/payday_loans_and_negotiating_a_payment_plan/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 53.333333333333336,
+        "bearish": 0.0,
+        "neutral": 46.666666666666664
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 14,
+          "avg_sentiment": 0.11407924597358654
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.12088267125031832
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": true,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "capital_raising",
+          "headline": "Call to scrap uni funding over anti-Jew hate",
+          "date": "2025-07-10T14:41:45.488044",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T14:42:13.443115",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T14:42:13.443315",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-10T14:42:28.561960",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-10T14:42:28.562125",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.007471616209448054,
+    "sentiment_components": {
+      "news": -0.036668971389645776,
+      "reddit": 0.022844145832743832,
+      "events": 0.005773514986376022,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Call to scrap uni funding over anti-Jew hate",
+      "Southern Hemisphere Llahuin porphyry up for EOY drilling program",
+      "",
+      "",
+      ""
+    ]
   }
 ]

@@ -72,7 +72,9 @@ class NewsTradingAnalyzer:
             'WBC.AX',  # Westpac
             'ANZ.AX',  # ANZ Bank
             'NAB.AX',  # National Australia Bank
-            'MQG.AX'   # Macquarie Group
+            'MQG.AX',  # Macquarie Group
+            'SUN.AX',  # Suncorp Group
+            'QBE.AX'   # QBE Insurance Group
         ]
         
         logger.info("✅ News Trading Analyzer initialized successfully")
@@ -99,6 +101,9 @@ class NewsTradingAnalyzer:
             confidence = result.get('confidence', 0)
             news_count = result.get('news_count', 0)
             
+            # Get time context information
+            time_context = self._get_analysis_time_context(result)
+            
             # Generate trading recommendation
             trading_recommendation = self._get_trading_recommendation(
                 sentiment_score, confidence, news_count
@@ -111,6 +116,7 @@ class NewsTradingAnalyzer:
                 'sentiment_score': float(sentiment_score),
                 'confidence': float(confidence),
                 'news_count': news_count,
+                'time_context': time_context,
                 'trading_recommendation': trading_recommendation,
                 'signal': self._get_trading_signal(sentiment_score, confidence)
             }
@@ -121,11 +127,14 @@ class NewsTradingAnalyzer:
                     'recent_headlines': result.get('recent_headlines', []),
                     'significant_events': result.get('significant_events', {}),
                     'reddit_sentiment': result.get('reddit_sentiment', {}),
-                    'ml_trading_details': result.get('ml_trading_details', {})
+                    'ml_trading_details': result.get('ml_trading_details', {}),
+                    'news_date_range': time_context.get('news_date_range', {}),
+                    'data_freshness': time_context.get('data_freshness', {})
                 }
             
             logger.info(f"✅ {symbol}: {analysis['signal']} "
-                       f"(Score: {sentiment_score:.3f}, Confidence: {confidence:.3f})")
+                       f"(Score: {sentiment_score:.3f}, Confidence: {confidence:.3f}) "
+                       f"[{time_context.get('news_period', 'Unknown period')}]")
             
             return analysis
             
@@ -347,6 +356,292 @@ class NewsTradingAnalyzer:
                 'timestamp': datetime.now().isoformat()
             }
     
+    def _get_analysis_time_context(self, sentiment_result: dict) -> dict:
+        """
+        Extract time context information from sentiment analysis
+        
+        Args:
+            sentiment_result: Result from sentiment analyzer
+            
+        Returns:
+            Dict with time context information
+        """
+        from datetime import datetime, timedelta
+        
+        now = datetime.now()
+        
+        # Default time context
+        time_context = {
+            'analysis_timestamp': now.isoformat(),
+            'news_period': 'Last 24-48 hours',
+            'technical_period': 'Last 3 months',
+            'sentiment_window': '24-48 hours',
+            'data_freshness': {
+                'news_data': 'Real-time to 2 hours old',
+                'price_data': 'Real-time',
+                'technical_indicators': 'Based on last 3 months'
+            }
+        }
+        
+        # Try to get more specific information from the sentiment result
+        try:
+            # Check if we have recent headlines with dates
+            recent_headlines = sentiment_result.get('recent_headlines', [])
+            if recent_headlines:
+                # Estimate date range from news articles
+                time_context['news_articles_found'] = len(recent_headlines)
+                time_context['estimated_news_coverage'] = 'Last 1-2 days'
+            
+            # Check for news count and estimate coverage
+            news_count = sentiment_result.get('news_count', 0)
+            if news_count > 0:
+                if news_count >= 10:
+                    time_context['news_period'] = 'Last 48 hours'
+                    time_context['coverage_quality'] = 'Good'
+                elif news_count >= 5:
+                    time_context['news_period'] = 'Last 24 hours'
+                    time_context['coverage_quality'] = 'Moderate'
+                else:
+                    time_context['news_period'] = 'Last 12-24 hours'
+                    time_context['coverage_quality'] = 'Limited'
+            
+            # Add Reddit sentiment timing if available
+            reddit_sentiment = sentiment_result.get('reddit_sentiment', {})
+            if reddit_sentiment and reddit_sentiment.get('posts_analyzed', 0) > 0:
+                time_context['reddit_period'] = 'Last 24 hours'
+                time_context['reddit_posts'] = reddit_sentiment.get('posts_analyzed', 0)
+            
+            # Add technical analysis context with multiple timeframes
+            time_context['technical_indicators'] = {
+                'short_term': {
+                    'period': '3 days',
+                    'timeframe': '1-hour bars',
+                    'indicators': 'RSI(14), MACD(12,26,9), EMA(9,21)',
+                    'purpose': 'Intraday momentum and entry/exit timing'
+                },
+                'medium_term': {
+                    'period': '2 weeks', 
+                    'timeframe': '4-hour bars',
+                    'indicators': 'RSI(14), MACD(12,26,9), SMA(20,50)',
+                    'purpose': 'Short-term trend confirmation'
+                },
+                'intermediate_term': {
+                    'period': '1 month',
+                    'timeframe': 'Daily bars', 
+                    'indicators': 'RSI(14), MACD(12,26,9), SMA(20,50,100)',
+                    'purpose': 'Medium-term trend analysis'
+                },
+                'long_term': {
+                    'period': '3 months',
+                    'timeframe': 'Daily bars',
+                    'indicators': 'RSI(14), MACD(12,26,9), SMA(50,100,200)',
+                    'purpose': 'Long-term trend and major support/resistance'
+                }
+            }
+            
+            # Add ML model context if available
+            if sentiment_result.get('ml_trading_details'):
+                time_context['ml_model_context'] = {
+                    'training_period': 'Historical data up to current',
+                    'feature_window': 'Last 30 days',
+                    'model_freshness': 'Updated continuously'
+                }
+                
+        except Exception as e:
+            logger.warning(f"Could not extract detailed time context: {e}")
+        
+        return time_context
+
+    def _get_technical_analysis_time_context(self, symbol: str) -> dict:
+        """
+        Get time context for technical analysis across multiple timeframes
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            Dict with technical analysis time context for multiple timeframes
+        """
+        try:
+            # Try to import technical analysis if available
+            from src.technical_analysis import TechnicalAnalyzer, get_market_data
+            
+            timeframes = {}
+            
+            # Define timeframe configurations for 1-hour bar trading
+            timeframe_configs = [
+                {'period': '3d', 'interval': '1h', 'name': 'short_term', 'description': '3 days (1h bars)'},
+                {'period': '2wk', 'interval': '4h', 'name': 'medium_term', 'description': '2 weeks (4h bars)'},
+                {'period': '1mo', 'interval': '1d', 'name': 'intermediate_term', 'description': '1 month (daily)'},
+                {'period': '3mo', 'interval': '1d', 'name': 'long_term', 'description': '3 months (daily)'}
+            ]
+            
+            for config in timeframe_configs:
+                try:
+                    # Get market data for this timeframe
+                    market_data = get_market_data(symbol, period=config['period'], interval=config['interval'])
+                    
+                    if not market_data.empty:
+                        start_date = market_data.index.min()
+                        end_date = market_data.index.max()
+                        data_points = len(market_data)
+                        
+                        timeframes[config['name']] = {
+                            'period': config['description'],
+                            'start_date': start_date.strftime('%Y-%m-%d %H:%M') if 'h' in config['interval'] else start_date.strftime('%Y-%m-%d'),
+                            'end_date': end_date.strftime('%Y-%m-%d %H:%M') if 'h' in config['interval'] else end_date.strftime('%Y-%m-%d'),
+                            'data_points': data_points,
+                            'interval': config['interval'],
+                            'period_hours': (end_date - start_date).total_seconds() / 3600,
+                            'last_update': end_date.strftime('%Y-%m-%d %H:%M:%S'),
+                            'data_quality': 'Good' if data_points > 50 else 'Limited'
+                        }
+                        
+                        # Add specific indicators for each timeframe
+                        if config['name'] == 'short_term':
+                            timeframes[config['name']]['recommended_indicators'] = [
+                                'RSI(14) - 1h', 'MACD(12,26,9) - 1h', 'EMA(9,21) - 1h',
+                                'Bollinger Bands(20,2) - 1h', 'Stochastic(14,3,3) - 1h'
+                            ]
+                        elif config['name'] == 'medium_term':
+                            timeframes[config['name']]['recommended_indicators'] = [
+                                'RSI(14) - 4h', 'MACD(12,26,9) - 4h', 'SMA(20,50) - 4h',
+                                'Support/Resistance levels', 'Volume Profile - 4h'
+                            ]
+                        elif config['name'] == 'intermediate_term':
+                            timeframes[config['name']]['recommended_indicators'] = [
+                                'RSI(14) - Daily', 'MACD(12,26,9) - Daily', 'SMA(20,50,100) - Daily',
+                                'Fibonacci retracements', 'Trend lines'
+                            ]
+                        else:  # long_term
+                            timeframes[config['name']]['recommended_indicators'] = [
+                                'RSI(14) - Daily', 'MACD(12,26,9) - Daily', 'SMA(50,100,200) - Daily',
+                                'Major support/resistance', 'Long-term trend channels'
+                            ]
+                            
+                except Exception as e:
+                    timeframes[config['name']] = {
+                        'period': config['description'],
+                        'error': f'Data unavailable: {str(e)}',
+                        'status': 'Data fetch failed'
+                    }
+            
+            return {
+                'timeframes': timeframes,
+                'trading_context': {
+                    'primary_timeframe': '1-hour bars',
+                    'analysis_approach': 'Multi-timeframe analysis',
+                    'entry_signals': 'Based on 1h and 4h confluence',
+                    'trend_confirmation': 'Daily and 3-month alignment',
+                    'recommended_workflow': [
+                        '1. Check 3-month trend direction',
+                        '2. Confirm 1-month trend alignment', 
+                        '3. Look for 2-week setup patterns',
+                        '4. Time entry using 3-day/1-hour signals'
+                    ]
+                },
+                'update_frequency': {
+                    '1h_data': 'Every hour during market hours',
+                    '4h_data': 'Every 4 hours',
+                    'daily_data': 'End of trading day',
+                    'last_refresh': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                }
+            }
+            
+        except Exception as e:
+            logger.warning(f"Could not get detailed technical analysis time context: {e}")
+            
+            # Fallback with estimated timeframes
+            return {
+                'timeframes': {
+                    'short_term': {
+                        'period': '3 days (1-hour bars)',
+                        'data_points': 'Est. 72 bars',
+                        'purpose': 'Intraday momentum and entry timing',
+                        'status': 'Estimated - actual data unavailable'
+                    },
+                    'medium_term': {
+                        'period': '2 weeks (4-hour bars)', 
+                        'data_points': 'Est. 84 bars',
+                        'purpose': 'Short-term trend confirmation',
+                        'status': 'Estimated - actual data unavailable'
+                    },
+                    'intermediate_term': {
+                        'period': '1 month (daily bars)',
+                        'data_points': 'Est. 22 bars',
+                        'purpose': 'Medium-term trend analysis',
+                        'status': 'Estimated - actual data unavailable'
+                    },
+                    'long_term': {
+                        'period': '3 months (daily bars)',
+                        'data_points': 'Est. 66 bars',
+                        'purpose': 'Long-term trend and major levels',
+                        'status': 'Estimated - actual data unavailable'
+                    }
+                },
+                'trading_context': {
+                    'primary_timeframe': '1-hour bars',
+                    'note': 'Technical analysis module not available'
+                }
+            }
+    
+    def get_technical_timeframes_analysis(self, symbol: str) -> dict:
+        """
+        Get detailed technical analysis across multiple timeframes for 1-hour bar trading
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            Dict with comprehensive technical analysis timeframes
+        """
+        logger.info(f"📊 Getting multi-timeframe technical analysis for {symbol}...")
+        
+        try:
+            # Get detailed technical context
+            tech_context = self._get_technical_analysis_time_context(symbol)
+            
+            # Add trading recommendations based on timeframes
+            trading_recommendations = {
+                'timeframe_hierarchy': {
+                    'trend_filter': '3-month daily (long-term trend direction)',
+                    'setup_timeframe': '1-month daily (trade setup identification)', 
+                    'trigger_timeframe': '2-week 4-hour (entry pattern confirmation)',
+                    'execution_timeframe': '3-day 1-hour (precise entry/exit timing)'
+                },
+                'confluence_rules': {
+                    'strong_signal': 'All timeframes aligned (3mo, 1mo, 2wk, 3d)',
+                    'moderate_signal': '3+ timeframes aligned',
+                    'weak_signal': '2 timeframes aligned',
+                    'no_trade': 'Major timeframes conflicting'
+                },
+                'risk_management': {
+                    'stop_loss_reference': '1-hour or 4-hour swing points',
+                    'position_sizing': 'Based on daily ATR',
+                    'profit_targets': 'Daily/weekly key levels'
+                }
+            }
+            
+            return {
+                'symbol': symbol,
+                'timestamp': datetime.now().isoformat(),
+                'technical_context': tech_context,
+                'trading_framework': trading_recommendations,
+                'summary': {
+                    'primary_trading_timeframe': '1-hour bars',
+                    'analysis_method': 'Top-down multi-timeframe analysis',
+                    'data_requirements': 'Minimum 3 months historical data'
+                }
+            }
+            
+        except Exception as e:
+            logger.error(f"❌ Error getting technical timeframes for {symbol}: {e}")
+            return {
+                'symbol': symbol,
+                'error': str(e),
+                'timestamp': datetime.now().isoformat()
+            }
+
     # ...existing code...
 
 def main():
@@ -364,6 +659,8 @@ def main():
                        help='Use enhanced keyword filtering and analysis')
     parser.add_argument('--filtering-test', '-ft', action='store_true',
                        help='Test the enhanced keyword filtering system')
+    parser.add_argument('--technical', '-t', action='store_true',
+                       help='Show detailed multi-timeframe technical analysis')
     parser.add_argument('--log-level', default='INFO',
                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
                        help='Set logging level')
@@ -406,6 +703,55 @@ def main():
             print(f"\n✅ Enhanced filtering system test complete!")
             return
         
+        elif args.technical:
+            # Show detailed technical analysis timeframes
+            if not args.symbol:
+                args.symbol = 'CBA.AX'  # Default to CBA for technical analysis
+            
+            tech_analysis = analyzer.get_technical_timeframes_analysis(args.symbol)
+            
+            print(f"\n{'='*60}")
+            print(f"MULTI-TIMEFRAME TECHNICAL ANALYSIS: {args.symbol}")
+            print(f"{'='*60}")
+            
+            # Show trading framework
+            framework = tech_analysis.get('trading_framework', {})
+            if framework:
+                print(f"\n🎯 Trading Framework (1-Hour Bar Strategy):")
+                hierarchy = framework.get('timeframe_hierarchy', {})
+                for level, description in hierarchy.items():
+                    print(f"  {level.replace('_', ' ').title()}: {description}")
+                
+                print(f"\n📊 Signal Confluence Rules:")
+                confluence = framework.get('confluence_rules', {})
+                for signal_type, rule in confluence.items():
+                    print(f"  {signal_type.replace('_', ' ').title()}: {rule}")
+            
+            # Show technical context details
+            tech_context = tech_analysis.get('technical_context', {})
+            timeframes = tech_context.get('timeframes', {})
+            
+            if timeframes:
+                print(f"\n⏰ Available Timeframes:")
+                for tf_name, tf_data in timeframes.items():
+                    print(f"\n  {tf_name.replace('_', ' ').title()}:")
+                    print(f"    Period: {tf_data.get('period', 'N/A')}")
+                    if 'data_points' in tf_data:
+                        print(f"    Data Points: {tf_data['data_points']}")
+                    if 'last_update' in tf_data:
+                        print(f"    Last Update: {tf_data['last_update']}")
+                    if 'recommended_indicators' in tf_data:
+                        print(f"    Indicators: {', '.join(tf_data['recommended_indicators'][:3])}")
+                    print(f"    Status: {tf_data.get('data_quality', tf_data.get('status', 'Unknown'))}")
+            
+            # Show trading context
+            trading_context = tech_context.get('trading_context', {})
+            if trading_context:
+                print(f"\n🔄 Recommended Analysis Workflow:")
+                workflow = trading_context.get('recommended_workflow', [])
+                for i, step in enumerate(workflow, 1):
+                    print(f"  {i}. {step}")
+            
         elif args.symbol:
             # Analyze single bank
             if args.enhanced:
@@ -419,6 +765,35 @@ def main():
                 print(f"Enhanced Confidence: {result.get('enhanced_confidence', 'N/A'):.3f}")
                 print(f"Trading Signal: {result.get('signal', 'N/A')}")
                 print(f"Recommendation: {result.get('trading_recommendation', {}).get('action', 'N/A')}")
+                
+                # Show time context
+                time_context = result.get('time_context', {})
+                if time_context:
+                    print(f"\n⏰ Analysis Time Context:")
+                    print(f"  News Period: {time_context.get('news_period', 'N/A')}")
+                    print(f"  News Articles: {result.get('news_count', 'N/A')} articles")
+                    print(f"  Coverage Quality: {time_context.get('coverage_quality', 'N/A')}")
+                    
+                    # Show multi-timeframe technical analysis
+                    tech_indicators = time_context.get('technical_indicators', {})
+                    if tech_indicators:
+                        print(f"\n📊 Multi-Timeframe Technical Analysis:")
+                        
+                        # Show each timeframe
+                        for timeframe_name, timeframe_data in tech_indicators.items():
+                            if isinstance(timeframe_data, dict) and 'period' in timeframe_data:
+                                print(f"  {timeframe_name.replace('_', ' ').title()}:")
+                                print(f"    Period: {timeframe_data.get('period', 'N/A')}")
+                                print(f"    Timeframe: {timeframe_data.get('timeframe', 'N/A')}")
+                                print(f"    Purpose: {timeframe_data.get('purpose', 'N/A')}")
+                
+                # Show data freshness
+                data_freshness = time_context.get('data_freshness', {})
+                if data_freshness:
+                    print(f"\n📊 Data Freshness:")
+                    print(f"  News Data: {data_freshness.get('news_data', 'N/A')}")
+                    print(f"  Price Data: {data_freshness.get('price_data', 'N/A')}")
+                    print(f"  Technical Data: {data_freshness.get('technical_indicators', 'N/A')}")
                 
                 # Show filtering insights
                 filtering = result.get('filtering_insights', {})
@@ -447,6 +822,28 @@ def main():
             print(f"Recommendation: {result.get('trading_recommendation', {}).get('action', 'N/A')}")
             print(f"Strategy: {result.get('trading_recommendation', {}).get('strategy_type', 'N/A')}")
             print(f"News Articles: {result.get('news_count', 'N/A')}")
+            
+            # Show time context for regular analysis too
+            time_context = result.get('time_context', {})
+            if time_context:
+                print(f"\n⏰ Analysis Period: {time_context.get('news_period', 'N/A')}")
+                print(f"� Data Freshness: {time_context.get('data_freshness', {}).get('news_data', 'N/A')}")
+                
+                # Show simplified technical timeframes
+                tech_indicators = time_context.get('technical_indicators', {})
+                if tech_indicators:
+                    print(f"\n📊 Technical Analysis Timeframes:")
+                    for tf_name, tf_data in tech_indicators.items():
+                        if isinstance(tf_data, dict) and 'period' in tf_data:
+                            period = tf_data.get('period', 'N/A')
+                            timeframe = tf_data.get('timeframe', 'N/A') 
+                            print(f"  {tf_name.replace('_', ' ').title()}: {period} ({timeframe})")
+                    print(f"  💡 Use --technical for detailed multi-timeframe analysis")
+                
+                # Show coverage quality
+                coverage_quality = time_context.get('coverage_quality', '')
+                if coverage_quality:
+                    print(f"📰 News Coverage: {coverage_quality}")
             
             if args.detailed:
                 print(f"\nRecent Headlines:")

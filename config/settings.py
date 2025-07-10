@@ -20,7 +20,9 @@ class Settings:
         'WBC.AX',  # Westpac
         'ANZ.AX',  # ANZ
         'NAB.AX',  # National Australia Bank
-        'MQG.AX'   # Macquarie Group
+        'MQG.AX',  # Macquarie Group
+        'SUN.AX',  # Suncorp Group
+        'QBE.AX'   # QBE Insurance Group
     ]
     
     # Additional financial stocks (optional)
@@ -124,23 +126,45 @@ class Settings:
             'asx_announcements': 'https://www.asx.com.au/markets/trade-our-cash-market/todays-announcements'
         },
         'rss_feeds': {
+            # Tier 1: Essential Financial & Government Sources
             'rba': 'https://www.rba.gov.au/rss/rss-cb.xml',
-            'asx': 'https://www.asx.com.au/asx/statistics/announcements.do',
-            'abc_business': 'https://www.abc.net.au/news/feed/51892/rss.xml',
+            'abc_news': 'https://www.abc.net.au/news/feed/2942460/rss.xml',
+            'business_news': 'https://www.businessnews.com.au/rssfeed/latest.rss',
+            'smh_main': 'https://www.smh.com.au/rss/feed.xml',
+            'the_age': 'https://www.theage.com.au/rss/feed.xml',
+            'brisbane_times': 'https://www.brisbanetimes.com.au/rss/feed.xml',
+            
+            # Tier 2: Major Australian News Sources
+            'news_com_au': 'https://www.news.com.au/content-feeds/latest-news-national/',
+            'nine_news': 'https://www.9news.com.au/rss',
+            'sbs_news': 'https://www.sbs.com.au/news/feed',
+            'the_west_australian': 'https://thewest.com.au/rss',
+            'perth_now': 'https://www.perthnow.com.au/feed',
+            'wa_today': 'https://www.watoday.com.au/rss/feed.xml',
+            
+            # Tier 3: Financial & Business Focused
+            'kalkine_media': 'https://kalkinemedia.com/au/feed',
+            'ibt_australia': 'https://www.ibtimes.com.au/rss',
+            'crikey': 'https://www.crikey.com.au/feed/',
+            'tech_business_news': 'https://www.techbusinessnews.com.au/feed/',
+            
+            # Tier 4: Regional Coverage (Important for Mining/Resources)
+            'canberra_times': 'https://www.canberratimes.com.au/rss.xml',
+            'daily_telegraph': 'https://www.dailytelegraph.com.au/feed',
+            'herald_sun': 'https://www.heraldsun.com.au/news/breaking-news/rss',
+            'gold_coast_bulletin': 'https://www.goldcoastbulletin.com.au/feed',
+            'townsville_bulletin': 'https://www.townsvillebulletin.com.au/news/rss',
+            'nt_news': 'https://www.ntnews.com.au/news/rss',
+            'the_mercury': 'https://www.themercury.com.au/feed',
+            
+            # Existing feeds (deduplicated)
             'afr_companies': 'https://www.afr.com/rss/companies',
-            'smh_business': 'https://www.smh.com.au/rss/business.xml',
             'market_index': 'https://www.marketindex.com.au/rss/asx-news',
             'investing_au': 'https://au.investing.com/rss/news_301.rss',
-            'afr_rss': 'https://www.afr.com/rss/companies',
-            'smh_business': 'https://www.smh.com.au/rss/business.xml',
             'financial_review': 'https://www.financialstandard.com.au/rss.xml',
-            'market_index': 'https://www.marketindex.com.au/rss',
-            'investing_com_au': 'https://au.investing.com/rss/news.rss',
-            # New RSS feeds
             'motley_fool_au': 'https://www.fool.com.au/feed/',
             'investor_daily': 'https://www.investordaily.com.au/feed/',
-            'aba_news': 'https://ausbanking.org.au/feed/',
-            'news_com_finance': 'https://www.news.com.au/finance/rss'
+            'aba_news': 'https://ausbanking.org.au/feed/'
         },
         # Google Alerts integration for targeted monitoring
         'google_alerts': {
@@ -196,6 +220,18 @@ class Settings:
             'sector_weight': 0.1,
             'dividend_months': [6, 12],
             'financial_year_end': 3
+        },
+        'SUN.AX': {
+            'name': 'Suncorp Group',
+            'sector_weight': 0.05,
+            'dividend_months': [3, 9],
+            'financial_year_end': 6
+        },
+        'QBE.AX': {
+            'name': 'QBE Insurance Group',
+            'sector_weight': 0.05,
+            'dividend_months': [3, 9],
+            'financial_year_end': 12
         }
     }
     

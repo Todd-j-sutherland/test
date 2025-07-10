@@ -1,6 +1,6 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-10T14:15:04.165303",
+  "timestamp": "2025-07-10T15:30:40.996121",
   "news_count": 23,
   "sentiment_scores": {
     "average_sentiment": 0.012623076923076921,
@@ -17,15 +17,15 @@
     "strongest_sentiment": -0.7294
   },
   "reddit_sentiment": {
-    "posts_analyzed": 19,
-    "average_sentiment": 0.0582847227764364,
-    "bullish_count": 6,
+    "posts_analyzed": 21,
+    "average_sentiment": 0.08980862672970097,
+    "bullish_count": 8,
     "bearish_count": 0,
     "neutral_count": 13,
     "top_posts": [
       {
         "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
-        "score": 12,
+        "score": 11,
         "sentiment": -0.022916666666666665,
         "category": "neutral",
         "subreddit": "ASX_Bets",
@@ -65,9 +65,9 @@
       }
     ],
     "sentiment_distribution": {
-      "bullish": 31.57894736842105,
+      "bullish": 38.095238095238095,
       "bearish": 0.0,
-      "neutral": 68.42105263157895
+      "neutral": 61.904761904761905
     },
     "subreddit_breakdown": {
       "ASX_Bets": {
@@ -75,8 +75,8 @@
         "avg_sentiment": -0.022916666666666665
       },
       "AusFinance": {
-        "count": 18,
-        "avg_sentiment": 0.06279591107883102
+        "count": 20,
+        "avg_sentiment": 0.09544489139951935
       }
     }
   },
@@ -95,10 +95,10 @@
     "legal_action": false,
     "events_detected": []
   },
-  "overall_sentiment": 0.012686383236884076,
+  "overall_sentiment": 0.018426963453350004,
   "sentiment_components": {
     "news": 0.0022700901278557947,
-    "reddit": 0.0116251817635835,
+    "reddit": 0.017912783315024827,
     "events": 0.0,
     "volume": 0.0,
     "momentum": 0.0,

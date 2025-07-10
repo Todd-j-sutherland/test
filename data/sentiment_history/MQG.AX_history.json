@@ -3305,5 +3305,169 @@
       "Up 34% this year, can Challenger shares keep rising according to Macquarie?",
       ""
     ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-10T14:44:15.759254",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.06901777777777778,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.5636666666666666
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 13,
+      "average_sentiment": 0.24853235424412334,
+      "bullish_count": 11,
+      "bearish_count": 0,
+      "neutral_count": 2,
+      "top_posts": [
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 21,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "Travel card for South America",
+          "score": 1,
+          "sentiment": 0.7,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltt5yj/travel_card_for_south_america/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        },
+        {
+          "title": "Roth IRA help/ out of mutual funds",
+          "score": 1,
+          "sentiment": 0.11076604554865424,
+          "category": "bullish",
+          "subreddit": "investing",
+          "url": "https://reddit.com/r/investing/comments/1lrkd7m/roth_ira_help_out_of_mutual_funds/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 84.61538461538461,
+        "bearish": 0.0,
+        "neutral": 15.384615384615385
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 10,
+          "avg_sentiment": 0.28986224685276407
+        },
+        "investing": {
+          "count": 3,
+          "avg_sentiment": 0.11076604554865425
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "Earnings season predictions: Macquarie weighs in on the big 4 banks",
+          "date": "2025-07-10T02:41:55",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-10T14:43:21.140538",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-10T14:43:21.140763",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-10T14:43:21.141415",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-10T14:43:32.066050",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-10T14:43:48.711537",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.08316680791333769,
+    "sentiment_components": {
+      "news": 0.012411916439600362,
+      "reddit": 0.049571030873759754,
+      "events": 0.02763645776566758,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "How much upside does Macquarie project for South32 shares?",
+      "Earnings season predictions: Macquarie weighs in on the big 4 banks",
+      "What's Macquarie's price target on Mineral Resources shares?",
+      "Does Macquarie rate Fortescue shares a buy, hold or sell?",
+      ""
+    ]
   }
 ]
