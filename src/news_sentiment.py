@@ -312,6 +312,70 @@ class NewsSentimentAnalyzer:
             logger.error(f"Error loading ML model: {e}")
             return None
     
+    def _get_ml_prediction(self, sentiment_data: Dict) -> Dict:
+        """Get ML prediction from sentiment data"""
+        try:
+            if not self.ml_model or not hasattr(self, 'ml_feature_columns'):
+                return {'prediction': 'HOLD', 'confidence': 0.0, 'error': 'No model available'}
+            
+            import pandas as pd
+            import joblib
+            
+            # Load feature scaler
+            scaler_path = os.path.join("data/ml_models/models", "feature_scaler.pkl")
+            if os.path.exists(scaler_path):
+                scaler = joblib.load(scaler_path)
+            else:
+                scaler = None
+            
+            # Extract features from sentiment data
+            features = {
+                'sentiment_score': sentiment_data.get('overall_sentiment', 0),
+                'confidence': sentiment_data.get('confidence', 0.5),
+                'news_count': sentiment_data.get('news_count', 0),
+                'reddit_sentiment': sentiment_data.get('reddit_sentiment', 0),
+                'event_score': sentiment_data.get('event_score', 0),
+                'sentiment_confidence_interaction': sentiment_data.get('overall_sentiment', 0) * sentiment_data.get('confidence', 0.5),
+                'news_volume_category': 1 if sentiment_data.get('news_count', 0) > 5 else 0,
+                'hour': datetime.now().hour,
+                'day_of_week': datetime.now().weekday(),
+                'is_market_hours': 1 if 10 <= datetime.now().hour <= 16 else 0
+            }
+            
+            # Create feature vector in correct order
+            feature_vector = []
+            for col in self.ml_feature_columns:
+                feature_vector.append(features.get(col, 0))
+            
+            # Convert to DataFrame for prediction
+            X = pd.DataFrame([feature_vector], columns=self.ml_feature_columns)
+            
+            # Scale features if scaler available
+            if scaler:
+                X = scaler.transform(X)
+            
+            # Get prediction and probability
+            prediction = self.ml_model.predict(X)[0]
+            try:
+                proba = self.ml_model.predict_proba(X)[0]
+                confidence = max(proba)
+            except:
+                confidence = 0.6  # Default confidence
+            
+            # Convert prediction to signal
+            signal_map = {0: 'SELL', 1: 'BUY'}
+            signal = signal_map.get(prediction, 'HOLD')
+            
+            return {
+                'prediction': signal,
+                'confidence': confidence,
+                'ml_score': confidence if signal == 'BUY' else -confidence if signal == 'SELL' else 0
+            }
+            
+        except Exception as e:
+            logger.error(f"Error getting ML prediction: {e}")
+            return {'prediction': 'HOLD', 'confidence': 0.0, 'error': str(e)}
+    
     def analyze_bank_sentiment(self, symbol: str) -> Dict:
         """Analyze sentiment for a specific bank"""
         

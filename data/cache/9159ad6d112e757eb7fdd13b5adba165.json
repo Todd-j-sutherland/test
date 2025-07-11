@@ -1,31 +1,31 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-11T10:03:15.756330",
-  "news_count": 24,
+  "timestamp": "2025-07-11T17:09:36.340309",
+  "news_count": 23,
   "sentiment_scores": {
-    "average_sentiment": 0.05291071428571429,
-    "positive_count": 6,
-    "negative_count": 2,
-    "neutral_count": 6,
+    "average_sentiment": 0.0009961538461538432,
+    "positive_count": 5,
+    "negative_count": 3,
+    "neutral_count": 5,
     "sentiment_distribution": {
-      "very_positive": 1,
+      "very_positive": 0,
       "positive": 5,
-      "neutral": 6,
-      "negative": 1,
+      "neutral": 5,
+      "negative": 2,
       "very_negative": 1
     },
     "strongest_sentiment": -0.7294
   },
   "reddit_sentiment": {
-    "posts_analyzed": 19,
-    "average_sentiment": 0.09789586531407622,
-    "bullish_count": 8,
+    "posts_analyzed": 24,
+    "average_sentiment": 0.11656339337364367,
+    "bullish_count": 13,
     "bearish_count": 1,
     "neutral_count": 10,
     "top_posts": [
       {
         "title": "[19F] Best way to invest in the S&P 500 from Australia?",
-        "score": 74,
+        "score": 81,
         "sentiment": 0.3892857142857143,
         "category": "bullish",
         "subreddit": "AusFinance",
@@ -33,7 +33,7 @@
       },
       {
         "title": "[19F] Best way to invest in the S&P 500 from Australia?",
-        "score": 74,
+        "score": 79,
         "sentiment": 0.3892857142857143,
         "category": "bullish",
         "subreddit": "AusFinance",
@@ -65,9 +65,9 @@
       }
     ],
     "sentiment_distribution": {
-      "bullish": 42.10526315789473,
-      "bearish": 5.263157894736842,
-      "neutral": 52.63157894736842
+      "bullish": 54.166666666666664,
+      "bearish": 4.166666666666666,
+      "neutral": 41.66666666666667
     },
     "subreddit_breakdown": {
       "ASX_Bets": {
@@ -75,15 +75,15 @@
         "avg_sentiment": -0.08342803030303031
       },
       "AusFinance": {
-        "count": 17,
-        "avg_sentiment": 0.11922808832785346
+        "count": 22,
+        "avg_sentiment": 0.13474443188970495
       }
     }
   },
   "significant_events": {
     "dividend_announcement": false,
     "earnings_report": false,
-    "management_change": false,
+    "management_change": true,
     "regulatory_news": false,
     "merger_acquisition": false,
     "scandal_investigation": false,
@@ -93,20 +93,29 @@
     "product_launch": false,
     "partnership_deal": false,
     "legal_action": false,
-    "events_detected": []
+    "events_detected": [
+      {
+        "type": "management_change",
+        "headline": "Bank executive extradited in child sex case",
+        "date": "2025-07-11T17:08:27.549036",
+        "source": "news_com_au",
+        "relevance": "medium",
+        "sentiment_impact": -0.05
+      }
+    ]
   },
-  "overall_sentiment": 0.026514526250007595,
+  "overall_sentiment": 0.023557945498612298,
   "sentiment_components": {
-    "news": 0.009515278318411834,
-    "reddit": 0.01952582381741248,
-    "events": 0.0,
+    "news": 0.00017914483336826608,
+    "reddit": 0.02324915638951149,
+    "events": 0.0021226158038147144,
     "volume": 0.0,
     "momentum": 0.0,
     "ml_trading": 0.0
   },
-  "confidence": 0.71,
+  "confidence": 0.74,
   "recent_headlines": [
-    "Here are the latest growth forecasts for the CBA share price",
+    "Bank executive extradited in child sex case",
     "",
     "",
     "",
