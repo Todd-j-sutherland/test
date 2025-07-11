@@ -92,7 +92,10 @@ from src.ml_training_pipeline import MLTrainingPipeline
 try:
     p = MLTrainingPipeline()
     X, y = p.prepare_training_dataset(min_samples=1)
-    print(f'Training Samples: {len(X) if X else 0}')
+    if X is not None:
+        print(f'Training Samples: {len(X)}')
+    else:
+        print('Training Samples: 0')
 except Exception as e:
     print(f'Sample check failed: {e}')
 " """
@@ -100,14 +103,18 @@ except Exception as e:
         
         # Model performance
         perf_cmd = """python -c "
-from advanced_paper_trading import PaperTradingSystem
+from advanced_paper_trading import AdvancedPaperTrader
 try:
-    pts = PaperTradingSystem()
-    stats = pts.get_performance_stats()
-    print(f'Win Rate: {stats.get(\"win_rate\", 0):.1%}')
-    print(f'Total Return: {stats.get(\"total_return\", 0):.1%}')
+    apt = AdvancedPaperTrader()
+    if hasattr(apt, 'performance_metrics') and apt.performance_metrics:
+        win_rate = apt.performance_metrics.get('win_rate', 0)
+        total_return = apt.performance_metrics.get('total_return', 0)
+        print(f'Win Rate: {win_rate:.1%}')
+        print(f'Total Return: {total_return:.1%}')
+    else:
+        print('Performance: No trades yet')
 except Exception as e:
-    print(f'Performance check failed: {e}')
+    print(f'Performance check: {e}')
 " """
         self.run_command(perf_cmd)
         
@@ -134,17 +141,35 @@ except Exception as e:
         # 1. Retrain models
         self.run_command("python scripts/retrain_ml_models.py", "Retraining ML models")
         
-        # 2. Optimize thresholds
-        self.run_command("python sentiment_threshold_calibrator.py", "Optimizing sentiment thresholds")
+        # 2. Generate comprehensive analysis
+        self.run_command("python comprehensive_analyzer.py", "Running comprehensive system analysis")
         
-        # 3. Market timing analysis
-        self.run_command("python market_timing_optimizer.py", "Analyzing market timing patterns")
+        # 3. Weekly performance report
+        self.run_command("python advanced_paper_trading.py --report-only", "Generating weekly performance report")
         
-        # 4. Weekly report
-        self.run_command("python advanced_paper_trading.py --mode weekly-report", "Generating weekly report")
+        # 4. Trading pattern analysis
+        self.run_command("python analyze_trading_patterns.py", "Analyzing trading patterns and improvements")
+        
+        # 5. Data quality check
+        data_check_cmd = """python -c "
+from src.ml_training_pipeline import MLTrainingPipeline
+try:
+    p = MLTrainingPipeline()
+    X, y = p.prepare_training_dataset(min_samples=1)
+    if X is not None:
+        print(f'Training dataset: {len(X)} samples, {X.shape[1]} features')
+        print(f'Class balance: {y.mean():.3f}')
+        print('✅ Data quality check passed')
+    else:
+        print('❌ No training data available')
+except Exception as e:
+    print(f'Data check failed: {e}')
+" """
+        self.run_command(data_check_cmd, "Checking data quality")
         
         print("\n🎯 WEEKLY MAINTENANCE COMPLETE!")
         print("📊 System optimized for next week")
+        print("📈 Check reports/ folder for detailed analysis")
     
     def emergency_restart(self):
         """Emergency system restart"""

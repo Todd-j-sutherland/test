@@ -5189,5 +5189,1485 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T17:49:26.688129",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T17:48:43.969297",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T17:48:43.969377",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T17:48:56.788943",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T17:48:56.789131",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T18:25:42.940828",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T18:25:00.597245",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T18:25:00.597325",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T18:25:13.269580",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T18:25:13.269658",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T19:07:08.937099",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T19:06:25.076313",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T19:06:25.076390",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T19:06:36.888828",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T19:06:36.888909",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T19:41:53.342872",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 83,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T19:41:08.579294",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T19:41:08.579377",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T19:41:23.593557",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T19:41:23.593678",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T20:40:21.626875",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 84,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T20:39:33.531007",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T20:39:33.531083",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T20:39:45.322856",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T20:39:45.322932",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T20:49:57.960110",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T20:49:18.493058",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T20:49:18.493135",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T20:49:30.645697",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T20:49:30.645775",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T21:15:06.628967",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:14:23.817967",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:14:23.818043",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:14:36.905117",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:14:36.905193",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T21:24:49.155496",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 15,
+      "average_sentiment": 0.13075365902955338,
+      "bullish_count": 9,
+      "bearish_count": 1,
+      "neutral_count": 5,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "Tax return while residing overseas",
+          "score": 3,
+          "sentiment": -0.125,
+          "category": "bearish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lwp64w/tax_return_while_residing_overseas/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 60.0,
+        "bearish": 6.666666666666667,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 13,
+          "avg_sentiment": 0.12910940109176786
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:24:05.962976",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:24:05.963053",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:24:21.128341",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:24:21.128451",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0009773638516534246,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.026079476405894572,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T21:49:54.288841",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:49:13.241606",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:49:13.241681",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:49:25.422179",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:49:25.422258",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T21:59:41.337449",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.17527857142857142,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.33835000000000004
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.12785787192847015,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 61.111111111111114,
+        "bearish": 5.555555555555555,
+        "neutral": 33.33333333333333
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.12615993896638403
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:58:57.382739",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:58:57.382826",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T21:59:13.291973",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T21:59:13.292066",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0004413702291418602,
+    "sentiment_components": {
+      "news": -0.03152148695990658,
+      "reddit": 0.025501897071291593,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "A script every five minutes: 'Red flags' amid Australia's medicinal cannabis rise",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

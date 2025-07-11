@@ -382,7 +382,7 @@ class TechnicalAnalyzer:
             'recommendation': 'HOLD'
         }
 
-def get_market_data(symbol: str, period: str = '3mo') -> pd.DataFrame:
+def get_market_data(symbol: str, period: str = '3mo', interval: str = '1d') -> pd.DataFrame:
     """
     Get market data for technical analysis
     Using yfinance as a free data source
@@ -390,7 +390,7 @@ def get_market_data(symbol: str, period: str = '3mo') -> pd.DataFrame:
     try:
         import yfinance as yf
         ticker = yf.Ticker(symbol)
-        data = ticker.history(period=period)
+        data = ticker.history(period=period, interval=interval)
         return data
     except Exception as e:
         logger.error(f"Error fetching data for {symbol}: {str(e)}")

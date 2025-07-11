@@ -46,7 +46,13 @@ python daily_manager.py evening
 ```bash
 python daily_manager.py weekly
 ```
-*Retrains models, optimizes thresholds, analyzes patterns*
+*Retrains ML models, analyzes performance patterns, generates comprehensive reports, checks data quality*
+
+**📊 Pattern Analysis (30 seconds)**
+```bash
+python analyze_trading_patterns.py
+```
+*Comprehensive performance analysis and improvement tracking*
 
 **🚨 Emergency Restart**
 ```bash
@@ -56,6 +62,12 @@ python daily_manager.py restart
 
 ### **📈 Dashboard Access**
 After running morning routine, visit: **http://localhost:8501**
+
+**New Features:**
+- **📊 Historical Line Graphs** - View price, sentiment, momentum, and confidence trends over time
+- **🔗 Correlation Analysis** - See how sentiment correlates with actual price movements
+- **📈 Multi-Bank Trend Comparison** - Compare sentiment trends across all banks
+- **🎯 Top Movers** - Identify banks with the biggest sentiment/price changes
 
 ---
 
@@ -78,6 +90,7 @@ python daily_manager.py morning
 - **`news_trading_analyzer.py`** - Core analysis engine
 - **`launch_dashboard_auto.py`** - Web interface
 - **`comprehensive_analyzer.py`** - System health checker
+- **`analyze_trading_patterns.py`** - Performance pattern analysis and tracking
 
 ---
 
@@ -101,6 +114,12 @@ python daily_manager.py morning
 - **Red signals** = SELL recommendations  
 - **Yellow signals** = HOLD recommendations
 - **Confidence scores** = How certain the ML model is (higher = better)
+
+**📊 New Chart Features:**
+- **Historical Trends** - Line graphs showing sentiment, confidence, price, and momentum over time
+- **Correlation Plots** - Scatter plots showing sentiment vs. price movement relationships
+- **Multi-Bank Comparison** - Compare trends across multiple banks simultaneously
+- **Top Movers** - Identify banks with significant recent changes in sentiment or price
 
 ---
 
@@ -129,6 +148,13 @@ python daily_manager.py morning
 **Dashboard not loading?**
 ```bash
 python daily_manager.py restart
+```
+
+**Charts not displaying correctly?**
+```bash
+# Refresh the dashboard page
+# Or restart the dashboard
+python launch_dashboard_auto.py
 ```
 
 **No new samples collecting?**
@@ -165,6 +191,7 @@ python daily_manager.py restart
 
 ### **Weekly Routine (2 minutes)**
 - **Sunday**: `python daily_manager.py weekly`
+- **Sunday**: `python analyze_trading_patterns.py` (track improvements)
 
 ### **Monthly Routine (30 minutes)**
 - Review performance reports in `reports/` folder

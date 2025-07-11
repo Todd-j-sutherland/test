@@ -540,6 +540,35 @@ class NewsAnalysisDashboard:
             with col2:
                 st.metric("Reddit Posts", reddit_data.get('post_count', 0))
         
+        # Add Historical Trends Charts
+        st.markdown("#### 📈 Historical Trends")
+        
+        chart_tabs = st.tabs(["📊 Historical Data", "🔗 Correlation Analysis"])
+        
+        with chart_tabs[0]:
+            historical_chart = self.create_historical_trends_chart(symbol, {symbol: data})
+            st.plotly_chart(historical_chart, use_container_width=True)
+            
+            st.markdown("""
+            **Chart Legend:**
+            - **Blue Line**: Sentiment Score (-1 to +1)
+            - **Orange Line**: Confidence Level (0 to 1) 
+            - **Green Line**: Stock Price (Normalized)
+            - **Red/Green Bars**: Daily Momentum (% price change)
+            """)
+        
+        with chart_tabs[1]:
+            correlation_chart = self.create_correlation_chart(symbol, {symbol: data})
+            st.plotly_chart(correlation_chart, use_container_width=True)
+            
+            st.markdown("""
+            **Correlation Analysis:**
+            - Each point represents one analysis day
+            - Point size indicates confidence level
+            - Color scale shows confidence (red=low, green=high)
+            - Trend line shows overall sentiment-price relationship
+            """)
+
         # Technical Analysis Section
         st.markdown("#### 📈 Technical Analysis & Momentum")
         
@@ -885,6 +914,160 @@ class NewsAnalysisDashboard:
             if recommendations:
                 st.dataframe(pd.DataFrame(recommendations), use_container_width=True)
         
+        # Historical Trends Overview
+        st.markdown("## 📈 Historical Trends Overview")
+        
+        # Create tabs for different trend views
+        trend_tabs = st.tabs(["📊 Multi-Bank Trends", "🎯 Top Movers", "📋 Trend Summary"])
+        
+        with trend_tabs[0]:
+            st.markdown("### 📊 Recent Performance Trends")
+            
+            # Multi-bank comparison chart
+            multi_bank_fig = go.Figure()
+            
+            for symbol in selected_banks:
+                if symbol in all_data and all_data[symbol]:
+                    # Get last 10 data points for trending
+                    recent_data = all_data[symbol][-10:]
+                    dates = []
+                    sentiments = []
+                    
+                    for entry in recent_data:
+                        try:
+                            timestamp = entry.get('timestamp', '')
+                            if timestamp:
+                                if 'T' in timestamp:
+                                    date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                                else:
+                                    date = datetime.fromisoformat(timestamp)
+                                dates.append(date)
+                                sentiments.append(entry.get('overall_sentiment', 0))
+                        except Exception:
+                            continue
+                    
+                    if dates and sentiments:
+                        multi_bank_fig.add_trace(go.Scatter(
+                            x=dates,
+                            y=sentiments,
+                            mode='lines+markers',
+                            name=self.bank_names.get(symbol, symbol),
+                            hovertemplate='<b>%{fullData.name}</b><br>' +
+                                         'Date: %{x}<br>' +
+                                         'Sentiment: %{y:.3f}<extra></extra>'
+                        ))
+            
+            multi_bank_fig.update_layout(
+                title="Recent Sentiment Trends - All Selected Banks",
+                xaxis_title="Date",
+                yaxis_title="Sentiment Score",
+                height=500,
+                legend=dict(x=0, y=1),
+                hovermode='x unified',
+                yaxis=dict(range=[-0.5, 0.5])
+            )
+            
+            st.plotly_chart(multi_bank_fig, use_container_width=True)
+        
+        with trend_tabs[1]:
+            st.markdown("### 🎯 Top Movers (Last 7 Days)")
+            
+            # Calculate recent performance changes
+            movers_data = []
+            for symbol in selected_banks:
+                if symbol in all_data and len(all_data[symbol]) >= 2:
+                    recent_data = all_data[symbol][-7:]  # Last 7 entries
+                    if len(recent_data) >= 2:
+                        latest_sentiment = recent_data[-1].get('overall_sentiment', 0)
+                        week_ago_sentiment = recent_data[0].get('overall_sentiment', 0)
+                        change = latest_sentiment - week_ago_sentiment
+                        
+                        # Get price data for comparison
+                        try:
+                            price_data = get_market_data(symbol, period='1mo', interval='1d')
+                            if not price_data.empty:
+                                current_price = price_data['Close'].iloc[-1]
+                                week_ago_price = price_data['Close'].iloc[-7] if len(price_data) >= 7 else price_data['Close'].iloc[0]
+                                price_change = ((current_price - week_ago_price) / week_ago_price) * 100
+                            else:
+                                price_change = 0
+                        except Exception:
+                            price_change = 0
+                        
+                        movers_data.append({
+                            'Bank': self.bank_names.get(symbol, symbol),
+                            'Symbol': symbol,
+                            'Sentiment Change': change,
+                            'Price Change (%)': price_change,
+                            'Current Sentiment': latest_sentiment,
+                            'Trend': '🔥 Hot' if abs(change) > 0.1 else '📈 Rising' if change > 0 else '📉 Falling' if change < 0 else '➡️ Stable'
+                        })
+            
+            if movers_data:
+                # Sort by absolute sentiment change
+                movers_df = pd.DataFrame(movers_data)
+                movers_df['abs_change'] = movers_df['Sentiment Change'].abs()
+                movers_df = movers_df.sort_values('abs_change', ascending=False)
+                
+                # Display top movers
+                for idx, row in movers_df.iterrows():
+                    with st.expander(f"{row['Trend']} {row['Bank']} ({row['Symbol']})"):
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.metric("Sentiment Change", f"{row['Sentiment Change']:+.3f}")
+                        
+                        with col2:
+                            st.metric("Price Change", f"{row['Price Change (%)']:+.2f}%")
+                        
+                        with col3:
+                            st.metric("Current Sentiment", f"{row['Current Sentiment']:.3f}")
+        
+        with trend_tabs[2]:
+            st.markdown("### 📋 Weekly Trend Summary")
+            
+            # Calculate latest analyses for this section
+            latest_analyses = [self.get_latest_analysis(data) for data in all_data.values() if data]
+            
+            # Create summary statistics
+            if latest_analyses:
+                trend_summary = []
+                
+                for symbol in selected_banks:
+                    if symbol in all_data and all_data[symbol]:
+                        latest = self.get_latest_analysis(all_data[symbol])
+                        
+                        # Calculate trend direction
+                        if len(all_data[symbol]) >= 3:
+                            recent_sentiments = [entry.get('overall_sentiment', 0) for entry in all_data[symbol][-3:]]
+                            if len(recent_sentiments) == 3:
+                                if recent_sentiments[-1] > recent_sentiments[-2] > recent_sentiments[-3]:
+                                    trend_direction = "📈 Strongly Rising"
+                                elif recent_sentiments[-1] > recent_sentiments[-3]:
+                                    trend_direction = "📈 Rising"
+                                elif recent_sentiments[-1] < recent_sentiments[-2] < recent_sentiments[-3]:
+                                    trend_direction = "📉 Strongly Falling"
+                                elif recent_sentiments[-1] < recent_sentiments[-3]:
+                                    trend_direction = "📉 Falling"
+                                else:
+                                    trend_direction = "➡️ Stable"
+                            else:
+                                trend_direction = "❓ Insufficient Data"
+                        else:
+                            trend_direction = "❓ Insufficient Data"
+                        
+                        trend_summary.append({
+                            'Bank': self.bank_names.get(symbol, symbol),
+                            'Current Sentiment': f"{latest.get('overall_sentiment', 0):.3f}",
+                            'Confidence': f"{latest.get('confidence', 0):.2f}",
+                            'Trend Direction': trend_direction,
+                            'News Volume': latest.get('news_count', 0),
+                            'Last Updated': latest.get('timestamp', 'Unknown')[:10] if latest.get('timestamp') else 'Unknown'
+                        })
+                
+                if trend_summary:
+                    st.dataframe(pd.DataFrame(trend_summary), use_container_width=True)
+
         # Individual bank analysis
         st.markdown("## 🏦 Individual Bank Analysis")
         
@@ -1079,6 +1262,327 @@ class NewsAnalysisDashboard:
         fig.add_hline(y=0, line_dash="dash", line_color="gray")
         
         return fig
+    
+    def create_historical_trends_chart(self, symbol: str, all_data: Dict) -> go.Figure:
+        """Create historical trends line chart showing price, sentiment, momentum, and confidence"""
+        # Get historical sentiment data
+        sentiment_data = all_data.get(symbol, [])
+        
+        # Get historical price data
+        try:
+            price_data = get_market_data(symbol, period='3mo', interval='1d')
+            if price_data.empty:
+                logger.warning(f"No price data available for {symbol}")
+            else:
+                logger.info(f"Retrieved {len(price_data)} price data points for {symbol}")
+        except Exception as e:
+            logger.error(f"Error getting price data for {symbol}: {e}")
+            price_data = pd.DataFrame()
+        
+        # Prepare data for plotting
+        dates = []
+        sentiment_scores = []
+        confidence_scores = []
+        prices = []
+        momentum_scores = []
+        
+        # Process sentiment history
+        for entry in sentiment_data[-30:]:  # Last 30 entries
+            try:
+                timestamp = entry.get('timestamp', '')
+                if timestamp:
+                    # Parse timestamp
+                    if 'T' in timestamp:
+                        date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                    else:
+                        date = datetime.fromisoformat(timestamp)
+                    
+                    dates.append(date)
+                    sentiment_scores.append(entry.get('overall_sentiment', 0))
+                    confidence_scores.append(entry.get('confidence', 0))
+                    
+                    # Get corresponding price data with improved matching
+                    price_date = date.date()
+                    price_found = False
+                    
+                    if not price_data.empty:
+                        # Try exact date match first
+                        exact_matches = price_data.index.date == price_date
+                        if exact_matches.any():
+                            price = price_data.loc[exact_matches, 'Close'].iloc[0]
+                            prices.append(price)
+                            price_found = True
+                        else:
+                            # Try to find closest date within 3 days
+                            price_dates = price_data.index.date
+                            date_diffs = [abs((pd_date - price_date).days) for pd_date in price_dates]
+                            if date_diffs and min(date_diffs) <= 3:
+                                closest_idx = date_diffs.index(min(date_diffs))
+                                price = price_data.iloc[closest_idx]['Close']
+                                prices.append(price)
+                                price_found = True
+                    
+                    if not price_found:
+                        # Use last known price or fetch current price as fallback
+                        if prices:
+                            prices.append(prices[-1])
+                        else:
+                            # Get realistic current price as fallback
+                            fallback_price = self.get_current_price(symbol)
+                            prices.append(fallback_price)
+                        
+                    # Calculate simple momentum (price change %)
+                    if len(prices) > 1:
+                        momentum = ((prices[-1] - prices[-2]) / prices[-2]) * 100
+                    else:
+                        momentum = 0
+                    momentum_scores.append(momentum)
+            except Exception as e:
+                logger.warning(f"Error processing entry: {e}")
+                continue
+        
+        # If no sentiment data, use price data only
+        if not dates and not price_data.empty:
+            price_data_recent = price_data.tail(30)
+            dates = price_data_recent.index.tolist()
+            prices = price_data_recent['Close'].tolist()
+            
+            # Calculate momentum from price data
+            momentum_scores = []
+            for i in range(len(prices)):
+                if i == 0:
+                    momentum_scores.append(0)
+                else:
+                    momentum = ((prices[i] - prices[i-1]) / prices[i-1]) * 100
+                    momentum_scores.append(momentum)
+            
+            # Default values for sentiment/confidence when no data
+            sentiment_scores = [0] * len(dates)
+            confidence_scores = [0.5] * len(dates)
+        
+        # Create figure with secondary y-axes
+        fig = go.Figure()
+        
+        if dates:
+            # Normalize data for better visualization
+            if prices:
+                price_norm = [(p - min(prices)) / (max(prices) - min(prices)) if max(prices) != min(prices) else 0.5 for p in prices]
+            else:
+                price_norm = [0.5] * len(dates)
+            
+            # Add traces
+            fig.add_trace(go.Scatter(
+                x=dates,
+                y=sentiment_scores,
+                mode='lines+markers',
+                name='Sentiment Score',
+                line=dict(color='#1f77b4', width=3),
+                hovertemplate='<b>Sentiment Score</b><br>' +
+                             'Date: %{x}<br>' +
+                             'Score: %{y:.3f}<extra></extra>'
+            ))
+            
+            fig.add_trace(go.Scatter(
+                x=dates,
+                y=confidence_scores,
+                mode='lines+markers',
+                name='Confidence',
+                line=dict(color='#ff7f0e', width=2),
+                hovertemplate='<b>Confidence</b><br>' +
+                             'Date: %{x}<br>' +
+                             'Confidence: %{y:.3f}<extra></extra>'
+            ))
+            
+            fig.add_trace(go.Scatter(
+                x=dates,
+                y=price_norm,
+                mode='lines',
+                name='Price (Normalized)',
+                line=dict(color='#2ca02c', width=2),
+                hovertemplate='<b>Price (Normalized)</b><br>' +
+                             'Date: %{x}<br>' +
+                             'Normalized: %{y:.3f}<br>' +
+                             'Actual: $%{customdata:.2f}<extra></extra>',
+                customdata=prices
+            ))
+            
+            # Momentum as bar chart overlay
+            if momentum_scores:
+                momentum_colors = ['red' if m < 0 else 'green' for m in momentum_scores]
+                fig.add_trace(go.Bar(
+                    x=dates,
+                    y=[m/100 for m in momentum_scores],  # Scale momentum to fit
+                    name='Momentum (%)',
+                    marker_color=momentum_colors,
+                    opacity=0.3,
+                    hovertemplate='<b>Momentum</b><br>' +
+                                 'Date: %{x}<br>' +
+                                 'Change: %{customdata:.2f}%<extra></extra>',
+                    customdata=momentum_scores
+                ))
+        
+        else:
+            # No data available
+            fig.add_annotation(
+                text="No historical data available",
+                x=0.5, y=0.5,
+                showarrow=False,
+                font=dict(size=16)
+            )
+        
+        fig.update_layout(
+            title=f"Historical Trends - {self.bank_names.get(symbol, symbol)}",
+            xaxis_title="Date",
+            yaxis_title="Score / Normalized Value",
+            height=500,
+            legend=dict(x=0, y=1),
+            hovermode='x unified',
+            yaxis=dict(range=[-1.2, 1.2])
+        )
+        
+        return fig
+
+    def create_correlation_chart(self, symbol: str, all_data: Dict) -> go.Figure:
+        """Create correlation chart between sentiment and price movement"""
+        sentiment_data = all_data.get(symbol, [])
+        
+        try:
+            price_data = get_market_data(symbol, period='3mo', interval='1d')
+        except Exception:
+            price_data = pd.DataFrame()
+        
+        sentiment_values = []
+        price_changes = []
+        confidence_values = []
+        dates = []
+        
+        # Process data for correlation analysis
+        for entry in sentiment_data[-20:]:  # Last 20 entries
+            try:
+                timestamp = entry.get('timestamp', '')
+                if timestamp:
+                    if 'T' in timestamp:
+                        date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                    else:
+                        date = datetime.fromisoformat(timestamp)
+                    
+                    sentiment = entry.get('overall_sentiment', 0)
+                    confidence = entry.get('confidence', 0)
+                    
+                    # Get price change for this date
+                    price_date = date.date()
+                    if not price_data.empty and price_date in price_data.index.date:
+                        price_row = price_data.loc[price_data.index.date == price_date]
+                        if not price_row.empty:
+                            close_price = price_row['Close'].iloc[0]
+                            open_price = price_row['Open'].iloc[0]
+                            price_change = ((close_price - open_price) / open_price) * 100
+                            
+                            sentiment_values.append(sentiment)
+                            price_changes.append(price_change)
+                            confidence_values.append(confidence)
+                            dates.append(date)
+            except Exception as e:
+                logger.warning(f"Error processing correlation data: {e}")
+                continue
+        
+        # Create scatter plot
+        fig = go.Figure()
+        
+        if sentiment_values and price_changes:
+            # Color points by confidence
+            fig.add_trace(go.Scatter(
+                x=sentiment_values,
+                y=price_changes,
+                mode='markers',
+                marker=dict(
+                    size=[c*20 for c in confidence_values],  # Size by confidence
+                    color=confidence_values,
+                    colorscale='RdYlGn',
+                    colorbar=dict(title="Confidence"),
+                    line=dict(width=1, color='black')
+                ),
+                text=[f"Date: {d.strftime('%Y-%m-%d')}<br>Confidence: {c:.2f}" 
+                      for d, c in zip(dates, confidence_values)],
+                hovertemplate='<b>Sentiment vs Price Movement</b><br>' +
+                             'Sentiment: %{x:.3f}<br>' +
+                             'Price Change: %{y:.2f}%<br>' +
+                             '%{text}<extra></extra>',
+                name='Data Points'
+            ))
+            
+            # Add trend line if enough data points
+            if len(sentiment_values) > 3:
+                z = np.polyfit(sentiment_values, price_changes, 1)
+                p = np.poly1d(z)
+                x_trend = np.linspace(min(sentiment_values), max(sentiment_values), 100)
+                y_trend = p(x_trend)
+                
+                fig.add_trace(go.Scatter(
+                    x=x_trend,
+                    y=y_trend,
+                    mode='lines',
+                    name='Trend Line',
+                    line=dict(color='red', dash='dash'),
+                    hoverinfo='skip'
+                ))
+        else:
+            fig.add_annotation(
+                text="Insufficient data for correlation analysis",
+                x=0, y=0,
+                showarrow=False,
+                font=dict(size=16)
+            )
+        
+        fig.update_layout(
+            title=f"Sentiment vs Price Movement Correlation - {self.bank_names.get(symbol, symbol)}",
+            xaxis_title="Sentiment Score",
+            yaxis_title="Price Change (%)",
+            height=400,
+            showlegend=True
+        )
+        
+        return fig
+
+    def get_current_price(self, symbol: str) -> float:
+        """Get current price for a symbol with fallback options"""
+        try:
+            # Try to get recent price data
+            current_data = get_market_data(symbol, period='5d', interval='1d')
+            if not current_data.empty:
+                return float(current_data['Close'].iloc[-1])
+        except Exception as e:
+            logger.warning(f"Could not get current price for {symbol}: {e}")
+        
+        # Fallback to cached technical analysis data
+        if symbol in self.technical_data:
+            current_price = self.technical_data[symbol].get('current_price', 0)
+            if current_price > 0:
+                return float(current_price)
+        
+        # Try to get fresh technical analysis
+        try:
+            tech_analysis = self.get_technical_analysis(symbol, force_refresh=True)
+            current_price = tech_analysis.get('current_price', 0)
+            if current_price > 0:
+                return float(current_price)
+        except Exception as e:
+            logger.warning(f"Could not get technical analysis price for {symbol}: {e}")
+        
+        # Known approximate prices for ASX banks (as last resort)
+        fallback_prices = {
+            'CBA.AX': 179.0,
+            'WBC.AX': 34.0,
+            'ANZ.AX': 30.0,
+            'NAB.AX': 40.0,
+            'MQG.AX': 221.0,
+            'SUN.AX': 13.0,
+            'QBE.AX': 17.0
+        }
+        
+        return fallback_prices.get(symbol, 100.0)
+
+    # ...existing code...
 def main():
     """Run the dashboard"""
     dashboard = NewsAnalysisDashboard()
