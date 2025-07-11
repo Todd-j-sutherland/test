@@ -1,14 +1,14 @@
 {
   "symbol": "CBA.AX",
-  "timestamp": "2025-07-10T17:24:15.620973",
-  "news_count": 23,
+  "timestamp": "2025-07-11T10:03:15.756330",
+  "news_count": 24,
   "sentiment_scores": {
-    "average_sentiment": 0.012623076923076921,
-    "positive_count": 5,
+    "average_sentiment": 0.05291071428571429,
+    "positive_count": 6,
     "negative_count": 2,
     "neutral_count": 6,
     "sentiment_distribution": {
-      "very_positive": 0,
+      "very_positive": 1,
       "positive": 5,
       "neutral": 6,
       "negative": 1,
@@ -17,15 +17,15 @@
     "strongest_sentiment": -0.7294
   },
   "reddit_sentiment": {
-    "posts_analyzed": 21,
-    "average_sentiment": 0.08980862672970097,
+    "posts_analyzed": 19,
+    "average_sentiment": 0.09789586531407622,
     "bullish_count": 8,
-    "bearish_count": 0,
-    "neutral_count": 13,
+    "bearish_count": 1,
+    "neutral_count": 10,
     "top_posts": [
       {
         "title": "[19F] Best way to invest in the S&P 500 from Australia?",
-        "score": 20,
+        "score": 74,
         "sentiment": 0.3892857142857143,
         "category": "bullish",
         "subreddit": "AusFinance",
@@ -33,7 +33,7 @@
       },
       {
         "title": "[19F] Best way to invest in the S&P 500 from Australia?",
-        "score": 18,
+        "score": 74,
         "sentiment": 0.3892857142857143,
         "category": "bullish",
         "subreddit": "AusFinance",
@@ -48,35 +48,35 @@
         "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
       },
       {
+        "title": "ASX: Bitcoin on the balance sheet",
+        "score": 10,
+        "sentiment": -0.14393939393939395,
+        "category": "bearish",
+        "subreddit": "ASX_Bets",
+        "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+      },
+      {
         "title": "Invest in US Stock From Australia",
-        "score": 4,
+        "score": 3,
         "sentiment": -0.075,
         "category": "neutral",
         "subreddit": "AusFinance",
         "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
-      },
-      {
-        "title": "Vanguard VTS EFT reinvestment",
-        "score": 3,
-        "sentiment": 0.5,
-        "category": "bullish",
-        "subreddit": "AusFinance",
-        "url": "https://reddit.com/r/AusFinance/comments/1lsxxim/vanguard_vts_eft_reinvestment/"
       }
     ],
     "sentiment_distribution": {
-      "bullish": 38.095238095238095,
-      "bearish": 0.0,
-      "neutral": 61.904761904761905
+      "bullish": 42.10526315789473,
+      "bearish": 5.263157894736842,
+      "neutral": 52.63157894736842
     },
     "subreddit_breakdown": {
       "ASX_Bets": {
-        "count": 1,
-        "avg_sentiment": -0.022916666666666665
+        "count": 2,
+        "avg_sentiment": -0.08342803030303031
       },
       "AusFinance": {
-        "count": 20,
-        "avg_sentiment": 0.09544489139951935
+        "count": 17,
+        "avg_sentiment": 0.11922808832785346
       }
     }
   },
@@ -95,10 +95,10 @@
     "legal_action": false,
     "events_detected": []
   },
-  "overall_sentiment": 0.018426963453350004,
+  "overall_sentiment": 0.026514526250007595,
   "sentiment_components": {
-    "news": 0.0022700901278557947,
-    "reddit": 0.017912783315024827,
+    "news": 0.009515278318411834,
+    "reddit": 0.01952582381741248,
     "events": 0.0,
     "volume": 0.0,
     "momentum": 0.0,
@@ -106,7 +106,7 @@
   },
   "confidence": 0.71,
   "recent_headlines": [
-    "",
+    "Here are the latest growth forecasts for the CBA share price",
     "",
     "",
     "",

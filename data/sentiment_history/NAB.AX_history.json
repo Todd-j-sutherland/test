@@ -3965,5 +3965,629 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T08:21:54.365925",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.23497857142857143,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7562500000000001
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.11912654606479135,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 67,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 10,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.55555555555556,
+        "bearish": 5.555555555555555,
+        "neutral": 38.88888888888889
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.11633719736974538
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": true,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "capital_raising",
+          "headline": "Call to scrap uni funding over anti-Jew hate",
+          "date": "2025-07-11T08:20:42.610992",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T08:21:09.389115",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T08:21:09.389274",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T08:21:23.336998",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T08:21:23.337107",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.011807706483090706,
+    "sentiment_components": {
+      "news": -0.04225772674192292,
+      "reddit": 0.02376039011428536,
+      "events": 0.005773514986376022,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Call to scrap uni funding over anti-Jew hate",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T08:57:15.078857",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.23497857142857143,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7562500000000001
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.11912654606479135,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 68,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 20,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.55555555555556,
+        "bearish": 5.555555555555555,
+        "neutral": 38.88888888888889
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.11633719736974538
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": true,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "capital_raising",
+          "headline": "Call to scrap uni funding over anti-Jew hate",
+          "date": "2025-07-11T08:56:05.312531",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T08:56:30.852576",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T08:56:30.852653",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T08:56:45.302014",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T08:56:45.302091",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.011807706483090706,
+    "sentiment_components": {
+      "news": -0.04225772674192292,
+      "reddit": 0.02376039011428536,
+      "events": 0.005773514986376022,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Call to scrap uni funding over anti-Jew hate",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T09:32:06.288770",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.23497857142857143,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7562500000000001
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.11912654606479135,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 71,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Thoughts on Ubank?",
+          "score": 19,
+          "sentiment": -0.01625,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lqgtwg/thoughts_on_ubank/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.55555555555556,
+        "bearish": 5.555555555555555,
+        "neutral": 38.88888888888889
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.11633719736974538
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": true,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "capital_raising",
+          "headline": "Call to scrap uni funding over anti-Jew hate",
+          "date": "2025-07-11T09:30:51.901915",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T09:31:24.709905",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T09:31:24.709981",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T09:31:36.919261",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T09:31:36.919334",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.011807706483090706,
+    "sentiment_components": {
+      "news": -0.04225772674192292,
+      "reddit": 0.02376039011428536,
+      "events": 0.005773514986376022,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Call to scrap uni funding over anti-Jew hate",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-11T10:06:48.084286",
+    "news_count": 17,
+    "sentiment_scores": {
+      "average_sentiment": -0.23497857142857143,
+      "positive_count": 0,
+      "negative_count": 5,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 2,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7562500000000001
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 17,
+      "average_sentiment": 0.1270898723038967,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 74,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 13,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 12,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        },
+        {
+          "title": "What the hell do I do with money in my business account?",
+          "score": 11,
+          "sentiment": 0.06172294372294372,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw15yj/what_the_hell_do_i_do_with_money_in_my_business/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 58.82352941176471,
+        "bearish": 5.88235294117647,
+        "neutral": 35.294117647058826
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 15,
+          "avg_sentiment": 0.12517634386106172
+        },
+        "fiaustralia": {
+          "count": 2,
+          "avg_sentiment": 0.14144133562515915
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": true,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "capital_raising",
+          "headline": "Call to scrap uni funding over anti-Jew hate",
+          "date": "2025-07-11T10:05:37.144564",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T10:06:02.805396",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T10:06:02.805472",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-11T10:06:15.466373",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-11T10:06:15.466451",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": -0.010333740362949205,
+    "sentiment_components": {
+      "news": -0.04225772674192292,
+      "reddit": 0.025348715674782668,
+      "events": 0.005773514986376022,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Call to scrap uni funding over anti-Jew hate",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]
