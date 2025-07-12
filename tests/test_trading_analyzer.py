@@ -15,6 +15,8 @@ from datetime import datetime
 # Add the project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from config.settings import Settings
+
 class TestTradingAnalyzer(unittest.TestCase):
     
     def setUp(self):
@@ -115,8 +117,9 @@ class TestTradingAnalyzer(unittest.TestCase):
     def test_symbol_validation(self):
         """Test trading symbol validation"""
         
-        # Valid ASX bank symbols
-        valid_symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+        # Valid ASX bank symbols from canonical settings
+        settings = Settings()
+        valid_symbols = settings.BANK_SYMBOLS
         for symbol in valid_symbols:
             self.assertTrue(self._is_valid_asx_symbol(symbol))
         
@@ -182,7 +185,8 @@ class TestTradingAnalyzer(unittest.TestCase):
     def test_multiple_symbol_analysis(self):
         """Test analysis of multiple symbols"""
         
-        symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+        settings = Settings()
+        symbols = settings.BANK_SYMBOLS[:4]  # Use first four symbols for test
         
         # Mock results for all symbols
         results = {}

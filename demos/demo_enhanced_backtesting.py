@@ -17,6 +17,9 @@ from typing import Dict, List
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+# Import settings
+from config.settings import Settings
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -289,7 +292,8 @@ def main():
     backtester = SimplifiedBacktester()
     
     # Define backtest parameters
-    symbols = ['CBA.AX', 'WBC.AX']
+    settings = Settings()
+    symbols = settings.BANK_SYMBOLS[:2]  # Use first two symbols for demo
     start_date = '2024-01-01'
     end_date = '2024-12-31'
     frequency_days = 14  # Test every 2 weeks

@@ -5,6 +5,13 @@ Provides comprehensive analysis of ML data quality, feature importance, and syst
 """
 import json
 import os
+import sys
+
+# Add parent directory to path so we can import from src/
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
 import sqlite3
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple

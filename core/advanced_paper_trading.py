@@ -5,11 +5,14 @@ Provides comprehensive paper trading simulation with ML integration
 """
 import json
 import os
+import sys
+sys.path.append('..')  # Add parent directory to path
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 from news_trading_analyzer import NewsTradingAnalyzer
 from src.ml_training_pipeline import MLTrainingPipeline
 from src.data_feed import ASXDataFeed
+from config.settings import Settings
 
 class AdvancedPaperTrader:
     def __init__(self, initial_capital: float = 10000):
@@ -369,8 +372,9 @@ class AdvancedPaperTrader:
 if __name__ == "__main__":
     import argparse
     
+    settings = Settings()
     parser = argparse.ArgumentParser(description='Advanced paper trading system')
-    parser.add_argument('--symbols', nargs='+', default=['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX'], 
+    parser.add_argument('--symbols', nargs='+', default=settings.BANK_SYMBOLS, 
                        help='Symbols to trade')
     parser.add_argument('--duration', type=int, default=8, help='Trading session duration in hours')
     parser.add_argument('--report-only', action='store_true', help='Show performance report only')

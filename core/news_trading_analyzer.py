@@ -15,7 +15,9 @@ from datetime import datetime
 from pathlib import Path
 
 # Add project root to Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
 
 # Core imports
 from src.news_sentiment import NewsSentimentAnalyzer
@@ -66,16 +68,8 @@ class NewsTradingAnalyzer:
             self.outcome_tracker = None
             logger.warning("ML pipeline not available, outcome tracking disabled")
         
-        # Default bank symbols to analyze
-        self.bank_symbols = [
-            'CBA.AX',  # Commonwealth Bank
-            'WBC.AX',  # Westpac
-            'ANZ.AX',  # ANZ Bank
-            'NAB.AX',  # National Australia Bank
-            'MQG.AX',  # Macquarie Group
-            'SUN.AX',  # Suncorp Group
-            'QBE.AX'   # QBE Insurance Group
-        ]
+        # Use canonical bank symbols from settings
+        self.bank_symbols = self.settings.BANK_SYMBOLS
         
         logger.info("✅ News Trading Analyzer initialized successfully")
     

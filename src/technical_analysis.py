@@ -9,6 +9,7 @@ import numpy as np
 from typing import Dict, List, Tuple, Optional
 import logging
 from datetime import datetime
+from config.settings import Settings
 
 logger = logging.getLogger(__name__)
 
@@ -400,9 +401,10 @@ def get_market_data(symbol: str, period: str = '3mo', interval: str = '1d') -> p
 if __name__ == "__main__":
     # Test the technical analyzer
     analyzer = TechnicalAnalyzer()
+    settings = Settings()
     
-    # Test with sample data
-    test_symbols = ['CBA.AX', 'WBC.AX']
+    # Test with first two symbols from canonical list
+    test_symbols = settings.BANK_SYMBOLS[:2]
     
     for symbol in test_symbols:
         print(f"\n--- Technical Analysis for {symbol} ---")

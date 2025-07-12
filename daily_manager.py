@@ -42,18 +42,18 @@ class TradingSystemManager:
         print("=" * 50)
         
         # 1. System status check
-        self.run_command("python comprehensive_analyzer.py", "Checking system status")
+        self.run_command("python tools/comprehensive_analyzer.py", "Checking system status")
         
         # 2. Start smart collector (background)
         print("\n🔄 Starting smart collector (background)...")
-        subprocess.Popen(["python", "smart_collector.py"], 
+        subprocess.Popen(["python", "core/smart_collector.py"], 
                         stdout=subprocess.DEVNULL, 
                         stderr=subprocess.DEVNULL)
         print("✅ Smart collector started")
         
         # 3. Launch dashboard (background)
         print("\n🔄 Launching dashboard (background)...")
-        subprocess.Popen(["python", "launch_dashboard_auto.py"], 
+        subprocess.Popen(["python", "tools/launch_dashboard_auto.py"], 
                         stdout=subprocess.DEVNULL, 
                         stderr=subprocess.DEVNULL)
         print("✅ Dashboard launched")
@@ -69,13 +69,13 @@ class TradingSystemManager:
         print("=" * 50)
         
         # 1. Daily collection report
-        self.run_command("python advanced_daily_collection.py", "Generating daily report")
+        self.run_command("python core/advanced_daily_collection.py", "Generating daily report")
         
         # 2. Paper trading status
-        self.run_command("python advanced_paper_trading.py --mode status", "Checking trading performance")
+        self.run_command("python core/advanced_paper_trading.py --mode status", "Checking trading performance")
         
         # 3. Quick system health
-        self.run_command("python comprehensive_analyzer.py", "Final system health check")
+        self.run_command("python tools/comprehensive_analyzer.py", "Final system health check")
         
         print("\n🎯 EVENING ROUTINE COMPLETE!")
         print("📊 Check reports/ folder for detailed analysis")
@@ -103,6 +103,7 @@ except Exception as e:
         
         # Model performance
         perf_cmd = """python -c "
+import sys; sys.path.append('core')
 from advanced_paper_trading import AdvancedPaperTrader
 try:
     apt = AdvancedPaperTrader()
@@ -142,13 +143,13 @@ except Exception as e:
         self.run_command("python scripts/retrain_ml_models.py", "Retraining ML models")
         
         # 2. Generate comprehensive analysis
-        self.run_command("python comprehensive_analyzer.py", "Running comprehensive system analysis")
+        self.run_command("python tools/comprehensive_analyzer.py", "Running comprehensive system analysis")
         
         # 3. Weekly performance report
-        self.run_command("python advanced_paper_trading.py --report-only", "Generating weekly performance report")
+        self.run_command("python core/advanced_paper_trading.py --report-only", "Generating weekly performance report")
         
         # 4. Trading pattern analysis
-        self.run_command("python analyze_trading_patterns.py", "Analyzing trading patterns and improvements")
+        self.run_command("python tools/analyze_trading_patterns.py", "Analyzing trading patterns and improvements")
         
         # 5. Data quality check
         data_check_cmd = """python -c "
@@ -184,11 +185,11 @@ except Exception as e:
         
         # Restart
         print("\n🔄 Restarting system...")
-        subprocess.Popen(["python", "smart_collector.py"], 
+        subprocess.Popen(["python", "core/smart_collector.py"], 
                         stdout=subprocess.DEVNULL, 
                         stderr=subprocess.DEVNULL)
         time.sleep(1)
-        subprocess.Popen(["python", "launch_dashboard_auto.py"], 
+        subprocess.Popen(["python", "tools/launch_dashboard_auto.py"], 
                         stdout=subprocess.DEVNULL, 
                         stderr=subprocess.DEVNULL)
         print("✅ System restarted")

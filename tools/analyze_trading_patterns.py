@@ -24,11 +24,23 @@ import sqlite3
 import pandas as pd
 import numpy as np
 import json
-from datetime import datetime, timedelta
+import sys
 import os
 
+# Add parent directory to path for imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
+from datetime import datetime, timedelta
+
 class TradingPatternAnalyzer:
-    def __init__(self, db_path='data/ml_models/training_data.db'):
+    def __init__(self, db_path=None):
+        # Handle both relative paths depending on where script is run from
+        if db_path is None:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            parent_dir = os.path.dirname(current_dir)
+            db_path = os.path.join(parent_dir, 'data', 'ml_models', 'training_data.db')
         self.db_path = db_path
         self.analysis_date = datetime.now()
         self.report_data = {}

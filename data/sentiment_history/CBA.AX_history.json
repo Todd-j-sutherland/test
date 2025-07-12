@@ -9130,5 +9130,253 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-12T07:58:52.011377",
+    "news_count": 14,
+    "sentiment_scores": {
+      "average_sentiment": -0.006537500000000002,
+      "positive_count": 1,
+      "negative_count": 1,
+      "neutral_count": 2,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 2,
+        "negative": 1,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.15115
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.09789586531407622,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 10,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 9,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 42.10526315789473,
+        "bearish": 5.263157894736842,
+        "neutral": 52.63157894736842
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 17,
+          "avg_sentiment": 0.11922808832785346
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Bank executive extradited in child sex case",
+          "date": "2025-07-12T07:57:56.800711",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.018875883265376377,
+    "sentiment_components": {
+      "news": -0.001175681198910082,
+      "reddit": 0.01952582381741248,
+      "events": 0.0021226158038147144,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "Bank executive extradited in child sex case",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-12T13:27:08.037211",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.0009961538461538432,
+      "positive_count": 5,
+      "negative_count": 3,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 5,
+        "negative": 2,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 18,
+      "average_sentiment": 0.10333452449819157,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 9,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 84,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 9,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 3,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 44.44444444444444,
+        "bearish": 5.555555555555555,
+        "neutral": 50.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.1266798438483443
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Bank executive extradited in child sex case",
+          "date": "2025-07-12T13:25:52.154043",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.021125188953784475,
+    "sentiment_components": {
+      "news": 0.00017914483336826608,
+      "reddit": 0.02061059180726873,
+      "events": 0.0021226158038147144,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "Bank executive extradited in child sex case",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

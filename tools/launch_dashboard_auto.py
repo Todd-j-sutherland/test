@@ -44,9 +44,13 @@ def launch_dashboard():
     print("=" * 50)
     
     # Check if we're in the right directory
-    if not os.path.exists('news_analysis_dashboard.py'):
-        print("❌ Dashboard file not found. Please run from the trading_analysis directory.")
-        return False
+    dashboard_path = '../core/news_analysis_dashboard.py'
+    if not os.path.exists(dashboard_path):
+        # Try current directory (in case run from root)
+        dashboard_path = 'core/news_analysis_dashboard.py'
+        if not os.path.exists(dashboard_path):
+            print("❌ Dashboard file not found. Please run from the trading_analysis directory.")
+            return False
     
     # Check dependencies
     if not check_dependencies():
@@ -69,7 +73,7 @@ def launch_dashboard():
     try:
         # Start Streamlit with automatic email bypass
         process = subprocess.Popen(
-            [sys.executable, '-m', 'streamlit', 'run', 'news_analysis_dashboard.py', '--server.headless', 'true'],
+            [sys.executable, '-m', 'streamlit', 'run', dashboard_path, '--server.headless', 'true'],
             env=env,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,

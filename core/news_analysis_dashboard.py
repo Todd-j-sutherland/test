@@ -14,8 +14,11 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Any
 import logging
 
-# Import technical analysis
+# Import technical analysis and config
+import sys
+sys.path.append('..')  # Add parent directory to path
 from src.technical_analysis import TechnicalAnalyzer, get_market_data
+from config.settings import Settings
 
 # Add ML imports
 import sqlite3
@@ -93,7 +96,8 @@ class NewsAnalysisDashboard:
     
     def __init__(self):
         self.data_path = "data/sentiment_history"
-        self.bank_symbols = ["CBA.AX", "WBC.AX", "ANZ.AX", "NAB.AX", "MQG.AX", "SUN.AX", "QBE.AX"]
+        self.settings = Settings()
+        self.bank_symbols = self.settings.BANK_SYMBOLS
         self.bank_names = {
             "CBA.AX": "Commonwealth Bank",
             "WBC.AX": "Westpac Banking Corp",

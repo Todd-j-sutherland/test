@@ -19,6 +19,12 @@ from unittest.mock import Mock, patch, MagicMock
 import pandas as pd
 import numpy as np
 
+# Add parent directory to path for imports
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)
+
+from config.settings import Settings
+
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -133,7 +139,8 @@ class TestTradingAnalyzer(unittest.TestCase):
     
     def test_symbol_validation(self):
         """Test ASX symbol validation"""
-        valid_symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+        settings = Settings()
+        valid_symbols = settings.BANK_SYMBOLS
         invalid_symbols = ['CBA', 'WBC.US', '', None, 'INVALID']
         
         for symbol in valid_symbols:

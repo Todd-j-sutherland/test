@@ -6,14 +6,23 @@ Collects high-quality training samples with proper outcome validation
 import time
 import json
 import os
+import sys
 from datetime import datetime, timedelta
+
+# Add project root to Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
 from news_trading_analyzer import NewsTradingAnalyzer
 from src.ml_training_pipeline import MLTrainingPipeline
 from src.data_feed import ASXDataFeed
+from config.settings import Settings
 
 class SmartCollector:
     def __init__(self):
-        self.symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+        self.settings = Settings()
+        self.symbols = self.settings.BANK_SYMBOLS
         self.analyzer = NewsTradingAnalyzer()
         self.ml_pipeline = MLTrainingPipeline()
         self.data_feed = ASXDataFeed()

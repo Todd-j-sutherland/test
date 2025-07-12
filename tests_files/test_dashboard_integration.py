@@ -8,6 +8,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from src.technical_analysis import TechnicalAnalyzer, get_market_data
+from config.settings import Settings
 
 def test_dashboard_integration():
     """Test the technical analysis integration for dashboard"""
@@ -15,9 +16,10 @@ def test_dashboard_integration():
     print("=" * 60)
     
     analyzer = TechnicalAnalyzer()
+    settings = Settings()
     
-    # Test with multiple symbols
-    test_symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX']
+    # Test with first three symbols from canonical list
+    test_symbols = settings.BANK_SYMBOLS[:3]
     
     for symbol in test_symbols:
         print(f"\n📊 Testing {symbol} integration...")
