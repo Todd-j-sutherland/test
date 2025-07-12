@@ -12,8 +12,31 @@ from datetime import datetime
 
 class TradingSystemManager:
     def __init__(self):
-        self.base_dir = "/Users/toddsutherland/Repos/trading_analysis"
+        # Auto-detect the correct base directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        if os.path.basename(current_dir) == "trading_analysis":
+            self.base_dir = current_dir
+        else:
+            # Look for trading_analysis directory
+            possible_paths = [
+                "/Users/toddsutherland/Repos/trading_analysis",  # macOS
+                "/root/trading_analysis",  # Linux server
+                os.path.join(os.path.expanduser("~"), "trading_analysis"),  # Generic home
+                current_dir  # Current directory as fallback
+            ]
+            
+            self.base_dir = None
+            for path in possible_paths:
+                if os.path.exists(path) and os.path.isfile(os.path.join(path, "daily_manager.py")):
+                    self.base_dir = path
+                    break
+            
+            if not self.base_dir:
+                self.base_dir = current_dir
+                print(f"⚠️  Using current directory: {self.base_dir}")
+        
         os.chdir(self.base_dir)
+        print(f"📁 Working directory: {self.base_dir}")
     
     def run_command(self, command, description=""):
         """Run a command and show status"""
