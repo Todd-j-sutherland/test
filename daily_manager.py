@@ -10,6 +10,10 @@ import time
 import os
 from datetime import datetime
 
+# Import centralized config
+sys.path.append(os.path.join(os.path.dirname(__file__), 'config'))
+from settings import Settings
+
 class TradingSystemManager:
     def __init__(self):
         # Auto-detect the correct base directory
@@ -71,8 +75,10 @@ class TradingSystemManager:
         print("\n🧠 Running enhanced sentiment analysis...")
         enhanced_cmd = """python -c "
 import sys; sys.path.append('src')
+sys.path.append('config')
 from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
 from advanced_feature_engineering import AdvancedFeatureEngineer
+from settings import Settings
 
 print('✅ Enhanced sentiment analysis initialized')
 try:
@@ -81,7 +87,7 @@ try:
     print('✅ Enhanced modules loaded successfully')
     
     # Sample feature engineering for major banks
-    for symbol in ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']:
+    for symbol in Settings.BANK_SYMBOLS:
         sentiment_data = {'overall_sentiment': 0.5, 'confidence': 0.8, 'news_count': 5}
         features = engineer.engineer_comprehensive_features(symbol, sentiment_data)
         print(f'✅ {symbol}: Generated {len(features.get(\"features\", []))} enhanced features')
@@ -120,8 +126,10 @@ except Exception as e:
         print("\n🤖 Running enhanced ensemble analysis...")
         ensemble_cmd = """python -c "
 import sys; sys.path.append('src')
+sys.path.append('config')
 from enhanced_ensemble_learning import EnhancedTransformerEnsemble, ModelPrediction
 from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+from settings import Settings
 from datetime import datetime
 import numpy as np
 
@@ -133,17 +141,17 @@ try:
     print('✅ Enhanced ensemble system initialized')
     
     # Simulate ensemble analysis for major banks
-    symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+    symbols = Settings.BANK_SYMBOLS
     ensemble_results = []
     
     for symbol in symbols:
         # Get temporal analysis
         analysis = analyzer.analyze_sentiment_evolution(symbol)
-        trend = analysis.get('trend', 0.0)
-        volatility = analysis.get('volatility', 0.0)
+        trend_value = analysis.get('trend', 0.0)
+        volatility_value = analysis.get('volatility', 0.0)
         
-        print(f'✅ {symbol}: Temporal analysis complete (trend: {trend:.3f}, vol: {volatility:.3f})')
-        ensemble_results.append((symbol, trend, volatility))
+        print(f'✅ {symbol}: Temporal analysis complete (trend: {trend_value:.3f}, vol: {volatility_value:.3f})')
+        ensemble_results.append((symbol, trend_value, volatility_value))
     
     print(f'✅ Enhanced ensemble analysis completed for {len(symbols)} symbols')
     
@@ -161,7 +169,7 @@ except Exception as e:
         self.run_command("python core/advanced_daily_collection.py", "Generating daily report")
         
         # 3. Paper trading status
-        self.run_command("python core/advanced_paper_trading.py --mode status", "Checking trading performance")
+        self.run_command("python core/advanced_paper_trading.py --report-only", "Checking trading performance")
         
         # 4. Quick system health
         self.run_command("python tools/comprehensive_analyzer.py", "Final system health check")
@@ -260,9 +268,11 @@ except Exception as e:
         # Enhanced ML model performance analysis
         enhanced_weekly_cmd = """python -c "
 import sys; sys.path.append('src')
+sys.path.append('config')
 from enhanced_ensemble_learning import EnhancedTransformerEnsemble
 from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
 from advanced_feature_engineering import AdvancedFeatureEngineer
+from settings import Settings
 import json
 
 try:
@@ -274,7 +284,7 @@ try:
     engineer = AdvancedFeatureEngineer()
     
     # Performance analysis for major symbols
-    symbols = ['CBA.AX', 'WBC.AX', 'ANZ.AX', 'NAB.AX']
+    symbols = Settings.BANK_SYMBOLS
     weekly_analysis = {}
     
     for symbol in symbols:
@@ -357,81 +367,55 @@ except Exception as e:
         
         # Interactive feature demonstration
         demo_cmd = """python -c "
-import sys; sys.path.append('src')
-from temporal_sentiment_analyzer import SentimentDataPoint, TemporalSentimentAnalyzer
-from enhanced_ensemble_learning import ModelPrediction, EnhancedTransformerEnsemble
-from advanced_feature_engineering import AdvancedFeatureEngineer
-from datetime import datetime, timedelta
-import numpy as np
-
 print('🚀 ENHANCED FEATURES DEMONSTRATION')
-print('=' * 40)
+print('Testing imports...')
 
-# 1. Temporal Sentiment Analysis Demo
-print('\\n1️⃣  TEMPORAL SENTIMENT ANALYSIS')
-analyzer = TemporalSentimentAnalyzer()
+import sys
+sys.path.append('src')
+sys.path.append('config')
 
-# Add sample sentiment observations
-base_time = datetime.now()
-for i in range(5):
-    point = SentimentDataPoint(
-        timestamp=base_time - timedelta(hours=i),
-        symbol='CBA.AX',
-        sentiment_score=0.5 + 0.2 * np.sin(i * 0.5),
-        confidence=0.8 + 0.1 * np.random.random(),
-        news_count=np.random.randint(3, 8),
-        relevance_score=0.8
-    )
-    analyzer.add_sentiment_observation(point)
-
-analysis = analyzer.analyze_sentiment_evolution('CBA.AX')
-print(f'✅ Temporal Analysis: {len(analysis)} metrics calculated')
-print(f'   📈 Trend: {analysis.get(\"trend\", 0):.3f}')
-print(f'   📊 Volatility: {analysis.get(\"volatility\", 0):.3f}')
-print(f'   🎯 Regime: {analysis.get(\"current_regime\", \"unknown\")}')
-
-# 2. Advanced Feature Engineering Demo
-print('\\n2️⃣  ADVANCED FEATURE ENGINEERING')
-engineer = AdvancedFeatureEngineer()
-
-sentiment_data = {
-    'overall_sentiment': 0.65,
-    'confidence': 0.85,
-    'news_count': 7,
-    'sentiment_components': {
-        'news': 0.7,
-        'reddit': 0.6,
-        'events': 0.65
-    }
-}
-
-features = engineer.engineer_comprehensive_features('CBA.AX', sentiment_data)
-print(f'✅ Feature Engineering: Generated comprehensive feature set')
-print(f'   📊 Feature Quality: {features.get(\"feature_quality\", 0):.3f}')
-print(f'   🔢 Feature Count: {features.get(\"feature_count\", 0)}')
-
-# 3. Enhanced Ensemble Learning Demo
-print('\\n3️⃣  ENHANCED ENSEMBLE LEARNING')
-ensemble = EnhancedTransformerEnsemble()
-
-# Create sample model predictions
-predictions = []
-for i in range(3):
+try:
+    from temporal_sentiment_analyzer import SentimentDataPoint, TemporalSentimentAnalyzer
+    from enhanced_ensemble_learning import ModelPrediction, EnhancedTransformerEnsemble
+    from advanced_feature_engineering import AdvancedFeatureEngineer
+    from settings import Settings
+    from datetime import datetime, timedelta
+    import numpy as np
+    
+    print('✅ All imports successful')
+    
+    # Test temporal analyzer
+    analyzer = TemporalSentimentAnalyzer()
+    print('✅ Temporal analyzer created')
+    
+    # Test feature engineer
+    engineer = AdvancedFeatureEngineer()
+    sentiment_data = {'overall_sentiment': 0.6, 'confidence': 0.8, 'news_count': 5}
+    result = engineer.engineer_comprehensive_features('CBA.AX', sentiment_data)
+    feature_count = result.get('feature_count', 0)
+    print(f'✅ Feature engineering: {feature_count} features')
+    
+    # Test ensemble
+    ensemble = EnhancedTransformerEnsemble()
+    print('✅ Ensemble system created')
+    
+    # Create a sample prediction with correct parameters
+    from enhanced_ensemble_learning import ModelPrediction
     pred = ModelPrediction(
-        model_name=f'enhanced_model_{i}',
-        prediction=0.6 + 0.1 * np.random.random(),
-        confidence=0.8 + 0.1 * np.random.random(),
-        timestamp=datetime.now()
+        model_name='test_model',
+        prediction=0.75,
+        confidence=0.9,
+        probability_scores={'positive': 0.75, 'negative': 0.25},
+        processing_time=0.1
     )
-    predictions.append(pred)
-
-print(f'✅ Ensemble Learning: Created {len(predictions)} model predictions')
-print(f'   🤖 Models: {[p.model_name for p in predictions]}')
-print(f'   📈 Avg Prediction: {np.mean([p.prediction for p in predictions]):.3f}')
-print(f'   🎯 Avg Confidence: {np.mean([p.confidence for p in predictions]):.3f}')
-
-print('\\n🎯 ENHANCED FEATURES DEMONSTRATION COMPLETE!')
-print('All advanced ML components are operational and ready for trading analysis.')
+    print(f'✅ Sample prediction: {pred.prediction:.3f} confidence: {pred.confidence:.3f}')
+    
+    print('🎯 ALL ENHANCED FEATURES OPERATIONAL!')
+    
+except Exception as e:
+    print(f'❌ Error in enhanced features: {e}')
+    import traceback
+    traceback.print_exc()
 " """
         self.run_command(demo_cmd, "Enhanced features demonstration")
         
