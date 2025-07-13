@@ -12,7 +12,7 @@ from datetime import datetime
 
 class TradingSystemManager:
     def __init__(self):
-        self.base_dir = "/Users/toddsutherland/Repos/trading_analysis"
+        self.base_dir = "/root/test"
         os.chdir(self.base_dir)
     
     def run_command(self, command, description=""):
