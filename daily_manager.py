@@ -48,7 +48,7 @@ class TradingSystemManager:
             print(f"\n🔄 {description}...")
         
         try:
-            result = subprocess.run(command, shell=True, capture_output=True, text=True, timeout=30)
+            result = subprocess.run(command, shell=True, capture_output=True, text=True, timeout=90)
             if result.returncode == 0:
                 print(f"✅ Success")
                 if result.stdout.strip():

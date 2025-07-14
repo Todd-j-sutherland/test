@@ -112,7 +112,12 @@ class NewsTradingAnalyzer:
                 'news_count': news_count,
                 'time_context': time_context,
                 'trading_recommendation': trading_recommendation,
-                'signal': self._get_trading_signal(sentiment_score, confidence)
+                'signal': self._get_trading_signal(sentiment_score, confidence),
+                'ml_prediction': result.get('ml_prediction', {}),  # Add ML prediction from sentiment analysis
+                'overall_sentiment': float(sentiment_score),  # For dashboard compatibility
+                'sentiment_components': result.get('sentiment_components', {}),  # For dashboard compatibility
+                'recent_headlines': result.get('recent_headlines', []),  # For dashboard compatibility
+                'significant_events': result.get('significant_events', {})  # For dashboard compatibility
             }
             
             if detailed:

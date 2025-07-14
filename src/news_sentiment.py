@@ -91,8 +91,11 @@ class NewsSentimentAnalyzer:
         
         # Load latest trained model
         self.ml_model = self._load_ml_model()
-        self.ml_feature_columns = []
-        self.ml_threshold = 0.5
+        # Note: ml_feature_columns and ml_threshold are set in _load_ml_model()
+        if not hasattr(self, 'ml_feature_columns'):
+            self.ml_feature_columns = []
+        if not hasattr(self, 'ml_threshold'):
+            self.ml_threshold = 0.5
         
         # Initialize Transformers models for advanced sentiment analysis
         self.transformer_models = {}
@@ -301,8 +304,11 @@ class NewsSentimentAnalyzer:
                 with open(metadata_path, 'r') as f:
                     metadata = json.load(f)
                 self.ml_feature_columns = metadata.get('feature_columns', [])
+                # Set threshold from metadata if available
+                performance = metadata.get('performance', {})
+                self.ml_threshold = performance.get('best_threshold', 0.5)
                 
-                logger.info(f"Loaded ML model: {metadata.get('model_type', 'unknown')}")
+                logger.info(f"Loaded ML model: {metadata.get('model_type', 'unknown')} with {len(self.ml_feature_columns)} features")
                 return model
             else:
                 logger.warning("No trained ML model found")
@@ -330,17 +336,21 @@ class NewsSentimentAnalyzer:
             
             # Extract features from sentiment data
             features = {
-                'sentiment_score': sentiment_data.get('overall_sentiment', 0),
-                'confidence': sentiment_data.get('confidence', 0.5),
-                'news_count': sentiment_data.get('news_count', 0),
-                'reddit_sentiment': sentiment_data.get('reddit_sentiment', 0),
-                'event_score': sentiment_data.get('event_score', 0),
-                'sentiment_confidence_interaction': sentiment_data.get('overall_sentiment', 0) * sentiment_data.get('confidence', 0.5),
-                'news_volume_category': 1 if sentiment_data.get('news_count', 0) > 5 else 0,
+                'sentiment_score': float(sentiment_data.get('overall_sentiment', 0)) if not isinstance(sentiment_data.get('overall_sentiment', 0), dict) else 0,
+                'confidence': float(sentiment_data.get('confidence', 0.5)) if not isinstance(sentiment_data.get('confidence', 0.5), dict) else 0.5,
+                'news_count': int(sentiment_data.get('news_count', 0)) if not isinstance(sentiment_data.get('news_count', 0), dict) else 0,
+                'reddit_sentiment': float(sentiment_data.get('reddit_sentiment', 0)) if not isinstance(sentiment_data.get('reddit_sentiment', 0), dict) else 0,
+                'event_score': float(sentiment_data.get('event_score', 0)) if not isinstance(sentiment_data.get('event_score', 0), dict) else 0,
+                'sentiment_confidence_interaction': 0,  # Calculate after
+                'news_volume_category': 0,  # Calculate after
                 'hour': datetime.now().hour,
                 'day_of_week': datetime.now().weekday(),
                 'is_market_hours': 1 if 10 <= datetime.now().hour <= 16 else 0
             }
+            
+            # Calculate derived features
+            features['sentiment_confidence_interaction'] = features['sentiment_score'] * features['confidence']
+            features['news_volume_category'] = 1 if features['news_count'] > 5 else 0
             
             # Create feature vector in correct order
             feature_vector = []

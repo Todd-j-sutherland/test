@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     parser = argparse.ArgumentParser(description='Retrain ML models')
-    parser.add_argument('--min-samples', type=int, default=500,
+    parser.add_argument('--min-samples', type=int, default=50,
                       help='Minimum samples required for training')
     parser.add_argument('--evaluate-only', action='store_true',
                       help='Only evaluate current model, don\'t retrain')
