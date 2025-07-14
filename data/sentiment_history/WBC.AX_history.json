@@ -6667,5 +6667,2453 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-13T21:32:10.456498",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Novated lease calculations",
+          "score": 5,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-13T21:31:17.557120",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T21:31:27.938755",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T21:31:40.853016",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-13T22:10:25.883375",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-13T22:09:24.317756",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T22:09:36.025901",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T22:09:48.157721",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-13T22:48:31.335350",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-13T22:47:38.890552",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T22:47:50.378491",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T22:48:02.122868",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-13T23:26:31.388738",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-13T23:25:33.826806",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T23:25:43.674830",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-13T23:26:02.128487",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T00:04:29.673219",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 3,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T00:03:39.488503",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T00:03:48.947054",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T00:04:00.687634",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T00:43:02.947290",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 5,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T00:42:11.365756",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T00:42:21.198638",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T00:42:33.578290",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T01:21:08.340151",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 3,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T01:20:14.414638",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T01:20:27.898241",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T01:20:39.781144",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T01:59:05.894837",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 3,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T01:58:06.087237",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T01:58:19.901724",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T01:58:37.825118",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T02:37:12.465259",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 5,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T02:36:19.341370",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T02:36:28.643264",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T02:36:43.644968",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T03:15:13.557211",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 5,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T03:14:19.129341",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T03:14:30.495232",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T03:14:45.003479",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T03:53:25.298862",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 3,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T03:52:20.728959",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T03:52:30.849823",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T03:52:45.323686",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T04:31:30.951040",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Novated lease calculations",
+          "score": 5,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T04:30:41.197146",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T04:30:51.138425",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T04:31:03.064257",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T05:09:34.861164",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 3,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T05:08:38.041128",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T05:08:54.273805",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T05:09:06.373653",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T05:47:43.512720",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T05:46:48.150720",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T05:46:58.186963",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T05:47:15.200339",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T06:25:43.877436",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T06:24:53.546955",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T06:25:03.649246",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T06:25:15.462312",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T07:04:03.559524",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T07:03:12.253189",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T07:03:21.625371",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T07:03:33.615948",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T07:42:16.835676",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.03732323232323233,
+      "positive_count": 0,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 7,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T07:41:17.429531",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T07:41:35.133351",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T07:41:47.148464",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.012713004517520296,
+    "sentiment_components": {
+      "news": -0.006712079927338783,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "WBC.AX",
+    "timestamp": "2025-07-14T08:38:25.938075",
+    "news_count": 19,
+    "sentiment_scores": {
+      "average_sentiment": -0.02466666666666667,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.2
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 22,
+      "average_sentiment": 0.06615297589362049,
+      "bullish_count": 9,
+      "bearish_count": 0,
+      "neutral_count": 13,
+      "top_posts": [
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 6,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 5,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        },
+        {
+          "title": "Novated lease calculations",
+          "score": 4,
+          "sentiment": 0.027272727272727285,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1luk46g/novated_lease_calculations/"
+        },
+        {
+          "title": "Refinancing home loan with ME BANK",
+          "score": 4,
+          "sentiment": 0.1,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw9308/refinancing_home_loan_with_me_bank/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 40.909090909090914,
+        "bearish": 0.0,
+        "neutral": 59.09090909090909
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 22,
+          "avg_sentiment": 0.06615297589362049
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Inside Project Aries: Westpac\u2019s secret plan for St George under chief executive Anthony Miller",
+          "date": "2025-07-14T08:37:36.020718",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T08:37:45.798830",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-Westpac Banking Appoints Peter Nash As Independent Non Executive Director",
+          "date": "2025-07-14T08:37:57.633490",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.014825237033414939,
+    "sentiment_components": {
+      "news": -0.0044359673024523165,
+      "reddit": 0.013194544510662178,
+      "events": 0.0072168937329700296,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

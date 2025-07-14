@@ -440,17 +440,25 @@ class MLTrainingPipeline:
         with open(metadata_path, 'w') as f:
             json.dump(metadata, f, indent=2)
         
-        # Update current model symlink
+        # Update current model symlink (handle existing files properly)
         current_model_path = os.path.join(self.models_dir, 'current_model.pkl')
         current_metadata_path = os.path.join(self.models_dir, 'current_metadata.json')
         
-        if os.path.exists(current_model_path):
-            os.remove(current_model_path)
-        if os.path.exists(current_metadata_path):
-            os.remove(current_metadata_path)
+        # Remove existing files/symlinks
+        for path in [current_model_path, current_metadata_path]:
+            if os.path.exists(path) or os.path.islink(path):
+                os.unlink(path)  # unlink works for both files and symlinks
         
-        os.symlink(model_path, current_model_path)
-        os.symlink(metadata_path, current_metadata_path)
+        # Create new symlinks using relative paths (more robust)
+        try:
+            os.symlink(os.path.basename(model_path), current_model_path)
+            os.symlink(os.path.basename(metadata_path), current_metadata_path)
+        except OSError as e:
+            # Fallback: copy files instead of symlinks
+            logger.warning(f"Symlink failed ({e}), copying files instead")
+            import shutil
+            shutil.copy2(model_path, current_model_path)
+            shutil.copy2(metadata_path, current_metadata_path)
         
         logger.info(f"Model saved: {model_path}")
     
