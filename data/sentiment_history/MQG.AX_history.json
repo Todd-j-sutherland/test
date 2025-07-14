@@ -3469,5 +3469,3197 @@
       "Does Macquarie rate Fortescue shares a buy, hold or sell?",
       ""
     ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-13T21:35:36.742268",
+    "news_count": 26,
+    "sentiment_scores": {
+      "average_sentiment": 0.04113055555555555,
+      "positive_count": 6,
+      "negative_count": 3,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 7,
+        "negative": 3,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.3091
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        },
+        {
+          "title": "Travel card for South America",
+          "score": 1,
+          "sentiment": 0.7,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1ltt5yj/travel_card_for_south_america/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 1,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-13T21:34:46.188419",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-13T21:34:46.188512",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-13T21:34:46.188678",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T21:34:57.549714",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T21:35:12.378038",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07629352199959893,
+    "sentiment_components": {
+      "news": 0.0073967756584922785,
+      "reddit": 0.05002391873527831,
+      "events": 0.02479215258855586,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-13T22:13:52.990936",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": 0.050106790123456785,
+      "positive_count": 7,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 7,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-13T22:13:02.515676",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-13T22:13:02.515742",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-13T22:13:02.515896",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T22:13:12.669163",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T22:13:29.079306",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07558538841598808,
+    "sentiment_components": {
+      "news": 0.00901103037642547,
+      "reddit": 0.05002391873527831,
+      "events": 0.022414822888283385,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-13T22:51:49.361419",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": 0.050106790123456785,
+      "positive_count": 7,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 7,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-13T22:51:03.163705",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-13T22:51:03.163770",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-13T22:51:03.163916",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T22:51:13.175438",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T22:51:25.221313",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07558538841598808,
+    "sentiment_components": {
+      "news": 0.00901103037642547,
+      "reddit": 0.05002391873527831,
+      "events": 0.022414822888283385,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-13T23:29:54.867166",
+    "news_count": 29,
+    "sentiment_scores": {
+      "average_sentiment": 0.06435906432748538,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 8,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-13T23:29:01.940448",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-13T23:29:01.940514",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-13T23:29:01.940662",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T23:29:18.707103",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-13T23:29:30.804497",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07796392599214162,
+    "sentiment_components": {
+      "news": 0.011574109661073664,
+      "reddit": 0.05002391873527831,
+      "events": 0.022414822888283385,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T00:08:13.038638",
+    "news_count": 31,
+    "sentiment_scores": {
+      "average_sentiment": 0.0836768077601411,
+      "positive_count": 10,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 10,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T00:07:27.255489",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T00:07:27.255556",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T00:07:27.255709",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T00:07:37.258100",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T00:07:49.180053",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07661792411138764,
+    "sentiment_components": {
+      "news": 0.015048145264766518,
+      "reddit": 0.05002391873527831,
+      "events": 0.017490354223433244,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027"
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T00:46:22.360912",
+    "news_count": 31,
+    "sentiment_scores": {
+      "average_sentiment": 0.0836768077601411,
+      "positive_count": 10,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 10,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T00:45:34.928605",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T00:45:34.928669",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T00:45:34.928817",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T00:45:44.181242",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T00:45:58.685985",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07661792411138764,
+    "sentiment_components": {
+      "news": 0.015048145264766518,
+      "reddit": 0.05002391873527831,
+      "events": 0.017490354223433244,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027"
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T01:24:30.768809",
+    "news_count": 31,
+    "sentiment_scores": {
+      "average_sentiment": 0.042205974426807756,
+      "positive_count": 8,
+      "negative_count": 6,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 8,
+        "neutral": 7,
+        "negative": 6,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T01:23:44.942302",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T01:23:44.942369",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie Group's Revenue Expected To Reach Five-Year Lows, Says Morgan Stanley",
+          "date": "2025-07-14T01:23:44.942516",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T01:23:44.942553",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T01:23:54.441749",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T01:24:06.000647",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.06800291070539309,
+    "sentiment_components": {
+      "news": 0.007590175237518561,
+      "reddit": 0.05002391873527831,
+      "events": 0.01566490463215259,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?",
+      "Here's the Macquarie dividend forecast from top analysts through to 2027"
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T02:02:34.474980",
+    "news_count": 32,
+    "sentiment_scores": {
+      "average_sentiment": 0.08014330616773799,
+      "positive_count": 11,
+      "negative_count": 5,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 11,
+        "neutral": 6,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.375
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Here's the Macquarie dividend forecast from top analysts through to 2027",
+          "date": "2025-07-13T21:56:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T02:01:46.699135",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T02:01:46.699199",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T02:01:46.699358",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T02:01:57.215155",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T02:02:10.864446",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07602822409631542,
+    "sentiment_components": {
+      "news": 0.014412692662318002,
+      "reddit": 0.05002391873527831,
+      "events": 0.017490354223433244,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      "Up 48% this year, does Macquarie think Lynas Rare Earths has further to run?"
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T02:40:30.264058",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.04752597011784511,
+      "positive_count": 8,
+      "negative_count": 5,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 8,
+        "neutral": 7,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.35465
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T02:39:42.762501",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T02:39:42.762566",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie Group's Revenue Expected To Reach Five-Year Lows, Says Morgan Stanley",
+          "date": "2025-07-14T02:39:42.762681",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T02:39:42.762720",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T02:39:52.198125",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T02:40:03.405662",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07562742878736764,
+    "sentiment_components": {
+      "news": 0.008546904707841354,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T03:18:42.095704",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.06051097011784512,
+      "positive_count": 9,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 9,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.35465
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T03:17:54.477016",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T03:17:54.477080",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T03:17:54.477227",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T03:18:04.099764",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T03:18:18.283395",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07732172415521504,
+    "sentiment_components": {
+      "news": 0.010882081819557977,
+      "reddit": 0.05002391873527831,
+      "events": 0.022414822888283385,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T03:56:46.807733",
+    "news_count": 29,
+    "sentiment_scores": {
+      "average_sentiment": 0.09071154749246854,
+      "positive_count": 9,
+      "negative_count": 4,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 8,
+        "neutral": 6,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T03:56:01.429399",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T03:56:01.429440",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T03:56:01.429623",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T03:56:01.429781",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T03:56:10.630304",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T03:56:22.799047",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.08283459566213859,
+    "sentiment_components": {
+      "news": 0.01631324832289625,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      "Does Macquarie rate Liontown Resources shares a buy, hold or sell?",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T04:34:44.422702",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.06620430345117845,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T04:34:00.745231",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T04:34:00.745297",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T04:34:00.745417",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T04:34:00.745534",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T04:34:09.544312",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T04:34:21.060606",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07874462377374367,
+    "sentiment_components": {
+      "news": 0.011905951029367241,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T05:13:08.147009",
+    "news_count": 29,
+    "sentiment_scores": {
+      "average_sentiment": 0.06968874047492468,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 7,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T05:12:20.228483",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T05:12:20.228548",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T05:12:20.228686",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T05:12:20.228839",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T05:12:30.869887",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T05:12:44.079928",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07932613548717803,
+    "sentiment_components": {
+      "news": 0.012532580030912885,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T05:51:05.309861",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.06620430345117845,
+      "positive_count": 8,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T05:50:17.675782",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T05:50:17.675825",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T05:50:17.675960",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T05:50:17.676067",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T05:50:28.677955",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T05:50:40.369742",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07874462377374367,
+    "sentiment_components": {
+      "news": 0.011905951029367241,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T06:29:09.216377",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": 0.057704303451178454,
+      "positive_count": 8,
+      "negative_count": 5,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 7,
+        "neutral": 7,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T06:28:21.442057",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T06:28:21.442101",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T06:28:21.442213",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T06:28:21.442343",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T06:28:31.089792",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T06:28:43.878038",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07732607336502431,
+    "sentiment_components": {
+      "news": 0.01037734067514381,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Down 41% in a year, why Macquarie thinks Flight Centre shares are set to rebound",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T07:07:29.396376",
+    "news_count": 29,
+    "sentiment_scores": {
+      "average_sentiment": 0.051281333067517275,
+      "positive_count": 7,
+      "negative_count": 5,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 6,
+        "neutral": 7,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T07:06:44.469206",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T07:06:44.469250",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T07:06:44.469383",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T07:06:44.469494",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T07:06:53.272068",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T07:07:05.515895",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07625415486350258,
+    "sentiment_components": {
+      "news": 0.009222256082986758,
+      "reddit": 0.05002391873527831,
+      "events": 0.022924250681198917,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-14T08:41:44.691319",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": 0.04387196268237935,
+      "positive_count": 6,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 5,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 3,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 2,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-14T08:40:57.845463",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-14T08:40:57.845507",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-14T08:40:57.845643",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-14T08:40:57.845763",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T08:41:07.928431",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-14T08:41:20.932359",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.0793905459333965,
+    "sentiment_components": {
+      "news": 0.00788978075486931,
+      "reddit": 0.05002391873527831,
+      "events": 0.02763645776566758,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "Why Abacus Storage King, DroneShield, Hansen, and Macquarie Technology shares are charging higher",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-15T08:33:30.023128",
+    "news_count": 27,
+    "sentiment_scores": {
+      "average_sentiment": 0.03801503267973856,
+      "positive_count": 5,
+      "negative_count": 4,
+      "neutral_count": 8,
+      "sentiment_distribution": {
+        "very_positive": 1,
+        "positive": 4,
+        "neutral": 8,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.25080298054435984,
+      "bullish_count": 10,
+      "bearish_count": 0,
+      "neutral_count": 1,
+      "top_posts": [
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "Any catches with Queensland Country Bank for investment property IO loan?",
+          "score": 1,
+          "sentiment": 0.24444444444444446,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyeir3/any_catches_with_queensland_country_bank_for/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 90.9090909090909,
+        "bearish": 0.0,
+        "neutral": 9.090909090909092
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 7,
+          "avg_sentiment": 0.24947611228399408
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-15T08:32:43.920103",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-15T08:32:43.920147",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-15T08:32:43.920265",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Slash and earn: Macquarie sells US investment arm in $2.8bn deal",
+          "date": "2025-07-15T08:32:43.920417",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-15T08:32:53.151702",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-15T08:33:04.759259",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.07841309293938631,
+    "sentiment_components": {
+      "news": 0.0068364908906341825,
+      "reddit": 0.05002391873527831,
+      "events": 0.02763645776566758,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Macquarie tips 22% return for this ASX telco stock",
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

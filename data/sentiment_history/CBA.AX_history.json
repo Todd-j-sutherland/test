@@ -9378,5 +9378,2856 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-13T21:31:00.332097",
+    "news_count": 22,
+    "sentiment_scores": {
+      "average_sentiment": -0.021325000000000007,
+      "positive_count": 4,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.11655653213263778,
+      "bullish_count": 10,
+      "bearish_count": 1,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 13,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 6,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 52.63157894736842,
+        "bearish": 5.263157894736842,
+        "neutral": 42.10526315789473
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.14296636982237027
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": []
+    },
+    "overall_sentiment": 0.017723862896118787,
+    "sentiment_components": {
+      "news": -0.003835013623978203,
+      "reddit": 0.02324778788040623,
+      "events": 0.0,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.71,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-13T22:09:05.522271",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.0005923076923076869,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 20,
+      "average_sentiment": 0.12338495552600588,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 77,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 13,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 13,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 4,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.00000000000001,
+        "bearish": 5.0,
+        "neutral": 40.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.14296636982237027
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.028659556158377803,
+    "sentiment_components": {
+      "news": 0.00010651854957031971,
+      "reddit": 0.024609751347421337,
+      "events": 0.006367847411444141,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-13T22:47:22.892870",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.0005923076923076869,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 20,
+      "average_sentiment": 0.12338495552600588,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 3,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.00000000000001,
+        "bearish": 5.0,
+        "neutral": 40.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.14296636982237027
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.028659556158377803,
+    "sentiment_components": {
+      "news": 0.00010651854957031971,
+      "reddit": 0.024609751347421337,
+      "events": 0.006367847411444141,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-13T23:25:16.762699",
+    "news_count": 23,
+    "sentiment_scores": {
+      "average_sentiment": 0.0005923076923076869,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 20,
+      "average_sentiment": 0.12338495552600588,
+      "bullish_count": 11,
+      "bearish_count": 1,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 77,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 4,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 55.00000000000001,
+        "bearish": 5.0,
+        "neutral": 40.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.14296636982237027
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.028659556158377803,
+    "sentiment_components": {
+      "news": 0.00010651854957031971,
+      "reddit": 0.024609751347421337,
+      "events": 0.006367847411444141,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T00:03:22.134062",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.025882142857142854,
+      "positive_count": 6,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 15,
+      "average_sentiment": 0.11297006415813131,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 13,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 5,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 53.333333333333336,
+        "bearish": 6.666666666666667,
+        "neutral": 40.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.03704826364019205,
+    "sentiment_components": {
+      "news": 0.004654554301284546,
+      "reddit": 0.022532448763965155,
+      "events": 0.012735694822888282,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T00:41:56.139422",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.025882142857142854,
+      "positive_count": 6,
+      "negative_count": 2,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 6,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 15,
+      "average_sentiment": 0.11297006415813131,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 6,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 79,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 5,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 53.333333333333336,
+        "bearish": 6.666666666666667,
+        "neutral": 40.0
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.03704826364019205,
+    "sentiment_components": {
+      "news": 0.004654554301284546,
+      "reddit": 0.022532448763965155,
+      "events": 0.012735694822888282,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T01:19:57.381031",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.05588214285714286,
+      "positive_count": 7,
+      "negative_count": 2,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 7,
+        "neutral": 5,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 85,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 13,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.04074803011324447,
+    "sentiment_components": {
+      "news": 0.010049649669131957,
+      "reddit": 0.021124170716217333,
+      "events": 0.012735694822888282,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T01:57:49.242810",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.043521428571428565,
+      "positive_count": 6,
+      "negative_count": 1,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 7,
+        "negative": 0,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 84,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.03868517172476646,
+    "sentiment_components": {
+      "news": 0.007826741922927207,
+      "reddit": 0.021124170716217333,
+      "events": 0.012735694822888282,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T02:36:04.422573",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.044373333333333334,
+      "positive_count": 7,
+      "negative_count": 3,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 7,
+        "neutral": 5,
+        "negative": 2,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Invest in US Stock From Australia",
+          "score": 4,
+          "sentiment": -0.075,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lvlpzj/invest_in_us_stock_from_australia/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T02:34:56.309540",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T02:34:56.309540",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Forget CBA and buy these ASX dividend shares",
+          "date": "2025-07-13T22:01:42",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.04749440949821917,
+    "sentiment_components": {
+      "news": 0.007979945504087193,
+      "reddit": 0.021124170716217333,
+      "events": 0.022075204359673025,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "Forget CBA and buy these ASX dividend shares",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T03:14:00.210488",
+    "news_count": 26,
+    "sentiment_scores": {
+      "average_sentiment": -0.049084375,
+      "positive_count": 5,
+      "negative_count": 5,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 4,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 84,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 11,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 5,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T03:12:55.254867",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T03:12:55.254867",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:48",
+          "source": "the_west_australian",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:48",
+          "source": "the_west_australian",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:44",
+          "source": "perth_now",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:44",
+          "source": "perth_now",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.03504907293146167,
+    "sentiment_components": {
+      "news": -0.008827162806539508,
+      "reddit": 0.021124170716217333,
+      "events": 0.025471389645776568,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+      "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T03:52:04.142149",
+    "news_count": 30,
+    "sentiment_scores": {
+      "average_sentiment": -0.0432675,
+      "positive_count": 6,
+      "negative_count": 9,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 5,
+        "negative": 8,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 4,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "smh_main",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "the_age",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "brisbane_times",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T03:50:55.376594",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T03:50:55.376594",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:48",
+          "source": "the_west_australian",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:48",
+          "source": "the_west_australian",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:44",
+          "source": "perth_now",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court",
+          "date": "2025-07-14T02:35:44",
+          "source": "perth_now",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "wa_today",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.017897796528191918,
+    "sentiment_components": {
+      "news": -0.007781076294277929,
+      "reddit": 0.021124170716217333,
+      "events": 0.005943324250681198,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "CBA exec connected with sex worker: court",
+      "Senior Commonwealth Bank executive Christopher James McCann loses job, accounts frozen after being charged with procuring child: court"
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T04:30:22.472577",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": -0.0054444444444444445,
+      "positive_count": 6,
+      "negative_count": 7,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 5,
+        "negative": 6,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 81,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 13,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Opinions on my portfolio",
+          "score": 5,
+          "sentiment": 0.0,
+          "category": "neutral",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz915f/opinions_on_my_portfolio/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "smh_main",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "the_age",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "brisbane_times",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T04:29:05.405401",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T04:29:05.405401",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "wa_today",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.032483128698945776,
+    "sentiment_components": {
+      "news": -0.0009791099000908265,
+      "reddit": 0.021124170716217333,
+      "events": 0.014858310626702998,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "CBA exec connected with sex worker: court",
+      "Bank exec charged with seeking girls for sex gets bail"
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T05:08:22.345509",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": -0.0054444444444444445,
+      "positive_count": 6,
+      "negative_count": 7,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 5,
+        "negative": 6,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 81,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 13,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 5,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "smh_main",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "the_age",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "brisbane_times",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T05:06:59.433238",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T05:06:59.433238",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Bank exec charged with seeking girls for sex gets bail",
+          "date": "2025-07-14T03:36:38",
+          "source": "wa_today",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.032483128698945776,
+    "sentiment_components": {
+      "news": -0.0009791099000908265,
+      "reddit": 0.021124170716217333,
+      "events": 0.014858310626702998,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "Bank exec charged with seeking girls for sex gets bail",
+      "CBA exec connected with sex worker: court",
+      "Bank exec charged with seeking girls for sex gets bail"
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T05:46:31.647092",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": -0.001285714285714289,
+      "positive_count": 5,
+      "negative_count": 3,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 2,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 78,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 13,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T05:45:24.506263",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T05:45:24.506263",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.037116746968051784,
+    "sentiment_components": {
+      "news": -0.00023121837290774678,
+      "reddit": 0.021124170716217333,
+      "events": 0.019103542234332426,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T06:24:34.389749",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.01846666666666667,
+      "positive_count": 6,
+      "negative_count": 4,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 5,
+        "negative": 3,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 81,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Depositing large cash gift",
+          "score": 3,
+          "sentiment": 0.21714285714285717,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lye81p/depositing_large_cash_gift/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T06:23:22.516029",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T06:23:22.516029",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Commonwealth Bank executive charged with grooming girls for sex gets bail",
+          "date": "2025-07-14T05:11:31",
+          "source": "nine_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.040019230424649686,
+    "sentiment_components": {
+      "news": 0.003320980926430518,
+      "reddit": 0.021124170716217333,
+      "events": 0.018679019073569485,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Commonwealth Bank executive charged with grooming girls for sex gets bail",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T07:02:50.835588",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": 0.01846666666666667,
+      "positive_count": 6,
+      "negative_count": 4,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 6,
+        "neutral": 5,
+        "negative": 3,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 83,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 81,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 11,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T07:01:38.479612",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T07:01:38.479612",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "management_change",
+          "headline": "Commonwealth Bank executive charged with grooming girls for sex gets bail",
+          "date": "2025-07-14T05:11:31",
+          "source": "nine_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.040019230424649686,
+    "sentiment_components": {
+      "news": 0.003320980926430518,
+      "reddit": 0.021124170716217333,
+      "events": 0.018679019073569485,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Commonwealth Bank executive charged with grooming girls for sex gets bail",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T07:40:58.943738",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": -0.024113333333333334,
+      "positive_count": 5,
+      "negative_count": 4,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 3,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 85,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 84,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 11,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 4,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": true,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": true,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T07:39:48.598772",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T07:39:48.598772",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "legal_action",
+          "headline": "Commonwealth Bank exec charged with seeking underage girls for sex gets bail",
+          "date": "2025-07-14T07:28:59",
+          "source": "nine_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "dividend_announcement",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "rating_change",
+          "headline": "Passive income: What's CBA's dividend outlook according to Macquarie?",
+          "date": "2025-07-13T23:53:38",
+          "source": "motley_fool_au",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        }
+      ]
+    },
+    "overall_sentiment": 0.04079227718214287,
+    "sentiment_components": {
+      "news": -0.004336457765667575,
+      "reddit": 0.021124170716217333,
+      "events": 0.027169482288828338,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Commonwealth Bank exec charged with seeking underage girls for sex gets bail",
+      "Passive income: What's CBA's dividend outlook according to Macquarie?",
+      "",
+      ""
+    ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-14T08:37:19.749393",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": -0.021167857142857145,
+      "positive_count": 5,
+      "negative_count": 4,
+      "neutral_count": 5,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 5,
+        "negative": 3,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 16,
+      "average_sentiment": 0.1059094351482481,
+      "bullish_count": 8,
+      "bearish_count": 1,
+      "neutral_count": 7,
+      "top_posts": [
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 82,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "[19F] Best way to invest in the S&P 500 from Australia?",
+          "score": 80,
+          "sentiment": 0.3892857142857143,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lw4fc2/19f_best_way_to_invest_in_the_sp_500_from/"
+        },
+        {
+          "title": "Premarket Thread for General Trading and Plans for Wednesday, July 09, 2025",
+          "score": 12,
+          "sentiment": -0.022916666666666665,
+          "category": "neutral",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1luivey/premarket_thread_for_general_trading_and_plans/"
+        },
+        {
+          "title": "ASX: Bitcoin on the balance sheet",
+          "score": 12,
+          "sentiment": -0.14393939393939395,
+          "category": "bearish",
+          "subreddit": "ASX_Bets",
+          "url": "https://reddit.com/r/ASX_Bets/comments/1lw5kfc/asx_bitcoin_on_the_balance_sheet/"
+        },
+        {
+          "title": "Opinions on my portfolio",
+          "score": 5,
+          "sentiment": 0.0,
+          "category": "neutral",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz915f/opinions_on_my_portfolio/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 6.25,
+        "neutral": 43.75
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 2,
+          "avg_sentiment": -0.08342803030303031
+        },
+        "AusFinance": {
+          "count": 11,
+          "avg_sentiment": 0.13766488809179786
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": true,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "management_change",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T08:36:07.528682",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "legal_action",
+          "headline": "CBA exec connected with sex worker: court",
+          "date": "2025-07-14T08:36:07.528682",
+          "source": "news_com_au",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        },
+        {
+          "type": "legal_action",
+          "headline": "Commonwealth Bank exec charged with seeking underage girls for sex gets bail",
+          "date": "2025-07-14T07:28:59",
+          "source": "nine_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        }
+      ]
+    },
+    "overall_sentiment": 0.041677800140492424,
+    "sentiment_components": {
+      "news": -0.0038067536006228106,
+      "reddit": 0.021124170716217333,
+      "events": 0.027594005449591282,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "CBA exec connected with sex worker: court",
+      "Commonwealth Bank exec charged with seeking underage girls for sex gets bail",
+      "",
+      "",
+      ""
+    ]
   }
 ]
