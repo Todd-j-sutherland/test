@@ -71,26 +71,45 @@ class TradingSystemManager:
         # 1. System status check
         self.run_command("python tools/comprehensive_analyzer.py", "Checking system status")
         
-        # 2. Enhanced sentiment analysis
-        print("\n🧠 Running enhanced sentiment analysis...")
+        # 2. Enhanced sentiment analysis with new integration
+        print("\n🚀 Running enhanced sentiment analysis...")
         enhanced_cmd = """python -c "
 import sys; sys.path.append('src')
 sys.path.append('config')
-from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
-from advanced_feature_engineering import AdvancedFeatureEngineer
+from daily_manager_enhanced_integration import run_enhanced_daily_analysis
 from settings import Settings
 
-print('✅ Enhanced sentiment analysis initialized')
+print('🚀 Enhanced sentiment integration initialized')
 try:
-    analyzer = TemporalSentimentAnalyzer()
-    engineer = AdvancedFeatureEngineer()
-    print('✅ Enhanced modules loaded successfully')
+    # Run the new enhanced daily analysis
+    results = run_enhanced_daily_analysis(Settings.BANK_SYMBOLS)
     
-    # Sample feature engineering for major banks
-    for symbol in Settings.BANK_SYMBOLS:
-        sentiment_data = {'overall_sentiment': 0.5, 'confidence': 0.8, 'news_count': 5}
-        features = engineer.engineer_comprehensive_features(symbol, sentiment_data)
-        print(f'✅ {symbol}: Generated {len(features.get(\"features\", []))} enhanced features')
+    if 'error' not in results:
+        summary = results['summary']
+        print(f'✅ Enhanced analysis completed for {summary[\"symbols_analyzed\"]} symbols')
+        print(f'📊 Average Enhanced Score: {summary[\"average_enhanced_score\"]:.1f}/100')
+        print(f'📊 Average Confidence: {summary[\"average_confidence\"]:.2f}')
+        print(f'📊 High Significance Signals: {summary[\"high_significance_signals\"]}')
+        
+        # Show trading recommendations
+        print('📈 Trading Recommendations:')
+        for symbol, recs in summary['trading_recommendations'].items():
+            print(f'   {symbol}: Conservative={recs[\"conservative\"]}, Moderate={recs[\"moderate\"]}, Aggressive={recs[\"aggressive\"]}')
+    else:
+        print(f'⚠️  Enhanced sentiment fallback: {results[\"error\"]}')
+        
+        # Fallback to original analysis
+        from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+        from advanced_feature_engineering import AdvancedFeatureEngineer
+        
+        analyzer = TemporalSentimentAnalyzer()
+        engineer = AdvancedFeatureEngineer()
+        print('✅ Using fallback sentiment analysis')
+        
+        for symbol in Settings.BANK_SYMBOLS:
+            sentiment_data = {'overall_sentiment': 0.5, 'confidence': 0.8, 'news_count': 5}
+            features = engineer.engineer_comprehensive_features(symbol, sentiment_data)
+            print(f'✅ {symbol}: Generated {len(features.get(\"features\", []))} enhanced features')
     
 except Exception as e:
     print(f'⚠️  Enhanced sentiment analysis warning: {e}')
@@ -114,7 +133,9 @@ except Exception as e:
         print("\n🎯 MORNING ROUTINE COMPLETE!")
         print("📊 Dashboard: http://localhost:8501")
         print("📈 Smart collector running in background")
-        print("🧠 Enhanced ML features active")
+        print("🚀 Enhanced sentiment integration active")
+        print("🧠 Advanced ML features active")
+        print("📊 Statistical significance testing enabled")
         print("⏰ Next check recommended in 2-3 hours")
     
     def evening_routine(self):
@@ -122,43 +143,80 @@ except Exception as e:
         print("🌆 EVENING ROUTINE - Daily Analysis")
         print("=" * 50)
         
-        # 1. Enhanced ensemble analysis
-        print("\n🤖 Running enhanced ensemble analysis...")
+        # 1. Enhanced ensemble analysis with new integration
+        print("\n🚀 Running enhanced ensemble analysis...")
         ensemble_cmd = """python -c "
 import sys; sys.path.append('src')
 sys.path.append('config')
-from enhanced_ensemble_learning import EnhancedTransformerEnsemble, ModelPrediction
-from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+from daily_manager_enhanced_integration import run_enhanced_daily_analysis
 from settings import Settings
 from datetime import datetime
 import numpy as np
 
 try:
-    # Initialize enhanced systems
-    ensemble = EnhancedTransformerEnsemble()
-    analyzer = TemporalSentimentAnalyzer()
+    # Run the comprehensive enhanced analysis
+    print('🚀 Running comprehensive enhanced analysis...')
+    results = run_enhanced_daily_analysis(Settings.BANK_SYMBOLS)
     
-    print('✅ Enhanced ensemble system initialized')
-    
-    # Simulate ensemble analysis for major banks
-    symbols = Settings.BANK_SYMBOLS
-    ensemble_results = []
-    
-    for symbol in symbols:
-        # Get temporal analysis
-        analysis = analyzer.analyze_sentiment_evolution(symbol)
-        trend_value = analysis.get('trend', 0.0)
-        volatility_value = analysis.get('volatility', 0.0)
+    if 'error' not in results:
+        summary = results['summary']
+        detailed = results['detailed_results']
         
-        print(f'✅ {symbol}: Temporal analysis complete (trend: {trend_value:.3f}, vol: {volatility_value:.3f})')
-        ensemble_results.append((symbol, trend_value, volatility_value))
-    
-    print(f'✅ Enhanced ensemble analysis completed for {len(symbols)} symbols')
-    
-    # Performance summary
-    avg_trend = np.mean([r[1] for r in ensemble_results])
-    avg_volatility = np.mean([r[2] for r in ensemble_results])
-    print(f'📊 Market Summary: Avg Trend: {avg_trend:.3f}, Avg Volatility: {avg_volatility:.3f}')
+        print(f'✅ Enhanced ensemble analysis completed for {summary[\"symbols_analyzed\"]} symbols')
+        print(f'📊 Analysis Summary:')
+        print(f'   Average Enhanced Score: {summary[\"average_enhanced_score\"]:.1f}/100')
+        print(f'   Average Confidence: {summary[\"average_confidence\"]:.2f}')
+        print(f'   High Significance Signals: {summary[\"high_significance_signals\"]}')
+        
+        # Show detailed results for each symbol
+        ensemble_results = []
+        for symbol, result in detailed.items():
+            if 'error' not in result:
+                temporal = result['enhanced_temporal']
+                ensemble = result['ensemble_prediction']
+                
+                print(f'✅ {symbol}: Enhanced analysis complete')
+                print(f'   Temporal trend: {temporal[\"temporal_trend\"]:+.3f}')
+                print(f'   Enhanced score: {temporal[\"enhanced_score\"]:.1f}/100')
+                print(f'   Statistical significance: {temporal[\"statistical_significance\"]:.2f}')
+                print(f'   Ensemble prediction: {ensemble[\"ensemble_prediction\"]:.3f}')
+                
+                ensemble_results.append((symbol, temporal['temporal_trend'], temporal['enhanced_score']))
+        
+        # Market summary with enhanced metrics
+        if ensemble_results:
+            avg_trend = np.mean([r[1] for r in ensemble_results])
+            avg_enhanced_score = np.mean([r[2] for r in ensemble_results])
+            print(f'📊 Enhanced Market Summary:')
+            print(f'   Avg Temporal Trend: {avg_trend:.3f}')
+            print(f'   Avg Enhanced Score: {avg_enhanced_score:.1f}/100')
+        
+    else:
+        print(f'⚠️  Enhanced analysis failed: {results[\"error\"]}')
+        print('🔄 Falling back to original ensemble analysis...')
+        
+        # Fallback to original analysis
+        from enhanced_ensemble_learning import EnhancedTransformerEnsemble, ModelPrediction
+        from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+        
+        ensemble = EnhancedTransformerEnsemble()
+        analyzer = TemporalSentimentAnalyzer()
+        
+        print('✅ Original ensemble system initialized')
+        symbols = Settings.BANK_SYMBOLS
+        ensemble_results = []
+        
+        for symbol in symbols:
+            analysis = analyzer.analyze_sentiment_evolution(symbol)
+            trend_value = analysis.get('trend', 0.0)
+            volatility_value = analysis.get('volatility', 0.0)
+            
+            print(f'✅ {symbol}: Temporal analysis complete (trend: {trend_value:.3f}, vol: {volatility_value:.3f})')
+            ensemble_results.append((symbol, trend_value, volatility_value))
+        
+        avg_trend = np.mean([r[1] for r in ensemble_results])
+        avg_volatility = np.mean([r[2] for r in ensemble_results])
+        print(f'📊 Market Summary: Avg Trend: {avg_trend:.3f}, Avg Volatility: {avg_volatility:.3f}')
     
 except Exception as e:
     print(f'⚠️  Enhanced ensemble warning: {e}')
@@ -176,7 +234,9 @@ except Exception as e:
         
         print("\n🎯 EVENING ROUTINE COMPLETE!")
         print("📊 Check reports/ folder for detailed analysis")
-        print("🧠 Enhanced ML analysis completed")
+        print("🚀 Enhanced sentiment integration completed")
+        print("🧠 Advanced ML ensemble analysis completed")
+        print("📈 Risk-adjusted trading signals generated")
         print("💤 System ready for overnight")
     
     def quick_status(self):
@@ -188,6 +248,11 @@ except Exception as e:
         enhanced_status_cmd = """python -c "
 import sys; sys.path.append('src')
 try:
+    # Test enhanced sentiment integration first
+    from daily_manager_enhanced_integration import run_enhanced_daily_analysis
+    print('✅ Enhanced Sentiment Integration: Available')
+    
+    # Test core ML modules
     from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
     from enhanced_ensemble_learning import EnhancedTransformerEnsemble
     from advanced_feature_engineering import AdvancedFeatureEngineer
@@ -198,6 +263,17 @@ try:
     analyzer = TemporalSentimentAnalyzer()
     ensemble = EnhancedTransformerEnsemble()
     engineer = AdvancedFeatureEngineer()
+    
+    # Test enhanced sentiment integration
+    test_results = run_enhanced_daily_analysis(['CBA.AX'])
+    if 'error' not in test_results:
+        print('✅ Enhanced Sentiment: Integration working')
+        summary = test_results['summary']
+        avg_score = summary.get('average_enhanced_score', 0)
+        avg_conf = summary.get('average_confidence', 0)
+        print(f'✅ Enhanced Analysis: {avg_score:.1f}/100 score, {avg_conf:.2f} confidence')
+    else:
+        print('⚠️  Enhanced Sentiment: Integration issue')
     
     # Test feature generation
     test_sentiment = {'overall_sentiment': 0.6, 'confidence': 0.8, 'news_count': 5}
