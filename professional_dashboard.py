@@ -26,6 +26,24 @@ from config.settings import Settings
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Import ML Progression Tracker
+try:
+    from src.ml_progression_tracker import MLProgressionTracker
+    ML_TRACKER_AVAILABLE = True
+    logger.info("ML Progression Tracker loaded successfully")
+except ImportError:
+    ML_TRACKER_AVAILABLE = False
+    logger.warning("ML Progression Tracker not available")
+
+# Import Position Risk Assessor
+try:
+    from src.position_risk_assessor import PositionRiskAssessor
+    POSITION_RISK_AVAILABLE = True
+    logger.info("Position Risk Assessor loaded successfully")
+except ImportError:
+    POSITION_RISK_AVAILABLE = False
+    logger.warning("Position Risk Assessor not available - ensure src/position_risk_assessor.py exists")
+
 # Page configuration
 st.set_page_config(
     page_title="ASX Bank Analytics",
@@ -422,6 +440,121 @@ st.markdown("""
             padding: 1rem;
         }
     }
+    
+    /* Position Risk Assessment Enhancements */
+    .form-section {
+        background: linear-gradient(135deg, var(--light-gray) 0%, #f1f3f4 100%);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+    
+    .form-section h4 {
+        color: var(--primary-color);
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
+    }
+    
+    .form-section p {
+        color: var(--medium-gray);
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    .position-preview {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        margin: 1rem 0;
+        box-shadow: var(--shadow);
+    }
+    
+    .position-preview h5 {
+        color: var(--primary-color);
+        margin: 0 0 0.75rem 0;
+        font-weight: 600;
+    }
+    
+    .preview-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .preview-grid div {
+        padding: 0.25rem 0;
+    }
+    
+    .profit {
+        color: var(--success-color);
+        font-weight: 600;
+    }
+    
+    .loss {
+        color: var(--accent-color);
+        font-weight: 600;
+    }
+    
+    .low-risk {
+        color: var(--success-color);
+        font-weight: 600;
+    }
+    
+    .medium-risk {
+        color: var(--warning-color);
+        font-weight: 600;
+    }
+    
+    .high-risk {
+        color: var(--accent-color);
+        font-weight: 600;
+    }
+    
+    /* Enhanced Risk Assessment Results */
+    .risk-results-container {
+        background: white;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow);
+        margin: 1.5rem 0;
+        overflow: hidden;
+    }
+    
+    .risk-header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .risk-header h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    .risk-summary {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+    
+    .risk-summary-item {
+        text-align: center;
+    }
+    
+    .risk-summary-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+    
+    .risk-summary-label {
+        font-size: 0.85rem;
+        opacity: 0.9;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -444,24 +577,41 @@ class NewsAnalysisDashboard:
         # Initialize technical analyzer
         self.tech_analyzer = TechnicalAnalyzer()
         self.technical_data = {}  # Cache for technical analysis
+        
+        # Initialize ML progression tracker
+        if ML_TRACKER_AVAILABLE:
+            self.ml_tracker = MLProgressionTracker()
+            logger.info("ML Progression Tracker initialized")
+        else:
+            self.ml_tracker = None
+            logger.warning("ML Progression Tracker not available")
     
     def load_sentiment_data(self) -> Dict[str, List[Dict]]:
         """Load sentiment history data for all banks"""
         all_data = {}
         
+        logger.info(f"Loading sentiment data from: {self.data_path}")
+        
         for symbol in self.bank_symbols:
             file_path = os.path.join(self.data_path, f"{symbol}_history.json")
+            logger.info(f"Checking file: {file_path}")
+            
             if os.path.exists(file_path):
                 try:
                     with open(file_path, 'r') as f:
                         data = json.load(f)
                         all_data[symbol] = data if isinstance(data, list) else [data]
+                        logger.info(f"Loaded {len(all_data[symbol])} records for {symbol}")
                 except Exception as e:
                     logger.error(f"Error loading data for {symbol}: {e}")
                     all_data[symbol] = []
             else:
+                logger.warning(f"File not found: {file_path}")
                 all_data[symbol] = []
-                
+        
+        total_records = sum(len(data) for data in all_data.values())
+        logger.info(f"Total records loaded: {total_records}")
+        
         return all_data
     
     def get_latest_analysis(self, data: List[Dict]) -> Dict:
@@ -1260,15 +1410,10 @@ class NewsAnalysisDashboard:
                     'title': 'Decision Threshold',
                     'value': f"{threshold:.2f}",
                     'status': 'neutral',
-                    'subtitle': 'Classification cutoff'
                 }
             ]
             
             self.display_professional_metrics(ml_metrics)
-            
-            # Show ML model performance if available
-            if st.button("📊 View Model Performance Details", key=f"ml_perf_{symbol}"):
-                self.display_ml_performance(symbol)
         else:
             st.markdown("""
             <div class="alert alert-info">
@@ -1462,1021 +1607,82 @@ class NewsAnalysisDashboard:
             </div>
             """, unsafe_allow_html=True)
     
-    def run_dashboard(self):
-        """Main professional dashboard application"""
-        # Professional header
-        self.create_professional_header()
-        
-        # Load data with professional loading indicator
-        with st.spinner("🔄 Loading sentiment analysis data..."):
-            all_data = self.load_sentiment_data()
-        
-        # Professional sidebar
-        st.sidebar.markdown("""
-        <div style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem;">
-            <h2 style="margin: 0; font-size: 1.5rem; font-weight: 600;">🎛️ Dashboard Controls</h2>
-            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Configure your analysis view</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Enhanced bank selection
-        st.sidebar.markdown("**📊 Bank Selection**")
-        selected_banks = st.sidebar.multiselect(
-            "Choose banks to analyze:",
-            options=list(self.bank_names.keys()),
-            default=list(self.bank_names.keys()),
-            format_func=lambda x: f"🏦 {self.bank_names[x]}"
-        )
-        
-        st.sidebar.markdown("---")
-        
-        # Professional action buttons
-        st.sidebar.markdown("**⚡ Quick Actions**")
-        
-        col1, col2 = st.sidebar.columns(2)
-        with col1:
-            if st.button("🔄 Refresh", use_container_width=True):
-                self.technical_data = {}
-                st.rerun()
-        
-        with col2:
-            if st.button("📈 Tech Update", use_container_width=True):
-                with st.spinner("Updating technical analysis..."):
-                    for symbol in self.bank_symbols:
-                        self.get_technical_analysis(symbol, force_refresh=True)
-                st.success("✅ Technical analysis updated!")
-        
-        st.sidebar.markdown("---")
-        
-        # Professional info section
-        st.sidebar.markdown("""
-        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #3498db;">
-            <h4 style="margin: 0 0 0.5rem 0; color: #2c3e50;">📋 Analysis Info</h4>
-            <p style="margin: 0; font-size: 0.85rem; color: #6c757d;">
-                Real-time sentiment analysis combining news, social media, and technical indicators for ASX banking sector.
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Display professional legends
-        self.display_confidence_legend()
-        self.display_sentiment_scale()
-        
-        # Market Overview Section
-        self.create_section_header(
-            "Market Overview", 
-            "Real-time sentiment and confidence analysis across all banks",
-            "📊"
-        )
-        
-        overview_col1, overview_col2 = st.columns(2)
-        
-        with overview_col1:
-            sentiment_chart = self.create_sentiment_overview_chart(all_data)
-            st.plotly_chart(sentiment_chart, use_container_width=True)
-        
-        with overview_col2:
-            confidence_chart = self.create_confidence_distribution_chart(all_data)
-            st.plotly_chart(confidence_chart, use_container_width=True)
-        
-        # Technical Analysis Section
-        self.create_section_header(
-            "Technical Analysis & Momentum", 
-            "Advanced technical indicators and momentum analysis",
-            "📈"
-        )
-        
-        # Load technical analysis data with progress
-        with st.spinner("📊 Loading technical analysis..."):
-            for symbol in self.bank_symbols:
-                self.get_technical_analysis(symbol)
-        
-        tech_tab1, tech_tab2, tech_tab3 = st.tabs([
-            "🎯 Momentum Analysis", 
-            "📊 Technical Signals", 
-            "🔄 Combined Strategy"
-        ])
-        
-        with tech_tab1:
-            momentum_chart = self.create_momentum_chart(all_data)
-            st.plotly_chart(momentum_chart, use_container_width=True)
-            
-            st.markdown("### 📋 Momentum Performance Summary")
-            momentum_data = []
-            for symbol in self.bank_symbols:
-                tech_analysis = self.get_technical_analysis(symbol)
-                if tech_analysis and 'momentum' in tech_analysis:
-                    momentum = tech_analysis['momentum']
-                    
-                    # Determine momentum status
-                    score = momentum['score']
-                    if score > 20:
-                        status = "🚀 Very Strong"
-                    elif score > 5:
-                        status = "💪 Strong"
-                    elif score > -5:
-                        status = "➡️ Neutral"
-                    elif score > -20:
-                        status = "📉 Weak"
-                    else:
-                        status = "⚠️ Very Weak"
-                    
-                    momentum_data.append({
-                        'Bank': self.bank_names.get(symbol, symbol),
-                        'Symbol': symbol,
-                        'Momentum Score': f"{momentum['score']:.1f}",
-                        'Status': status,
-                        'Strength': momentum['strength'].replace('_', ' ').title(),
-                        '1D Change': f"{momentum['price_change_1d']:+.2f}%",
-                        '5D Change': f"{momentum['price_change_5d']:+.2f}%",
-                        'Volume': momentum['volume_momentum'].title()
-                    })
-            
-            if momentum_data:
-                st.dataframe(pd.DataFrame(momentum_data), use_container_width=True, hide_index=True)
-        
-        with tech_tab2:
-            signals_chart = self.create_technical_signals_chart(all_data)
-            st.plotly_chart(signals_chart, use_container_width=True)
-            
-            st.markdown("### 📊 Technical Indicators Dashboard")
-            tech_data = []
-            for symbol in self.bank_symbols:
-                tech_analysis = self.get_technical_analysis(symbol)
-                if tech_analysis:
-                    indicators = tech_analysis.get('indicators', {})
-                    rsi = indicators.get('rsi', 50)
-                    
-                    # RSI status with emojis
-                    if rsi > 70:
-                        rsi_status = "🔴 Overbought"
-                    elif rsi < 30:
-                        rsi_status = "🟢 Oversold"
-                    else:
-                        rsi_status = "🟡 Normal"
-                    
-                    # MACD status
-                    macd_hist = indicators.get('macd', {}).get('histogram', 0)
-                    macd_status = "🟢 Bullish" if macd_hist > 0 else "🔴 Bearish"
-                    
-                    # Recommendation with styling
-                    rec = tech_analysis.get('recommendation', 'HOLD')
-                    if rec in ['STRONG_BUY', 'BUY']:
-                        rec_display = f"🟢 {rec}"
-                    elif rec in ['STRONG_SELL', 'SELL']:
-                        rec_display = f"🔴 {rec}"
-                    else:
-                        rec_display = f"🟡 {rec}"
-                    
-                    tech_data.append({
-                        'Bank': self.bank_names.get(symbol, symbol),
-                        'Symbol': symbol,
-                        'Current Price': f"${tech_analysis.get('current_price', 0):.2f}",
-                        'RSI': f"{rsi:.1f}",
-                        'RSI Status': rsi_status,
-                        'MACD Signal': macd_status,
-                        'Trend': tech_analysis.get('trend', {}).get('direction', 'Unknown').replace('_', ' ').title(),
-                        'Recommendation': rec_display
-                    })
-            
-            if tech_data:
-                st.dataframe(pd.DataFrame(tech_data), use_container_width=True, hide_index=True)
-        
-        with tech_tab3:
-            combined_chart = self.create_combined_analysis_chart(all_data)
-            st.plotly_chart(combined_chart, use_container_width=True)
-            
-            st.markdown("### 🎯 Integrated Trading Recommendations")
-            
-            st.markdown("""
-            <div class="alert alert-info">
-                <strong>Strategy Overview:</strong> Our integrated approach combines sentiment analysis, 
-                technical momentum, and machine learning predictions to provide comprehensive trading signals.
-            </div>
-            """, unsafe_allow_html=True)
-            
-            recommendations = []
-            for symbol in self.bank_symbols:
-                sentiment_data = self.get_latest_analysis(all_data.get(symbol, []))
-                tech_analysis = self.get_technical_analysis(symbol)
-                
-                if sentiment_data or tech_analysis:
-                    sentiment_score = sentiment_data.get('overall_sentiment', 0) if sentiment_data else 0
-                    tech_recommendation = tech_analysis.get('recommendation', 'HOLD') if tech_analysis else 'HOLD'
-                    momentum_score = tech_analysis.get('momentum', {}).get('score', 0) if tech_analysis else 0
-                    confidence = sentiment_data.get('confidence', 0) if sentiment_data else 0
-                    
-                    # Enhanced combined recommendation logic
-                    if sentiment_score > 0.2 and tech_recommendation in ['BUY', 'STRONG_BUY'] and momentum_score > 10 and confidence > 0.7:
-                        combined_rec = '🟢 STRONG BUY'
-                        rec_strength = 'High'
-                    elif sentiment_score > 0.1 and tech_recommendation in ['BUY'] and momentum_score > 0 and confidence > 0.5:
-                        combined_rec = '🟢 BUY'
-                        rec_strength = 'Medium'
-                    elif sentiment_score < -0.2 and tech_recommendation in ['SELL', 'STRONG_SELL'] and momentum_score < -10 and confidence > 0.7:
-                        combined_rec = '🔴 STRONG SELL'
-                        rec_strength = 'High'
-                    elif sentiment_score < -0.1 and tech_recommendation in ['SELL'] and momentum_score < 0 and confidence > 0.5:
-                        combined_rec = '🔴 SELL'
-                        rec_strength = 'Medium'
-                    else:
-                        combined_rec = '🟡 HOLD'
-                        rec_strength = 'Low'
-                    
-                    recommendations.append({
-                        'Bank': self.bank_names.get(symbol, symbol),
-                        'Symbol': symbol,
-                        'News Sentiment': f"{sentiment_score:+.3f}",
-                        'Technical Signal': tech_recommendation,
-                        'Momentum': f"{momentum_score:+.1f}",
-                        'Confidence': f"{confidence:.2f}",
-                        'Combined Recommendation': combined_rec,
-                        'Signal Strength': rec_strength
-                    })
-            
-            if recommendations:
-                st.dataframe(pd.DataFrame(recommendations), use_container_width=True, hide_index=True)
-        
-        # Historical Trends Section
-        self.create_section_header(
-            "Historical Trends Analysis", 
-            "Comprehensive historical performance and correlation analysis",
-            "📈"
-        )
-        
-        trend_tabs = st.tabs([
-            "📊 Multi-Bank Comparison", 
-            "🎯 Performance Leaders", 
-            "📋 Trend Intelligence"
-        ])
-        
-        with trend_tabs[0]:
-            st.markdown("### 📊 Recent Performance Trends")
-            
-            # Enhanced multi-bank comparison chart
-            multi_bank_fig = go.Figure()
-            
-            for symbol in selected_banks:
-                if symbol in all_data and all_data[symbol]:
-                    recent_data = all_data[symbol][-10:]
-                    dates = []
-                    sentiments = []
-                    confidences = []
-                    
-                    for entry in recent_data:
-                        try:
-                            timestamp = entry.get('timestamp', '')
-                            if timestamp:
-                                if 'T' in timestamp:
-                                    date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-                                else:
-                                    date = datetime.fromisoformat(timestamp)
-                                dates.append(date)
-                                sentiments.append(entry.get('overall_sentiment', 0))
-                                confidences.append(entry.get('confidence', 0))
-                        except Exception:
-                            continue
-                    
-                    if dates and sentiments:
-                        multi_bank_fig.add_trace(go.Scatter(
-                            x=dates,
-                            y=sentiments,
-                            mode='lines+markers',
-                            name=self.bank_names.get(symbol, symbol),
-                            line=dict(width=3),
-                            marker=dict(size=8),
-                            hovertemplate='<b>%{fullData.name}</b><br>' +
-                                         'Date: %{x}<br>' +
-                                         'Sentiment: %{y:.3f}<br>' +
-                                         '<extra></extra>'
-                        ))
-            
-            multi_bank_fig.update_layout(
-                title=dict(
-                    text="Recent Sentiment Trends - Selected Banks",
-                    font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
-                ),
-                xaxis=dict(
-                    title=dict(text="Date", font=dict(size=14, family="Inter")),
-                    tickfont=dict(size=12, family="Inter"),
-                    gridcolor="#f1f1f1",
-                    linecolor="#dee2e6"
-                ),
-                yaxis=dict(
-                    title=dict(text="Sentiment Score", font=dict(size=14, family="Inter")),
-                    tickfont=dict(size=12, family="Inter"),
-                    range=[-0.5, 0.5],
-                    gridcolor="#f1f1f1",
-                    linecolor="#dee2e6",
-                    zeroline=True,
-                    zerolinecolor="#dee2e6",
-                    zerolinewidth=2
-                ),
-                height=500,
-                legend=dict(x=0, y=1),
-                hovermode='x unified',
-                plot_bgcolor="white",
-                paper_bgcolor="white",
-                font=dict(family="Inter"),
-                margin=dict(l=60, r=60, t=60, b=60)
-            )
-            
-            st.plotly_chart(multi_bank_fig, use_container_width=True)
-        
-        with trend_tabs[1]:
-            st.markdown("### 🎯 Top Performance Movers (7-Day Analysis)")
-            
-            # Calculate and display top movers with enhanced analysis
-            movers_data = []
-            for symbol in selected_banks:
-                if symbol in all_data and len(all_data[symbol]) >= 2:
-                    recent_data = all_data[symbol][-7:]
-                    if len(recent_data) >= 2:
-                        latest_sentiment = recent_data[-1].get('overall_sentiment', 0)
-                        week_ago_sentiment = recent_data[0].get('overall_sentiment', 0)
-                        change = latest_sentiment - week_ago_sentiment
-                        
-                        # Get price data for comparison
-                        try:
-                            price_data = get_market_data(symbol, period='1mo', interval='1d')
-                            if not price_data.empty:
-                                current_price = price_data['Close'].iloc[-1]
-                                week_ago_price = price_data['Close'].iloc[-7] if len(price_data) >= 7 else price_data['Close'].iloc[0]
-                                price_change = ((current_price - week_ago_price) / week_ago_price) * 100
-                            else:
-                                price_change = 0
-                        except Exception:
-                            price_change = 0
-                        
-                        # Determine trend classification
-                        if abs(change) > 0.15:
-                            trend = "🔥 Explosive"
-                        elif abs(change) > 0.1:
-                            trend = "🚀 High Momentum"
-                        elif change > 0.05:
-                            trend = "📈 Rising"
-                        elif change < -0.05:
-                            trend = "📉 Declining"
-                        else:
-                            trend = "➡️ Stable"
-                        
-                        movers_data.append({
-                            'Bank': self.bank_names.get(symbol, symbol),
-                            'Symbol': symbol,
-                            'Sentiment Change': change,
-                            'Price Change (%)': price_change,
-                            'Current Sentiment': latest_sentiment,
-                            'Trend Classification': trend,
-                            'Volatility': 'High' if abs(change) > 0.1 else 'Medium' if abs(change) > 0.05 else 'Low'
-                        })
-            
-            if movers_data:
-                # Sort by absolute sentiment change
-                movers_df = pd.DataFrame(movers_data)
-                movers_df['abs_change'] = movers_df['Sentiment Change'].abs()
-                movers_df = movers_df.sort_values('abs_change', ascending=False)
-                
-                # Display top movers in professional expandable cards
-                for idx, row in movers_df.iterrows():
-                    with st.expander(f"{row['Trend Classification']} {row['Bank']} ({row['Symbol']})", expanded=(idx < 3)):
-                        
-                        mover_metrics = [
-                            {
-                                'title': 'Sentiment Shift',
-                                'value': f"{row['Sentiment Change']:+.3f}",
-                                'status': 'positive' if row['Sentiment Change'] > 0 else 'negative' if row['Sentiment Change'] < 0 else 'neutral',
-                                'subtitle': '7-day change'
-                            },
-                            {
-                                'title': 'Price Movement',
-                                'value': f"{row['Price Change (%)']:+.2f}%",
-                                'status': 'positive' if row['Price Change (%)'] > 0 else 'negative' if row['Price Change (%)'] < 0 else 'neutral',
-                                'subtitle': 'Market performance'
-                            },
-                            {
-                                'title': 'Current Level',
-                                'value': f"{row['Current Sentiment']:.3f}",
-                                'status': 'positive' if row['Current Sentiment'] > 0.1 else 'negative' if row['Current Sentiment'] < -0.1 else 'neutral',
-                                'subtitle': 'Present sentiment'
-                            },
-                            {
-                                'title': 'Volatility',
-                                'value': row['Volatility'],
-                                'status': 'warning' if row['Volatility'] == 'High' else 'neutral',
-                                'subtitle': 'Movement intensity'
-                            }
-                        ]
-                        
-                        self.display_professional_metrics(mover_metrics)
-        
-        with trend_tabs[2]:
-            st.markdown("### 📋 Trend Intelligence Summary")
-            
-            # Enhanced trend summary with market insights
-            if all_data:
-                # Calculate market-wide statistics
-                all_latest = [self.get_latest_analysis(data) for data in all_data.values() if data]
-                
-                if all_latest:
-                    market_sentiment = sum(a.get('overall_sentiment', 0) for a in all_latest) / len(all_latest)
-                    market_confidence = sum(a.get('confidence', 0) for a in all_latest) / len(all_latest)
-                    total_news = sum(a.get('news_count', 0) for a in all_latest)
-                    
-                    # Market overview metrics
-                    market_metrics = [
-                        {
-                            'title': 'Market Sentiment',
-                            'value': f"{market_sentiment:.3f}",
-                            'status': 'positive' if market_sentiment > 0.1 else 'negative' if market_sentiment < -0.1 else 'neutral',
-                            'subtitle': 'Overall market mood'
-                        },
-                        {
-                            'title': 'Avg Confidence',
-                            'value': f"{market_confidence:.2f}",
-                            'status': 'positive' if market_confidence > 0.7 else 'warning' if market_confidence > 0.5 else 'negative',
-                            'subtitle': 'Analysis quality'
-                        },
-                        {
-                            'title': 'News Volume',
-                            'value': str(total_news),
-                            'status': 'positive' if total_news > 50 else 'warning' if total_news > 20 else 'negative',
-                            'subtitle': 'Market coverage'
-                        },
-                        {
-                            'title': 'Active Banks',
-                            'value': str(len([a for a in all_latest if a.get('news_count', 0) > 0])),
-                            'status': 'neutral',
-                            'subtitle': 'With recent news'
-                        }
-                    ]
-                    
-                    st.markdown("**🌍 Market Overview:**")
-                    self.display_professional_metrics(market_metrics)
-                    
-                    # Individual bank trend summary
-                    st.markdown("**🏦 Individual Bank Trends:**")
-                    trend_summary = []
-                    
-                    for symbol in selected_banks:
-                        if symbol in all_data and all_data[symbol]:
-                            latest = self.get_latest_analysis(all_data[symbol])
-                            
-                            # Calculate trend direction with more sophisticated logic
-                            if len(all_data[symbol]) >= 5:
-                                recent_sentiments = [entry.get('overall_sentiment', 0) for entry in all_data[symbol][-5:]]
-                                
-                                # Calculate trend using linear regression
-                                if len(recent_sentiments) == 5:
-                                    x = np.array(range(5))
-                                    y = np.array(recent_sentiments)
-                                    slope = np.polyfit(x, y, 1)[0]
-                                    
-                                    if slope > 0.02:
-                                        trend_direction = "📈 Strongly Rising"
-                                        trend_strength = "Strong"
-                                    elif slope > 0.01:
-                                        trend_direction = "📈 Rising"
-                                        trend_strength = "Moderate"
-                                    elif slope < -0.02:
-                                        trend_direction = "📉 Strongly Falling"
-                                        trend_strength = "Strong"
-                                    elif slope < -0.01:
-                                        trend_direction = "📉 Falling"
-                                        trend_strength = "Moderate"
-                                    else:
-                                        trend_direction = "➡️ Stable"
-                                        trend_strength = "Stable"
-                                else:
-                                    trend_direction = "❓ Insufficient Data"
-                                    trend_strength = "Unknown"
-                            else:
-                                trend_direction = "❓ Insufficient Data"
-                                trend_strength = "Unknown"
-                            
-                            # Risk assessment
-                            volatility = np.std([entry.get('overall_sentiment', 0) for entry in all_data[symbol][-10:]]) if len(all_data[symbol]) >= 10 else 0
-                            risk_level = "High" if volatility > 0.2 else "Medium" if volatility > 0.1 else "Low"
-                            
-                            trend_summary.append({
-                                'Bank': self.bank_names.get(symbol, symbol),
-                                'Current Sentiment': f"{latest.get('overall_sentiment', 0):.3f}",
-                                'Confidence': f"{latest.get('confidence', 0):.2f}",
-                                'Trend Direction': trend_direction,
-                                'Trend Strength': trend_strength,
-                                'Risk Level': risk_level,
-                                'News Activity': latest.get('news_count', 0),
-                                'Last Update': latest.get('timestamp', 'Unknown')[:10] if latest.get('timestamp') else 'Unknown'
-                            })
-                    
-                    if trend_summary:
-                        st.dataframe(pd.DataFrame(trend_summary), use_container_width=True, hide_index=True)
-
-        # Individual Bank Analysis Section
-        self.create_section_header(
-            "Individual Bank Analysis", 
-            "Detailed sentiment, technical, and ML analysis for each bank",
-            "🏦"
-        )
-        
-        for symbol in selected_banks:
-            if symbol in all_data:
-                with st.expander(f"🏦 {self.bank_names[symbol]} ({symbol}) - Comprehensive Analysis", expanded=True):
-                    self.display_bank_analysis(symbol, all_data[symbol])
-        
-        # Enhanced Summary Section
-        self.create_section_header(
-            "Executive Summary", 
-            "Key performance indicators and market insights",
-            "📈"
-        )
-        
-        # Calculate comprehensive summary stats
-        total_analyses = sum(len(data) for data in all_data.values())
-        latest_analyses = [self.get_latest_analysis(data) for data in all_data.values() if data]
-        
-        if latest_analyses:
-            avg_sentiment = sum(a.get('overall_sentiment', 0) for a in latest_analyses) / len(latest_analyses)
-            avg_confidence = sum(a.get('confidence', 0) for a in latest_analyses) / len(latest_analyses)
-            total_news = sum(a.get('news_count', 0) for a in latest_analyses)
-            high_confidence_count = len([a for a in latest_analyses if a.get('confidence', 0) >= 0.8])
-            
-            summary_metrics = [
-                {
-                    'title': 'Total Analyses',
-                    'value': str(total_analyses),
-                    'status': 'neutral',
-                    'subtitle': 'Historical data points'
-                },
-                {
-                    'title': 'Market Sentiment',
-                    'value': f"{avg_sentiment:.3f}",
-                    'status': 'positive' if avg_sentiment > 0.1 else 'negative' if avg_sentiment < -0.1 else 'neutral',
-                    'subtitle': 'Weighted average'
-                },
-                {
-                    'title': 'Avg Confidence',
-                    'value': f"{avg_confidence:.2f}",
-                    'status': 'positive' if avg_confidence > 0.7 else 'warning' if avg_confidence > 0.5 else 'negative',
-                    'subtitle': 'Analysis quality'
-                },
-                {
-                    'title': 'News Coverage',
-                    'value': str(total_news),
-                    'status': 'positive' if total_news > 100 else 'warning' if total_news > 50 else 'negative',
-                    'subtitle': 'Articles analyzed'
-                },
-                {
-                    'title': 'High Confidence',
-                    'value': f"{high_confidence_count}/{len(latest_analyses)}",
-                    'status': 'positive' if high_confidence_count > len(latest_analyses)/2 else 'warning',
-                    'subtitle': 'Reliable signals'
-                }
-            ]
-            
-            self.display_professional_metrics(summary_metrics)
-        
-        # Professional footer
-        st.markdown("""
-        <div class="footer">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div>
-                    <strong>ASX Bank Analytics Platform</strong><br>
-                    <small>Real-time sentiment analysis & technical indicators</small>
-                </div>
-                <div style="text-align: right;">
-                    <strong>Last Updated:</strong> {}<br>
-                    <small>Data Source: Multi-source aggregation</small>
-                </div>
-            </div>
-        </div>
-        """.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')), unsafe_allow_html=True)
-    
-    def create_momentum_chart(self, all_data: Dict) -> go.Figure:
-        """Create professional momentum analysis chart"""
-        symbols = []
-        momentum_scores = []
-        colors = []
-        hover_text = []
-        
-        for symbol, data in all_data.items():
-            tech_analysis = self.get_technical_analysis(symbol)
-            if tech_analysis and 'momentum' in tech_analysis:
-                symbols.append(self.bank_names.get(symbol, symbol))
-                momentum_score = tech_analysis['momentum']['score']
-                momentum_scores.append(momentum_score)
-                
-                # Professional color gradient based on momentum
-                if momentum_score > 20:
-                    colors.append('#27ae60')  # Strong positive
-                elif momentum_score > 5:
-                    colors.append('#2ecc71')  # Moderate positive
-                elif momentum_score > -5:
-                    colors.append('#f39c12')  # Neutral
-                elif momentum_score > -20:
-                    colors.append('#e67e22')  # Moderate negative
-                else:
-                    colors.append('#e74c3c')  # Strong negative
-                
-                # Enhanced hover information
-                strength = tech_analysis['momentum']['strength']
-                volume = tech_analysis['momentum']['volume_momentum']
-                hover_text.append(f"Strength: {strength.title()}<br>Volume: {volume.title()}")
-        
-        fig = go.Figure(go.Bar(
-            x=symbols,
-            y=momentum_scores,
-            marker=dict(
-                color=colors,
-                line=dict(color='white', width=1)
-            ),
-            text=[f"{s:.1f}" for s in momentum_scores],
-            textposition='auto',
-            textfont=dict(size=12, family="Inter", weight=600),
-            hovertemplate='<b>%{x}</b><br>' +
-                         'Momentum Score: %{y:.1f}<br>' +
-                         '%{customdata}<br>' +
-                         '<extra></extra>',
-            customdata=hover_text
-        ))
-        
-        fig.update_layout(
-            title=dict(
-                text="Technical Momentum Analysis",
-                font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
-            ),
-            xaxis=dict(
-                title=dict(text="Banks", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6"
-            ),
-            yaxis=dict(
-                title=dict(text="Momentum Score", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                range=[-100, 100],
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6",
-                zeroline=True,
-                zerolinecolor="#dee2e6",
-                zerolinewidth=2
-            ),
-            height=400,
-            showlegend=False,
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            font=dict(family="Inter"),
-            margin=dict(l=60, r=60, t=60, b=60)
-        )
-        
-        # Add reference lines for momentum zones
-        fig.add_hline(y=20, line_dash="dash", line_color="#27ae60", annotation_text="Strong Bullish", annotation_position="top right")
-        fig.add_hline(y=-20, line_dash="dash", line_color="#e74c3c", annotation_text="Strong Bearish", annotation_position="bottom right")
-        
-        return fig
-    
-    def create_technical_signals_chart(self, all_data: Dict) -> go.Figure:
-        """Create professional technical analysis signals chart"""
-        symbols = []
-        signals = []
-        colors = []
-        recommendations = []
-        hover_data = []
-        
-        for symbol, data in all_data.items():
-            tech_analysis = self.get_technical_analysis(symbol)
-            if tech_analysis:
-                symbols.append(self.bank_names.get(symbol, symbol))
-                signal_score = tech_analysis.get('overall_signal', 0)
-                signals.append(signal_score)
-                recommendation = tech_analysis.get('recommendation', 'HOLD')
-                recommendations.append(recommendation)
-                
-                # Professional color scheme for recommendations
-                if recommendation in ['STRONG_BUY']:
-                    colors.append('#27ae60')
-                elif recommendation in ['BUY']:
-                    colors.append('#2ecc71')
-                elif recommendation in ['STRONG_SELL']:
-                    colors.append('#e74c3c')
-                elif recommendation in ['SELL']:
-                    colors.append('#e67e22')
-                else:
-                    colors.append('#95a5a6')
-                
-                # Enhanced hover data
-                rsi = tech_analysis.get('indicators', {}).get('rsi', 50)
-                trend = tech_analysis.get('trend', {}).get('direction', 'sideways')
-                hover_data.append(f"RSI: {rsi:.1f}<br>Trend: {trend.title()}")
-        
-        fig = go.Figure(go.Bar(
-            x=symbols,
-            y=signals,
-            marker=dict(
-                color=colors,
-                line=dict(color='white', width=1)
-            ),
-            text=recommendations,
-            textposition='auto',
-            textfont=dict(size=10, family="Inter", weight=600),
-            hovertemplate='<b>%{x}</b><br>' +
-                         'Signal Score: %{y:.1f}<br>' +
-                         'Recommendation: %{text}<br>' +
-                         '%{customdata}<br>' +
-                         '<extra></extra>',
-            customdata=hover_data
-        ))
-        
-        fig.update_layout(
-            title=dict(
-                text="Technical Analysis Signals",
-                font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
-            ),
-            xaxis=dict(
-                title=dict(text="Banks", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6"
-            ),
-            yaxis=dict(
-                title=dict(text="Signal Score", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                range=[-100, 100],
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6",
-                zeroline=True,
-                zerolinecolor="#dee2e6",
-                zerolinewidth=2
-            ),
-            height=400,
-            showlegend=False,
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            font=dict(family="Inter"),
-            margin=dict(l=60, r=60, t=60, b=60)
-        )
-        
-        # Add signal threshold lines
-        fig.add_hline(y=30, line_dash="dash", line_color="#27ae60", annotation_text="Strong Buy Zone")
-        fig.add_hline(y=-30, line_dash="dash", line_color="#e74c3c", annotation_text="Strong Sell Zone")
-        
-        return fig
-    
-    def create_combined_analysis_chart(self, all_data: Dict) -> go.Figure:
-        """Create professional combined sentiment and technical analysis chart"""
-        symbols = []
-        sentiment_scores = []
-        technical_scores = []
-        confidence_scores = []
-        
-        for symbol, data in all_data.items():
-            latest_sentiment = self.get_latest_analysis(data)
-            tech_analysis = self.get_technical_analysis(symbol)
-            
-            if latest_sentiment or tech_analysis:
-                symbols.append(self.bank_names.get(symbol, symbol))
-                
-                # Normalize sentiment score to -100 to 100 scale
-                sent_score = latest_sentiment.get('overall_sentiment', 0) * 100 if latest_sentiment else 0
-                sentiment_scores.append(sent_score)
-                
-                tech_score = tech_analysis.get('overall_signal', 0) if tech_analysis else 0
-                technical_scores.append(tech_score)
-                
-                confidence = latest_sentiment.get('confidence', 0) if latest_sentiment else 0
-                confidence_scores.append(confidence)
-        
-        fig = go.Figure()
-        
-        # Add sentiment bars with professional styling
-        fig.add_trace(go.Bar(
-            name='News Sentiment',
-            x=symbols,
-            y=sentiment_scores,
-            marker=dict(
-                color='rgba(52, 152, 219, 0.8)',
-                line=dict(color='white', width=1)
-            ),
-            yaxis='y',
-            hovertemplate='<b>%{x}</b><br>' +
-                         'News Sentiment: %{y:.1f}<br>' +
-                         '<extra></extra>'
-        ))
-        
-        # Add technical bars with professional styling
-        fig.add_trace(go.Bar(
-            name='Technical Analysis',
-            x=symbols,
-            y=technical_scores,
-            marker=dict(
-                color='rgba(231, 76, 60, 0.8)',
-                line=dict(color='white', width=1)
-            ),
-            yaxis='y',
-            hovertemplate='<b>%{x}</b><br>' +
-                         'Technical Signal: %{y:.1f}<br>' +
-                         '<extra></extra>'
-        ))
-        
-        # Add confidence line
-        if confidence_scores:
-            fig.add_trace(go.Scatter(
-                name='Confidence',
-                x=symbols,
-                y=[c * 100 for c in confidence_scores],  # Scale to match other data
-                mode='lines+markers',
-                line=dict(color='#f39c12', width=3),
-                marker=dict(size=10, color='#f39c12'),
-                yaxis='y',
-                hovertemplate='<b>%{x}</b><br>' +
-                             'Confidence: %{customdata:.2f}<br>' +
-                             '<extra></extra>',
-                customdata=confidence_scores
-            ))
-        
-        fig.update_layout(
-            title=dict(
-                text="Combined Analysis: News Sentiment vs Technical Signals",
-                font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
-            ),
-            xaxis=dict(
-                title=dict(text="Banks", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6"
-            ),
-            yaxis=dict(
-                title=dict(text="Signal Strength", font=dict(size=14, family="Inter")),
-                tickfont=dict(size=12, family="Inter"),
-                range=[-100, 100],
-                gridcolor="#f1f1f1",
-                linecolor="#dee2e6",
-                zeroline=True,
-                zerolinecolor="#dee2e6",
-                zerolinewidth=2
-            ),
-            height=500,
-            barmode='group',
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            font=dict(family="Inter"),
-            margin=dict(l=60, r=60, t=60, b=60),
-            legend=dict(
-                orientation="h",
-                yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1
-            )
-        )
-        
-        return fig
-    
     def create_historical_trends_chart(self, symbol: str, all_data: Dict) -> go.Figure:
-        """Create professional historical trends chart"""
+        """Create professional historical trends chart for sentiment and price"""
         sentiment_data = all_data.get(symbol, [])
         
-        # Get historical price data
-        try:
-            price_data = get_market_data(symbol, period='3mo', interval='1d')
-            if price_data.empty:
-                logger.warning(f"No price data available for {symbol}")
-            else:
-                logger.info(f"Retrieved {len(price_data)} price data points for {symbol}")
-        except Exception as e:
-            logger.error(f"Error getting price data for {symbol}: {e}")
-            price_data = pd.DataFrame()
-        
-        # Prepare data for plotting
+        # Prepare data for chart
         dates = []
-        sentiment_scores = []
-        confidence_scores = []
+        sentiments = []
         prices = []
-        momentum_scores = []
+        confidences = []
         
-        # Process sentiment history
-        for entry in sentiment_data[-30:]:  # Last 30 entries
+        for entry in sentiment_data:
             try:
                 timestamp = entry.get('timestamp', '')
                 if timestamp:
-                    if 'T' in timestamp:
-                        date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-                    else:
-                        date = datetime.fromisoformat(timestamp)
-                    
-                    dates.append(date)
-                    sentiment_scores.append(entry.get('overall_sentiment', 0))
-                    confidence_scores.append(entry.get('confidence', 0))
-                    
-                    # Get corresponding price data
-                    price_date = date.date()
-                    price_found = False
-                    
-                    if not price_data.empty:
-                        exact_matches = price_data.index.date == price_date
-                        if exact_matches.any():
-                            price = price_data.loc[exact_matches, 'Close'].iloc[0]
-                            prices.append(price)
-                            price_found = True
+                    try:
+                        if 'T' in timestamp:
+                            date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
                         else:
+                            date = datetime.fromisoformat(timestamp)
+                        
+                        # Get corresponding price data
+                        price_data = get_market_data(symbol, period='1mo', interval='1d')
+                        if not price_data.empty:
                             price_dates = price_data.index.date
-                            date_diffs = [abs((pd_date - price_date).days) for pd_date in price_dates]
+                            entry_date = date.date()
+                            
+                            # Find closest price date
+                            date_diffs = [abs((pd_date - entry_date).days) for pd_date in price_dates]
                             if date_diffs and min(date_diffs) <= 3:
                                 closest_idx = date_diffs.index(min(date_diffs))
-                                price = price_data.iloc[closest_idx]['Close']
-                                prices.append(price)
-                                price_found = True
-                    
-                    if not price_found:
-                        if prices:
-                            prices.append(prices[-1])
-                        else:
-                            fallback_price = self.get_current_price(symbol)
-                            prices.append(fallback_price)
-                    
-                    # Calculate momentum
-                    if len(prices) > 1:
-                        momentum = ((prices[-1] - prices[-2]) / prices[-2]) * 100
-                    else:
-                        momentum = 0
-                    momentum_scores.append(momentum)
-            except Exception as e:
-                logger.warning(f"Error processing entry: {e}")
+                                
+                                # Append data for chart
+                                dates.append(date)
+                                sentiments.append(entry.get('overall_sentiment', 0))
+                                prices.append(price_data.iloc[closest_idx]['Close'])
+                                confidences.append(entry.get('confidence', 0))
+                    except Exception:
+                        continue
+                        
+            except Exception:
                 continue
         
-        # Create professional figure
+        if not dates:
+            # Return empty chart if no data
+            fig = go.Figure()
+            fig.update_layout(title="No Historical Data Available")
+            return fig
+        
+        # Create professional chart
         fig = go.Figure()
         
-        if dates:
-            # Normalize price data for better visualization
-            if prices and max(prices) != min(prices):
-                price_norm = [(p - min(prices)) / (max(prices) - min(prices)) * 2 - 1 for p in prices]
-            else:
-                price_norm = [0] * len(dates)
-            
-            # Add sentiment trace
-            fig.add_trace(go.Scatter(
-                x=dates,
-                y=sentiment_scores,
-                mode='lines+markers',
-                name='Sentiment Score',
-                line=dict(color='#3498db', width=3),
-                marker=dict(size=6, color='#3498db'),
-                hovertemplate='<b>Sentiment</b><br>' +
-                             'Date: %{x}<br>' +
-                             'Score: %{y:.3f}<extra></extra>'
-            ))
-            
-            # Add confidence trace
-            fig.add_trace(go.Scatter(
-                x=dates,
-                y=confidence_scores,
-                mode='lines+markers',
-                name='Confidence',
-                line=dict(color='#f39c12', width=2),
-                marker=dict(size=5, color='#f39c12'),
-                hovertemplate='<b>Confidence</b><br>' +
-                             'Date: %{x}<br>' +
-                             'Level: %{y:.3f}<extra></extra>'
-            ))
-            
-            # Add normalized price trace
-            fig.add_trace(go.Scatter(
-                x=dates,
-                y=price_norm,
-                mode='lines',
-                name='Price (Normalized)',
-                line=dict(color='#27ae60', width=2),
-                hovertemplate='<b>Price</b><br>' +
-                             'Date: %{x}<br>' +
-                             'Actual: $%{customdata:.2f}<br>' +
-                             'Normalized: %{y:.3f}<extra></extra>',
-                customdata=prices
-            ))
-            
-            # Add momentum bars
-            if momentum_scores:
-                momentum_colors = ['#e74c3c' if m < 0 else '#27ae60' for m in momentum_scores]
-                fig.add_trace(go.Bar(
-                    x=dates,
-                    y=[m/100 for m in momentum_scores],  # Scale momentum
-                    name='Daily Momentum (%)',
-                    marker=dict(color=momentum_colors, opacity=0.4),
-                    hovertemplate='<b>Momentum</b><br>' +
-                                 'Date: %{x}<br>' +
-                                 'Change: %{customdata:.2f}%<extra></extra>',
-                    customdata=momentum_scores
-                ))
-        else:
-            fig.add_annotation(
-                text="No historical data available",
-                x=0.5, y=0.5,
-                showarrow=False,
-                font=dict(size=16, family="Inter", color="#6c757d")
-            )
+        # Add sentiment trace
+        fig.add_trace(go.Scatter(
+            x=dates,
+            y=sentiments,
+            mode='lines+markers',
+            name='Sentiment Score',
+            line=dict(color='#3498db', width=2),
+            marker=dict(size=8, color='#3498db'),
+            text=[f"Sentiment: {s:.3f}<br>Confidence: {c:.2f}" for s, c in zip(sentiments, confidences)],
+            hovertemplate='%{text}<extra></extra>'
+        ))
+        
+        # Add price trace
+        fig.add_trace(go.Scatter(
+            x=dates,
+            y=prices,
+            mode='lines',
+            name='Price',
+            line=dict(color='#2ecc71', width=2, dash='dash'),
+            hovertemplate='Date: %{x}<br>Price: $%{y:.2f}<extra></extra>'
+        ))
         
         fig.update_layout(
             title=dict(
-                text=f"Historical Trends - {self.bank_names.get(symbol, symbol)}",
+                text=f"Historical Sentiment and Price Trends - {self.bank_names.get(symbol, symbol)}",
                 font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
             ),
             xaxis=dict(
@@ -2486,18 +1692,13 @@ class NewsAnalysisDashboard:
                 linecolor="#dee2e6"
             ),
             yaxis=dict(
-                title=dict(text="Score / Normalized Value", font=dict(size=14, family="Inter")),
+                title=dict(text="Value", font=dict(size=14, family="Inter")),
                 tickfont=dict(size=12, family="Inter"),
-                range=[-1.2, 1.2],
                 gridcolor="#f1f1f1",
-                linecolor="#dee2e6",
-                zeroline=True,
-                zerolinecolor="#dee2e6",
-                zerolinewidth=2
+                linecolor="#dee2e6"
             ),
             height=500,
-            legend=dict(x=0, y=1),
-            hovermode='x unified',
+            showlegend=True,
             plot_bgcolor="white",
             paper_bgcolor="white",
             font=dict(family="Inter"),
@@ -2507,101 +1708,110 @@ class NewsAnalysisDashboard:
         return fig
     
     def create_correlation_chart(self, symbol: str, all_data: Dict) -> go.Figure:
-        """Create professional correlation chart between sentiment and price movement"""
+        """Create professional correlation analysis chart"""
         sentiment_data = all_data.get(symbol, [])
         
-        try:
-            price_data = get_market_data(symbol, period='3mo', interval='1d')
-        except Exception:
-            price_data = pd.DataFrame()
+        # Prepare correlation data
+        correlation_points = []
         
-        sentiment_values = []
-        price_changes = []
-        confidence_values = []
-        dates = []
-        
-        # Process data for correlation analysis
         for entry in sentiment_data[-20:]:  # Last 20 entries
             try:
+                sentiment = entry.get('overall_sentiment', 0)
+                confidence = entry.get('confidence', 0)
+                
+                # Try to get corresponding price data
                 timestamp = entry.get('timestamp', '')
                 if timestamp:
-                    if 'T' in timestamp:
-                        date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-                    else:
-                        date = datetime.fromisoformat(timestamp)
-                    
-                    sentiment = entry.get('overall_sentiment', 0)
-                    confidence = entry.get('confidence', 0)
-                    
-                    # Get price change for this date
-                    price_date = date.date()
-                    if not price_data.empty and price_date in price_data.index.date:
-                        price_row = price_data.loc[price_data.index.date == price_date]
-                        if not price_row.empty:
-                            close_price = price_row['Close'].iloc[0]
-                            open_price = price_row['Open'].iloc[0]
-                            price_change = ((close_price - open_price) / open_price) * 100
+                    try:
+                        if 'T' in timestamp:
+                            date = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                        else:
+                            date = datetime.fromisoformat(timestamp)
+                        
+                        # Get price change for correlation analysis
+                        price_data = get_market_data(symbol, period='1mo', interval='1d')
+                        if not price_data.empty:
+                            price_dates = price_data.index.date
+                            entry_date = date.date()
                             
-                            sentiment_values.append(sentiment)
-                            price_changes.append(price_change)
-                            confidence_values.append(confidence)
-                            dates.append(date)
-            except Exception as e:
-                logger.warning(f"Error processing correlation data: {e}")
+                            # Find closest price date
+                            date_diffs = [abs((pd_date - entry_date).days) for pd_date in price_dates]
+                            if date_diffs and min(date_diffs) <= 3:
+                                closest_idx = date_diffs.index(min(date_diffs))
+                                
+                                # Calculate price change from previous day
+                                if closest_idx > 0:
+                                    current_price = price_data.iloc[closest_idx]['Close']
+                                    prev_price = price_data.iloc[closest_idx-1]['Close']
+                                    price_change = ((current_price - prev_price) / prev_price) * 100
+                                    
+                                    correlation_points.append({
+                                        'sentiment': sentiment,
+                                        'price_change': price_change,
+                                        'confidence': confidence,
+                                        'date': date
+                                    })
+                    except Exception:
+                        continue
+                        
+            except Exception:
                 continue
         
-        # Create professional scatter plot
         fig = go.Figure()
         
-        if sentiment_values and price_changes:
-            # Color points by confidence with professional color scale
+        if correlation_points:
+            sentiments = [p['sentiment'] for p in correlation_points]
+            price_changes = [p['price_change'] for p in correlation_points]
+            confidences = [p['confidence'] for p in correlation_points]
+            dates = [p['date'].strftime('%Y-%m-%d') for p in correlation_points]
+            
+            # Create scatter plot with confidence as size
             fig.add_trace(go.Scatter(
-                x=sentiment_values,
+                x=sentiments,
                 y=price_changes,
                 mode='markers',
                 marker=dict(
-                    size=[max(8, c*25) for c in confidence_values],  # Size by confidence
-                    color=confidence_values,
-                    colorscale='RdYlGn',
-                    colorbar=dict(
-                        title=dict(text="Confidence Level", font=dict(size=14, family="Inter")),
-                        tickfont=dict(size=10, family="Inter")
-                    ),
-                    line=dict(width=1, color='white'),
-                    opacity=0.8
+                    size=[c * 30 + 5 for c in confidences],  # Scale confidence to marker size
+                    color=confidences,
+                    colorscale='Viridis',
+                    colorbar=dict(title="Confidence Level"),
+                    line=dict(width=1, color='white')
                 ),
-                text=[f"Date: {d.strftime('%Y-%m-%d')}<br>Confidence: {c:.2f}" 
-                      for d, c in zip(dates, confidence_values)],
-                hovertemplate='<b>Correlation Analysis</b><br>' +
+                text=dates,
+                hovertemplate='<b>Correlation Point</b><br>' +
                              'Sentiment: %{x:.3f}<br>' +
                              'Price Change: %{y:.2f}%<br>' +
-                             '%{text}<extra></extra>',
-                name='Data Points'
+                             'Confidence: %{marker.color:.2f}<br>' +
+                             'Date: %{text}<extra></extra>'
             ))
             
-            # Add trend line with professional styling
-            if len(sentiment_values) > 3:
-                z = np.polyfit(sentiment_values, price_changes, 1)
-                p = np.poly1d(z)
-                x_trend = np.linspace(min(sentiment_values), max(sentiment_values), 100)
-                y_trend = p(x_trend)
-                
-                # Calculate R-squared for trend line
-                correlation = np.corrcoef(sentiment_values, price_changes)[0, 1]
-                r_squared = correlation ** 2
-                
-                fig.add_trace(go.Scatter(
-                    x=x_trend,
-                    y=y_trend,
-                    mode='lines',
-                    name=f'Trend Line (R² = {r_squared:.3f})',
-                    line=dict(color='#e74c3c', dash='dash', width=2),
-                    hoverinfo='skip'
-                ))
+            # Add trend line if enough data points
+            if len(correlation_points) >= 3:
+                try:
+                    # Calculate correlation coefficient
+                    correlation_coef = np.corrcoef(sentiments, price_changes)[0, 1]
+                    
+                    # Add trend line
+                    z = np.polyfit(sentiments, price_changes, 1)
+                    p = np.poly1d(z)
+                    trend_x = np.linspace(min(sentiments), max(sentiments), 100)
+                    trend_y = p(trend_x)
+                    
+                    fig.add_trace(go.Scatter(
+                        x=trend_x,
+                        y=trend_y,
+                        mode='lines',
+                        name=f'Trend (r={correlation_coef:.3f})',
+                        line=dict(color='red', width=2, dash='dash'),
+                        hovertemplate='<b>Trend Line</b><br>' +
+                                     'Correlation: %{name}<extra></extra>'
+                    ))
+                except Exception as e:
+                    logger.warning(f"Error calculating correlation trend: {e}")
         else:
             fig.add_annotation(
                 text="Insufficient data for correlation analysis",
-                x=0, y=0,
+                x=0.5, y=0.5,
                 showarrow=False,
                 font=dict(size=16, family="Inter", color="#6c757d")
             )
@@ -2609,15 +1819,13 @@ class NewsAnalysisDashboard:
         fig.update_layout(
             title=dict(
                 text=f"Sentiment vs Price Movement Correlation - {self.bank_names.get(symbol, symbol)}",
-                font=dict(size=16, family="Inter", weight=600, color="#2c3e50")
+                font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
             ),
             xaxis=dict(
                 title=dict(text="Sentiment Score", font=dict(size=14, family="Inter")),
                 tickfont=dict(size=12, family="Inter"),
                 gridcolor="#f1f1f1",
-                linecolor="#dee2e6",
-                zeroline=True,
-                zerolinecolor="#dee2e6"
+                linecolor="#dee2e6"
             ),
             yaxis=dict(
                 title=dict(text="Price Change (%)", font=dict(size=14, family="Inter")),
@@ -2625,10 +1833,10 @@ class NewsAnalysisDashboard:
                 gridcolor="#f1f1f1",
                 linecolor="#dee2e6",
                 zeroline=True,
-                zerolinecolor="#dee2e6"
+                zerolinecolor="#dee2e6",
+                zerolinewidth=2
             ),
-            height=400,
-            showlegend=True,
+            height=500,
             plot_bgcolor="white",
             paper_bgcolor="white",
             font=dict(family="Inter"),
@@ -2636,48 +1844,1265 @@ class NewsAnalysisDashboard:
         )
         
         return fig
-
+    
     def get_current_price(self, symbol: str) -> float:
-        """Get current price for a symbol with fallback options"""
+        """Get current price for a symbol"""
         try:
-            current_data = get_market_data(symbol, period='5d', interval='1d')
-            if not current_data.empty:
-                return float(current_data['Close'].iloc[-1])
+            market_data = get_market_data(symbol, period='1d', interval='1m')
+            if not market_data.empty:
+                return float(market_data['Close'].iloc[-1])
+            else:
+                # Fallback to daily data
+                daily_data = get_market_data(symbol, period='5d', interval='1d')
+                if not daily_data.empty:
+                    return float(daily_data['Close'].iloc[-1])
+                return 0.0
         except Exception as e:
-            logger.warning(f"Could not get current price for {symbol}: {e}")
+            logger.error(f"Error getting current price for {symbol}: {e}")
+            return 0.0
+    
+    def display_position_risk_section(self):
+        """Display the Position Risk Assessor section"""
+        if not POSITION_RISK_AVAILABLE:
+            st.markdown("""
+            <div class="alert alert-warning">
+                <strong>⚠️ Position Risk Assessor Unavailable</strong><br>
+                The Position Risk Assessor module is not available. Please ensure 
+                <code>src/position_risk_assessor.py</code> is properly installed.
+            </div>
+            """, unsafe_allow_html=True)
+            return
         
-        # Fallback to cached technical analysis data
+        self.create_section_header(
+            "Position Risk Assessment", 
+            "ML-powered analysis for existing positions and recovery predictions",
+            "🎯"
+        )
+        
+        # Position input form with enhanced UI
+        with st.form("position_risk_form"):
+            st.markdown("""
+            <div class="form-section">
+                <h4>📊 Position Details</h4>
+                <p>Enter your position information for comprehensive ML-powered risk analysis</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Enhanced form layout
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                symbol = st.selectbox(
+                    "📈 Select Bank:",
+                    options=list(self.bank_symbols),
+                    format_func=lambda x: f"🏦 {self.bank_names.get(x, x)} ({x})",
+                    help="Choose the bank stock you want to analyze"
+                )
+            
+            with col2:
+                entry_price = st.number_input(
+                    "💰 Entry Price ($):",
+                    min_value=0.01,
+                    value=100.00,
+                    step=0.01,
+                    format="%.2f",
+                    help="The price at which you entered the position"
+                )
+            
+            with col3:
+                current_price = st.number_input(
+                    "📊 Current Price ($):",
+                    min_value=0.01,
+                    value=self.get_current_price(symbol) or 99.00,
+                    step=0.01,
+                    format="%.2f",
+                    help="Current market price of the stock"
+                )
+            
+            col4, col5, col6 = st.columns(3)
+            
+            with col4:
+                position_type = st.selectbox(
+                    "📍 Position Type:",
+                    options=['long', 'short'],
+                    format_func=lambda x: f"📈 Long Position (Buy)" if x == 'long' else f"📉 Short Position (Sell)",
+                    help="Type of position you have taken"
+                )
+            
+            with col5:
+                entry_date = st.date_input(
+                    "📅 Entry Date:",
+                    value=datetime.now().date() - timedelta(days=7),
+                    max_value=datetime.now().date(),
+                    help="When you entered this position"
+                )
+            
+            with col6:
+                position_size = st.number_input(
+                    "📦 Position Size ($):",
+                    min_value=100.0,
+                    value=10000.0,
+                    step=100.0,
+                    format="%.0f",
+                    help="Total dollar value of your position"
+                )
+            
+            # Advanced options expander
+            with st.expander("⚙️ Advanced Risk Parameters", expanded=False):
+                adv_col1, adv_col2 = st.columns(2)
+                
+                with adv_col1:
+                    max_loss_tolerance = st.slider(
+                        "🛡️ Maximum Loss Tolerance (%):",
+                        min_value=1.0,
+                        max_value=50.0,
+                        value=10.0,
+                        step=1.0,
+                        help="Maximum loss you're willing to accept"
+                    )
+                    
+                    time_horizon = st.selectbox(
+                        "⏰ Investment Time Horizon:",
+                        options=['short_term', 'medium_term', 'long_term'],
+                        format_func=lambda x: {
+                            'short_term': '📅 Short-term (< 1 month)',
+                            'medium_term': '📆 Medium-term (1-6 months)', 
+                            'long_term': '📋 Long-term (> 6 months)'
+                        }.get(x, x),
+                        help="Your planned holding period"
+                    )
+                
+                with adv_col2:
+                    risk_appetite = st.selectbox(
+                        "🎯 Risk Appetite:",
+                        options=['conservative', 'moderate', 'aggressive'],
+                        format_func=lambda x: {
+                            'conservative': '🛡️ Conservative',
+                            'moderate': '⚖️ Moderate',
+                            'aggressive': '🚀 Aggressive'
+                        }.get(x, x),
+                        help="Your general risk tolerance"
+                    )
+                    
+                    include_sentiment = st.checkbox(
+                        "📰 Include Sentiment Analysis",
+                        value=True,
+                        help="Factor in news sentiment for risk assessment"
+                    )
+            
+            # Calculate current P&L for preview
+            current_return = ((current_price - entry_price) / entry_price * 100) if position_type == 'long' else ((entry_price - current_price) / entry_price * 100)
+            current_pnl = position_size * (current_return / 100)
+            
+            # Position preview
+            st.markdown(f"""
+            <div class="position-preview">
+                <h5>📊 Position Preview</h5>
+                <div class="preview-grid">
+                    <div>Current Return: <span class="{'profit' if current_return > 0 else 'loss'}">{current_return:+.2f}%</span></div>
+                    <div>P&L: <span class="{'profit' if current_pnl > 0 else 'loss'}">${current_pnl:+,.2f}</span></div>
+                    <div>Days Held: {(datetime.now().date() - entry_date).days} days</div>
+                    <div>Risk Level: <span class="{'low-risk' if abs(current_return) < 5 else 'medium-risk' if abs(current_return) < 15 else 'high-risk'}">{('Low' if abs(current_return) < 5 else 'Medium' if abs(current_return) < 15 else 'High')}</span></div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Enhanced submit button
+            submitted = st.form_submit_button(
+                "🎯 Perform Advanced Risk Assessment", 
+                use_container_width=True,
+                type="primary"
+            )
+        
+        if submitted:
+            with st.spinner("🔄 Analyzing position risk..."):
+                try:
+                    # Initialize Position Risk Assessor
+                    assessor = PositionRiskAssessor()
+                    
+                    # Perform risk assessment
+                    result = assessor.assess_position_risk(
+                        symbol=symbol,
+                        entry_price=entry_price,
+                        current_price=current_price,
+                        position_type=position_type,
+                        entry_date=datetime.combine(entry_date, datetime.min.time())
+                    )
+                    
+                    if 'error' in result:
+                        st.error(f"❌ Error in risk assessment: {result['error']}")
+                    else:
+                        self.display_risk_assessment_results(result, symbol, entry_price, current_price, position_type)
+                        
+                except Exception as e:
+                    st.error(f"❌ Error initializing Position Risk Assessor: {str(e)}")
+                    # Fallback to heuristic assessment
+                    st.warning("🔄 Falling back to heuristic risk assessment...")
+                    self.display_fallback_risk_assessment(symbol, entry_price, current_price, position_type)
+    
+    def display_risk_assessment_results(self, result: Dict, symbol: str, entry_price: float, current_price: float, position_type: str):
+        """Display comprehensive risk assessment results with enhanced UI"""
+        
+        # Header
+        bank_name = self.bank_names.get(symbol, symbol)
+        current_return = result.get('current_return_pct', 0)
+        position_status = result.get('position_status', 'unknown')
+        
+        # Status styling
+        status_icon = "🟢" if position_status == 'profitable' else "🔴"
+        status_text = "Profitable" if position_status == 'profitable' else "Underwater"
+        status_color = "#27ae60" if position_status == 'profitable' else "#e74c3c"
+        
+        # Get risk metrics
+        risk_metrics = result.get('risk_metrics', {})
+        overall_risk_score = risk_metrics.get('overall_risk_score', 5)
+        
+        # Risk level determination
+        if overall_risk_score <= 3:
+            risk_level = "Low"
+            risk_color = "#27ae60"
+            risk_icon = "🟢"
+        elif overall_risk_score <= 6:
+            risk_level = "Medium"
+            risk_color = "#f39c12"
+            risk_icon = "🟡"
+        else:
+            risk_level = "High"
+            risk_color = "#e74c3c"
+            risk_icon = "🔴"
+        
+        # Enhanced header with summary
+        st.markdown(f"""
+        <div class="risk-results-container">
+            <div class="risk-header">
+                <h3>{status_icon} Position Risk Assessment: {bank_name} ({symbol})</h3>
+                <div class="risk-summary">
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value" style="color: {status_color};">{current_return:+.2f}%</div>
+                        <div class="risk-summary-label">Current Return</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value">{risk_icon} {risk_level}</div>
+                        <div class="risk-summary-label">Risk Level</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value">${entry_price:.2f} → ${current_price:.2f}</div>
+                        <div class="risk-summary-label">Price Movement</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value">{overall_risk_score:.1f}/10</div>
+                        <div class="risk-summary-label">Risk Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Recovery Predictions
+        recovery_predictions = result.get('recovery_predictions', {})
+        if recovery_predictions:
+            st.markdown("### 🔮 Recovery Predictions")
+            self.create_recovery_probability_chart(recovery_predictions)
+        
+        # Risk Metrics
+        risk_metrics = result.get('risk_metrics', {})
+        if risk_metrics:
+            st.markdown("### ⚠️ Risk Analysis")
+            self.display_risk_breakdown(risk_metrics)
+        
+        # Recommendations
+        recommendations = result.get('recommendations', {})
+        if recommendations:
+            st.markdown("### 💡 AI Recommendations")
+            self.display_position_recommendations(recommendations)
+        
+        # Market Context
+        market_context = result.get('market_context', {})
+        if market_context:
+            st.markdown("### 🌍 Market Context")
+            self.display_market_context(market_context, symbol)
+        
+        # Action Plan
+        if recommendations and risk_metrics:
+            st.markdown("### 🎯 Action Plan")
+            self.display_action_plan(recommendations, current_return, risk_metrics.get('overall_risk_score', 5))
+
+
+    def create_recovery_probability_chart(self, recovery_predictions: Dict):
+        """Create recovery probability visualization chart"""
+        timeframes = list(recovery_predictions.keys())
+        probabilities = [recovery_predictions[tf].get('probability', 0) * 100 for tf in timeframes]
+        
+        # Professional color scheme based on probability
+        colors = []
+        for prob in probabilities:
+            if prob >= 80:
+                colors.append('#27ae60')  # High probability - green
+            elif prob >= 60:
+                colors.append('#f39c12')  # Medium probability - orange
+            else:
+                colors.append('#e74c3c')  # Low probability - red
+        
+        fig = go.Figure(go.Bar(
+            x=[tf.replace('_', ' ').title() for tf in timeframes],
+            y=probabilities,
+            marker=dict(
+                color=colors,
+                line=dict(color='white', width=1)
+            ),
+            text=[f"{p:.1f}%" for p in probabilities],
+            textposition='auto',
+            textfont=dict(size=12, family="Inter", weight=600),
+            hovertemplate='<b>%{x}</b><br>' +
+                         'Recovery Probability: %{y:.1f}%<br>' +
+                         '<extra></extra>'
+        ))
+        
+        fig.update_layout(
+            title=dict(
+                text="Recovery Probability by Timeframe",
+                font=dict(size=18, family="Inter", weight=600, color="#2c3e50")
+            ),
+            xaxis=dict(
+                title=dict(text="Timeframe", font=dict(size=14, family="Inter")),
+                tickfont=dict(size=12, family="Inter"),
+                gridcolor="#f1f1f1",
+                linecolor="#dee2e6"
+            ),
+            yaxis=dict(
+                title=dict(text="Probability (%)", font=dict(size=14, family="Inter")),
+                tickfont=dict(size=12, family="Inter"),
+                range=[0, 100],
+                gridcolor="#f1f1f1",
+                linecolor="#dee2e6"
+            ),
+            height=400,
+            showlegend=False,
+            plot_bgcolor="white",
+            paper_bgcolor="white",
+            font=dict(family="Inter"),
+            margin=dict(l=60, r=60, t=60, b=60)
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Recovery details table
+        recovery_data = []
+        for tf, pred in recovery_predictions.items():
+            recovery_data.append({
+                'Timeframe': tf.replace('_', ' ').title(),
+                'Probability': f"{pred.get('probability', 0) * 100:.1f}%",
+                'Confidence': f"{pred.get('confidence', 0):.2f}",
+                'Expected Return': f"{pred.get('expected_return', 0):+.2f}%",
+                'Risk Level': pred.get('risk_level', 'Unknown').title()
+            })
+        
+        st.dataframe(pd.DataFrame(recovery_data), use_container_width=True, hide_index=True)
+    
+    def display_position_recommendations(self, recommendations: Dict):
+        """Display AI-generated position recommendations"""
+        primary_action = recommendations.get('primary_action', 'MONITOR')
+        confidence = recommendations.get('confidence', 0)
+        reasoning = recommendations.get('reasoning', 'No reasoning provided')
+        risk_level = recommendations.get('risk_level', 'Medium')
+        
+        # Action styling
+        if primary_action in ['EXIT_RECOMMENDED', 'STRONG_SELL']:
+            action_color = "🔴"
+            action_class = "negative"
+        elif primary_action in ['REDUCE_POSITION', 'PARTIAL_EXIT']:
+            action_color = "🟡"
+            action_class = "warning"
+        elif primary_action in ['HOLD', 'MONITOR']:
+            action_color = "🟢"
+            action_class = "positive"
+        else:
+            action_color = "🔵"
+            action_class = "neutral"
+        
+        st.markdown(f"""
+        <div class="bank-card">
+            <div class="bank-card-header">
+                <h3>{action_color} Primary Recommendation: {primary_action.replace('_', ' ').title()}</h3>
+            </div>
+            <div class="bank-card-body">
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong>Reasoning:</strong> {reasoning}
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Recommendation metrics
+        rec_metrics = [
+            {
+                'title': 'Action Confidence',
+                'value': f"{confidence:.1%}",
+                'status': 'positive' if confidence > 0.8 else 'warning' if confidence > 0.6 else 'negative',
+                'subtitle': 'AI certainty level'
+            },
+            {
+                'title': 'Risk Assessment',
+                'value': risk_level,
+                'status': 'negative' if risk_level == 'High' else 'warning' if risk_level == 'Medium' else 'positive',
+                'subtitle': 'Position risk level'
+            }
+        ]
+        
+        # Add specific recommendations if available
+        if 'stop_loss_recommendation' in recommendations:
+            rec_metrics.append({
+                'title': 'Stop Loss',
+                'value': f"${recommendations['stop_loss_recommendation']:.2f}",
+                'status': 'warning',
+                'subtitle': 'Suggested stop level'
+            })
+        
+        if 'target_price' in recommendations:
+            rec_metrics.append({
+                'title': 'Target Price',
+                'value': f"${recommendations['target_price']:.2f}",
+                'status': 'positive',
+                'subtitle': 'Recovery target'
+            })
+        
+        self.display_professional_metrics(rec_metrics)
+        
+        # Additional recommendations
+        if 'additional_actions' in recommendations and recommendations['additional_actions']:
+            st.markdown("#### 📋 Additional Recommendations:")
+            for action in recommendations['additional_actions']:
+                st.markdown(f"• {action}")
+    
+    def display_risk_breakdown(self, risk_metrics: Dict):
+        """Display detailed risk metrics breakdown"""
+        overall_risk = risk_metrics.get('overall_risk_score', 5)
+        max_adverse_excursion = risk_metrics.get('max_adverse_excursion_prediction', 0)
+        recovery_timeframe = risk_metrics.get('estimated_recovery_days', 0)
+        volatility_risk = risk_metrics.get('volatility_risk', 'Medium')
+        
+        # Risk color coding
+        if overall_risk >= 8:
+            risk_color = "🚨"
+            risk_status = "critical"
+        elif overall_risk >= 6:
+            risk_color = "🔴"
+            risk_status = "negative"
+        elif overall_risk >= 4:
+            risk_color = "🟡"
+            risk_status = "warning"
+        else:
+            risk_color = "🟢"
+            risk_status = "positive"
+        
+        st.markdown(f"""
+        <div class="bank-card">
+            <div class="bank-card-header">
+                <h3>{risk_color} Risk Analysis Breakdown</h3>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        risk_breakdown_metrics = [
+            {
+                'title': 'Overall Risk Score',
+                'value': f"{overall_risk:.1f}/10",
+                'status': risk_status,
+                'subtitle': 'Composite risk level'
+            },
+            {
+                'title': 'Max Adverse Excursion',
+                'value': f"{max_adverse_excursion:+.2f}%",
+                'status': 'negative' if max_adverse_excursion < -5 else 'warning' if max_adverse_excursion < -2 else 'positive',
+                'subtitle': 'Worst-case scenario'
+            },
+            {
+                'title': 'Recovery Timeframe',
+                'value': f"{recovery_timeframe:.0f} days",
+                'status': 'positive' if recovery_timeframe < 10 else 'warning' if recovery_timeframe < 30 else 'negative',
+                'subtitle': 'Estimated recovery time'
+            },
+            {
+                'title': 'Volatility Risk',
+                'value': volatility_risk,
+                'status': 'negative' if volatility_risk == 'High' else 'warning' if volatility_risk == 'Medium' else 'positive',
+                'subtitle': 'Price volatility assessment'
+            }
+        ]
+        
+        self.display_professional_metrics(risk_breakdown_metrics)
+        
+        # Risk factors
+        if 'risk_factors' in risk_metrics and risk_metrics['risk_factors']:
+            st.markdown("#### ⚠️ Key Risk Factors:")
+            for factor in risk_metrics['risk_factors']:
+                st.markdown(f"• {factor}")
+    
+    def display_market_context(self, market_context: Dict, symbol: str):
+        """Display market context and environmental factors"""
+        volatility_5d = market_context.get('volatility_5d', 0)
+        volatility_20d = market_context.get('volatility_20d', 0)
+        volume_ratio = market_context.get('volume_ratio', 1.0)
+        support_distance = market_context.get('support_distance', 0)
+        resistance_distance = market_context.get('resistance_distance', 0)
+        
+        context_metrics = [
+            {
+                'title': '5-Day Volatility',
+                'value': f"{volatility_5d:.1%}",
+                'status': 'negative' if volatility_5d > 0.3 else 'warning' if volatility_5d > 0.2 else 'positive',
+                'subtitle': 'Recent price volatility'
+            },
+            {
+                'title': '20-Day Volatility',
+                'value': f"{volatility_20d:.1%}",
+                'status': 'negative' if volatility_20d > 0.25 else 'warning' if volatility_20d > 0.15 else 'positive',
+                'subtitle': 'Medium-term volatility'
+            },
+            {
+                'title': 'Volume Activity',
+                'value': f"{volume_ratio:.1f}x",
+                'status': 'positive' if volume_ratio > 1.5 else 'warning' if volume_ratio > 0.8 else 'negative',
+                'subtitle': 'vs 20-day average'
+            },
+            {
+                'title': 'Support Distance',
+                'value': f"{support_distance:.1%}",
+                'status': 'positive' if support_distance < 0.02 else 'warning' if support_distance < 0.05 else 'negative',
+                'subtitle': 'Distance to support'
+            }
+        ]
+                
+        self.display_professional_metrics(context_metrics)
+        
+        # Technical context from existing analysis
         if symbol in self.technical_data:
-            current_price = self.technical_data[symbol].get('current_price', 0)
-            if current_price > 0:
-                return float(current_price)
+            tech_data = self.technical_data[symbol]
+            if tech_data and 'trend' in tech_data:
+                trend_info = tech_data['trend']
+                st.markdown(f"""
+                **📈 Technical Context:**
+                - **Trend Direction:** {trend_info.get('direction', 'Unknown').replace('_', ' ').title()}
+                - **Trend Strength:** {trend_info.get('strength', 'Unknown').title()}
+                - **Current Recommendation:** {tech_data.get('recommendation', 'HOLD')}
+                """)
+    
+    def display_action_plan(self, recommendations: Dict, current_return: float, risk_score: float):
+        """Display comprehensive action plan based on analysis"""
         
-        # Try to get fresh technical analysis
-        try:
-            tech_analysis = self.get_technical_analysis(symbol, force_refresh=True)
-            current_price = tech_analysis.get('current_price', 0)
-            if current_price > 0:
-                return float(current_price)
-        except Exception as e:
-            logger.warning(f"Could not get technical analysis price for {symbol}: {e}")
+        st.markdown("##### 🎯 Comprehensive Action Plan")
         
-        # Known approximate prices for ASX banks (as last resort)
-        fallback_prices = {
-            'CBA.AX': 179.0,
-            'WBC.AX': 34.0,
-            'ANZ.AX': 30.0,
-            'NAB.AX': 40.0,
-            'MQG.AX': 221.0,
-            'SUN.AX': 13.0,
-            'QBE.AX': 17.0
-        }
+        # Immediate actions
+        st.markdown("**🚨 Immediate Actions (Next 24 Hours):**")
         
-        return fallback_prices.get(symbol, 100.0)
+        if current_return < -5:
+            st.error("""
+            🚨 **Critical Action Required:**
+            1. Review position size immediately
+            2. Consider setting tight stop-loss
+            3. Monitor market news closely
+            4. Prepare exit strategy
+            """)
+        elif current_return < -2:
+            st.warning("""
+            ⚠️ **Monitor Closely:**
+            1. Set price alerts for key levels
+            2. Review stop-loss placement
+            3. Watch for sentiment changes
+            4. Consider position reduction
+            """)
+        else:
+            st.info("""
+            ℹ️ **Standard Monitoring:**
+            1. Continue regular monitoring
+            2. Watch for trend changes
+            3. Maintain risk management
+            4. Look for exit opportunities if profitable
+            """)
+        
+        # Short-term plan (1-2 weeks)
+        st.markdown("**📅 Short-term Plan (1-2 Weeks):**")
+        
+        primary_action = recommendations.get('primary_action', 'MONITOR')
+        
+        if primary_action in ['CONSIDER_EXIT', 'EXIT_RECOMMENDED']:
+            st.markdown("""
+            🔴 **Exit Strategy:**
+            1. Plan staged exit over 2-3 trading sessions
+            2. Monitor market conditions for optimal timing
+            3. Consider partial exits to reduce risk
+            4. Document lessons learned for future trades
+            """)
+        elif primary_action == 'REDUCE_POSITION':
+            st.markdown("""
+            🟡 **Position Reduction:**
+            1. Reduce position size by 25-50%
+            2. Maintain core position for potential recovery
+            3. Reassess weekly based on performance
+            4. Set stricter stop-loss on remaining position
+            """)
+        else:
+            st.markdown("""
+            🟢 **Hold Strategy:**
+            1. Maintain current position size
+            2. Monitor technical and sentiment indicators
+            3. Set profit-taking targets if position recovers
+            4. Review strategy if new information emerges
+            """)
+        
+        # Risk management checklist
+        st.markdown("**✅ Risk Management Checklist:**")
+        checklist_items = [
+            "Position size appropriate for risk tolerance",
+            "Stop-loss levels clearly defined",
+            "Recovery targets set and monitored",
+            "Market context regularly updated",
+            "Alternative scenarios planned",
+            "Exit strategy documented and ready"
+        ]
+        
+        for item in checklist_items:
+            st.markdown(f"- [ ] {item}")
+    
+    def display_fallback_risk_assessment(self, symbol: str, entry_price: float, current_price: float, position_type: str):
+        """Display a simplified heuristic risk assessment when full system unavailable"""
+        
+        bank_name = self.bank_names.get(symbol, symbol)
+        
+        # Calculate basic metrics
+        if position_type == 'long':
+            current_return = ((current_price - entry_price) / entry_price) * 100
+        else:
+            current_return = ((entry_price - current_price) / entry_price) * 100
+        
+        # Simple heuristic risk scoring
+        loss_magnitude = abs(min(0, current_return))
+        
+        if loss_magnitude > 10:
+            risk_score = 9
+            risk_status = "🚨 Critical"
+            risk_color = "#c0392b"
+            action = "IMMEDIATE EXIT RECOMMENDED"
+        elif loss_magnitude > 5:
+            risk_score = 7
+            risk_status = "🔴 High Risk"
+            risk_color = "#e74c3c"
+            action = "CONSIDER EXIT"
+        elif loss_magnitude > 2:
+            risk_score = 5
+            risk_status = "🟡 Moderate Risk"
+            risk_color = "#f39c12"
+            action = "REDUCE POSITION"
+        elif loss_magnitude > 0:
+            risk_score = 3
+            risk_status = "🟢 Low Risk"
+            risk_color = "#27ae60"
+            action = "MONITOR CLOSELY"
+        else:
+            risk_score = 1
+            risk_status = "🟢 Profitable"
+            risk_color = "#27ae60"
+            action = "HOLD"
+        
+        # Display simplified assessment with enhanced styling
+        st.markdown(f"""
+        <div class="risk-results-container">
+            <div class="risk-header">
+                <h3>🔧 Basic Risk Assessment: {bank_name} ({symbol})</h3>
+                <p style="opacity: 0.9; margin: 0.5rem 0 0 0;">Simplified analysis - Full ML assessment unavailable</p>
+                <div class="risk-summary">
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value" style="color: {'#27ae60' if current_return > 0 else '#e74c3c'};">{current_return:+.2f}%</div>
+                        <div class="risk-summary-label">Current Return</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value" style="color: {risk_color};">{risk_status}</div>
+                        <div class="risk-summary-label">Risk Level</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value">{risk_score}/10</div>
+                        <div class="risk-summary-label">Risk Score</div>
+                    </div>
+                    <div class="risk-summary-item">
+                        <div class="risk-summary-value">{action}</div>
+                        <div class="risk-summary-label">Recommended Action</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Basic recommendations
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 💡 Basic Recommendations")
+            recommendations = []
+            
+            if current_return < -5:
+                recommendations.append("🛑 Consider stopping losses to prevent further decline")
+                recommendations.append("📉 Position is showing significant adverse movement")
+            elif current_return < 0:
+                recommendations.append("⚠️ Monitor position closely for recovery signs")
+                recommendations.append("📊 Consider reducing position size if losses continue")
+            else:
+                recommendations.append("✅ Position is currently profitable")
+                recommendations.append("📈 Consider taking partial profits if desired")
+            
+            recommendations.append(f"🎯 Current risk level: {risk_status}")
+            recommendations.append("🔄 Enable full ML assessment for detailed analysis")
+            
+            for rec in recommendations:
+                st.markdown(f"• {rec}")
+        
+        with col2:
+            st.markdown("#### 📊 Position Metrics")
+            st.metric("Entry Price", f"${entry_price:.2f}")
+            st.metric("Current Price", f"${current_price:.2f}")
+            st.metric("Return", f"{current_return:+.2f}%", delta=f"{current_return:.2f}%")
+            
+            # Simple sentiment context
+            st.markdown("#### 📰 Context")
+            st.info("💡 For detailed sentiment analysis and ML predictions, please ensure the Position Risk Assessor is properly configured.")
+        
+        # Upgrade notice
+        st.markdown("""
+        ---
+        <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; margin: 1rem 0;">
+            <h5 style="color: #495057; margin: 0 0 0.5rem 0;">🚀 Upgrade to Full ML Assessment</h5>
+            <p style="color: #6c757d; margin: 0; font-size: 0.9rem;">
+                Get advanced recovery predictions, sentiment analysis, and personalized recommendations
+                by configuring the complete Position Risk Assessor system.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div class="bank-card">
+            <div class="bank-card-header">
+                <h3>🎯 Heuristic Risk Assessment: {self.bank_names.get(symbol, symbol)}</h3>
+            </div>
+            <div class="bank-card-body">
+                <div style="background: {'#f8d7da' if loss_magnitude > 2 else '#fff3cd' if loss_magnitude > 0 else '#d4edda'}; 
+                           padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <strong>Current Return:</strong> {current_return:+.2f}% | 
+                    <strong>Risk Level:</strong> {risk_status} | 
+                    <strong>Recommended Action:</strong> {action}
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Basic metrics
+        heuristic_metrics = [
+            {
+                'title': 'Risk Score',
+                'value': f"{risk_score}/10",
+                'status': 'negative' if risk_score > 6 else 'warning' if risk_score > 3 else 'positive',
+                'subtitle': 'Heuristic assessment'
+            },
+            {
+                'title': 'Loss Magnitude',
+                'value': f"{loss_magnitude:.1f}%",
+                'status': 'negative' if loss_magnitude > 5 else 'warning' if loss_magnitude > 2 else 'positive',
+                'subtitle': 'Current drawdown'
+            },
+            {
+                'title': 'Position Status',
+                'value': "Underwater" if current_return < 0 else "Profitable",
+                'status': 'negative' if current_return < 0 else 'positive',
+                'subtitle': 'Current state'
+            },
+            {
+                'title': 'Action Required',
+                'value': action.split()[0],
+                'status': 'negative' if 'EXIT' in action else 'warning' if 'REDUCE' in action else 'positive',
+                'subtitle': 'Immediate step'
+            }
+        ]
+        
+        self.display_professional_metrics(heuristic_metrics)
+        
+        # Basic recommendations
+        st.markdown("#### 💡 Basic Recommendations")
+        
+        if loss_magnitude > 5:
+            st.error("🚨 **High Risk Position**: Consider immediate action to limit further losses")
+        elif loss_magnitude > 2:
+            st.warning("⚠️ **Moderate Risk**: Monitor closely and consider position reduction")
+        elif current_return < 0:
+            st.info("ℹ️ **Minor Loss**: Normal market fluctuation, continue monitoring")
+        else:
+            st.success("✅ **Profitable Position**: Maintain current strategy")
 
+# Main Dashboard Execution
 def main():
-    """Run the professional dashboard"""
-    dashboard = NewsAnalysisDashboard()
-    dashboard.run_dashboard()
+    """Main function to run the professional dashboard"""
+    try:
+        # Initialize dashboard
+        dashboard = NewsAnalysisDashboard()
+        
+        # Debug: Check if data is loading
+        st.sidebar.markdown("### 🔍 Debug Info")
+        all_data = dashboard.load_sentiment_data()
+        data_count = sum(len(data) for data in all_data.values())
+        st.sidebar.info(f"📊 Total data points: {data_count}")
+        st.sidebar.info(f"📁 Available banks: {len(all_data)}")
+        
+        # Create professional header
+        dashboard.create_professional_header()
+        
+        # Professional sidebar navigation
+        with st.sidebar:
+            st.markdown("""
+            <div style="text-align: center; padding: 1rem; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); 
+                       border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3 style="color: white; margin: 0;">🏦 ASX Bank Analytics</h3>
+                <p style="color: #ecf0f1; margin: 0.5rem 0 0 0; font-size: 0.9rem;">Professional Trading Dashboard</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Navigation options
+            selected_view = st.selectbox(
+                "📊 Select Analysis View:",
+                options=[
+                    "📈 Market Overview",
+                    "🏦 Individual Bank Analysis", 
+                    "📊 Technical Analysis",
+                    "🎯 Position Risk Assessor",
+                    "📰 News & Sentiment",
+                    "⚙️ System Status"
+                ],
+                index=0
+            )
+            
+            # Quick actions
+            st.markdown("### ⚡ Quick Actions")
+            
+            if st.button("🔄 Refresh Data", use_container_width=True):
+                st.cache_data.clear()
+                dashboard.technical_data.clear()
+                st.success("✅ Data refreshed!")
+                st.rerun()
+            
+            if st.button("📊 Clear Cache", use_container_width=True):
+                st.cache_data.clear()
+                st.success("✅ Cache cleared!")
+                st.rerun()
+            
+            # System information
+            st.markdown("### ℹ️ System Info")
+            st.info(f"""
+            **🔧 Status:** Operational
+            **🕐 Last Update:** {datetime.now().strftime('%H:%M:%S')}
+            **📊 Banks Monitored:** {len(dashboard.bank_symbols)}
+            **🎯 Risk Assessor:** {'✅ Available' if POSITION_RISK_AVAILABLE else '❌ Unavailable'}
+            **📈 Technical Analysis:** Available
+            **Dashboard Version:** 2.0.0
+            """)
+        
+        # Main content area
+        if selected_view == "📈 Market Overview":
+            display_market_overview(dashboard)
+        elif selected_view == "🏦 Individual Bank Analysis":
+            display_individual_bank_analysis(dashboard)
+        elif selected_view == "📊 Technical Analysis":
+            display_technical_analysis(dashboard)
+        elif selected_view == "🎯 Position Risk Assessor":
+            dashboard.display_position_risk_section()
+        elif selected_view == "📰 News & Sentiment":
+            display_news_sentiment_analysis(dashboard)
+        elif selected_view == "⚙️ System Status":
+            display_system_status(dashboard)
+            
+    except Exception as e:
+        st.error(f"❌ Dashboard Error: {str(e)}")
+        logger.error(f"Dashboard error: {e}")
+        
+        # Fallback simple interface
+        st.markdown("## 🚨 Fallback Mode")
+        st.warning("The main dashboard encountered an error. Using simplified interface.")
+        
+        # Basic data display
+        try:
+            dashboard = NewsAnalysisDashboard()
+            data = dashboard.load_sentiment_data()
+            
+            if data:
+                st.markdown("### Available Data:")
+                for symbol, symbol_data in data.items():
+                    if symbol_data:
+                        latest = dashboard.get_latest_analysis(symbol_data)
+                        if latest:
+                            st.write(f"**{dashboard.bank_names.get(symbol, symbol)}:** {latest.get('overall_sentiment', 0):.3f}")
+            else:
+                st.warning("No sentiment data available")
+                
+        except Exception as fallback_error:
+            st.error(f"❌ Fallback mode also failed: {str(fallback_error)}")
 
+def display_market_overview(dashboard):
+    """Display market overview with professional charts"""
+    dashboard.create_section_header(
+        "Market Overview", 
+        "Real-time sentiment analysis and market indicators for all ASX banks",
+        "📈"
+    )
+    
+    # Load data
+    with st.spinner("📊 Loading market data..."):
+        all_data = dashboard.load_sentiment_data()
+    
+    # Debug info
+    st.info(f"🔍 Debug: Found {len(all_data)} banks with {sum(len(data) for data in all_data.values())} total data points")
+    
+    if not any(all_data.values()):
+        st.warning("⚠️ No sentiment data available. Please run data collection first.")
+        st.markdown("""
+        ### 🚀 Getting Started
+        
+        To see data in this dashboard, you need to run the data collection process:
+        
+        1. **Run the news collector:**
+           ```bash
+           python core/news_trading_analyzer.py
+           ```
+        
+        2. **Or run the main analysis:**
+           ```bash
+           python enhanced_main.py
+           ```
+        
+        3. **Check data directory:**
+           - Data should appear in `data/sentiment_history/`
+           - Each bank should have a `[SYMBOL]_history.json` file
+        """)
+        return
+    
+    # Market summary metrics
+    total_banks = len(dashboard.bank_symbols)
+    analyzed_banks = sum(1 for data in all_data.values() if data)
+    
+    latest_sentiments = []
+    latest_confidences = []
+    
+    for data in all_data.values():
+        if data:
+            latest = dashboard.get_latest_analysis(data)
+            if latest:
+                latest_sentiments.append(latest.get('overall_sentiment', 0))
+                latest_confidences.append(latest.get('confidence', 0))
+    
+    avg_sentiment = sum(latest_sentiments) / len(latest_sentiments) if latest_sentiments else 0
+    avg_confidence = sum(latest_confidences) / len(latest_confidences) if latest_confidences else 0
+    
+    positive_count = sum(1 for s in latest_sentiments if s > 0.1)
+    negative_count = sum(1 for s in latest_sentiments if s < -0.1)
+    neutral_count = len(latest_sentiments) - positive_count - negative_count
+    
+    # Display market metrics
+    market_metrics = [
+        {
+            'title': 'Banks Analyzed',
+            'value': f"{analyzed_banks}/{total_banks}",
+            'status': 'positive' if analyzed_banks == total_banks else 'warning',
+            'subtitle': 'Data coverage'
+        },
+        {
+            'title': 'Market Sentiment',
+            'value': f"{avg_sentiment:+.3f}",
+            'status': 'positive' if avg_sentiment > 0.1 else 'negative' if avg_sentiment < -0.1 else 'neutral',
+            'subtitle': 'Average sentiment'
+        },
+        {
+            'title': 'Confidence Level',
+            'value': f"{avg_confidence:.2f}",
+            'status': 'positive' if avg_confidence > 0.7 else 'warning' if avg_confidence > 0.5 else 'negative',
+            'subtitle': 'Analysis quality'
+        },
+        {
+            'title': 'Positive Banks',
+            'value': f"{positive_count}",
+            'status': 'positive',
+            'subtitle': f'vs {negative_count} negative'
+        }
+    ]
+    
+    dashboard.display_professional_metrics(market_metrics)
+    
+    # ML Progression Summary Section
+    if dashboard.ml_tracker:
+        st.markdown("---")
+        dashboard.create_section_header(
+            "🤖 Machine Learning Performance", 
+            "Historical feedback on model improvement as more data is analyzed",
+            "🧠"
+        )
+        
+        try:
+            # Get ML summary for last 30 days
+            ml_summary = dashboard.ml_tracker.get_overall_ml_summary(30)
+            
+            # Display ML metrics
+            ml_metrics = [
+                {
+                    'title': 'Models Tracked',
+                    'value': f"{len(ml_summary['models_tracked'])}",
+                    'status': 'positive',
+                    'subtitle': 'Active ML models'
+                },
+                {
+                    'title': 'Accuracy Trend',
+                    'value': ml_summary['prediction_accuracy_trend'].title(),
+                    'status': 'positive' if ml_summary['prediction_accuracy_trend'] == 'improving' else 'warning' if ml_summary['prediction_accuracy_trend'] == 'stable' else 'negative',
+                    'subtitle': 'Model performance'
+                },
+                {
+                    'title': 'Best Performer',
+                    'value': ml_summary['best_performing_model'].replace('_', ' ').title() if ml_summary['best_performing_model'] else 'N/A',
+                    'status': 'positive',
+                    'subtitle': 'Highest accuracy'
+                },
+                {
+                    'title': 'Most Improved',
+                    'value': ml_summary['most_improved_model'].replace('_', ' ').title() if ml_summary['most_improved_model'] else 'N/A',
+                    'status': 'positive',
+                    'subtitle': 'Fastest progress'
+                }
+            ]
+            
+            dashboard.display_professional_metrics(ml_metrics)
+            
+            # ML Progression Chart
+            col1, col2 = st.columns([2, 1])
+            
+            with col1:
+                st.markdown("#### 📊 Model Performance Progression")
+                try:
+                    ml_chart = dashboard.ml_tracker.create_progression_chart(days=30)
+                    st.plotly_chart(ml_chart, use_container_width=True)
+                except Exception as e:
+                    st.warning(f"Unable to generate ML progression chart: {str(e)}")
+            
+            with col2:
+                st.markdown("#### 💡 ML Recommendations")
+                recommendations = ml_summary.get('recommendations', [])
+                if recommendations:
+                    for rec in recommendations[:5]:  # Show top 5 recommendations
+                        st.markdown(f"• {rec}")
+                else:
+                    st.info("🔄 Gathering more data to generate recommendations...")
+                
+                # Additional ML insights
+                st.markdown("#### 📈 Data Growth")
+                data_growth = ml_summary.get('data_volume_growth', 0)
+                if data_growth > 1000:
+                    st.success(f"📚 Strong data growth: +{data_growth:,} records")
+                elif data_growth > 100:
+                    st.info(f"📊 Moderate growth: +{data_growth:,} records")
+                else:
+                    st.warning("⚡ Low data growth - consider increasing collection frequency")
+        
+        except Exception as e:
+            st.warning(f"⚠️ ML progression tracking temporarily unavailable: {str(e)}")
+    else:
+        st.info("🤖 ML progression tracking not available - install ML tracker module for enhanced insights")
+    
+    st.markdown("---")
+    
+    # Professional charts in tabs
+    chart_tabs = st.tabs(["📊 Sentiment Overview", "🎯 Confidence Analysis", "📈 Market Trends"])
+    
+    with chart_tabs[0]:
+        sentiment_chart = dashboard.create_sentiment_overview_chart(all_data)
+        st.plotly_chart(sentiment_chart, use_container_width=True)
+    
+    with chart_tabs[1]:
+        confidence_chart = dashboard.create_confidence_distribution_chart(all_data)
+        st.plotly_chart(confidence_chart, use_container_width=True)
+    
+    with chart_tabs[2]:
+        st.info("📈 Market trends chart will be displayed here based on historical data")
+    
+    # Professional legends
+    dashboard.display_confidence_legend()
+    dashboard.display_sentiment_scale()
+
+def display_individual_bank_analysis(dashboard):
+    """Display detailed analysis for individual banks"""
+    dashboard.create_section_header(
+        "Individual Bank Analysis", 
+        "Comprehensive sentiment, technical, and risk analysis for specific banks",
+        "🏦"
+    )
+    
+    # Bank selection
+    col1, col2 = st.columns([3, 1])
+    
+    with col1:
+        selected_bank = st.selectbox(
+            "🏦 Select Bank for Detailed Analysis:",
+            options=dashboard.bank_symbols,
+            format_func=lambda x: f"🏦 {dashboard.bank_names.get(x, x)} ({x})"
+        )
+    
+    with col2:
+        if st.button("🔄 Refresh Analysis", use_container_width=True):
+            dashboard.technical_data.pop(selected_bank, None)
+            st.cache_data.clear()
+            st.rerun()
+    
+    # Load and display analysis
+    all_data = dashboard.load_sentiment_data()
+    bank_data = all_data.get(selected_bank, [])
+    
+    if bank_data:
+        dashboard.display_bank_analysis(selected_bank, bank_data)
+    else:
+        st.warning(f"⚠️ No analysis data available for {dashboard.bank_names.get(selected_bank, selected_bank)}")
+
+def display_technical_analysis(dashboard):
+    """Display technical analysis view"""
+    dashboard.create_section_header(
+        "Technical Analysis", 
+        "Advanced technical indicators and market analysis",
+        "📊"
+    )
+    
+    # Technical analysis for all banks
+    st.markdown("### 📈 Technical Analysis Summary")
+    
+    # Create technical summary
+    technical_summary = []
+    
+    for symbol in dashboard.bank_symbols:
+        try:
+            tech_analysis = dashboard.get_technical_analysis(symbol)
+            if tech_analysis and 'current_price' in tech_analysis:
+                
+                current_price = tech_analysis.get('current_price', 0)
+                recommendation = tech_analysis.get('recommendation', 'HOLD')
+                momentum_score = tech_analysis.get('momentum', {}).get('score', 0)
+                rsi = tech_analysis.get('indicators', {}).get('rsi', 50)
+                
+                technical_summary.append({
+                    'Bank': dashboard.bank_names.get(symbol, symbol),
+                    'Symbol': symbol,
+                    'Price': f"${current_price:.2f}",
+                    'Recommendation': recommendation,
+                    'Momentum': f"{momentum_score:.1f}",
+                    'RSI': f"{rsi:.1f}",
+                    'Status': '🟢' if 'BUY' in recommendation else '🔴' if 'SELL' in recommendation else '🟡'
+                })
+        except Exception as e:
+            logger.warning(f"Error getting technical analysis for {symbol}: {e}")
+    
+    if technical_summary:
+        tech_df = pd.DataFrame(technical_summary)
+        st.dataframe(tech_df, use_container_width=True, hide_index=True)
+    else:
+        st.warning("⚠️ Technical analysis data is currently unavailable")
+
+def display_news_sentiment_analysis(dashboard):
+    """Display news and sentiment analysis"""
+    dashboard.create_section_header(
+        "News & Sentiment Analysis", 
+        "Latest news headlines and sentiment impact analysis",
+        "📰"
+    )
+    
+    # Load sentiment data
+    all_data = dashboard.load_sentiment_data()
+    
+    # Aggregate recent news from all banks
+    recent_news = []
+    
+    for symbol, data in all_data.items():
+        if data:
+            latest = dashboard.get_latest_analysis(data)
+            if latest and 'recent_headlines' in latest:
+                headlines = latest['recent_headlines']
+                for headline in headlines[:3]:  # Top 3 from each bank
+                    if headline:
+                        recent_news.append({
+                            'Bank': dashboard.bank_names.get(symbol, symbol),
+                            'Headline': headline,
+                            'Symbol': symbol,
+                            'Sentiment': latest.get('overall_sentiment', 0)
+                        })
+    
+    if recent_news:
+        st.markdown("### 📰 Latest Market Headlines")
+        
+        for news in recent_news[:10]:  # Show top 10
+            sentiment = news['Sentiment']
+            sentiment_color = "🟢" if sentiment > 0.1 else "🔴" if sentiment < -0.1 else "🟡"
+            
+            st.markdown(f"""
+            <div style="background: white; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; 
+                       border-left: 4px solid {'#27ae60' if sentiment > 0.1 else '#e74c3c' if sentiment < -0.1 else '#f39c12'};">
+                <strong>{sentiment_color} {news['Bank']} ({news['Symbol']})</strong><br>
+                {news['Headline']}<br>
+                <small>Sentiment: {sentiment:+.3f}</small>
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        st.warning("⚠️ No recent news data available")
+
+def display_system_status(dashboard):
+    """Display system status and diagnostics"""
+    dashboard.create_section_header(
+        "System Status", 
+        "Technical system diagnostics and data quality metrics",
+        "⚙️"
+    )
+    
+    # System metrics
+    st.markdown("### 🔧 System Diagnostics")
+    
+    # Check data availability
+    all_data = dashboard.load_sentiment_data()
+    data_quality = []
+    
+    for symbol in dashboard.bank_symbols:
+        symbol_data = all_data.get(symbol, [])
+        
+        data_quality.append({
+            'Bank': dashboard.bank_names.get(symbol, symbol),
+            'Symbol': symbol,
+            'Records': len(symbol_data),
+            'Latest': symbol_data[-1].get('timestamp', 'N/A')[:10] if symbol_data else 'N/A',
+            'Status': '✅ Good' if len(symbol_data) > 5 else '⚠️ Limited' if len(symbol_data) > 0 else '❌ No Data'
+        })
+    
+    st.dataframe(pd.DataFrame(data_quality), use_container_width=True, hide_index=True)
+    
+    # System information
+    st.markdown("### ℹ️ System Information")
+    
+    system_info = {
+        'Python Version': sys.version.split()[0],
+        'Streamlit Version': st.__version__,
+        'Total Banks Monitored': len(dashboard.bank_symbols),
+        'Position Risk Assessor': 'Available' if POSITION_RISK_AVAILABLE else 'Not Available',
+        'Technical Analysis': 'Available',
+        'Dashboard Version': '2.0.0'
+    }
+    
+    for key, value in system_info.items():
+        st.write(f"**{key}:** {value}")
+    
+    # Show data loading status at bottom
+    with st.expander("📊 Data Loading Status", expanded=False):
+        all_data_check = dashboard.load_sentiment_data()
+        for symbol, data in all_data_check.items():
+            bank_name = dashboard.bank_names.get(symbol, symbol)
+            status = f"✅ {len(data)} records" if data else "❌ No data"
+            st.write(f"**{bank_name}:** {status}")
+
+
+            # Run the dashboard
 if __name__ == "__main__":
+    main()
+else:
+    # For Streamlit cloud or when imported
     main()
