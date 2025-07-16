@@ -475,9 +475,6 @@ class NewsSentimentAnalyzer:
             # Cache for 30 minutes
             self.cache.set(cache_key, result, expiry_minutes=30)
             
-            # Store in historical data
-            self.history_manager.store_sentiment(symbol, result)
-            
             # Add trend analysis
             trend_data = self.history_manager.get_sentiment_trend(symbol, days=7)
             result['trend_analysis'] = trend_data
@@ -496,6 +493,9 @@ class NewsSentimentAnalyzer:
             if self.ml_model:
                 ml_prediction = self._get_ml_prediction(result)
                 result['ml_prediction'] = ml_prediction
+            
+            # Store in historical data (after ML prediction is added)
+            self.history_manager.store_sentiment(symbol, result)
             
             return result
             
