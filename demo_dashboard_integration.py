@@ -206,7 +206,7 @@ def demo_dashboard_integration():
 # confidence = legacy_sentiment_data['confidence']
 
 # NEW CODE (Enhanced):
-from src.enhanced_sentiment_integration import get_enhanced_trading_signals
+from app.core.sentiment.integration import get_enhanced_trading_signals
 
 def get_enhanced_sentiment_for_dashboard(legacy_data):
     signals = get_enhanced_trading_signals(legacy_data)

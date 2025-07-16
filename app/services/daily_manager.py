@@ -11,11 +11,13 @@ import os
 from datetime import datetime
 
 # Import centralized config
-sys.path.append(os.path.join(os.path.dirname(__file__), 'config'))
-from settings import Settings
+from ..config.settings import Settings
 
 class TradingSystemManager:
-    def __init__(self):
+    def __init__(self, config_path=None, dry_run=False):
+        self.config_path = config_path
+        self.dry_run = dry_run
+        
         # Auto-detect the correct base directory
         current_dir = os.path.dirname(os.path.abspath(__file__))
         if os.path.basename(current_dir) == "trading_analysis":
@@ -99,7 +101,7 @@ try:
         print(f'⚠️  Enhanced sentiment fallback: {results[\"error\"]}')
         
         # Fallback to original analysis
-        from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+        from app.core.sentiment.temporal_analyzer import TemporalSentimentAnalyzer
         from advanced_feature_engineering import AdvancedFeatureEngineer
         
         analyzer = TemporalSentimentAnalyzer()
@@ -196,8 +198,8 @@ try:
         print('🔄 Falling back to original ensemble analysis...')
         
         # Fallback to original analysis
-        from enhanced_ensemble_learning import EnhancedTransformerEnsemble, ModelPrediction
-        from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+        from app.core.ml.ensemble.enhanced_ensemble import EnhancedTransformerEnsemble, ModelPrediction
+        from app.core.sentiment.temporal_analyzer import TemporalSentimentAnalyzer
         
         ensemble = EnhancedTransformerEnsemble()
         analyzer = TemporalSentimentAnalyzer()
@@ -253,8 +255,8 @@ try:
     print('✅ Enhanced Sentiment Integration: Available')
     
     # Test core ML modules
-    from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
-    from enhanced_ensemble_learning import EnhancedTransformerEnsemble
+    from app.core.sentiment.temporal_analyzer import TemporalSentimentAnalyzer
+    from app.core.ml.ensemble.enhanced_ensemble import EnhancedTransformerEnsemble
     from advanced_feature_engineering import AdvancedFeatureEngineer
     
     print('✅ Enhanced Features: All modules available')
@@ -345,8 +347,8 @@ except Exception as e:
         enhanced_weekly_cmd = """python -c "
 import sys; sys.path.append('src')
 sys.path.append('config')
-from enhanced_ensemble_learning import EnhancedTransformerEnsemble
-from temporal_sentiment_analyzer import TemporalSentimentAnalyzer
+from app.core.ml.ensemble.enhanced_ensemble import EnhancedTransformerEnsemble
+from app.core.sentiment.temporal_analyzer import TemporalSentimentAnalyzer
 from advanced_feature_engineering import AdvancedFeatureEngineer
 from settings import Settings
 import json
@@ -451,8 +453,8 @@ sys.path.append('src')
 sys.path.append('config')
 
 try:
-    from temporal_sentiment_analyzer import SentimentDataPoint, TemporalSentimentAnalyzer
-    from enhanced_ensemble_learning import ModelPrediction, EnhancedTransformerEnsemble
+    from app.core.sentiment.temporal_analyzer import SentimentDataPoint, TemporalSentimentAnalyzer
+    from app.core.ml.ensemble.enhanced_ensemble import ModelPrediction, EnhancedTransformerEnsemble
     from advanced_feature_engineering import AdvancedFeatureEngineer
     from settings import Settings
     from datetime import datetime, timedelta
@@ -476,7 +478,7 @@ try:
     print('✅ Ensemble system created')
     
     # Create a sample prediction with correct parameters
-    from enhanced_ensemble_learning import ModelPrediction
+    from app.core.ml.ensemble.enhanced_ensemble import ModelPrediction
     pred = ModelPrediction(
         model_name='test_model',
         prediction=0.75,

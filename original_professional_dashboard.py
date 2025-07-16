@@ -19,8 +19,8 @@ import sqlite3
 # Import technical analysis and config
 import sys
 sys.path.append('..')  # Add parent directory to path
-from src.technical_analysis import TechnicalAnalyzer, get_market_data
-from config.settings import Settings
+from app.core.analysis.technical import TechnicalAnalyzer, get_market_data
+from app.config.settings import Settings
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -1347,7 +1347,7 @@ class NewsAnalysisDashboard:
     def display_ml_performance(self, symbol: str):
         """Display ML model performance metrics with professional styling"""
         try:
-            from src.ml_training_pipeline import MLTrainingPipeline
+            from app.core.ml.training.pipeline import MLTrainingPipeline
             ml_pipeline = MLTrainingPipeline()
             
             conn = sqlite3.connect(ml_pipeline.db_path)

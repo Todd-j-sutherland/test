@@ -119,7 +119,7 @@ def test_configuration():
     print("\n⚙️  Testing Configuration...")
     
     try:
-        from config.settings import Settings
+        from app.config.settings import Settings
         settings = Settings()
         print(f"✅ Settings loaded: {len(settings.BANK_SYMBOLS)} bank symbols configured")
         
