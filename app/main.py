@@ -8,9 +8,9 @@ import argparse
 import logging
 from pathlib import Path
 
-# Add the app directory to Python path
-app_dir = Path(__file__).parent
-sys.path.insert(0, str(app_dir))
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
 from app.config.settings import Settings
 from app.config.logging import setup_logging
@@ -98,8 +98,8 @@ def main():
         elif args.command == 'test':
             manager.test_enhanced_features()
         elif args.command == 'dashboard':
-            from app.dashboard.main import run_dashboard
-            run_dashboard()
+            from app.dashboard.pages.professional import main as run_professional_dashboard
+            run_professional_dashboard()
         elif args.command == 'news':
             manager.news_analysis()
         

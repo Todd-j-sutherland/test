@@ -15,10 +15,14 @@ from typing import Dict, List, Any
 import logging
 import numpy as np
 import sqlite3
+import sys
+from pathlib import Path
+
+# Add project root to path for imports
+project_root = Path(__file__).parent.parent.parent.parent
+sys.path.insert(0, str(project_root))
 
 # Import technical analysis and config
-import sys
-sys.path.append('..')  # Add parent directory to path
 from app.core.analysis.technical import TechnicalAnalyzer, get_market_data
 from app.config.settings import Settings
 
