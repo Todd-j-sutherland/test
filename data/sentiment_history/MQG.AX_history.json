@@ -6661,5 +6661,1021 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-16T10:59:29.939366",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": 0.08251831275720165,
+      "positive_count": 7,
+      "negative_count": 5,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 2,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 17,
+      "average_sentiment": 0.20406899361051614,
+      "bullish_count": 14,
+      "bearish_count": 0,
+      "neutral_count": 3,
+      "top_posts": [
+        {
+          "title": "UBank changing their interest structure",
+          "score": 179,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        },
+        {
+          "title": "UBank changing their interest structure",
+          "score": 176,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        },
+        {
+          "title": "Ubank changed their bonus interest rules -- Where to go?",
+          "score": 22,
+          "sentiment": 0.1782828282828283,
+          "category": "bullish",
+          "subreddit": "fiaustralia",
+          "url": "https://reddit.com/r/fiaustralia/comments/1m0buyp/ubank_changed_their_bonus_interest_rules_where_to/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 11,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 10,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 82.35294117647058,
+        "bearish": 0.0,
+        "neutral": 17.647058823529413
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 10,
+          "avg_sentiment": 0.19052044252044256
+        },
+        "fiaustralia": {
+          "count": 3,
+          "avg_sentiment": 0.18382282205811618
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-16T10:58:38.637733",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-16T10:58:38.637796",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie Group's Revenue Expected To Reach Five-Year Lows, Says Morgan Stanley",
+          "date": "2025-07-16T10:58:38.637932",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-16T10:58:38.637975",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-16T10:58:48.317612",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-16T10:59:06.232213",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.08132652906844143,
+    "sentiment_components": {
+      "news": 0.014839805563965417,
+      "reddit": 0.04070258946128006,
+      "events": 0.03209395095367848,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "What are Cochlear shares worth according to Macquarie?",
+      "Macquarie tips 32% upside for this ASX mining stock",
+      "Guess which ASX travel stock Macquarie just named as its top pick with 32% upside?",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "MQG.AX",
+      "analysis_period_days": 7,
+      "data_points": 21,
+      "current_sentiment": 0.07841309293938631,
+      "average_sentiment": 0.078815546236221,
+      "trend_direction": -0.014227635289816978,
+      "trend_description": "stable",
+      "volatility": 0.005352306125692685,
+      "momentum": -0.0006775064423722371,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.06800291070539309,
+        "max": 0.09264072822920329,
+        "range": 0.024637817523810196
+      },
+      "news_activity": {
+        "total_news": 618,
+        "average_per_day": 29.428571428571427,
+        "max_daily_news": 32,
+        "min_daily_news": 26
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.09264072822920329,
+          "news_count": 30,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.09264072822920329,
+          "news_count": 30,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.08316680791333769,
+          "news_count": 30,
+          "change_from_previous": -0.009473920315865594
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07629352199959893,
+          "news_count": 26,
+          "change_from_previous": -0.006873285913738758
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07558538841598808,
+          "news_count": 28,
+          "change_from_previous": -0.0007081335836108538
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07558538841598808,
+          "news_count": 28,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07796392599214162,
+          "news_count": 29,
+          "change_from_previous": 0.0023785375761535416
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07661792411138764,
+          "news_count": 31,
+          "change_from_previous": -0.001346001880753983
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07661792411138764,
+          "news_count": 31,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.06800291070539309,
+          "news_count": 31,
+          "change_from_previous": -0.008615013405994548
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07602822409631542,
+          "news_count": 32,
+          "change_from_previous": 0.008025313390922328
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07562742878736764,
+          "news_count": 30,
+          "change_from_previous": -0.0004007953089477795
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07732172415521504,
+          "news_count": 30,
+          "change_from_previous": 0.0016942953678474038
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.08283459566213859,
+          "news_count": 29,
+          "change_from_previous": 0.005512871506923547
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07874462377374367,
+          "news_count": 30,
+          "change_from_previous": -0.004089971888394925
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07932613548717803,
+          "news_count": 29,
+          "change_from_previous": 0.00058151171343436
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07874462377374367,
+          "news_count": 30,
+          "change_from_previous": -0.00058151171343436
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07732607336502431,
+          "news_count": 30,
+          "change_from_previous": -0.0014185504087193546
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07625415486350258,
+          "news_count": 29,
+          "change_from_previous": -0.001071918501521732
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0793905459333965,
+          "news_count": 28,
+          "change_from_previous": 0.0031363910698939262
+        },
+        {
+          "date": "2025-07-15",
+          "sentiment": 0.07841309293938631,
+          "news_count": 27,
+          "change_from_previous": -0.0009774529940101973
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "MQG.AX",
+      "analysis_period_days": 14,
+      "data_points": 24,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.16768800388209607,
+          "pearson_p_value": 0.43350059985735334,
+          "spearman": -0.7526406831209319,
+          "spearman_p_value": 2.205364394677094e-05,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": 0.034917636131094554,
+          "interpretation": "very_weak_positive"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.0021577681833472254,
+          "interpretation": "very_weak_negative"
+        },
+        "lagged_correlations": {
+          "1_day": -0.09141520760420734,
+          "2_day": -0.003213254396289243,
+          "3_day": 0.02000277256386692
+        },
+        "data_quality": {
+          "total_points": 24,
+          "valid_points": 24,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "rating_change": {
+            "avg_price_change_event_days": -0.17385525153523915,
+            "avg_price_change_non_event_days": -0.03365889584311101,
+            "difference": -0.14019635569212813,
+            "event_count": 14,
+            "volatility_event_days": 0.9472384686596647,
+            "volatility_non_event_days": 0.9251266729328718
+          },
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.0019397608135627632,
+            "avg_price_change_non_event_days": -0.14632954126275113,
+            "difference": 0.1482693020763139,
+            "event_count": 5,
+            "volatility_event_days": 0.1797803508864125,
+            "volatility_non_event_days": 1.0509713273639565
+          },
+          "dividend_announcement": {
+            "avg_price_change_event_days": 0.21285323395667635,
+            "avg_price_change_non_event_days": -0.4437334406170479,
+            "difference": 0.6565866745737242,
+            "event_count": 12,
+            "volatility_event_days": 2.7755575615628914e-17,
+            "volatility_non_event_days": 1.2466041053602226
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.025581466007990886,
+            "avg_price_change_non_event_days": -0.33366822254123035,
+            "difference": 0.30808675653323947,
+            "event_count": 17,
+            "volatility_event_days": 0.9436879200738107,
+            "volatility_non_event_days": 0.8964189407198173
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "dividend_announcement",
+            0.6565866745737242
+          ],
+          "highest_impact_negative": [
+            "rating_change",
+            -0.14019635569212813
+          ],
+          "most_frequent_event": [
+            "partnership_deal",
+            17
+          ],
+          "average_impact": 0.24318659437278736
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 0.8333333333333334,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 1,
+            "down": 3,
+            "flat": 20
+          }
+        },
+        "total_predictions": 24,
+        "correct_predictions": 20,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 24
+        },
+        "price_distribution": {
+          "up": 1,
+          "down": 3,
+          "flat": 20
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.168 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T10:59:29.982514",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 332,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.8801140048232539,
+      "ml_score": -0.8801140048232539
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 54.06671935581171,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.9256048110787078,
+      "z_score": 3.127443398367141,
+      "percentile_rank": 100.0,
+      "volatility_adjusted_score": 0.08133438711623409,
+      "market_adjusted_score": 0.08133438711623409,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9092527028741317,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 97.2972972972973,
+          "z_score": 2.743509144814798,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score in top 10% historically (97.3th percentile); Statistically extreme (z-score: 2.74); High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9092527028741317,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 97.2972972972973,
+          "z_score": 2.743509144814798,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score in top 10% historically (97.3th percentile); Statistically extreme (z-score: 2.74); High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9092527028741317,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 97.2972972972973,
+          "z_score": 2.743509144814798,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score in top 10% historically (97.3th percentile); Statistically extreme (z-score: 2.74); High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 54.0667193558107,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.9092527028741317,
+          "z_score": 2.743509144814798,
+          "percentile_rank": 97.2972972972973,
+          "volatility_adjusted_score": 0.08133438711621402,
+          "market_adjusted_score": 0.08133438711621402,
+          "improvement_over_legacy": {
+            "score_refinement": 0.00039290238861866555,
+            "confidence_improvement": 0.14925270287413173,
+            "statistical_significance": 2.743509144814798,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Statistically significant signal; Extreme historical positioning; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Statistically significant signal; Extreme historical positioning; Market regime adjustment applied; Volatility adjustment applied"
+    }
+  },
+  {
+    "symbol": "MQG.AX",
+    "timestamp": "2025-07-16T11:01:09.617563",
+    "news_count": 28,
+    "sentiment_scores": {
+      "average_sentiment": 0.08251831275720165,
+      "positive_count": 7,
+      "negative_count": 5,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 2,
+        "positive": 5,
+        "neutral": 6,
+        "negative": 5,
+        "very_negative": 0
+      },
+      "strongest_sentiment": 0.58525
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 17,
+      "average_sentiment": 0.20406899361051614,
+      "bullish_count": 14,
+      "bearish_count": 0,
+      "neutral_count": 3,
+      "top_posts": [
+        {
+          "title": "UBank changing their interest structure",
+          "score": 177,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        },
+        {
+          "title": "UBank changing their interest structure",
+          "score": 174,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        },
+        {
+          "title": "Ubank changed their bonus interest rules -- Where to go?",
+          "score": 22,
+          "sentiment": 0.1782828282828283,
+          "category": "bullish",
+          "subreddit": "fiaustralia",
+          "url": "https://reddit.com/r/fiaustralia/comments/1m0buyp/ubank_changed_their_bonus_interest_rules_where_to/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 10,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        },
+        {
+          "title": "19yo port review pls",
+          "score": 10,
+          "sentiment": 0.253125,
+          "category": "bullish",
+          "subreddit": "ASX",
+          "url": "https://reddit.com/r/ASX/comments/1lz4igv/19yo_port_review_pls/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 82.35294117647058,
+        "bearish": 0.0,
+        "neutral": 17.647058823529413
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 10,
+          "avg_sentiment": 0.19052044252044256
+        },
+        "fiaustralia": {
+          "count": 3,
+          "avg_sentiment": 0.18382282205811618
+        },
+        "ASX": {
+          "count": 4,
+          "avg_sentiment": 0.253125
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": false,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "regulatory_news",
+          "headline": "ASX MQG: Macquarie board to hold management\u2019s \u2018feet to the fire\u2019 over compliance",
+          "date": "2025-07-16T10:59:56.066929",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie to bolster private credit ops as earnings track steady",
+          "date": "2025-07-16T10:59:56.066990",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie Group's Revenue Expected To Reach Five-Year Lows, Says Morgan Stanley",
+          "date": "2025-07-16T10:59:56.067113",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "Macquarie sees clouds on horizon after stunning profit",
+          "date": "2025-07-16T10:59:56.067154",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-16T11:00:05.756354",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "earnings_report",
+          "headline": "BRIEF-Macquarie Group says HY net profit $1.07 bln versus $678 mln",
+          "date": "2025-07-16T11:00:21.619812",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.08132652906844143,
+    "sentiment_components": {
+      "news": 0.014839805563965417,
+      "reddit": 0.04070258946128006,
+      "events": 0.03209395095367848,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "What are Cochlear shares worth according to Macquarie?",
+      "Macquarie tips 32% upside for this ASX mining stock",
+      "Guess which ASX travel stock Macquarie just named as its top pick with 32% upside?",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "MQG.AX",
+      "analysis_period_days": 7,
+      "data_points": 22,
+      "current_sentiment": 0.08132652906844143,
+      "average_sentiment": 0.07892968181950376,
+      "trend_direction": -0.01131419916076186,
+      "trend_description": "stable",
+      "volatility": 0.0052553403160249266,
+      "momentum": -0.00051428178003463,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.06800291070539309,
+        "max": 0.09264072822920329,
+        "range": 0.024637817523810196
+      },
+      "news_activity": {
+        "total_news": 646,
+        "average_per_day": 29.363636363636363,
+        "max_daily_news": 32,
+        "min_daily_news": 26
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.09264072822920329,
+          "news_count": 30,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.09264072822920329,
+          "news_count": 30,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.08316680791333769,
+          "news_count": 30,
+          "change_from_previous": -0.009473920315865594
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07629352199959893,
+          "news_count": 26,
+          "change_from_previous": -0.006873285913738758
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07558538841598808,
+          "news_count": 28,
+          "change_from_previous": -0.0007081335836108538
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07558538841598808,
+          "news_count": 28,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.07796392599214162,
+          "news_count": 29,
+          "change_from_previous": 0.0023785375761535416
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07661792411138764,
+          "news_count": 31,
+          "change_from_previous": -0.001346001880753983
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07661792411138764,
+          "news_count": 31,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.06800291070539309,
+          "news_count": 31,
+          "change_from_previous": -0.008615013405994548
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07602822409631542,
+          "news_count": 32,
+          "change_from_previous": 0.008025313390922328
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07562742878736764,
+          "news_count": 30,
+          "change_from_previous": -0.0004007953089477795
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07732172415521504,
+          "news_count": 30,
+          "change_from_previous": 0.0016942953678474038
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.08283459566213859,
+          "news_count": 29,
+          "change_from_previous": 0.005512871506923547
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07874462377374367,
+          "news_count": 30,
+          "change_from_previous": -0.004089971888394925
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07932613548717803,
+          "news_count": 29,
+          "change_from_previous": 0.00058151171343436
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07874462377374367,
+          "news_count": 30,
+          "change_from_previous": -0.00058151171343436
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07732607336502431,
+          "news_count": 30,
+          "change_from_previous": -0.0014185504087193546
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.07625415486350258,
+          "news_count": 29,
+          "change_from_previous": -0.001071918501521732
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0793905459333965,
+          "news_count": 28,
+          "change_from_previous": 0.0031363910698939262
+        },
+        {
+          "date": "2025-07-15",
+          "sentiment": 0.07841309293938631,
+          "news_count": 27,
+          "change_from_previous": -0.0009774529940101973
+        },
+        {
+          "date": "2025-07-16",
+          "sentiment": 0.08132652906844143,
+          "news_count": 28,
+          "change_from_previous": 0.002913436129055119
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "MQG.AX",
+      "analysis_period_days": 14,
+      "data_points": 25,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.16490261091304778,
+          "pearson_p_value": 0.43086264866582497,
+          "spearman": -0.7332449859379329,
+          "spearman_p_value": 3.0505779626787296e-05,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": 0.05512530391238373,
+          "interpretation": "very_weak_positive"
+        },
+        "sentiment_vs_volume": {
+          "pearson": 0.02379072861941257,
+          "interpretation": "very_weak_positive"
+        },
+        "lagged_correlations": {
+          "1_day": -0.08766003485869579,
+          "2_day": 0.00012877062173202117,
+          "3_day": 0.02405478570791058
+        },
+        "data_quality": {
+          "total_points": 25,
+          "valid_points": 25,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.0019397608135627632,
+            "avg_price_change_non_event_days": -0.1543881353543685,
+            "difference": 0.15632789616793125,
+            "event_count": 5,
+            "volatility_event_days": 0.1797803508864125,
+            "volatility_non_event_days": 1.0249622296602128
+          },
+          "rating_change": {
+            "avg_price_change_event_days": -0.17385525153523915,
+            "avg_price_change_non_event_days": -0.05855367104783707,
+            "difference": -0.11530158048740208,
+            "event_count": 14,
+            "volatility_event_days": 0.9472384686596647,
+            "volatility_non_event_days": 0.885579732629873
+          },
+          "dividend_announcement": {
+            "avg_price_change_event_days": 0.21285323395667635,
+            "avg_price_change_non_event_days": -0.43325405465382094,
+            "difference": 0.6461072886104973,
+            "event_count": 12,
+            "volatility_event_days": 2.7755575615628914e-17,
+            "volatility_non_event_days": 1.1982484999980172
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.025581466007990886,
+            "avg_price_change_non_event_days": -0.3303973726104638,
+            "difference": 0.30481590660247293,
+            "event_count": 17,
+            "volatility_event_days": 0.9436879200738107,
+            "volatility_non_event_days": 0.8385677920335192
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "dividend_announcement",
+            0.6461072886104973
+          ],
+          "highest_impact_negative": [
+            "rating_change",
+            -0.11530158048740208
+          ],
+          "most_frequent_event": [
+            "partnership_deal",
+            17
+          ],
+          "average_impact": 0.24798737772337484
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 0.84,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 1,
+            "down": 3,
+            "flat": 21
+          }
+        },
+        "total_predictions": 25,
+        "correct_predictions": 21,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 25
+        },
+        "price_distribution": {
+          "up": 1,
+          "down": 3,
+          "flat": 21
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.165 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T11:01:09.656299",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 334,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.8836647480681343,
+      "ml_score": -0.8836647480681343
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 54.06671935581171,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.8803370910279601,
+      "z_score": 0.0,
+      "percentile_rank": 50.0,
+      "volatility_adjusted_score": 0.08133438711623409,
+      "market_adjusted_score": 0.08133438711623409,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8651337169034834,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8651337169034834,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8651337169034834,
+          "normalized_score": 54.0667193558107,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.08133438711621402,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 54.0667193558107,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.8651337169034834,
+          "z_score": 0.0,
+          "percentile_rank": 50.0,
+          "volatility_adjusted_score": 0.08133438711621402,
+          "market_adjusted_score": 0.08133438711621402,
+          "improvement_over_legacy": {
+            "score_refinement": 0.00039290238861866555,
+            "confidence_improvement": 0.10513371690348339,
+            "statistical_significance": 0.0,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
   }
 ]

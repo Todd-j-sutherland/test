@@ -17,7 +17,7 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 try:
-    from enhanced_sentiment_scoring import (
+    from app.core.sentiment.enhanced_scoring import (
         EnhancedSentimentScorer, 
         SentimentMetrics, 
         MarketRegime, 

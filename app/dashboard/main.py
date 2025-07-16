@@ -30,8 +30,8 @@ except ImportError:
     POSITION_RISK_AVAILABLE = False
 
 try:
-    from core.news_trading_analyzer import TechnicalAnalyzer
-    from utils.market_data_collector import get_market_data
+    from app.core.analysis.technical import TechnicalAnalyzer
+    from app.core.data.collectors.market_data import get_market_data
     TECHNICAL_ANALYSIS_AVAILABLE = True
 except ImportError:
     TECHNICAL_ANALYSIS_AVAILABLE = False
@@ -665,6 +665,10 @@ def main():
     except Exception as e:
         logger.error(f"Failed to start dashboard: {e}", exc_info=True)
         st.error("Failed to start the dashboard. Please check the logs for details.")
+
+def run_dashboard():
+    """Public function to run the dashboard (called from main.py)"""
+    main()
 
 if __name__ == "__main__":
     main()

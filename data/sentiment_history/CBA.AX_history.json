@@ -12229,5 +12229,1444 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-16T10:54:56.867115",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": -0.0011892857142857191,
+      "positive_count": 4,
+      "negative_count": 1,
+      "neutral_count": 9,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 4,
+        "neutral": 9,
+        "negative": 0,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.08180853754757264,
+      "bullish_count": 7,
+      "bearish_count": 1,
+      "neutral_count": 11,
+      "top_posts": [
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 256,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 255,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 253,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 250,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 249,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 36.84210526315789,
+        "bearish": 5.263157894736842,
+        "neutral": 57.89473684210527
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.14393939393939395
+        },
+        "AusFinance": {
+          "count": 15,
+          "avg_sentiment": 0.09008055689166801
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "legal_action",
+          "headline": "No duty of care: Torres Strait Islander Uncles lose their climate case against the Australian Government",
+          "date": "2025-07-15T06:02:34",
+          "source": "sbs_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        }
+      ]
+    },
+    "overall_sentiment": 0.024241043346634825,
+    "sentiment_components": {
+      "news": -0.0002138769949396661,
+      "reddit": 0.016317125200224297,
+      "events": 0.010188555858310628,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "No duty of care: Torres Strait Islander Uncles lose their climate case against the Australian Government",
+      "Andrew Laming\u2019s family trips cost taxpayers thousands. How much has he repaid?",
+      "",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "CBA.AX",
+      "analysis_period_days": 7,
+      "data_points": 59,
+      "current_sentiment": 0.041677800140492424,
+      "average_sentiment": 0.024062474846267123,
+      "trend_direction": 0.02809706220556955,
+      "trend_description": "stable",
+      "volatility": 0.009534582901862671,
+      "momentum": 0.0004762213933147381,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.012320562459616796,
+        "max": 0.04749440949821917,
+        "range": 0.03517384703860237
+      },
+      "news_activity": {
+        "total_news": 1381,
+        "average_per_day": 23.406779661016948,
+        "max_daily_news": 30,
+        "min_daily_news": 14
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.013580737934922874,
+          "news_count": 23,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.013580737934922874,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.02658422842970207,
+          "news_count": 21,
+          "change_from_previous": 0.013003490494779196
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": -0.013268326557788089
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012320562459616796,
+          "news_count": 23,
+          "change_from_previous": -0.0009953394122971856
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0003658207772672794
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.005740580216465929
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0202821799237304,
+          "news_count": 23,
+          "change_from_previous": 0.0018552164703803942
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0202821799237304,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.016492141281174044,
+          "news_count": 23,
+          "change_from_previous": -0.0037900386425563544
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.016492141281174044,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.02199778502295242,
+          "news_count": 24,
+          "change_from_previous": 0.005505643741778376
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0045167412270551745
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": -0.00424631816686246
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.023557945498612298,
+          "news_count": 23,
+          "change_from_previous": 0.0012897374154671633
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.023557945498612298,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.04430128117819242,
+          "news_count": 27,
+          "change_from_previous": 0.02074333567958012
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.025734237644613436,
+          "news_count": 17,
+          "change_from_previous": -0.01856704353357898
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": -0.005609204777476423
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.014344849030265438,
+          "news_count": 17,
+          "change_from_previous": -0.005780183836871575
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.018875883265376377,
+          "news_count": 14,
+          "change_from_previous": 0.004531034235110939
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.021125188953784475,
+          "news_count": 23,
+          "change_from_previous": 0.002249305688408098
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.017723862896118787,
+          "news_count": 22,
+          "change_from_previous": -0.003401326057665688
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.010935693262259016
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03704826364019205,
+          "news_count": 24,
+          "change_from_previous": 0.008388707481814247
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03704826364019205,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04074803011324447,
+          "news_count": 24,
+          "change_from_previous": 0.003699766473052417
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03868517172476646,
+          "news_count": 24,
+          "change_from_previous": -0.0020628583884780075
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04749440949821917,
+          "news_count": 25,
+          "change_from_previous": 0.00880923777345271
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03504907293146167,
+          "news_count": 26,
+          "change_from_previous": -0.012445336566757496
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.017897796528191918,
+          "news_count": 30,
+          "change_from_previous": -0.017151276403269754
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.032483128698945776,
+          "news_count": 28,
+          "change_from_previous": 0.014585332170753858
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.032483128698945776,
+          "news_count": 28,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.037116746968051784,
+          "news_count": 24,
+          "change_from_previous": 0.004633618269106007
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.040019230424649686,
+          "news_count": 25,
+          "change_from_previous": 0.0029024834565979027
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.040019230424649686,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04079227718214287,
+          "news_count": 25,
+          "change_from_previous": 0.0007730467574931857
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.041677800140492424,
+          "news_count": 24,
+          "change_from_previous": 0.0008855229583495522
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "CBA.AX",
+      "analysis_period_days": 14,
+      "data_points": 69,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.549808278989182,
+          "pearson_p_value": 9.9241990463737e-07,
+          "spearman": -0.4424631657103323,
+          "spearman_p_value": 0.00014082765721331618,
+          "significance": "significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": -0.6604158671892029,
+          "interpretation": "strong_negative"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.7358826189523227,
+          "interpretation": "strong_negative"
+        },
+        "lagged_correlations": {
+          "1_day": -0.5508907146948736,
+          "2_day": -0.469863247072662,
+          "3_day": -0.3897335502003848
+        },
+        "data_quality": {
+          "total_points": 69,
+          "valid_points": 69,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "product_launch": {
+            "avg_price_change_event_days": 0.8267258539378335,
+            "avg_price_change_non_event_days": 0.04958033655530474,
+            "difference": 0.7771455173825288,
+            "event_count": 2,
+            "volatility_event_days": 0.0,
+            "volatility_non_event_days": 0.607195990683863
+          },
+          "rating_change": {
+            "avg_price_change_event_days": -0.30322503037095744,
+            "avg_price_change_non_event_days": 0.1676451760413544,
+            "difference": -0.4708702064123118,
+            "event_count": 14,
+            "volatility_event_days": 0.31339198862547873,
+            "volatility_non_event_days": 0.6328243934207215
+          },
+          "dividend_announcement": {
+            "avg_price_change_event_days": -0.3901443291639414,
+            "avg_price_change_non_event_days": 0.1794144738609343,
+            "difference": -0.5695588030248757,
+            "event_count": 13,
+            "volatility_event_days": 5.551115123125783e-17,
+            "volatility_non_event_days": 0.6331934317572305
+          },
+          "legal_action": {
+            "avg_price_change_event_days": -0.40255788551259036,
+            "avg_price_change_non_event_days": 0.16212881030550993,
+            "difference": -0.5646866958181003,
+            "event_count": 11,
+            "volatility_event_days": 0.039255111924574065,
+            "volatility_non_event_days": 0.6284843956473388
+          },
+          "management_change": {
+            "avg_price_change_event_days": -0.46979798240110565,
+            "avg_price_change_non_event_days": 0.36112190743794714,
+            "difference": -0.8309198898390528,
+            "event_count": 24,
+            "volatility_event_days": 0.06731962393805933,
+            "volatility_non_event_days": 0.5765695896618247
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": 0.545986870406069,
+            "avg_price_change_non_event_days": -0.08281620268888629,
+            "difference": 0.6288030730949552,
+            "event_count": 17,
+            "volatility_event_days": 0.4355174988675322,
+            "volatility_non_event_days": 0.5815235882090707
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "product_launch",
+            0.7771455173825288
+          ],
+          "highest_impact_negative": [
+            "management_change",
+            -0.8309198898390528
+          ],
+          "most_frequent_event": [
+            "management_change",
+            24
+          ],
+          "average_impact": -0.17168116743614278
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 1.0,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 69
+          }
+        },
+        "total_predictions": 69,
+        "correct_predictions": 69,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 69
+        },
+        "price_distribution": {
+          "up": 0,
+          "down": 0,
+          "flat": 69
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.550 (significant). Strong correlation suggests news sentiment is a good predictor. ",
+      "recommendations": [
+        "Strong sentiment-price correlation detected. Consider sentiment-based trading strategies.",
+        "Negative correlation: Consider contrarian strategy - sell on positive sentiment.",
+        "Strong 1_day lagged correlation (-0.551). Sentiment may predict future price movements.",
+        "Strong 2_day lagged correlation (-0.470). Sentiment may predict future price movements."
+      ],
+      "analysis_timestamp": "2025-07-16T10:54:56.950150",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 324,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.8374384273051743,
+      "ml_score": -0.8374384273051743
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.21046464274739,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.8963732675336861,
+      "z_score": 0.0,
+      "percentile_rank": 50.0,
+      "volatility_adjusted_score": 0.004209292854947816,
+      "market_adjusted_score": 0.004209292854947816,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.906444190979639,
+          "normalized_score": 50.21046464274682,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.004209292854936414,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.906444190979639,
+          "normalized_score": 50.21046464274682,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.004209292854936414,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.906444190979639,
+          "normalized_score": 50.21046464274682,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.004209292854936414,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.21046464274682,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.906444190979639,
+          "z_score": 0.0,
+          "percentile_rank": 50.0,
+          "volatility_adjusted_score": 0.004209292854936414,
+          "market_adjusted_score": 0.004209292854936414,
+          "improvement_over_legacy": {
+            "score_refinement": -1.0015875245849273,
+            "confidence_improvement": 0.16644419097963903,
+            "statistical_significance": 0.0,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
+  },
+  {
+    "symbol": "CBA.AX",
+    "timestamp": "2025-07-16T10:55:56.484135",
+    "news_count": 24,
+    "sentiment_scores": {
+      "average_sentiment": 0.01117142857142857,
+      "positive_count": 5,
+      "negative_count": 2,
+      "neutral_count": 7,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 5,
+        "neutral": 7,
+        "negative": 1,
+        "very_negative": 1
+      },
+      "strongest_sentiment": -0.7294
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 19,
+      "average_sentiment": 0.08180853754757264,
+      "bullish_count": 7,
+      "bearish_count": 1,
+      "neutral_count": 11,
+      "top_posts": [
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 255,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 253,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 253,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 252,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 251,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 36.84210526315789,
+        "bearish": 5.263157894736842,
+        "neutral": 57.89473684210527
+      },
+      "subreddit_breakdown": {
+        "ASX_Bets": {
+          "count": 1,
+          "avg_sentiment": -0.14393939393939395
+        },
+        "AusFinance": {
+          "count": 15,
+          "avg_sentiment": 0.09008055689166801
+        },
+        "fiaustralia": {
+          "count": 1,
+          "avg_sentiment": 0.09396825396825396
+        },
+        "ASX": {
+          "count": 2,
+          "avg_sentiment": 0.1265625
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": true,
+      "events_detected": [
+        {
+          "type": "legal_action",
+          "headline": "No duty of care: Torres Strait Islander Uncles lose their climate case against the Australian Government",
+          "date": "2025-07-15T06:02:34",
+          "source": "sbs_news",
+          "relevance": "medium",
+          "sentiment_impact": -0.2
+        }
+      ]
+    },
+    "overall_sentiment": 0.026290564288635607,
+    "sentiment_components": {
+      "news": 0.0020090307512650833,
+      "reddit": 0.016317125200224297,
+      "events": 0.010188555858310628,
+      "volume": 0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.74,
+    "recent_headlines": [
+      "No duty of care: Torres Strait Islander Uncles lose their climate case against the Australian Government",
+      "Andrew Laming\u2019s family trips cost taxpayers thousands. How much has he repaid?",
+      "",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "CBA.AX",
+      "analysis_period_days": 7,
+      "data_points": 60,
+      "current_sentiment": 0.024241043346634825,
+      "average_sentiment": 0.02406545098793992,
+      "trend_direction": 0.010660305411711951,
+      "trend_description": "stable",
+      "volatility": 0.009454821830598039,
+      "momentum": 0.00017767175686186586,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.012320562459616796,
+        "max": 0.04749440949821917,
+        "range": 0.03517384703860237
+      },
+      "news_activity": {
+        "total_news": 1405,
+        "average_per_day": 23.416666666666668,
+        "max_daily_news": 30,
+        "min_daily_news": 14
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.013580737934922874,
+          "news_count": 23,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.013580737934922874,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.02658422842970207,
+          "news_count": 21,
+          "change_from_previous": 0.013003490494779196
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": -0.013268326557788089
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.013315901871913982,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012320562459616796,
+          "news_count": 23,
+          "change_from_previous": -0.0009953394122971856
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0003658207772672794
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.012686383236884076,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.005740580216465929
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.018426963453350004,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0202821799237304,
+          "news_count": 23,
+          "change_from_previous": 0.0018552164703803942
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0202821799237304,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.016492141281174044,
+          "news_count": 23,
+          "change_from_previous": -0.0037900386425563544
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.016492141281174044,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.02199778502295242,
+          "news_count": 24,
+          "change_from_previous": 0.005505643741778376
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0045167412270551745
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.026514526250007595,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": -0.00424631816686246
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.022268208083145134,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.023557945498612298,
+          "news_count": 23,
+          "change_from_previous": 0.0012897374154671633
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.023557945498612298,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.04430128117819242,
+          "news_count": 27,
+          "change_from_previous": 0.02074333567958012
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.025734237644613436,
+          "news_count": 17,
+          "change_from_previous": -0.01856704353357898
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": -0.005609204777476423
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.020125032867137013,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.014344849030265438,
+          "news_count": 17,
+          "change_from_previous": -0.005780183836871575
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.018875883265376377,
+          "news_count": 14,
+          "change_from_previous": 0.004531034235110939
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.021125188953784475,
+          "news_count": 23,
+          "change_from_previous": 0.002249305688408098
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.017723862896118787,
+          "news_count": 22,
+          "change_from_previous": -0.003401326057665688
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.010935693262259016
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.028659556158377803,
+          "news_count": 23,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03704826364019205,
+          "news_count": 24,
+          "change_from_previous": 0.008388707481814247
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03704826364019205,
+          "news_count": 24,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04074803011324447,
+          "news_count": 24,
+          "change_from_previous": 0.003699766473052417
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03868517172476646,
+          "news_count": 24,
+          "change_from_previous": -0.0020628583884780075
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04749440949821917,
+          "news_count": 25,
+          "change_from_previous": 0.00880923777345271
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03504907293146167,
+          "news_count": 26,
+          "change_from_previous": -0.012445336566757496
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.017897796528191918,
+          "news_count": 30,
+          "change_from_previous": -0.017151276403269754
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.032483128698945776,
+          "news_count": 28,
+          "change_from_previous": 0.014585332170753858
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.032483128698945776,
+          "news_count": 28,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.037116746968051784,
+          "news_count": 24,
+          "change_from_previous": 0.004633618269106007
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.040019230424649686,
+          "news_count": 25,
+          "change_from_previous": 0.0029024834565979027
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.040019230424649686,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.04079227718214287,
+          "news_count": 25,
+          "change_from_previous": 0.0007730467574931857
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.041677800140492424,
+          "news_count": 24,
+          "change_from_previous": 0.0008855229583495522
+        },
+        {
+          "date": "2025-07-16",
+          "sentiment": 0.024241043346634825,
+          "news_count": 24,
+          "change_from_previous": -0.0174367567938576
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "CBA.AX",
+      "analysis_period_days": 14,
+      "data_points": 70,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.5438674830719071,
+          "pearson_p_value": 1.1395074147933042e-06,
+          "spearman": -0.43663775033349506,
+          "spearman_p_value": 0.00015750273081647378,
+          "significance": "significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": -0.5666072072640781,
+          "interpretation": "moderate_negative"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.6967025423652269,
+          "interpretation": "strong_negative"
+        },
+        "lagged_correlations": {
+          "1_day": -0.559727864622999,
+          "2_day": -0.4808046380935844,
+          "3_day": -0.4028198902487196
+        },
+        "data_quality": {
+          "total_points": 70,
+          "valid_points": 70,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "management_change": {
+            "avg_price_change_event_days": -0.46979798240110565,
+            "avg_price_change_non_event_days": 0.3308987156209637,
+            "difference": -0.8006966980220693,
+            "event_count": 24,
+            "volatility_event_days": 0.06731962393805933,
+            "volatility_non_event_days": 0.6052359523250094
+          },
+          "dividend_announcement": {
+            "avg_price_change_event_days": -0.3901443291639414,
+            "avg_price_change_non_event_days": 0.15821167754507068,
+            "difference": -0.5483560067090121,
+            "event_count": 13,
+            "volatility_event_days": 5.551115123125783e-17,
+            "volatility_non_event_days": 0.6473602347798871
+          },
+          "rating_change": {
+            "avg_price_change_event_days": -0.30322503037095744,
+            "avg_price_change_non_event_days": 0.1462739243951999,
+            "difference": -0.4494989547661573,
+            "event_count": 14,
+            "volatility_event_days": 0.31339198862547873,
+            "volatility_non_event_days": 0.6468660552518962
+          },
+          "product_launch": {
+            "avg_price_change_event_days": 0.8267258539378335,
+            "avg_price_change_non_event_days": 0.03371672989797244,
+            "difference": 0.793009124039861,
+            "event_count": 2,
+            "volatility_event_days": 0.0,
+            "volatility_non_event_days": 0.6165435288480651
+          },
+          "legal_action": {
+            "avg_price_change_event_days": -0.4547734713984821,
+            "avg_price_change_non_event_days": 0.16212881030550993,
+            "difference": -0.6169022817039921,
+            "event_count": 12,
+            "volatility_event_days": 0.1772108677950357,
+            "volatility_non_event_days": 0.6284843956473388
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": 0.545986870406069,
+            "avg_price_change_non_event_days": -0.10067146143330903,
+            "difference": 0.646658331839378,
+            "event_count": 17,
+            "volatility_event_days": 0.4355174988675322,
+            "volatility_non_event_days": 0.5902264458205694
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "product_launch",
+            0.793009124039861
+          ],
+          "highest_impact_negative": [
+            "management_change",
+            -0.8006966980220693
+          ],
+          "most_frequent_event": [
+            "management_change",
+            24
+          ],
+          "average_impact": -0.16263108088699865
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 0.9857142857142858,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 0,
+            "down": 1,
+            "flat": 69
+          }
+        },
+        "total_predictions": 70,
+        "correct_predictions": 69,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 70
+        },
+        "price_distribution": {
+          "up": 0,
+          "down": 1,
+          "flat": 69
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.544 (significant). Strong correlation suggests news sentiment is a good predictor. ",
+      "recommendations": [
+        "Strong sentiment-price correlation detected. Consider sentiment-based trading strategies.",
+        "Negative correlation: Consider contrarian strategy - sell on positive sentiment.",
+        "Strong 1_day lagged correlation (-0.560). Sentiment may predict future price movements.",
+        "Strong 2_day lagged correlation (-0.481). Sentiment may predict future price movements.",
+        "Strong 3_day lagged correlation (-0.403). Sentiment may predict future price movements."
+      ],
+      "analysis_timestamp": "2025-07-16T10:55:56.840115",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 325,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.8374466395561778,
+      "ml_score": -0.8374466395561778
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.380626775725126,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.8294733537764556,
+      "z_score": 0.0,
+      "percentile_rank": 50.0,
+      "volatility_adjusted_score": 0.007612535514502409,
+      "market_adjusted_score": 0.007612535514502409,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8397342000019787,
+          "normalized_score": 50.38062677572432,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.0076125355144865915,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8397342000019787,
+          "normalized_score": 50.38062677572432,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.0076125355144865915,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8397342000019787,
+          "normalized_score": 50.38062677572432,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.0076125355144865915,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.38062677572432,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.8397342000019787,
+          "z_score": 0.0,
+          "percentile_rank": 50.0,
+          "volatility_adjusted_score": 0.0076125355144865915,
+          "market_adjusted_score": 0.0076125355144865915,
+          "improvement_over_legacy": {
+            "score_refinement": -0.9339014387074513,
+            "confidence_improvement": 0.09973420000197875,
+            "statistical_significance": 0.0,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Market regime adjustment applied; Volatility adjustment applied"
+    }
   }
 ]

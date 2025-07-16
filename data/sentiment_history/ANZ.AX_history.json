@@ -11666,5 +11666,1325 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-16T10:57:11.582230",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": -0.009965218855218854,
+      "positive_count": 2,
+      "negative_count": 2,
+      "neutral_count": 11,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 2,
+        "neutral": 11,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.04890648913376186,
+      "bullish_count": 3,
+      "bearish_count": 0,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "ANZ plus bonus interest question",
+          "score": 2,
+          "sentiment": 0.0035714285714285687,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyj36q/anz_plus_bonus_interest_question/"
+        },
+        {
+          "title": "ANZ plus bonus interest question",
+          "score": 2,
+          "sentiment": 0.0035714285714285687,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyj36q/anz_plus_bonus_interest_question/"
+        },
+        {
+          "title": "Best high interest savings accounts for low net-worth individuals?",
+          "score": 1,
+          "sentiment": 0.22925925925925933,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m0exep/best_high_interest_savings_accounts_for_low/"
+        },
+        {
+          "title": "ANZ Plus - Everyday account is -$60. Can I withdraw from savings via ATM?",
+          "score": 0,
+          "sentiment": -0.045454545454545456,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lv5tqn/anz_plus_everyday_account_is_60_can_i_withdraw/"
+        },
+        {
+          "title": "Income Assessment for Mortgage",
+          "score": 0,
+          "sentiment": 0.13333333333333333,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lxzocj/income_assessment_for_mortgage/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 27.27272727272727,
+        "bearish": 0.0,
+        "neutral": 72.72727272727273
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 6,
+          "avg_sentiment": 0.046471059804393144
+        },
+        "fiaustralia": {
+          "count": 5,
+          "avg_sentiment": 0.05182900432900432
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-16T10:56:22.147753",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "management_change",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-16T10:56:22.147753",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "product_launch",
+          "headline": "Shares of Westpac, ANZ Group Flat After New Zealand Launches Anti-Scam Alliance",
+          "date": "2025-07-16T10:56:22.147886",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "Shares of Westpac, ANZ Group Flat After New Zealand Launches Anti-Scam Alliance",
+          "date": "2025-07-16T10:56:22.147886",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-16T10:56:32.089198",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-16T10:56:32.089293",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-16T10:56:44.149859",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-16T10:56:44.149953",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.016647234113940996,
+    "sentiment_components": {
+      "news": -0.0017921102028458974,
+      "reddit": 0.009754645789077298,
+      "events": 0.009976294277929156,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "ANZ.AX",
+      "analysis_period_days": 7,
+      "data_points": 43,
+      "current_sentiment": 0.03146765413323582,
+      "average_sentiment": 0.033710588567872554,
+      "trend_direction": -0.011394096428115355,
+      "trend_description": "stable",
+      "volatility": 0.00412387483011512,
+      "momentum": -0.0002649789867003571,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.026301905468385685,
+        "max": 0.0437794267409464,
+        "range": 0.017477521272560713
+      },
+      "news_activity": {
+        "total_news": 1060,
+        "average_per_day": 24.651162790697676,
+        "max_daily_news": 25,
+        "min_daily_news": 16
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.04286175056135118,
+          "news_count": 25,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.04286175056135118,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0437794267409464,
+          "news_count": 25,
+          "change_from_previous": 0.0009176761795952199
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.029498855884569134,
+          "news_count": 25,
+          "change_from_previous": -0.014280570856377264
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.03503368051672172,
+          "news_count": 25,
+          "change_from_previous": 0.0055348246321525844
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.03503368051672172,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0015265872571716688
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0008566799690208279
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": -0.0025067631607629468
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.034151601475884245,
+          "news_count": 25,
+          "change_from_previous": -0.0007585831062670231
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0007585831062670231
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.035053556789235746,
+          "news_count": 25,
+          "change_from_previous": 0.0001433722070844773
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03399707528757059,
+          "news_count": 25,
+          "change_from_previous": -0.0010564815016651588
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03399707528757059,
+          "news_count": 25,
+          "change_from_previous": -0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.027983781385057728,
+          "news_count": 16,
+          "change_from_previous": -0.006156666109597329
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.040753846190789894,
+          "news_count": 19,
+          "change_from_previous": 0.012770064805732166
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.03232834417040438,
+          "news_count": 25,
+          "change_from_previous": -0.008425502020385514
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": -0.0008606900371685572
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03540768421497969,
+          "news_count": 25,
+          "change_from_previous": 0.003940030081743866
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.009105778746594004
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "ANZ.AX",
+      "analysis_period_days": 14,
+      "data_points": 47,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.23483725570911237,
+          "pearson_p_value": 0.11207828816238175,
+          "spearman": 0.05734553247581355,
+          "spearman_p_value": 0.7018160483710764,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": -0.11718304152680624,
+          "interpretation": "very_weak_negative"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.775271211540668,
+          "interpretation": "strong_negative"
+        },
+        "lagged_correlations": {
+          "1_day": -0.17091002705127353,
+          "2_day": -0.01138816602049301,
+          "3_day": 0.15937060067285683
+        },
+        "data_quality": {
+          "total_points": 47,
+          "valid_points": 47,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "product_launch": {
+            "avg_price_change_event_days": -0.17786208076266932,
+            "avg_price_change_non_event_days": -0.059211545648297115,
+            "difference": -0.11865053511437221,
+            "event_count": 36,
+            "volatility_event_days": 0.5483516258999108,
+            "volatility_non_event_days": 0.40748374933663645
+          },
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.13205350600767574,
+            "avg_price_change_non_event_days": -0.226348566747679,
+            "difference": 0.35840207275535474,
+            "event_count": 10,
+            "volatility_event_days": 0.0,
+            "volatility_non_event_days": 0.563739714915594
+          },
+          "management_change": {
+            "avg_price_change_event_days": -0.15912777740609715,
+            "avg_price_change_non_event_days": 0.2655158510931045,
+            "difference": -0.4246436284992017,
+            "event_count": 46,
+            "volatility_event_days": 0.5232304320800338,
+            "volatility_non_event_days": 0.0
+          },
+          "regulatory_news": {
+            "avg_price_change_event_days": -0.166717657240209,
+            "avg_price_change_non_event_days": -0.06904665965240145,
+            "difference": -0.09767099758780756,
+            "event_count": 39,
+            "volatility_event_days": 0.5362298342110436,
+            "volatility_non_event_days": 0.4319183441275615
+          },
+          "earnings_report": {
+            "avg_price_change_event_days": -0.1655984725930699,
+            "avg_price_change_non_event_days": 0.19878467855039011,
+            "difference": -0.36438315114346,
+            "event_count": 45,
+            "volatility_event_days": 0.5271886280044511,
+            "volatility_non_event_days": 0.06673117254271438
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.3859531124411805,
+            "avg_price_change_non_event_days": 0.09602229517395515,
+            "difference": -0.4819754076151357,
+            "event_count": 24,
+            "volatility_event_days": 0.4764967853895125,
+            "volatility_non_event_days": 0.44684576640612295
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "scandal_investigation",
+            0.35840207275535474
+          ],
+          "highest_impact_negative": [
+            "partnership_deal",
+            -0.4819754076151357
+          ],
+          "most_frequent_event": [
+            "management_change",
+            46
+          ],
+          "average_impact": -0.18815360786743707
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 1.0,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 47
+          }
+        },
+        "total_predictions": 47,
+        "correct_predictions": 47,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 47
+        },
+        "price_distribution": {
+          "up": 0,
+          "down": 0,
+          "flat": 47
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.235 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T10:57:11.648385",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 328,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.845577064539424,
+      "ml_score": -0.845577064539424
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.66734044939564,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.9528351468696583,
+      "z_score": -0.2870952808855967,
+      "percentile_rank": 56.25,
+      "volatility_adjusted_score": 0.013346808987912656,
+      "market_adjusted_score": 0.013346808987912656,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9521908157373205,
+          "normalized_score": 50.66734044939467,
+          "percentile_rank": 54.54545454545454,
+          "z_score": -0.28235948639596253,
+          "regime_adjusted": 0.013346808987893448,
+          "reasoning": "HOLD WEAK: Score at 54.5th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9521908157373205,
+          "normalized_score": 50.66734044939467,
+          "percentile_rank": 54.54545454545454,
+          "z_score": -0.28235948639596253,
+          "regime_adjusted": 0.013346808987893448,
+          "reasoning": "HOLD WEAK: Score at 54.5th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9521908157373205,
+          "normalized_score": 50.66734044939467,
+          "percentile_rank": 54.54545454545454,
+          "z_score": -0.28235948639596253,
+          "regime_adjusted": 0.013346808987893448,
+          "reasoning": "HOLD WEAK: Score at 54.5th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.66734044939467,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.9521908157373205,
+          "z_score": -0.28235948639596253,
+          "percentile_rank": 54.54545454545454,
+          "volatility_adjusted_score": 0.013346808987893448,
+          "market_adjusted_score": 0.013346808987893448,
+          "improvement_over_legacy": {
+            "score_refinement": -0.1650212563023743,
+            "confidence_improvement": 0.19219081573732044,
+            "statistical_significance": 0.28235948639596253,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
+  },
+  {
+    "symbol": "ANZ.AX",
+    "timestamp": "2025-07-16T10:58:12.805823",
+    "news_count": 25,
+    "sentiment_scores": {
+      "average_sentiment": -0.021687946127946126,
+      "positive_count": 1,
+      "negative_count": 2,
+      "neutral_count": 12,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 1,
+        "neutral": 12,
+        "negative": 2,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 11,
+      "average_sentiment": 0.04890648913376186,
+      "bullish_count": 3,
+      "bearish_count": 0,
+      "neutral_count": 8,
+      "top_posts": [
+        {
+          "title": "ANZ plus bonus interest question",
+          "score": 2,
+          "sentiment": 0.0035714285714285687,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyj36q/anz_plus_bonus_interest_question/"
+        },
+        {
+          "title": "Income Assessment for Mortgage",
+          "score": 2,
+          "sentiment": 0.13333333333333333,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lxzocj/income_assessment_for_mortgage/"
+        },
+        {
+          "title": "ANZ plus bonus interest question",
+          "score": 2,
+          "sentiment": 0.0035714285714285687,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lyj36q/anz_plus_bonus_interest_question/"
+        },
+        {
+          "title": "Best high interest savings accounts for low net-worth individuals?",
+          "score": 1,
+          "sentiment": 0.22925925925925933,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m0exep/best_high_interest_savings_accounts_for_low/"
+        },
+        {
+          "title": "ANZ Plus - Everyday account is -$60. Can I withdraw from savings via ATM?",
+          "score": 0,
+          "sentiment": -0.045454545454545456,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lv5tqn/anz_plus_everyday_account_is_60_can_i_withdraw/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 27.27272727272727,
+        "bearish": 0.0,
+        "neutral": 72.72727272727273
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 6,
+          "avg_sentiment": 0.046471059804393144
+        },
+        "fiaustralia": {
+          "count": 5,
+          "avg_sentiment": 0.05182900432900432
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": true,
+      "management_change": true,
+      "regulatory_news": true,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": false,
+      "partnership_deal": false,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "earnings_report",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-16T10:57:22.132724",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "management_change",
+          "headline": "ANZ 2025 Half Year Results \u2013 Chief Executive Officer Shayne Elliott Speaking Notes",
+          "date": "2025-07-16T10:57:22.132724",
+          "source": "Google News",
+          "relevance": "medium",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-16T10:57:33.337554",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-16T10:57:33.337663",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        },
+        {
+          "type": "regulatory_news",
+          "headline": "BRIEF-Australia and New Zealand Banking says Kevin Corbally appointed group general manager internal audit",
+          "date": "2025-07-16T10:57:45.773452",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": 0.0
+        },
+        {
+          "type": "management_change",
+          "headline": "BRIEF-ANZ says Ian Macfarlane to retire as non-executive director",
+          "date": "2025-07-16T10:57:45.773546",
+          "source": "Investing.com Australia",
+          "relevance": "high",
+          "sentiment_impact": -0.05
+        }
+      ]
+    },
+    "overall_sentiment": 0.01563634626652955,
+    "sentiment_components": {
+      "news": -0.003900284589766878,
+      "reddit": 0.009754645789077298,
+      "events": 0.010995149863760219,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "ANZ.AX",
+      "analysis_period_days": 7,
+      "data_points": 44,
+      "current_sentiment": 0.016647234113940996,
+      "average_sentiment": 0.033322785057555926,
+      "trend_direction": -0.026214516447410182,
+      "trend_description": "stable",
+      "volatility": 0.004804859310888835,
+      "momentum": -0.0005957844647138678,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": 0.016647234113940996,
+        "max": 0.0437794267409464,
+        "range": 0.027132192627005402
+      },
+      "news_activity": {
+        "total_news": 1085,
+        "average_per_day": 24.65909090909091,
+        "max_daily_news": 25,
+        "min_daily_news": 16
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.04286175056135118,
+          "news_count": 25,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": 0.04286175056135118,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.0437794267409464,
+          "news_count": 25,
+          "change_from_previous": 0.0009176761795952199
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.029498855884569134,
+          "news_count": 25,
+          "change_from_previous": -0.014280570856377264
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.03503368051672172,
+          "news_count": 25,
+          "change_from_previous": 0.0055348246321525844
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.03503368051672172,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0015265872571716688
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03656026777389339,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0008566799690208279
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.037416947742914215,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": -0.0025067631607629468
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.034151601475884245,
+          "news_count": 25,
+          "change_from_previous": -0.0007585831062670231
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0007585831062670231
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03491018458215127,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.035053556789235746,
+          "news_count": 25,
+          "change_from_previous": 0.0001433722070844773
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03399707528757059,
+          "news_count": 25,
+          "change_from_previous": -0.0010564815016651588
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03399707528757059,
+          "news_count": 25,
+          "change_from_previous": -0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.00014337220708447035
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.03414044749465506,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.027983781385057728,
+          "news_count": 16,
+          "change_from_previous": -0.006156666109597329
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.040753846190789894,
+          "news_count": 19,
+          "change_from_previous": 0.012770064805732166
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.03232834417040438,
+          "news_count": 25,
+          "change_from_previous": -0.008425502020385514
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": -0.0008606900371685572
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03540768421497969,
+          "news_count": 25,
+          "change_from_previous": 0.003940030081743866
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.009105778746594004
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.026301905468385685,
+          "news_count": 25,
+          "change_from_previous": -0.005165748664850138
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.03146765413323582,
+          "news_count": 25,
+          "change_from_previous": 0.005165748664850138
+        },
+        {
+          "date": "2025-07-16",
+          "sentiment": 0.016647234113940996,
+          "news_count": 25,
+          "change_from_previous": -0.014820420019294827
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "ANZ.AX",
+      "analysis_period_days": 14,
+      "data_points": 48,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": -0.22274262047019666,
+          "pearson_p_value": 0.12808005186441684,
+          "spearman": 0.06687375719884205,
+          "spearman_p_value": 0.6515512160155809,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": -0.08314417942496163,
+          "interpretation": "very_weak_negative"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.43441205231935776,
+          "interpretation": "moderate_negative"
+        },
+        "lagged_correlations": {
+          "1_day": -0.1715902800636095,
+          "2_day": -0.008738263444305651,
+          "3_day": 0.15645933830048378
+        },
+        "data_quality": {
+          "total_points": 48,
+          "valid_points": 48,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "management_change": {
+            "avg_price_change_event_days": -0.1669810782039392,
+            "avg_price_change_non_event_days": 0.2655158510931045,
+            "difference": -0.4324969292970437,
+            "event_count": 47,
+            "volatility_event_days": 0.5203673788443582,
+            "volatility_non_event_days": 0.0
+          },
+          "regulatory_news": {
+            "avg_price_change_event_days": -0.1757555386818206,
+            "avg_price_change_non_event_days": -0.06904665965240145,
+            "difference": -0.10670887902941914,
+            "event_count": 40,
+            "volatility_event_days": 0.5324842936253666,
+            "volatility_non_event_days": 0.4319183441275615
+          },
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.13205350600767574,
+            "avg_price_change_non_event_days": -0.2342928916991788,
+            "difference": 0.3663463977068545,
+            "event_count": 10,
+            "volatility_event_days": 0.0,
+            "volatility_non_event_days": 0.5583676194405276
+          },
+          "product_launch": {
+            "avg_price_change_event_days": -0.18733156276650725,
+            "avg_price_change_non_event_days": -0.059211545648297115,
+            "difference": -0.12812001711821014,
+            "event_count": 37,
+            "volatility_event_days": 0.5438666393987645,
+            "volatility_non_event_days": 0.40748374933663645
+          },
+          "earnings_report": {
+            "avg_price_change_event_days": -0.1734818300346265,
+            "avg_price_change_non_event_days": 0.19878467855039011,
+            "difference": -0.37226650858501664,
+            "event_count": 46,
+            "volatility_event_days": 0.5241016784273328,
+            "volatility_non_event_days": 0.06673117254271438
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.39164430453972016,
+            "avg_price_change_non_event_days": 0.09602229517395515,
+            "difference": -0.4876665997136753,
+            "event_count": 25,
+            "volatility_event_days": 0.4677013695159948,
+            "volatility_non_event_days": 0.44684576640612295
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "scandal_investigation",
+            0.3663463977068545
+          ],
+          "highest_impact_negative": [
+            "partnership_deal",
+            -0.4876665997136753
+          ],
+          "most_frequent_event": [
+            "management_change",
+            47
+          ],
+          "average_impact": -0.19348542267275173
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 1.0,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 48
+          }
+        },
+        "total_predictions": 48,
+        "correct_predictions": 48,
+        "sentiment_distribution": {
+          "positive": 0,
+          "negative": 0,
+          "neutral": 48
+        },
+        "price_distribution": {
+          "up": 0,
+          "down": 0,
+          "flat": 48
+        }
+      },
+      "summary": "Sentiment-price correlation: -0.223 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T10:58:13.065098",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 329,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.8455729157836565,
+      "ml_score": -0.8455729157836565
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.4016707217503,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.8911039681356535,
+      "z_score": 0.0,
+      "percentile_rank": 50.0,
+      "volatility_adjusted_score": 0.008033414435006157,
+      "market_adjusted_score": 0.008033414435006157,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8956505331666966,
+          "normalized_score": 50.40167072174921,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.008033414434984329,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8956505331666966,
+          "normalized_score": 50.40167072174921,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.008033414434984329,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8956505331666966,
+          "normalized_score": 50.40167072174921,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.008033414434984329,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.40167072174921,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.8956505331666966,
+          "z_score": 0.0,
+          "percentile_rank": 50.0,
+          "volatility_adjusted_score": 0.008033414434984329,
+          "market_adjusted_score": 0.008033414434984329,
+          "improvement_over_legacy": {
+            "score_refinement": -0.3801465915772724,
+            "confidence_improvement": 0.13565053316669662,
+            "statistical_significance": 0.0,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
   }
 ]

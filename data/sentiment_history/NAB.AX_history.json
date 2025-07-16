@@ -9524,5 +9524,1273 @@
       "",
       ""
     ]
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-16T10:58:19.038623",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.09276363636363635,
+      "positive_count": 0,
+      "negative_count": 4,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 6,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 28,
+      "average_sentiment": 0.12252779318798226,
+      "bullish_count": 14,
+      "bearish_count": 3,
+      "neutral_count": 11,
+      "top_posts": [
+        {
+          "title": "Pensioner robbed of $1,338 is taking NAB to court for millions",
+          "score": 477,
+          "sentiment": 0.0,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lz7k5b/pensioner_robbed_of_1338_is_taking_nab_to_court/"
+        },
+        {
+          "title": "Cutting income taxes, lifting the GST, wealth taxes: CBA\u2019s pitch to Chalmers on reform",
+          "score": 251,
+          "sentiment": -0.021333333333333333,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lzi0wy/cutting_income_taxes_lifting_the_gst_wealth_taxes/"
+        },
+        {
+          "title": "Ubank dropping the top ongoing bonus rate on its Save account to 4.60% p.a.",
+          "score": 247,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m01gy3/ubank_dropping_the_top_ongoing_bonus_rate_on_its/"
+        },
+        {
+          "title": "Is it just me, or are Australian home loans intentionally designed to confuse the hell out of us?",
+          "score": 197,
+          "sentiment": 0.24285714285714285,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m0g0j7/is_it_just_me_or_are_australian_home_loans/"
+        },
+        {
+          "title": "UBank changing their interest structure",
+          "score": 176,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 50.0,
+        "bearish": 10.714285714285714,
+        "neutral": 39.285714285714285
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 21,
+          "avg_sentiment": 0.12651803583386217
+        },
+        "fiaustralia": {
+          "count": 6,
+          "avg_sentiment": 0.12898324279206633
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-16T10:57:38.099284",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-16T10:57:38.099363",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-16T10:57:50.723000",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-16T10:57:50.723082",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.013225579019461475,
+    "sentiment_components": {
+      "news": -0.01668228882833787,
+      "reddit": 0.024438785998256954,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "NAB.AX",
+      "analysis_period_days": 7,
+      "data_points": 42,
+      "current_sentiment": 0.0018777259350553869,
+      "average_sentiment": -0.0009656140434554162,
+      "trend_direction": 0.0047387341594755305,
+      "trend_description": "stable",
+      "volatility": 0.007723519621505288,
+      "momentum": 0.00011282700379703644,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": -0.032270703396254104,
+        "max": 0.01794421513665263,
+        "range": 0.05021491853290673
+      },
+      "news_activity": {
+        "total_news": 731,
+        "average_per_day": 17.404761904761905,
+        "max_daily_news": 20,
+        "min_daily_news": 11
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": -0.0028610082244201434,
+          "news_count": 16,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": -0.0028610082244201434,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.005216044127822086,
+          "news_count": 16,
+          "change_from_previous": 0.00807705235224223
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.005216044127822086,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": -0.007471616209448054,
+          "news_count": 18,
+          "change_from_previous": -0.012687660337270139
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": -0.004336090273642652
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.010333740362949205,
+          "news_count": 17,
+          "change_from_previous": 0.001473966120141501
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.004835003023582517,
+          "news_count": 16,
+          "change_from_previous": 0.015168743386531722
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.004835003023582517,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.012057776394965148,
+          "news_count": 18,
+          "change_from_previous": 0.007222773371382631
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": -0.011616406165823288
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0009773638516534246,
+          "news_count": 17,
+          "change_from_previous": 0.0005359936225115644
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": -0.0005359936225115644
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": -0.032270703396254104,
+          "news_count": 11,
+          "change_from_previous": -0.032712073625395965
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.032712073625395965
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": -0.004921734664826543,
+          "news_count": 17,
+          "change_from_previous": -0.005363104893968403
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": -0.004921734664826543,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.0036298593873338326,
+          "news_count": 20,
+          "change_from_previous": 0.008551594052160376
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.0036298593873338326,
+          "news_count": 20,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0020392054363801556,
+          "news_count": 20,
+          "change_from_previous": -0.001590653950953677
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.01794421513665263,
+          "news_count": 20,
+          "change_from_previous": 0.015905009700272473
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.007450408504600419,
+          "news_count": 19,
+          "change_from_previous": -0.01049380663205221
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004333604090010538,
+          "news_count": 18,
+          "change_from_previous": -0.011784012594610958
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.006575301414076653,
+          "news_count": 20,
+          "change_from_previous": 0.01090890550408719
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.005933257712403654,
+          "news_count": 20,
+          "change_from_previous": -0.0006420437016729985
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": -0.01090890550408719
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.00027065166106934614,
+          "news_count": 18,
+          "change_from_previous": 0.00470499613061419
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.003516032743202472,
+          "news_count": 17,
+          "change_from_previous": -0.0032453810821331257
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.003516032743202472,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0018777259350553869,
+          "news_count": 19,
+          "change_from_previous": 0.005393758678257859
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "NAB.AX",
+      "analysis_period_days": 14,
+      "data_points": 44,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": 0.12270346898891177,
+          "pearson_p_value": 0.42748862534557625,
+          "spearman": 0.30408547413658793,
+          "spearman_p_value": 0.044770044184827364,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": 0.5840166751375198,
+          "interpretation": "moderate_positive"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.5557825243929609,
+          "interpretation": "moderate_negative"
+        },
+        "lagged_correlations": {
+          "1_day": 0.29540840983519084,
+          "2_day": 0.3758007344844393,
+          "3_day": 0.4093953713812577
+        },
+        "data_quality": {
+          "total_points": 44,
+          "valid_points": 44,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "product_launch": {
+            "avg_price_change_event_days": -0.00452206772937686,
+            "avg_price_change_non_event_days": 0.3332551670094515,
+            "difference": -0.33777723473882837,
+            "event_count": 38,
+            "volatility_event_days": 0.40733807030334457,
+            "volatility_non_event_days": 0.43432431791549764
+          },
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.2389145724325449,
+            "avg_price_change_non_event_days": 0.004197038413853363,
+            "difference": 0.23471753401869155,
+            "event_count": 7,
+            "volatility_event_days": 0.46377825455272303,
+            "volatility_non_event_days": 0.40929192186077096
+          },
+          "capital_raising": {
+            "avg_price_change_event_days": -0.03778337416656963,
+            "avg_price_change_non_event_days": 0.05170793074803175,
+            "difference": -0.08949130491460137,
+            "event_count": 5,
+            "volatility_event_days": 0.5786912417246504,
+            "volatility_non_event_days": 0.4025001971379988
+          },
+          "management_change": {
+            "avg_price_change_event_days": 0.3331684169760619,
+            "avg_price_change_non_event_days": -0.02326819187411407,
+            "difference": 0.356436608850176,
+            "event_count": 8,
+            "volatility_event_days": 0.40633883448727104,
+            "volatility_non_event_days": 0.4039970455483239
+          },
+          "earnings_report": {
+            "avg_price_change_event_days": 0.27183243292299747,
+            "avg_price_change_non_event_days": 0.012013596505779524,
+            "difference": 0.2598188364172179,
+            "event_count": 5,
+            "volatility_event_days": 0.4513630713554037,
+            "volatility_non_event_days": 0.41480128433020075
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.00452206772937686,
+            "avg_price_change_non_event_days": 0.3332551670094515,
+            "difference": -0.33777723473882837,
+            "event_count": 38,
+            "volatility_event_days": 0.40733807030334457,
+            "volatility_non_event_days": 0.43432431791549764
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "management_change",
+            0.356436608850176
+          ],
+          "highest_impact_negative": [
+            "product_launch",
+            -0.33777723473882837
+          ],
+          "most_frequent_event": [
+            "product_launch",
+            38
+          ],
+          "average_impact": 0.014321200815637888
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 0.8863636363636364,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 2
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 3,
+            "down": 0,
+            "flat": 39
+          }
+        },
+        "total_predictions": 44,
+        "correct_predictions": 39,
+        "sentiment_distribution": {
+          "positive": 2,
+          "negative": 0,
+          "neutral": 42
+        },
+        "price_distribution": {
+          "up": 3,
+          "down": 0,
+          "flat": 41
+        }
+      },
+      "summary": "Sentiment-price correlation: 0.123 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T10:58:19.303361",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 330,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.7711756137759935,
+      "ml_score": -0.7711756137759935
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.38254409446885,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.9273630767726379,
+      "z_score": -0.5553476860262241,
+      "percentile_rank": 29.411764705882355,
+      "volatility_adjusted_score": 0.007650881889377025,
+      "market_adjusted_score": 0.007650881889377025,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9275386286526205,
+          "normalized_score": 50.38254409446817,
+          "percentile_rank": 28.57142857142857,
+          "z_score": -0.5449608933250201,
+          "regime_adjusted": 0.007650881889363473,
+          "reasoning": "HOLD WEAK: Score at 28.6th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9275386286526205,
+          "normalized_score": 50.38254409446817,
+          "percentile_rank": 28.57142857142857,
+          "z_score": -0.5449608933250201,
+          "regime_adjusted": 0.007650881889363473,
+          "reasoning": "HOLD WEAK: Score at 28.6th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.9275386286526205,
+          "normalized_score": 50.38254409446817,
+          "percentile_rank": 28.57142857142857,
+          "z_score": -0.5449608933250201,
+          "regime_adjusted": 0.007650881889363473,
+          "reasoning": "HOLD WEAK: Score at 28.6th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.38254409446817,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.9275386286526205,
+          "z_score": -0.5449608933250201,
+          "percentile_rank": 28.57142857142857,
+          "volatility_adjusted_score": 0.007650881889363473,
+          "market_adjusted_score": 0.007650881889363473,
+          "improvement_over_legacy": {
+            "score_refinement": -0.27873485650490437,
+            "confidence_improvement": 0.16753862865262048,
+            "statistical_significance": 0.5449608933250201,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
+  },
+  {
+    "symbol": "NAB.AX",
+    "timestamp": "2025-07-16T10:59:29.448659",
+    "news_count": 20,
+    "sentiment_scores": {
+      "average_sentiment": -0.09276363636363635,
+      "positive_count": 0,
+      "negative_count": 4,
+      "neutral_count": 6,
+      "sentiment_distribution": {
+        "very_positive": 0,
+        "positive": 0,
+        "neutral": 6,
+        "negative": 4,
+        "very_negative": 0
+      },
+      "strongest_sentiment": -0.28595
+    },
+    "reddit_sentiment": {
+      "posts_analyzed": 23,
+      "average_sentiment": 0.11644791386031796,
+      "bullish_count": 11,
+      "bearish_count": 2,
+      "neutral_count": 10,
+      "top_posts": [
+        {
+          "title": "Pensioner robbed of $1,338 is taking NAB to court for millions",
+          "score": 479,
+          "sentiment": 0.0,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1lz7k5b/pensioner_robbed_of_1338_is_taking_nab_to_court/"
+        },
+        {
+          "title": "Ubank dropping the top ongoing bonus rate on its Save account to 4.60% p.a.",
+          "score": 242,
+          "sentiment": 0.5,
+          "category": "bullish",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m01gy3/ubank_dropping_the_top_ongoing_bonus_rate_on_its/"
+        },
+        {
+          "title": "UBank changing their interest structure",
+          "score": 177,
+          "sentiment": 0.08019480519480522,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m05w33/ubank_changing_their_interest_structure/"
+        },
+        {
+          "title": "Ubank changed their bonus interest rules -- Where to go?",
+          "score": 22,
+          "sentiment": 0.1782828282828283,
+          "category": "bullish",
+          "subreddit": "fiaustralia",
+          "url": "https://reddit.com/r/fiaustralia/comments/1m0buyp/ubank_changed_their_bonus_interest_rules_where_to/"
+        },
+        {
+          "title": "Ubank Savings changes. Thoughts?",
+          "score": 21,
+          "sentiment": 0.08333333333333334,
+          "category": "neutral",
+          "subreddit": "AusFinance",
+          "url": "https://reddit.com/r/AusFinance/comments/1m0tttd/ubank_savings_changes_thoughts/"
+        }
+      ],
+      "sentiment_distribution": {
+        "bullish": 47.82608695652174,
+        "bearish": 8.695652173913043,
+        "neutral": 43.47826086956522
+      },
+      "subreddit_breakdown": {
+        "AusFinance": {
+          "count": 16,
+          "avg_sentiment": 0.11902516012718219
+        },
+        "fiaustralia": {
+          "count": 6,
+          "avg_sentiment": 0.12898324279206633
+        },
+        "ASX": {
+          "count": 1,
+          "avg_sentiment": 0.0
+        }
+      }
+    },
+    "significant_events": {
+      "dividend_announcement": false,
+      "earnings_report": false,
+      "management_change": false,
+      "regulatory_news": false,
+      "merger_acquisition": false,
+      "scandal_investigation": false,
+      "rating_change": false,
+      "capital_raising": false,
+      "branch_closure": false,
+      "product_launch": true,
+      "partnership_deal": true,
+      "legal_action": false,
+      "events_detected": [
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-16T10:58:40.372452",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-16T10:58:40.372531",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "product_launch",
+          "headline": "BRIEF-NAB Launches First No Interest Credit Card",
+          "date": "2025-07-16T10:58:59.536058",
+          "source": "Investing.com Australia",
+          "relevance": "medium",
+          "sentiment_impact": 0.1
+        },
+        {
+          "type": "partnership_deal",
+          "headline": "BRIEF-NAB To No Longer Deal With Unlicensed, Fee-Charging Debt Management Providers",
+          "date": "2025-07-16T10:58:59.536173",
+          "source": "Investing.com Australia",
+          "relevance": "low",
+          "sentiment_impact": 0.1
+        }
+      ]
+    },
+    "overall_sentiment": 0.012100228145411052,
+    "sentiment_components": {
+      "news": -0.01668228882833787,
+      "reddit": 0.02322612341846124,
+      "events": 0.006495204359673025,
+      "volume": -0.0,
+      "momentum": 0.0,
+      "ml_trading": 0.0
+    },
+    "confidence": 0.76,
+    "recent_headlines": [
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      "My new job is not what I thought it would be. Can I walk out?",
+      ""
+    ],
+    "trend_analysis": {
+      "symbol": "NAB.AX",
+      "analysis_period_days": 7,
+      "data_points": 43,
+      "current_sentiment": 0.013225579019461475,
+      "average_sentiment": -0.0006355862978061863,
+      "trend_direction": 0.01608658724388162,
+      "trend_description": "stable",
+      "volatility": 0.007927171696476524,
+      "momentum": 0.0003741066800902702,
+      "significant_changes": [],
+      "sentiment_range": {
+        "min": -0.032270703396254104,
+        "max": 0.01794421513665263,
+        "range": 0.05021491853290673
+      },
+      "news_activity": {
+        "total_news": 751,
+        "average_per_day": 17.46511627906977,
+        "max_daily_news": 20,
+        "min_daily_news": 11
+      },
+      "daily_data": [
+        {
+          "date": "2025-07-09",
+          "sentiment": -0.0028610082244201434,
+          "news_count": 16,
+          "change_from_previous": 0
+        },
+        {
+          "date": "2025-07-09",
+          "sentiment": -0.0028610082244201434,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.005216044127822086,
+          "news_count": 16,
+          "change_from_previous": 0.00807705235224223
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": 0.005216044127822086,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-10",
+          "sentiment": -0.007471616209448054,
+          "news_count": 18,
+          "change_from_previous": -0.012687660337270139
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": -0.004336090273642652
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.011807706483090706,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": -0.010333740362949205,
+          "news_count": 17,
+          "change_from_previous": 0.001473966120141501
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.004835003023582517,
+          "news_count": 16,
+          "change_from_previous": 0.015168743386531722
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.004835003023582517,
+          "news_count": 16,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.012057776394965148,
+          "news_count": 18,
+          "change_from_previous": 0.007222773371382631
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": -0.011616406165823288
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0009773638516534246,
+          "news_count": 17,
+          "change_from_previous": 0.0005359936225115644
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": -0.0005359936225115644
+        },
+        {
+          "date": "2025-07-11",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": -0.032270703396254104,
+          "news_count": 11,
+          "change_from_previous": -0.032712073625395965
+        },
+        {
+          "date": "2025-07-12",
+          "sentiment": 0.0004413702291418602,
+          "news_count": 17,
+          "change_from_previous": 0.032712073625395965
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": -0.004921734664826543,
+          "news_count": 17,
+          "change_from_previous": -0.005363104893968403
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": -0.004921734664826543,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.0036298593873338326,
+          "news_count": 20,
+          "change_from_previous": 0.008551594052160376
+        },
+        {
+          "date": "2025-07-13",
+          "sentiment": 0.0036298593873338326,
+          "news_count": 20,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0020392054363801556,
+          "news_count": 20,
+          "change_from_previous": -0.001590653950953677
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.01794421513665263,
+          "news_count": 20,
+          "change_from_previous": 0.015905009700272473
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.007450408504600419,
+          "news_count": 19,
+          "change_from_previous": -0.01049380663205221
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004333604090010538,
+          "news_count": 18,
+          "change_from_previous": -0.011784012594610958
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.006575301414076653,
+          "news_count": 20,
+          "change_from_previous": 0.01090890550408719
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.005933257712403654,
+          "news_count": 20,
+          "change_from_previous": -0.0006420437016729985
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": -0.01090890550408719
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.004975647791683536,
+          "news_count": 18,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.00027065166106934614,
+          "news_count": 18,
+          "change_from_previous": 0.00470499613061419
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.003516032743202472,
+          "news_count": 17,
+          "change_from_previous": -0.0032453810821331257
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": -0.003516032743202472,
+          "news_count": 17,
+          "change_from_previous": 0.0
+        },
+        {
+          "date": "2025-07-14",
+          "sentiment": 0.0018777259350553869,
+          "news_count": 19,
+          "change_from_previous": 0.005393758678257859
+        },
+        {
+          "date": "2025-07-16",
+          "sentiment": 0.013225579019461475,
+          "news_count": 20,
+          "change_from_previous": 0.011347853084406088
+        }
+      ]
+    },
+    "impact_analysis": {
+      "symbol": "NAB.AX",
+      "analysis_period_days": 14,
+      "data_points": 45,
+      "correlations": {
+        "sentiment_vs_price": {
+          "pearson": 0.12313740269680992,
+          "pearson_p_value": 0.4203236767273752,
+          "spearman": 0.254126971378511,
+          "spearman_p_value": 0.09207645763029669,
+          "significance": "not_significant"
+        },
+        "sentiment_vs_volatility": {
+          "pearson": 0.5291921655234516,
+          "interpretation": "moderate_positive"
+        },
+        "sentiment_vs_volume": {
+          "pearson": -0.31178288859670683,
+          "interpretation": "weak_negative"
+        },
+        "lagged_correlations": {
+          "1_day": 0.2986862016211462,
+          "2_day": 0.3803544153613216,
+          "3_day": 0.4132858639924964
+        },
+        "data_quality": {
+          "total_points": 45,
+          "valid_points": 45,
+          "data_completeness": 1.0
+        }
+      },
+      "event_impact": {
+        "event_type_impacts": {
+          "management_change": {
+            "avg_price_change_event_days": 0.3331684169760619,
+            "avg_price_change_non_event_days": -0.03969753099448407,
+            "difference": 0.372865947970546,
+            "event_count": 8,
+            "volatility_event_days": 0.40633883448727104,
+            "volatility_non_event_days": 0.41051147207926886
+          },
+          "capital_raising": {
+            "avg_price_change_event_days": -0.03778337416656963,
+            "avg_price_change_non_event_days": 0.034636388996135824,
+            "difference": -0.07241976316270546,
+            "event_count": 5,
+            "volatility_event_days": 0.5786912417246504,
+            "volatility_non_event_days": 0.41148792503839876
+          },
+          "scandal_investigation": {
+            "avg_price_change_event_days": 0.2389145724325449,
+            "avg_price_change_non_event_days": -0.012522718895137628,
+            "difference": 0.25143729132768255,
+            "event_count": 7,
+            "volatility_event_days": 0.46377825455272303,
+            "volatility_non_event_days": 0.4164790751073026
+          },
+          "product_launch": {
+            "avg_price_change_event_days": -0.0205895464883109,
+            "avg_price_change_non_event_days": 0.3332551670094515,
+            "difference": -0.3538447134977624,
+            "event_count": 39,
+            "volatility_event_days": 0.4141015109811611,
+            "volatility_non_event_days": 0.43432431791549764
+          },
+          "earnings_report": {
+            "avg_price_change_event_days": 0.27183243292299747,
+            "avg_price_change_non_event_days": -0.004065586890060075,
+            "difference": 0.27589801981305756,
+            "event_count": 5,
+            "volatility_event_days": 0.4513630713554037,
+            "volatility_non_event_days": 0.4217127793336824
+          },
+          "partnership_deal": {
+            "avg_price_change_event_days": -0.0205895464883109,
+            "avg_price_change_non_event_days": 0.3332551670094515,
+            "difference": -0.3538447134977624,
+            "event_count": 39,
+            "volatility_event_days": 0.4141015109811611,
+            "volatility_non_event_days": 0.43432431791549764
+          }
+        },
+        "summary": {
+          "highest_impact_positive": [
+            "management_change",
+            0.372865947970546
+          ],
+          "highest_impact_negative": [
+            "product_launch",
+            -0.3538447134977624
+          ],
+          "most_frequent_event": [
+            "product_launch",
+            39
+          ],
+          "average_impact": 0.020015344825509308
+        }
+      },
+      "predictive_metrics": {
+        "prediction_accuracy": 0.8888888888888888,
+        "confusion_matrix": {
+          "positive_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 2
+          },
+          "negative_sentiment": {
+            "up": 0,
+            "down": 0,
+            "flat": 0
+          },
+          "neutral_sentiment": {
+            "up": 3,
+            "down": 0,
+            "flat": 40
+          }
+        },
+        "total_predictions": 45,
+        "correct_predictions": 40,
+        "sentiment_distribution": {
+          "positive": 2,
+          "negative": 0,
+          "neutral": 43
+        },
+        "price_distribution": {
+          "up": 3,
+          "down": 0,
+          "flat": 42
+        }
+      },
+      "summary": "Sentiment-price correlation: 0.123 (not_significant). Weak correlation suggests other factors dominate price movements. ",
+      "recommendations": [
+        "No significant sentiment-price correlation. Focus on technical/fundamental analysis."
+      ],
+      "analysis_timestamp": "2025-07-16T10:59:29.522662",
+      "analysis_version": "1.0"
+    },
+    "ml_feature_id": 331,
+    "ml_prediction": {
+      "prediction": "SELL",
+      "confidence": 0.7711693722204642,
+      "ml_score": -0.7711693722204642
+    },
+    "enhanced_sentiment": {
+      "normalized_score": 50.32691251674621,
+      "strength_category": "NEUTRAL",
+      "confidence": 0.87635957315355,
+      "z_score": 0.0,
+      "percentile_rank": 50.0,
+      "volatility_adjusted_score": 0.006538250334924283,
+      "market_adjusted_score": 0.006538250334924283,
+      "trading_signals": {
+        "conservative": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8797686421702783,
+          "normalized_score": 50.32691251674547,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.006538250334909404,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "moderate": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8797686421702783,
+          "normalized_score": 50.32691251674547,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.006538250334909404,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "aggressive": {
+          "signal": "HOLD",
+          "strength": "WEAK",
+          "confidence": 0.8797686421702783,
+          "normalized_score": 50.32691251674547,
+          "percentile_rank": 50.0,
+          "z_score": 0.0,
+          "regime_adjusted": 0.006538250334909404,
+          "reasoning": "HOLD WEAK: Score at 50.0th percentile; High confidence in analysis"
+        },
+        "enhanced_analysis": {
+          "normalized_score": 50.32691251674547,
+          "strength_category": "NEUTRAL",
+          "confidence": 0.8797686421702783,
+          "z_score": 0.0,
+          "percentile_rank": 50.0,
+          "volatility_adjusted_score": 0.006538250334909404,
+          "market_adjusted_score": 0.006538250334909404,
+          "improvement_over_legacy": {
+            "score_refinement": -0.2780988905250794,
+            "confidence_improvement": 0.11976864217027827,
+            "statistical_significance": 0.0,
+            "market_adjustment_applied": "True",
+            "volatility_adjustment_applied": "True",
+            "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+          }
+        }
+      },
+      "enhancement_summary": "Significantly improved confidence; Market regime adjustment applied; Volatility adjustment applied"
+    }
   }
 ]

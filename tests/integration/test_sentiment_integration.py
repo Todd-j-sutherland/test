@@ -16,12 +16,12 @@ sys.path.insert(0, parent_dir)
 sys.path.insert(0, os.path.join(parent_dir, 'src'))
 
 try:
-    from src.enhanced_sentiment_integration import (
+    from app.core.sentiment.integration import (
         SentimentIntegrationManager, 
         enhance_existing_sentiment, 
         get_enhanced_trading_signals
     )
-    from enhanced_sentiment_scoring import SentimentMetrics, SentimentStrength
+    from app.core.sentiment.enhanced_scoring import SentimentMetrics, SentimentStrength
     INTEGRATION_AVAILABLE = True
 except ImportError as e:
     INTEGRATION_AVAILABLE = False
