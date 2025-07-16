@@ -19,15 +19,15 @@ import warnings
 
 # Import modules to test
 import sys
-sys.path.append('/Users/toddsutherland/Repos/trading_analysis/src')
+sys.path.append('/Users/toddsutherland/Repos/trading_analysis/app')
 
-from temporal_sentiment_analyzer import (
+from app.core.sentiment.temporal_analyzer import (
     SentimentDataPoint, TemporalSentimentAnalyzer
 )
-from enhanced_ensemble_learning import (
+from app.core.ml.ensemble.enhanced_ensemble import (
     ModelPrediction, EnhancedTransformerEnsemble
 )
-from advanced_feature_engineering import (
+from app.core.ml.training.feature_engineering import (
     MarketMicrostructureFeatures, AdvancedFeatureEngineer
 )
 

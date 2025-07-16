@@ -23,12 +23,13 @@ class ChartGenerator:
             'info': '#17a2b8'
         }
     
-    def create_sentiment_overview_chart(self, sentiment_data: Dict[str, Any]) -> go.Figure:
+    def create_sentiment_overview_chart(self, sentiment_data: Dict[str, Any], bank_names: Dict[str, str] = None) -> go.Figure:
         """
         Create a sentiment overview chart
         
         Args:
             sentiment_data: Dictionary containing sentiment analysis data
+            bank_names: Optional dictionary mapping symbols to display names
             
         Returns:
             Plotly figure object
@@ -36,7 +37,7 @@ class ChartGenerator:
         try:
             if not sentiment_data:
                 return self._create_empty_chart("No sentiment data available")
-            
+                
             # Extract sentiment values
             symbols = list(sentiment_data.keys())
             sentiments = [sentiment_data[symbol].get('sentiment', 0) for symbol in symbols]
@@ -70,7 +71,48 @@ class ChartGenerator:
         except Exception as e:
             return self._create_empty_chart(f"Error creating sentiment chart: {str(e)}")
     
-    def create_confidence_distribution_chart(self, confidence_data: Dict[str, Any]) -> go.Figure:
+    def create_historical_trends_chart(self, historical_data: pd.DataFrame, symbol: str = None, bank_names: Dict[str, str] = None) -> go.Figure:
+        """
+        Create a historical trends chart
+        
+        Args:
+            historical_data: DataFrame containing historical data
+            symbol: Optional symbol being analyzed
+            bank_names: Optional dictionary mapping symbols to display names
+            
+        Returns:
+            Plotly figure object
+        """
+        try:
+            if historical_data is None or historical_data.empty:
+                return self._create_empty_chart("No historical data available")
+                
+            fig = go.Figure()
+            
+            # If we have sentiment data over time
+            if 'timestamp' in historical_data.columns and 'sentiment' in historical_data.columns:
+                fig.add_trace(go.Scatter(
+                    x=historical_data['timestamp'],
+                    y=historical_data['sentiment'],
+                    mode='lines+markers',
+                    name='Sentiment Trend',
+                    line=dict(color=self.color_scheme['primary'], width=2)
+                ))
+            
+            fig.update_layout(
+                title=f"Historical Sentiment Trends - {symbol or 'All Symbols'}",
+                xaxis_title="Time",
+                yaxis_title="Sentiment Score",
+                template="plotly_white",
+                height=400
+            )
+            
+            return fig
+            
+        except Exception as e:
+            return self._create_empty_chart(f"Error creating historical chart: {str(e)}")
+    
+    def create_confidence_distribution_chart(self, confidence_data: Dict[str, Any], bank_names: Dict[str, str] = None) -> go.Figure:
         """
         Create a confidence distribution chart
         
@@ -84,24 +126,23 @@ class ChartGenerator:
             if not confidence_data:
                 return self._create_empty_chart("No confidence data available")
             
-            # Extract confidence values
             symbols = list(confidence_data.keys())
             confidences = [confidence_data[symbol].get('confidence', 0) for symbol in symbols]
             
-            # Create histogram
             fig = go.Figure(data=[
-                go.Histogram(
-                    x=confidences,
-                    nbinsx=10,
+                go.Bar(
+                    x=symbols,
+                    y=confidences,
                     marker_color=self.color_scheme['info'],
-                    opacity=0.7
+                    text=[f"{c:.3f}" for c in confidences],
+                    textposition='auto'
                 )
             ])
             
             fig.update_layout(
-                title="Confidence Score Distribution",
-                xaxis_title="Confidence Score",
-                yaxis_title="Count",
+                title="Confidence Distribution by Symbol",
+                xaxis_title="Symbols",
+                yaxis_title="Confidence Score",
                 template="plotly_white",
                 height=400
             )
@@ -111,49 +152,9 @@ class ChartGenerator:
         except Exception as e:
             return self._create_empty_chart(f"Error creating confidence chart: {str(e)}")
     
-    def create_historical_trends_chart(self, historical_data: Dict[str, Any]) -> go.Figure:
+    def create_correlation_chart(self, symbol: str, correlation_data: Dict[str, Any], bank_names: Dict[str, str] = None) -> go.Figure:
         """
-        Create a historical trends chart
-        
-        Args:
-            historical_data: Dictionary containing historical trend data
-            
-        Returns:
-            Plotly figure object
-        """
-        try:
-            if not historical_data:
-                return self._create_empty_chart("No historical data available")
-            
-            fig = go.Figure()
-            
-            for symbol, data in historical_data.items():
-                if isinstance(data, dict) and 'dates' in data and 'values' in data:
-                    fig.add_trace(go.Scatter(
-                        x=data['dates'],
-                        y=data['values'],
-                        mode='lines',
-                        name=symbol,
-                        line=dict(width=2)
-                    ))
-            
-            fig.update_layout(
-                title="Historical Sentiment Trends",
-                xaxis_title="Date",
-                yaxis_title="Sentiment Score",
-                template="plotly_white",
-                height=400,
-                hovermode='x unified'
-            )
-            
-            return fig
-            
-        except Exception as e:
-            return self._create_empty_chart(f"Error creating historical chart: {str(e)}")
-    
-    def create_correlation_chart(self, correlation_data: Dict[str, Any]) -> go.Figure:
-        """
-        Create a correlation heatmap chart
+        Create a correlation chart
         
         Args:
             correlation_data: Dictionary containing correlation data
@@ -165,40 +166,20 @@ class ChartGenerator:
             if not correlation_data:
                 return self._create_empty_chart("No correlation data available")
             
-            # Convert correlation data to matrix format
-            symbols = list(correlation_data.keys())
-            
-            # Create correlation matrix
-            correlation_matrix = []
-            for symbol1 in symbols:
-                row = []
-                for symbol2 in symbols:
-                    if symbol1 == symbol2:
-                        row.append(1.0)
-                    else:
-                        # Use dummy correlation or extract from data
-                        corr_value = correlation_data.get(symbol1, {}).get(symbol2, 
-                                   np.random.uniform(-0.5, 0.5))  # Dummy data for demo
-                        row.append(corr_value)
-                correlation_matrix.append(row)
-            
-            fig = go.Figure(data=go.Heatmap(
-                z=correlation_matrix,
-                x=symbols,
-                y=symbols,
-                colorscale='RdBu',
-                zmid=0,
-                text=[[f"{val:.2f}" for val in row] for row in correlation_matrix],
-                texttemplate="%{text}",
-                textfont={"size": 10},
-                colorbar=dict(title="Correlation")
-            ))
+            # Simple correlation visualization
+            fig = go.Figure()
+            fig.add_annotation(
+                text="Correlation analysis not yet implemented",
+                xref="paper", yref="paper",
+                x=0.5, y=0.5,
+                showarrow=False,
+                font=dict(size=16)
+            )
             
             fig.update_layout(
-                title="Symbol Correlation Matrix",
+                title="Sentiment Correlation Analysis",
                 template="plotly_white",
-                height=400,
-                width=500
+                height=400
             )
             
             return fig
@@ -207,28 +188,19 @@ class ChartGenerator:
             return self._create_empty_chart(f"Error creating correlation chart: {str(e)}")
     
     def _create_empty_chart(self, message: str) -> go.Figure:
-        """
-        Create an empty chart with a message
-        
-        Args:
-            message: Message to display
-            
-        Returns:
-            Empty Plotly figure with message
-        """
+        """Create an empty chart with a message"""
         fig = go.Figure()
         fig.add_annotation(
             text=message,
             xref="paper", yref="paper",
             x=0.5, y=0.5,
-            xanchor='center', yanchor='middle',
             showarrow=False,
             font=dict(size=16)
         )
         fig.update_layout(
-            template="plotly_white",
-            height=400,
             xaxis=dict(showgrid=False, showticklabels=False, zeroline=False),
-            yaxis=dict(showgrid=False, showticklabels=False, zeroline=False)
+            yaxis=dict(showgrid=False, showticklabels=False, zeroline=False),
+            height=400,
+            template="plotly_white"
         )
         return fig

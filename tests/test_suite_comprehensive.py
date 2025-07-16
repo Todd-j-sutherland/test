@@ -23,7 +23,7 @@ import numpy as np
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
 
-from config.settings import Settings
+from app.config.settings import Settings
 
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))

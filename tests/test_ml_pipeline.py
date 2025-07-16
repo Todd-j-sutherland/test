@@ -15,7 +15,7 @@ import os
 # Add the project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.ml_training_pipeline import MLTrainingPipeline
+from app.core.ml.training.pipeline import MLTrainingPipeline
 
 class TestMLPipeline(unittest.TestCase):
     

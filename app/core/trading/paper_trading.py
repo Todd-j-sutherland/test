@@ -9,7 +9,7 @@ import sys
 sys.path.append('..')  # Add parent directory to path
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
-from news_trading_analyzer import NewsTradingAnalyzer
+# from news_trading_analyzer import NewsTradingAnalyzer  # Optional module - disabled
 from app.core.ml.training.pipeline import MLTrainingPipeline
 from app.core.data.collectors.market_data import ASXDataFeed
 from app.config.settings import Settings
@@ -18,7 +18,8 @@ class AdvancedPaperTrader:
     def __init__(self, initial_capital: float = 10000):
         self.initial_capital = initial_capital
         self.current_capital = initial_capital
-        self.analyzer = NewsTradingAnalyzer()
+        # self.analyzer = NewsTradingAnalyzer()  # Optional - disabled
+        self.analyzer = None
         self.ml_pipeline = MLTrainingPipeline()
         self.data_feed = ASXDataFeed()
         

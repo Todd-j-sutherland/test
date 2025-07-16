@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
 News Trading Analyzer - Primary Entry Point
-Focuses on news sentiment analysis for trading decisions
+Focuses on news sentiment analysis f            logger.info(f"⚡ Result keys for {symbol}: {list(result.keys())}")
+            
+            # Extract key metrics
+            sentiment_score = result.get('overall_sentiment', 0)
+            confidence = result.get('confidence', 0)
+            news_count = result.get('news_count', 0)
+            
+            # Get time context informationng decisions
 
 Core Purpose: Analyze news sources and provide trading sentiment scores
 """
@@ -88,7 +95,24 @@ class NewsTradingAnalyzer:
         
         try:
             # Get comprehensive sentiment analysis
+            logger.info(f"⚡ Calling sentiment analyzer for {symbol}...")
             result = self.sentiment_analyzer.analyze_bank_sentiment(symbol)
+            logger.info(f"⚡ Sentiment analyzer returned: {type(result)} for {symbol}")
+            
+            # Check if result is valid
+            if result is None:
+                logger.warning(f"⚠️ {symbol}: No sentiment analysis result returned (None)")
+                return {
+                    'symbol': symbol,
+                    'sentiment_score': 0.0,
+                    'confidence': 0.0,
+                    'news_count': 0,
+                    'signal': 'N/A',
+                    'error': 'No sentiment analysis result',
+                    'timestamp': datetime.now().isoformat()
+                }
+            
+            logger.info(f"⚡ Result keys for {symbol}: {list(result.keys()) if isinstance(result, dict) else 'Not a dict'}")
             
             # Extract key metrics
             sentiment_score = result.get('overall_sentiment', 0)
@@ -188,7 +212,8 @@ class NewsTradingAnalyzer:
             analysis = self.analyze_single_bank(symbol, detailed)
             results[symbol] = analysis
             
-            if 'sentiment_score' in analysis:
+            # Only include valid sentiment scores
+            if analysis and 'sentiment_score' in analysis and 'error' not in analysis:
                 all_scores.append(analysis['sentiment_score'])
         
         # Calculate market overview

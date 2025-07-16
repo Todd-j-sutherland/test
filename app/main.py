@@ -27,13 +27,14 @@ Examples:
   python -m app.main evening              # Run evening routine
   python -m app.main status               # Quick status check
   python -m app.main dashboard            # Launch dashboard
+  python -m app.main news                 # Run news sentiment analysis
   python -m app.main --config custom.yml  # Use custom config
         """
     )
     
     parser.add_argument(
         'command',
-        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard'],
+        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard', 'news'],
         help='Command to execute'
     )
     
@@ -99,6 +100,8 @@ def main():
         elif args.command == 'dashboard':
             from app.dashboard.main import run_dashboard
             run_dashboard()
+        elif args.command == 'news':
+            manager.news_analysis()
         
         logger.info(f"Command '{args.command}' completed successfully")
         

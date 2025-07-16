@@ -108,17 +108,18 @@ class UIComponents:
         </div>
         """, unsafe_allow_html=True)
     
-    def create_section_header(self, title: str, subtitle: str = ""):
+    def create_section_header(self, title: str, subtitle: str = "", icon: str = ""):
         """Create a section header"""
+        title_with_icon = f"{icon} {title}" if icon else title
         subtitle_html = f"<p style='margin: 0; opacity: 0.8;'>{subtitle}</p>" if subtitle else ""
         st.markdown(f"""
         <div class="section-header">
-            <h3 style="margin: 0;">{title}</h3>
+            <h3 style="margin: 0;">{title_with_icon}</h3>
             {subtitle_html}
         </div>
         """, unsafe_allow_html=True)
     
-    def display_alert(self, message: str, alert_type: str = "info"):
+    def display_alert(self, message: str, alert_type: str = "info", title: str = None):
         """Display an alert message"""
         alert_class = f"alert-{alert_type}"
         if alert_type == "error":

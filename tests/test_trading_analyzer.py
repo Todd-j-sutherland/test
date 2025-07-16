@@ -15,7 +15,7 @@ from datetime import datetime
 # Add the project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config.settings import Settings
+from app.config.settings import Settings
 
 class TestTradingAnalyzer(unittest.TestCase):
     

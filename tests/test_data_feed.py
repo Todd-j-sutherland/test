@@ -4,7 +4,7 @@ Test data feed module
 import unittest
 from unittest.mock import Mock, patch
 import pandas as pd
-from src.data_feed import ASXDataFeed
+from app.core.data.collectors.market_data import ASXDataFeed
 
 
 class TestASXDataFeed(unittest.TestCase):
@@ -43,7 +43,7 @@ class TestASXDataFeed(unittest.TestCase):
         mock_hist.iloc = Mock()
         mock_ticker.return_value.history.return_value = mock_hist
         
-        result = self.data_feed.get_stock_data('CBA.AX')
+        result = self.data_feed.get_current_data('CBA.AX')
         self.assertIsNotNone(result)
 
 

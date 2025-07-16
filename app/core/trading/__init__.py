@@ -1,13 +1,13 @@
 """Trading components package"""
 
 from .signals import TradingSignalGenerator
-from .risk_management import RiskManager
-from .position_tracker import PositionTracker  
-from .paper_trading import PaperTradingEngine
+from .risk_management import PositionRiskAssessor
+from .position_tracker import TradingOutcomeTracker
+from .paper_trading import AdvancedPaperTrader
 
 __all__ = [
     "TradingSignalGenerator",
-    "RiskManager",
-    "PositionTracker", 
-    "PaperTradingEngine",
+    "PositionRiskAssessor",
+    "TradingOutcomeTracker",
+    "AdvancedPaperTrader",
 ]

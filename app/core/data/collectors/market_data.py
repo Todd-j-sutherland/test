@@ -21,7 +21,7 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.config.settings import Settings
-from utils.cache_manager import CacheManager
+# from utils.cache_manager import CacheManager  # Optional caching - disabled for now
 
 # Enhanced data validation import
 try:
@@ -38,7 +38,8 @@ class ASXDataFeed:
     
     def __init__(self):
         self.settings = Settings()
-        self.cache = CacheManager()
+        # Initialize cache (disabled for now)
+        self.cache = None  # CacheManager() - disabled
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -53,8 +54,9 @@ class ASXDataFeed:
     
     def get_current_data(self, symbol: str) -> Dict:
         """Get current price and basic data for a symbol"""
+        # Check cache (disabled for now)
         cache_key = f"current_{symbol}"
-        cached_data = self.cache.get(cache_key)
+        cached_data = None  # self.cache.get(cache_key) if self.cache else None
         
         if cached_data:
             return cached_data
@@ -87,8 +89,8 @@ class ASXDataFeed:
                 current_data['change'] = 0
                 current_data['change_percent'] = 0
             
-            # Cache the data
-            self.cache.set(cache_key, current_data, expiry_minutes=5)
+            # Cache disabled for now
+            # if self.cache: self.cache.set(cache_key, current_data, expiry_minutes=5)
             
             return current_data
             
@@ -144,7 +146,7 @@ class ASXDataFeed:
     def get_historical_data(self, symbol: str, period: str = "1mo", interval: str = "1d") -> pd.DataFrame:
         """Get historical price data"""
         cache_key = f"hist_{symbol}_{period}_{interval}"
-        cached_data = self.cache.get(cache_key)
+        cached_data = None  # self.cache.get(cache_key) if self.cache else None
         
         if cached_data is not None:
             df = pd.DataFrame(cached_data)
@@ -159,9 +161,7 @@ class ASXDataFeed:
             hist = ticker.history(period=period, interval=interval)
             
             if not hist.empty:
-                # Cache as dict for JSON serialization - reset index to make dates into columns
-                hist_dict = hist.reset_index().to_dict('records')
-                self.cache.set(cache_key, hist_dict, expiry_minutes=60)
+                # Cache disabled - just return the data
                 return hist
             
         except Exception as e:
@@ -299,8 +299,8 @@ class ASXDataFeed:
                 'analyst_count': info.get('numberOfAnalystOpinions', 0)
             }
             
-            # Cache for longer as fundamental data doesn't change often
-            self.cache.set(cache_key, company_data, expiry_minutes=240)
+            # Cache disabled for now - longer as fundamental data doesn't change often
+            # self.cache.set(cache_key, company_data, expiry_minutes=240)
             
             return company_data
             

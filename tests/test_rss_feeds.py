@@ -13,7 +13,7 @@ import os
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from config.settings import Settings
+from app.config.settings import Settings
 
 def test_rss_feed(feed_name, feed_url, timeout=10):
     """Test a single RSS feed"""

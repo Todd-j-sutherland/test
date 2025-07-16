@@ -13,14 +13,14 @@ from typing import Dict, List, Optional
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.config.settings import Settings
-from .utils.logging_config import setup_dashboard_logger, log_error_with_context, log_performance_metrics
-from .utils.data_manager import DataManager
-from .utils.helpers import (
+from app.dashboard.utils.logging_config import setup_dashboard_logger, log_error_with_context, log_performance_metrics
+from app.dashboard.utils.data_manager import DataManager
+from app.dashboard.utils.helpers import (
     format_sentiment_score, get_confidence_level, format_timestamp,
     get_trading_recommendation, create_metric_dict, validate_data_completeness
 )
-from .components.ui_components import UIComponents
-from .charts.chart_generator import ChartGenerator
+from app.dashboard.components.ui_components import UIComponents
+from app.dashboard.charts.chart_generator import ChartGenerator
 
 # Try to import optional components
 try:
@@ -31,7 +31,7 @@ except ImportError:
 
 try:
     from app.core.analysis.technical import TechnicalAnalyzer
-    from app.core.data.collectors.market_data import get_market_data
+    from app.core.data.collectors.market_data import ASXDataFeed
     TECHNICAL_ANALYSIS_AVAILABLE = True
 except ImportError:
     TECHNICAL_ANALYSIS_AVAILABLE = False
@@ -298,6 +298,11 @@ class ProfessionalDashboard:
     def _display_market_summary_metrics(self, all_data: Dict[str, List[Dict]]):
         """Display summary metrics for the market"""
         try:
+            # Ensure all_data is a dictionary
+            if not isinstance(all_data, dict):
+                st.warning("Market data is not in expected format")
+                return
+                
             # Calculate market-wide metrics
             all_sentiments = []
             all_confidences = []
@@ -506,6 +511,11 @@ class ProfessionalDashboard:
             st.markdown("#### 📊 Sentiment Components Analysis")
             components = latest['sentiment_components']
             
+            # Ensure components is a dictionary
+            if not isinstance(components, dict):
+                st.warning("Sentiment components data is not in expected format")
+                return
+            
             # Create DataFrame for display
             component_data = []
             for component_name, score in components.items():
@@ -537,7 +547,8 @@ class ProfessionalDashboard:
                 if headline:
                     self.ui_components.display_news_item(
                         f"#{i+1} {headline}",
-                        sentiment_impact=0,  # Could be calculated if available
+                        "",  # content
+                        sentiment=0,  # sentiment score
                         source=""
                     )
             
@@ -561,8 +572,9 @@ class ProfessionalDashboard:
                     
                     self.ui_components.display_news_item(
                         headline,
-                        sentiment_impact=sentiment_impact,
-                        event_type=event_type
+                        "",  # content
+                        sentiment=sentiment_impact,
+                        source=event_type
                     )
             else:
                 self.ui_components.display_alert(

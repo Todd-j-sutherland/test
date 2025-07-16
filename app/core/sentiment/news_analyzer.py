@@ -55,7 +55,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.config.settings import Settings
-from utils.cache_manager import CacheManager
+# from utils.cache_manager import CacheManager  # Disabled for now
 from app.core.sentiment.history import SentimentHistoryManager
 from app.core.analysis.news_impact import NewsImpactAnalyzer
 
@@ -86,7 +86,7 @@ class NewsSentimentAnalyzer:
     
     def __init__(self):
         self.settings = Settings()
-        self.cache = CacheManager()
+        self.cache = None  # CacheManager() - disabled for now
         self.vader = SentimentIntensityAnalyzer()
         self.history_manager = SentimentHistoryManager()
         self.impact_analyzer = NewsImpactAnalyzer()
@@ -409,7 +409,9 @@ class NewsSentimentAnalyzer:
         """Analyze sentiment for a specific bank"""
         
         cache_key = f"sentiment_{symbol}"
-        cached_data = self.cache.get(cache_key)
+        cached_data = None
+        if self.cache:
+            cached_data = self.cache.get(cache_key)
         
         if cached_data:
             return cached_data
@@ -492,16 +494,24 @@ class NewsSentimentAnalyzer:
             logger.info(f"Sentiment analysis result for {symbol}: {result}")
             
             # Cache for 30 minutes
-            self.cache.set(cache_key, result, expiry_minutes=30)
+            if self.cache:
+                self.cache.set(cache_key, result, expiry_minutes=30)
             
-            # Add trend analysis
-            trend_data = self.history_manager.get_sentiment_trend(symbol, days=7)
-            result['trend_analysis'] = trend_data
-            
-            # Add impact correlation analysis (if sufficient data)
-            if trend_data['data_points'] >= 5:
-                impact_analysis = self.impact_analyzer.analyze_sentiment_price_correlation(symbol, days=14)
-                result['impact_analysis'] = impact_analysis
+            # Add trend analysis (make it optional to avoid breaking the entire analysis)
+            try:
+                trend_data = self.history_manager.get_sentiment_trend(symbol, days=7)
+                result['trend_analysis'] = trend_data
+                
+                # Add impact correlation analysis (if sufficient data)
+                if trend_data['data_points'] >= 5:
+                    impact_analysis = self.impact_analyzer.analyze_sentiment_price_correlation(symbol, days=14)
+                    result['impact_analysis'] = impact_analysis
+                else:
+                    result['impact_analysis'] = {}
+            except Exception as e:
+                logger.warning(f"Trend analysis failed for {symbol}: {e}")
+                result['trend_analysis'] = {}
+                result['impact_analysis'] = {}
             
             # Store data for ML training
             if result and self.ml_pipeline:
@@ -539,12 +549,17 @@ class NewsSentimentAnalyzer:
                     result['enhanced_sentiment'] = None
             
             # Store in historical data (after all enhancements are added)
-            self.history_manager.store_sentiment(symbol, result)
+            try:
+                self.history_manager.store_sentiment(symbol, result)
+            except Exception as e:
+                logger.warning(f"Failed to store sentiment history for {symbol}: {e}")
             
             return result
             
         except Exception as e:
             logger.error(f"Error analyzing sentiment for {symbol}: {str(e)}")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
             return self._default_sentiment()
     
     def _calculate_overall_sentiment_improved(self, news_sentiment: Dict, 

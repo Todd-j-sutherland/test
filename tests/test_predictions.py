@@ -5,8 +5,8 @@ import unittest
 from unittest.mock import Mock, patch
 import pandas as pd
 import numpy as np
-from src.market_predictor import MarketPredictor
-from src.risk_calculator import RiskRewardCalculator
+from app.core.ml.prediction.predictor import PricePredictor as MarketPredictor
+from app.core.trading.risk_management import PositionRiskAssessor as RiskRewardCalculator
 
 
 class TestMarketPredictor(unittest.TestCase):
