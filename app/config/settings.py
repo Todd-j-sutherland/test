@@ -15,90 +15,155 @@ load_dotenv()
 class Settings:
     """Centralized configuration for the trading analysis system"""
     
-    # Application Info
-    APP_NAME = "Trading Analysis System"
-    VERSION = "2.0.0"
-    DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-    
-    # Paths
-    BASE_DIR = Path(__file__).parent.parent.parent
-    DATA_DIR = BASE_DIR / 'data'
-    LOGS_DIR = BASE_DIR / 'logs'
-    REPORTS_DIR = BASE_DIR / 'reports'
-    CACHE_DIR = BASE_DIR / 'data' / 'cache'
-    MODELS_DIR = BASE_DIR / 'data' / 'models'
-    
-    # Ensure directories exist
-    for directory in [DATA_DIR, LOGS_DIR, REPORTS_DIR, CACHE_DIR, MODELS_DIR]:
-        directory.mkdir(parents=True, exist_ok=True)
-    
-    # ASX Bank Symbols (Primary Focus)
-    BANK_SYMBOLS = [
-        'CBA.AX',  # Commonwealth Bank
-        'WBC.AX',  # Westpac
-        'ANZ.AX',  # ANZ
-        'NAB.AX',  # National Australia Bank
-        'MQG.AX',  # Macquarie Group
-        'SUN.AX',  # Suncorp Group
-        'QBE.AX'   # QBE Insurance Group
-    ]
-    
-    # Extended financial symbols for broader analysis
-    EXTENDED_SYMBOLS = [
-        'BEN.AX',  # Bendigo Bank
-        'BOQ.AX',  # Bank of Queensland
-        'IFL.AX',  # IOOF Holdings
-        'HUB.AX'   # HUB24
-    ]
-    
-    # Market indices for context
-    MARKET_INDICES = {
-        'ASX200': '^AXJO',
-        'ALL_ORDS': '^AORD',
-        'FINANCIALS': '^AXFJ',
-        'BANKS': '^AXBK'
-    }
-    
-    # Trading Hours (Sydney/Melbourne time)
-    MARKET_OPEN = time(10, 0)    # 10:00 AM AEST/AEDT
-    MARKET_CLOSE = time(16, 0)   # 4:00 PM AEST/AEDT
-    PRE_MARKET = time(7, 0)      # 7:00 AM
-    POST_MARKET = time(17, 0)    # 5:00 PM
-    
-    # Analysis Parameters
-    DEFAULT_ANALYSIS_PERIOD = os.getenv('DEFAULT_ANALYSIS_PERIOD', '3mo')
-    CONFIDENCE_THRESHOLD = float(os.getenv('CONFIDENCE_THRESHOLD', '70'))
-    RISK_TOLERANCE = os.getenv('RISK_TOLERANCE', 'medium')  # low, medium, high
-    
-    # Enhanced ML Configuration
-    ML_CONFIG = {
-        'models': {
-            'sentiment_ensemble': {
-                'enabled': True,
-                'models': ['transformers', 'statistical', 'lexicon'],
-                'weights': [0.5, 0.3, 0.2],
-                'confidence_threshold': 0.7
-            },
-            'price_prediction': {
-                'enabled': True,
-                'lookback_periods': [5, 10, 20],
-                'prediction_horizon': 5,
-                'ensemble_size': 3
-            },
-            'risk_assessment': {
-                'enabled': True,
-                'volatility_window': 20,
-                'var_confidence': 0.95,
-                'stress_test_scenarios': 5
-            }
-        },
-        'training': {
-            'min_samples': 100,
-            'validation_split': 0.2,
-            'retrain_frequency_days': 7,
-            'auto_retrain': True
+    def __init__(self):
+        # Application Info
+        self.APP_NAME = "Trading Analysis System"
+        self.VERSION = "2.0.0"
+        self.DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+        
+        # Paths
+        self.BASE_DIR = Path(__file__).parent.parent.parent
+        self.DATA_DIR = self.BASE_DIR / 'data'
+        self.LOGS_DIR = self.BASE_DIR / 'logs'
+        self.REPORTS_DIR = self.BASE_DIR / 'reports'
+        self.CACHE_DIR = self.BASE_DIR / 'data' / 'cache'
+        self.MODELS_DIR = self.BASE_DIR / 'data' / 'models'
+        
+        # Ensure directories exist
+        for directory in [self.DATA_DIR, self.LOGS_DIR, self.REPORTS_DIR, self.CACHE_DIR, self.MODELS_DIR]:
+            directory.mkdir(parents=True, exist_ok=True)
+        
+        # ASX Bank Symbols (Primary Focus)
+        self.BANK_SYMBOLS = [
+            'CBA.AX',  # Commonwealth Bank
+            'WBC.AX',  # Westpac
+            'ANZ.AX',  # ANZ
+            'NAB.AX',  # National Australia Bank
+            'MQG.AX',  # Macquarie Group
+            'SUN.AX',  # Suncorp Group
+            'QBE.AX'   # QBE Insurance Group
+        ]
+        
+        # Extended financial symbols for broader analysis
+        self.EXTENDED_SYMBOLS = [
+            'BEN.AX',  # Bendigo Bank
+            'BOQ.AX',  # Bank of Queensland
+            'IFL.AX',  # IOOF Holdings
+            'HUB.AX'   # HUB24
+        ]
+        
+        # Market indices for context
+        self.MARKET_INDICES = {
+            'ASX200': '^AXJO',
+            'ALL_ORDS': '^AORD',
+            'FINANCIALS': '^AXFJ',
+            'BANKS': '^AXBK'
         }
-    }
+        
+        # Trading Hours (Sydney/Melbourne time)
+        self.MARKET_OPEN = time(10, 0)    # 10:00 AM AEST/AEDT
+        self.MARKET_CLOSE = time(16, 0)   # 4:00 PM AEST/AEDT
+        self.PRE_MARKET = time(7, 0)      # 7:00 AM
+        self.POST_MARKET = time(17, 0)    # 5:00 PM
+        
+        # Analysis Parameters
+        self.DEFAULT_ANALYSIS_PERIOD = os.getenv('DEFAULT_ANALYSIS_PERIOD', '3mo')
+        self.CONFIDENCE_THRESHOLD = float(os.getenv('CONFIDENCE_THRESHOLD', '70'))
+        self.RISK_TOLERANCE = os.getenv('RISK_TOLERANCE', 'medium')  # low, medium, high
+        
+        # Enhanced ML Configuration
+        self.ML_CONFIG = {
+            'models': {
+                'sentiment_ensemble': {
+                    'enabled': True,
+                    'models': ['transformers', 'statistical', 'lexicon'],
+                    'weights': [0.5, 0.3, 0.2],
+                    'confidence_threshold': 0.7
+                },
+                'price_prediction': {
+                    'enabled': True,
+                    'lookback_periods': [5, 10, 20],
+                    'prediction_horizon': 5,
+                    'ensemble_size': 3
+                },
+                'risk_assessment': {
+                    'enabled': True,
+                    'volatility_window': 20,
+                    'var_confidence': 0.95,
+                    'stress_test_scenarios': 5
+                }
+            },
+            'training': {
+                'min_samples': 100,
+                'validation_split': 0.2,
+                'retrain_frequency_days': 7,
+                'auto_retrain': True
+            }
+        }
+        
+        # Data sources configuration
+        self.DATA_SOURCES = {
+            'yfinance': {
+                'enabled': True,
+                'retries': 3,
+                'timeout': 30
+            },
+            'news_api': {
+                'enabled': os.getenv('NEWS_API_KEY') is not None,
+                'api_key': os.getenv('NEWS_API_KEY'),
+                'base_url': 'https://newsapi.org/v2'
+            },
+            'reddit': {
+                'enabled': all(os.getenv(key) for key in ['REDDIT_CLIENT_ID', 'REDDIT_CLIENT_SECRET', 'REDDIT_USER_AGENT']),
+                'client_id': os.getenv('REDDIT_CLIENT_ID'),
+                'client_secret': os.getenv('REDDIT_CLIENT_SECRET'),
+                'user_agent': os.getenv('REDDIT_USER_AGENT'),
+                'subreddits': ['ausstocks', 'asx_bets']
+            }
+        }
+        
+        # File paths for data storage
+        self.sentiment_history_path = self.DATA_DIR / 'sentiment_history.parquet'
+        self.impact_analysis_path = self.REPORTS_DIR / 'impact_analysis'
+        self.daily_report_path = self.REPORTS_DIR / 'daily_reports'
+        
+        # Ensure report directories exist
+        self.impact_analysis_path.mkdir(parents=True, exist_ok=True)
+        self.daily_report_path.mkdir(parents=True, exist_ok=True)
+
+        # Logging Configuration
+        self.LOGGING_CONFIG = {
+            'version': 1,
+            'disable_existing_loggers': False,
+            'formatters': {
+                'standard': {
+                    'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+                },
+            },
+            'handlers': {
+                'console': {
+                    'class': 'logging.StreamHandler',
+                    'formatter': 'standard',
+                    'level': 'DEBUG' if self.DEBUG else 'INFO',
+                },
+                'file': {
+                    'class': 'logging.handlers.RotatingFileHandler',
+                    'formatter': 'standard',
+                    'filename': str(self.LOGS_DIR / 'trading_analysis.log'),
+                    'maxBytes': 1024*1024*5, # 5 MB
+                    'backupCount': 5,
+                    'level': 'INFO',
+                },
+            },
+            'root': {
+                'handlers': ['console', 'file'],
+                'level': 'DEBUG',
+            }
+        }
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """Get a configuration value by key."""
+        return getattr(self, key, default)
     
     # Technical Analysis Settings
     TECHNICAL_INDICATORS = {
@@ -173,24 +238,6 @@ class Settings:
             'min_news_items': 3,
             'min_social_mentions': 10,
             'source_diversity_bonus': 1.2
-        }
-    }
-    
-    # Data Sources Configuration
-    DATA_SOURCES = {
-        'market_data': {
-            'primary': 'yfinance',
-            'backup': 'alpha_vantage',
-            'update_frequency_minutes': 15
-        },
-        'news': {
-            'sources': ['abc', 'afr', 'reuters', 'smh'],
-            'update_frequency_minutes': 30,
-            'sentiment_analysis': True
-        },
-        'economic': {
-            'sources': ['rba', 'abs', 'asx'],
-            'update_frequency_hours': 6
         }
     }
     
@@ -300,15 +347,6 @@ class Settings:
         'max_size_mb': int(os.getenv('MAX_CACHE_SIZE_MB', '100')),
         'cleanup_frequency_hours': 24,
         'enable_redis': os.getenv('REDIS_URL') is not None
-    }
-    
-    # Logging Configuration
-    LOGGING_CONFIG = {
-        'level': os.getenv('LOG_LEVEL', 'INFO'),
-        'file': str(LOGS_DIR / 'trading_analysis.log'),
-        'max_file_size_mb': 50,
-        'backup_count': 5,
-        'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     }
     
     # API Configuration (optional external services)
@@ -429,3 +467,9 @@ class Settings:
             issues.append("No bank symbols configured")
         
         return issues
+
+class ConfigError(Exception):
+    """Custom exception for configuration errors"""
+    pass
+
+# The rest of the file should be clean, no more global constants based on settings

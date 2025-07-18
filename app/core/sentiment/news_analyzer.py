@@ -88,8 +88,8 @@ class NewsSentimentAnalyzer:
         self.settings = Settings()
         self.cache = None  # CacheManager() - disabled for now
         self.vader = SentimentIntensityAnalyzer()
-        self.history_manager = SentimentHistoryManager()
-        self.impact_analyzer = NewsImpactAnalyzer()
+        self.history_manager = SentimentHistoryManager(self.settings)
+        self.impact_analyzer = NewsImpactAnalyzer(self.settings)
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'

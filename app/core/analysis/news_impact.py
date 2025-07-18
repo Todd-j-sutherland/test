@@ -23,9 +23,10 @@ logger = logging.getLogger(__name__)
 class NewsImpactAnalyzer:
     """Analyzes correlation between news sentiment and price movements"""
     
-    def __init__(self):
+    def __init__(self, settings):
+        self.settings = settings
         self.data_feed = ASXDataFeed()
-        self.sentiment_history = SentimentHistoryManager()
+        self.sentiment_history = SentimentHistoryManager(settings)
         self.results_dir = "data/impact_analysis"
         self.ensure_results_dir()
     
