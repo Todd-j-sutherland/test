@@ -19,15 +19,9 @@ class TechnicalAnalyzer:
     Can be expanded to include more complex momentum indicators
     """
     
-    def __init__(self):
+    def __init__(self, settings: Settings):
         # Basic indicator settings - can be expanded
-        self.settings = {
-            'RSI': {'period': 14, 'overbought': 70, 'oversold': 30},
-            'MACD': {'fast': 12, 'slow': 26, 'signal': 9},
-            'SMA': {'periods': [20, 50, 200]},
-            'EMA': {'periods': [12, 26]},
-            'VOLUME': {'ma_period': 20}
-        }
+        self.settings = settings.TECHNICAL_INDICATORS
     
     def analyze(self, symbol: str, data: pd.DataFrame) -> Dict:
         """

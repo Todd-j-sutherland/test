@@ -36,6 +36,12 @@ try:
 except ImportError:
     TECHNICAL_ANALYSIS_AVAILABLE = False
 
+try:
+    from app.dashboard.components.ml_progression import render_ml_progression_dashboard, render_ml_progression_sidebar
+    ML_PROGRESSION_AVAILABLE = True
+except ImportError:
+    ML_PROGRESSION_AVAILABLE = False
+
 logger = setup_dashboard_logger(__name__)
 
 class ProfessionalDashboard:
@@ -217,6 +223,10 @@ class ProfessionalDashboard:
                     self._cache_timestamp = None
                     st.experimental_rerun()
                 
+                # Add ML progression sidebar
+                if ML_PROGRESSION_AVAILABLE:
+                    render_ml_progression_sidebar()
+                
                 logger.debug("Debug sidebar created")
                 
         except Exception as e:
@@ -235,11 +245,12 @@ class ProfessionalDashboard:
                 return
             
             # Create main tabs
-            tab1, tab2, tab3, tab4 = st.tabs([
+            tab1, tab2, tab3, tab4, tab5 = st.tabs([
                 "📊 Market Overview", 
                 "🏦 Bank Analysis", 
                 "📈 Technical Analysis",
-                "🎯 Position Risk"
+                "🎯 Position Risk",
+                "🤖 ML Progression"
             ])
             
             with tab1:
@@ -247,6 +258,15 @@ class ProfessionalDashboard:
             
             with tab2:
                 self._render_bank_analysis(all_data)
+            
+            with tab3:
+                self._render_technical_analysis(all_data)
+            
+            with tab4:
+                self._render_position_risk(all_data)
+                
+            with tab5:
+                self._render_ml_progression()
             
             with tab3:
                 self._render_technical_analysis(all_data)
@@ -668,6 +688,29 @@ class ProfessionalDashboard:
             
         except Exception as e:
             log_error_with_context(logger, e, "rendering position risk")
+    
+    def _render_ml_progression(self):
+        """Render ML progression analysis tab"""
+        try:
+            self.ui_components.create_section_header(
+                "Machine Learning Performance Progression",
+                "Historical tracking of ML model accuracy, confidence, and trading success",
+                "🤖"
+            )
+            
+            if not ML_PROGRESSION_AVAILABLE:
+                self.ui_components.display_alert(
+                    "ML Progression module is not available. Please ensure the progression tracker is properly installed.",
+                    "warning",
+                    "Module Unavailable"
+                )
+                return
+            
+            # Render the ML progression dashboard
+            render_ml_progression_dashboard()
+            
+        except Exception as e:
+            log_error_with_context(logger, e, "rendering ML progression")
 
 def main():
     """Main entry point for the dashboard"""
