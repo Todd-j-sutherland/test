@@ -72,6 +72,15 @@ from src.bank_keywords import BankNewsFilter
 
 logger = logging.getLogger(__name__)
 
+# Enhanced Sentiment Integration
+try:
+    from src.enhanced_sentiment_integration import SentimentIntegrationManager, enhance_existing_sentiment
+    ENHANCED_SENTIMENT_AVAILABLE = True
+    logger.info("Enhanced sentiment integration loaded successfully")
+except ImportError:
+    ENHANCED_SENTIMENT_AVAILABLE = False
+    logger.warning("Enhanced sentiment integration not available")
+
 class NewsSentimentAnalyzer:
     """Analyzes news sentiment from free Australian sources"""
     
@@ -154,7 +163,17 @@ class NewsSentimentAnalyzer:
             except Exception as e:
                 logger.warning(f"Failed to initialize ML trading components: {e}")
                 self.feature_engineer = None
-    
+        
+        # Initialize enhanced sentiment integration
+        self.enhanced_integration = None
+        if ENHANCED_SENTIMENT_AVAILABLE:
+            try:
+                self.enhanced_integration = SentimentIntegrationManager()
+                logger.info("✅ Enhanced sentiment integration initialized")
+            except Exception as e:
+                logger.warning(f"Failed to initialize enhanced sentiment integration: {e}")
+                self.enhanced_integration = None
+
     def _initialize_transformer_models(self):
         """Initialize various transformer models for sentiment analysis"""
         
@@ -494,7 +513,32 @@ class NewsSentimentAnalyzer:
                 ml_prediction = self._get_ml_prediction(result)
                 result['ml_prediction'] = ml_prediction
             
-            # Store in historical data (after ML prediction is added)
+            # Apply Enhanced Sentiment Analysis if available
+            if self.enhanced_integration:
+                try:
+                    enhanced_metrics = self.enhanced_integration.convert_legacy_to_enhanced(result)
+                    enhanced_signals = self.enhanced_integration.generate_enhanced_trading_signals(result)
+                    
+                    # Add enhanced data to result
+                    result['enhanced_sentiment'] = {
+                        'normalized_score': enhanced_metrics.normalized_score,
+                        'strength_category': enhanced_metrics.strength_category.name,
+                        'confidence': enhanced_metrics.confidence,
+                        'z_score': enhanced_metrics.z_score,
+                        'percentile_rank': enhanced_metrics.percentile_rank,
+                        'volatility_adjusted_score': enhanced_metrics.volatility_adjusted_score,
+                        'market_adjusted_score': enhanced_metrics.market_adjusted_score,
+                        'trading_signals': enhanced_signals,
+                        'enhancement_summary': enhanced_signals['enhanced_analysis']['improvement_over_legacy']['enhancement_summary']
+                    }
+                    
+                    logger.info(f"Enhanced sentiment analysis applied for {symbol}: Score {enhanced_metrics.normalized_score:.1f}/100, Strength: {enhanced_metrics.strength_category.name}")
+                    
+                except Exception as e:
+                    logger.warning(f"Enhanced sentiment analysis failed for {symbol}: {e}")
+                    result['enhanced_sentiment'] = None
+            
+            # Store in historical data (after all enhancements are added)
             self.history_manager.store_sentiment(symbol, result)
             
             return result
@@ -864,7 +908,7 @@ class NewsSentimentAnalyzer:
                 ml_score *= 0.9
             
             # Calculate confidence based on news volume and sentiment consistency
-            base_confidence = min(0.9, news_count / 10.0)  # More news = higher confidence
+            base_confidence = min(0.9, news_count / 10.0) # More news = higher confidence
             variance_penalty = min(0.3, sentiment_variance)  # High variance = lower confidence
             confidence = max(0.1, base_confidence - variance_penalty)
             
@@ -1942,6 +1986,7 @@ class NewsSentimentAnalyzer:
                 'symbol': symbol,
                 'error': str(e),
                 'timestamp': datetime.now().isoformat()
+
             }
     
     # ...existing code...
