@@ -80,13 +80,14 @@ class NewsTradingAnalyzer:
         
         logger.info("✅ News Trading Analyzer initialized successfully")
     
-    def analyze_single_bank(self, symbol: str, detailed: bool = False) -> dict:
+    def analyze_single_bank(self, symbol: str, detailed: bool = False, keywords: list = None) -> dict:
         """
         Analyze news sentiment for a single bank
         
         Args:
             symbol: Bank symbol (e.g., 'CBA.AX')
             detailed: Whether to include detailed breakdown
+            keywords: Optional list of keywords to filter news
             
         Returns:
             Dict with sentiment analysis and trading recommendation
@@ -96,19 +97,18 @@ class NewsTradingAnalyzer:
         try:
             # Get comprehensive sentiment analysis
             logger.info(f"⚡ Calling sentiment analyzer for {symbol}...")
-            result = self.sentiment_analyzer.analyze_bank_sentiment(symbol)
+            result = self.sentiment_analyzer.analyze_bank_sentiment(symbol, keywords=keywords)
             logger.info(f"⚡ Sentiment analyzer returned: {type(result)} for {symbol}")
             
-            # Check if result is valid
-            if result is None:
-                logger.warning(f"⚠️ {symbol}: No sentiment analysis result returned (None)")
+            if not isinstance(result, dict):
+                logger.warning(f"⚠️ {symbol}: Invalid sentiment analysis result (not a dict)")
                 return {
                     'symbol': symbol,
                     'sentiment_score': 0.0,
                     'confidence': 0.0,
                     'news_count': 0,
                     'signal': 'N/A',
-                    'error': 'No sentiment analysis result',
+                    'error': 'Invalid sentiment analysis result',
                     'timestamp': datetime.now().isoformat()
                 }
             

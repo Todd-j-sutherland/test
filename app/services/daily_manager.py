@@ -95,6 +95,17 @@ class TradingSystemManager:
         except Exception as e:
             print(f"❌ Enhanced sentiment error: {e}")
         
+        # Economic Context Analysis
+        print("\n🌍 Analyzing economic context...")
+        try:
+            from app.core.analysis.economic import EconomicSentimentAnalyzer
+            economic_analyzer = EconomicSentimentAnalyzer()
+            economic_sentiment = economic_analyzer.analyze_economic_sentiment()
+            regime = economic_sentiment.get('market_regime', {}).get('regime', 'Unknown')
+            print(f"   ✅ Economic analysis complete. Market Regime: {regime}")
+        except Exception as e:
+            print(f"   ❌ Economic analysis failed: {e}")
+
         # Get overall market status
         print("\n📊 Market Overview...")
         try:

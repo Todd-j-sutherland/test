@@ -98,83 +98,15 @@ class NewsSentimentAnalyzer:
         # Initialize ML training pipeline
         self.ml_pipeline = MLTrainingPipeline()
         
-        # Load latest trained model
-        self.ml_model = self._load_ml_model()
-        # Note: ml_feature_columns and ml_threshold are set in _load_ml_model()
-        if not hasattr(self, 'ml_feature_columns'):
-            self.ml_feature_columns = []
-        if not hasattr(self, 'ml_threshold'):
-            self.ml_threshold = 0.5
+        # Initialize keyword filter
+        self.keyword_filter = BankNewsFilter()
         
-        # Initialize Transformers models for advanced sentiment analysis
-        self.transformer_models = {}
-        if TRANSFORMERS_AVAILABLE:
-            try:
-                # Initialize multiple models for different aspects
-                self._initialize_transformer_models()
-            except Exception as e:
-                logger.warning(f"Failed to initialize Transformers models: {e}")
-                self.transformer_models = {}
-        
-        # Initialize Reddit client (read-only)
-        self.reddit = None
-        try:
-            self.reddit = praw.Reddit(
-                client_id="XWbagNe33Nz0xFF1nUngbA",  # Optional - uses public API
-                client_secret="INNUY2kX3PgO58NElPr2_necAlKdQw",  # Optional
-                user_agent="ASXBankAnalysis/1.0 by /u/tradingbot",
-                check_for_async=False
-            )
-        except Exception as e:
-            logger.warning(f"Reddit client initialization failed: {e}")
-            logger.info("Reddit integration will use fallback mode")
-        
-        # Initialize enhanced keyword filtering system
-        self.news_filter = BankNewsFilter()
-        
-        # Bank name variations for searching (enhanced)
-        self.bank_keywords = self.news_filter.bank_keywords
-        
-        # Reddit subreddits for financial discussion
-        self.financial_subreddits = [
-            'AusFinance',
-            'ASX_Bets', 
-            'fiaustralia',
-            'AusEcon',
-            'AusProperty',
-            'SecurityAnalysis',
-            'investing',
-            'stocks'
-        ]
-        
-        # Initialize ML Trading components for enhanced analysis
-        self.feature_engineer = None
-        self.ml_models = {}
-        self.trading_features_cache = {}
-        
-        if ML_TRADING_AVAILABLE:
-            try:
-                self.feature_engineer = FeatureEngineer()
-                logger.info("✅ ML Trading feature engineer initialized")
-                
-                # Initialize basic models for sentiment scoring
-                self._initialize_ml_trading_models()
-                
-            except Exception as e:
-                logger.warning(f"Failed to initialize ML trading components: {e}")
-                self.feature_engineer = None
-        
-        # Initialize enhanced sentiment integration
-        self.enhanced_integration = None
-        if ENHANCED_SENTIMENT_AVAILABLE:
-            try:
-                self.enhanced_integration = SentimentIntegrationManager()
-                logger.info("✅ Enhanced sentiment integration initialized")
-            except Exception as e:
-                logger.warning(f"Failed to initialize enhanced sentiment integration: {e}")
-                self.enhanced_integration = None
-
-    def _initialize_transformer_models(self):
+        # Initialize transformer models if available
+        self.transformer_pipelines = {}
+        if TRANSFORMERS_AVAILABLE and not os.getenv('SKIP_TRANSFORMERS'):
+            self.init_transformer_models()
+            
+    def init_transformer_models(self):
         """Initialize various transformer models for sentiment analysis"""
         
         if not TRANSFORMERS_AVAILABLE:
@@ -205,13 +137,13 @@ class NewsSentimentAnalyzer:
             logger.info("✅ Basic transformer model working!")
             
             # Store the working basic model
-            self.transformer_models['basic'] = test_model
+            self.transformer_pipelines['basic'] = test_model
             
             # Try to load more advanced models
             try:
                 # 1. General Financial Sentiment - FinBERT
                 logger.info("Loading FinBERT for financial sentiment analysis...")
-                self.transformer_models['financial'] = pipeline(
+                self.transformer_pipelines['financial'] = pipeline(
                     "sentiment-analysis",
                     model="ProsusAI/finbert",
                     tokenizer="ProsusAI/finbert",
@@ -225,7 +157,7 @@ class NewsSentimentAnalyzer:
             try:
                 # 2. General Sentiment - RoBERTa optimized for social media
                 logger.info("Loading RoBERTa for general sentiment analysis...")
-                self.transformer_models['general'] = pipeline(
+                self.transformer_pipelines['general'] = pipeline(
                     "sentiment-analysis",
                     model="cardiffnlp/twitter-roberta-base-sentiment-latest",
                     tokenizer="cardiffnlp/twitter-roberta-base-sentiment-latest",
@@ -239,7 +171,7 @@ class NewsSentimentAnalyzer:
             try:
                 # 3. Emotion Detection - for nuanced analysis
                 logger.info("Loading emotion detection model...")
-                self.transformer_models['emotion'] = pipeline(
+                self.transformer_pipelines['emotion'] = pipeline(
                     "text-classification",
                     model="j-hartmann/emotion-english-distilroberta-base",
                     tokenizer="j-hartmann/emotion-english-distilroberta-base",
@@ -253,7 +185,7 @@ class NewsSentimentAnalyzer:
             try:
                 # 4. News Classification - for identifying financial news types
                 logger.info("Loading news classification model...")
-                self.transformer_models['news_type'] = pipeline(
+                self.transformer_pipelines['news_type'] = pipeline(
                     "zero-shot-classification",
                     model="facebook/bart-large-mnli"
                 )
@@ -262,13 +194,13 @@ class NewsSentimentAnalyzer:
             except Exception as e:
                 logger.warning(f"Could not load news classification model: {e}")
             
-            logger.info(f"Transformer model initialization complete! Loaded {len(self.transformer_models)} models.")
+            logger.info(f"Transformer model initialization complete! Loaded {len(self.transformer_pipelines)} models.")
             
         except Exception as e:
             logger.error(f"Error initializing transformer models: {e}")
             logger.warning("Falling back to traditional sentiment analysis methods only.")
             logger.info("For Python 3.13 users: Consider using Python 3.11 or 3.12 for full transformer support.")
-            self.transformer_models = {}
+            self.transformer_pipelines = {}
     
     def _initialize_ml_trading_models(self):
         """Initialize ML models optimized for trading sentiment analysis"""
@@ -405,62 +337,74 @@ class NewsSentimentAnalyzer:
             logger.error(f"Error getting ML prediction: {e}")
             return {'prediction': 'HOLD', 'confidence': 0.0, 'error': str(e)}
     
-    def analyze_bank_sentiment(self, symbol: str) -> Dict:
-        """Analyze sentiment for a specific bank"""
+    def analyze_bank_sentiment(self, symbol: str, keywords: list = None) -> Dict:
+        """
+        Analyzes news sentiment for a specific bank.
         
-        cache_key = f"sentiment_{symbol}"
-        cached_data = None
-        if self.cache:
-            cached_data = self.cache.get(cache_key)
+        Args:
+            symbol (str): The stock symbol (e.g., 'CBA.AX').
+            keywords (list, optional): Keywords to filter news. Defaults to None.
+
+        Returns:
+            Dict: A dictionary with sentiment analysis results.
+        """
+        logger.info(f"Analyzing sentiment for {symbol}...")
         
-        if cached_data:
-            return cached_data
+        # Use provided keywords or default to the symbol's name
+        search_terms = keywords or [symbol.split('.')[0]]
+        
+        # Get news from all sources
+        all_news = self.get_all_news(search_terms, symbol)
+        
+        # Filter news using the enhanced keyword filter
+        if keywords:
+            filtered_news = [
+                item for item in all_news 
+                if self.keyword_filter.is_relevant(item['title'] + " " + item.get('summary', ''), keywords)
+            ]
+            logger.info(f"Filtered news for {symbol} from {len(all_news)} to {len(filtered_news)} articles using keywords.")
+            all_news = filtered_news
+
+        if not all_news:
+            logger.warning(f"No news found for {symbol}")
+            return {
+                'symbol': symbol,
+                'timestamp': datetime.now().isoformat(),
+                'news_count': 0,
+                'sentiment_scores': {
+                    'average_sentiment': 0.0,
+                    'positive_count': 0,
+                    'negative_count': 0,
+                    'neutral_count': 0,
+                    'sentiment_distribution': {
+                        'very_positive': 0,
+                        'positive': 0,
+                        'neutral': 0,
+                        'negative': 0,
+                        'very_negative': 0
+                    },
+                    'strongest_sentiment': 0.0
+                },
+                'reddit_sentiment': {
+                    'posts_analyzed': 0,
+                    'average_sentiment': 0,
+                    'bullish_count': 0,
+                    'bearish_count': 0,
+                    'neutral_count': 0,
+                    'top_posts': [],
+                    'sentiment_distribution': {},
+                    'subreddit_breakdown': {}
+                },
+                'significant_events': {},
+                'overall_sentiment': 0.0,
+                'sentiment_components': {},
+                'confidence': 0.0,
+                'recent_headlines': [],
+                'trend_analysis': {},
+                'impact_analysis': {}
+            }
         
         try:
-            # Collect news from multiple sources
-            all_news = []
-            
-            # RSS feeds
-            rss_news = self._fetch_rss_news(symbol)
-            all_news.extend(rss_news)
-            
-            # Yahoo Finance news
-            yahoo_news = self._fetch_yahoo_news(symbol)
-            all_news.extend(yahoo_news)
-            
-            # Original web scraping (Google News)
-            scraped_news = self._scrape_news_sites(symbol)
-            all_news.extend(scraped_news)
-            
-            # Additional Australian news sources
-            abc_news = self._scrape_abc_news(symbol)
-            all_news.extend(abc_news)
-            
-            news_com_au = self._scrape_news_com_au(symbol)
-            all_news.extend(news_com_au)
-            
-            motley_fool = self._scrape_motley_fool_au(symbol)
-            all_news.extend(motley_fool)
-            
-            market_online = self._scrape_market_online(symbol)
-            all_news.extend(market_online)
-            
-            investing_au = self._scrape_investing_au(symbol)
-            all_news.extend(investing_au)
-            
-            # Industry and regulatory news (applies to all banks)
-            aba_news = self._scrape_aba_news(symbol)
-            all_news.extend(aba_news)
-            
-            # Official ASX announcements
-            asx_announcements = self._scrape_asx_announcements(symbol)
-            all_news.extend(asx_announcements)
-            
-            logger.info(f"Collected {len(all_news)} news articles from {7} sources for {symbol}")
-            
-            # Reddit sentiment
-            reddit_sentiment = self._get_reddit_sentiment(symbol)
-            
             # Analyze sentiment
             sentiment_analysis = self._analyze_news_sentiment(all_news)
             
