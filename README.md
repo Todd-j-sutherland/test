@@ -38,13 +38,25 @@ pip install -r requirements.txt
 python -m app.main status
 
 # Run morning analysis
-python -m app.main morning
+source ../trading_venv/bin/activate && ../trading_evn python -m app.main morning
 
 # Run evening summary
 python -m app.main evening
 
 # Launch interactive dashboard
 python -m app.main dashboard
+
+source .venv312/bin/activate
+export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
+cd /Users/toddsutherland/Repos/trading_analysis
+
+source .venv312/bin/activate
+export PYTHONPATH=/root/trading_venv/Repos/trading_analysis
+
+
+cd /root/test
+export PYTHONPATH=/root/test
+cd /root/test
 ```
 
 ## 📁 Project Structure
@@ -197,3 +209,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **🚀 Ready to start trading with AI-powered insights!**
+
+
+send
+scp -i ~/.ssh/id_rsa -r trading_analysis/data root@170.64.199.151:/root/test/
+
+scp -i ~/.ssh/id_rsa -r root@170.64.199.151:/root/test/data trading_analysis/data

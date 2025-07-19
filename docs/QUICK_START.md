@@ -1,8 +1,160 @@
-# 🚀 Quick Start Guide
+# 🚀 Quick Start Guide - ML Trading System
 
-Get up and running with the Trading Analysis System in minutes!
+## LATEST UPDATE: ML Trading System Now Operational! ✅
 
-## 📋 Prerequisites
+### Essential Setup
+```bash
+# Activate environment
+source .venv312/bin/activate
+cd /Users/toddsutherland/Repos/trading_analysis
+
+# Set Python path (REQUIRED for imports to work)
+export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
+```
+
+### 🎯 NEW ML Trading Commands
+```bash
+# Set Python path first (run once per terminal session)
+export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
+
+# Get ML scores for all banks
+python app/main.py ml-scores
+
+# Analyze specific bank before trading
+python app/main.py pre-trade --symbol QBE.AX
+
+# Launch enhanced trading dashboard
+python app/main.py enhanced-dashboard
+
+# Run complete ML analysis
+python app/main.py analyze
+
+# Other useful commands
+python app/main.py news              # News sentiment analysis
+python app/main.py economic          # Economic regime analysis
+python app/main.py divergence        # Sector divergence analysis
+python app/main.py dashboard         # Basic dashboard
+```
+
+## 🎯 What Was Fixed
+
+### ✅ Major Error Fixes (Just Completed)
+1. **'get_all_news' method missing** ➜ Added news aggregation from multiple sources
+2. **'transformer_models' attribute error** ➜ Fixed reference to use 'transformer_pipelines'
+3. **'reddit_sentiment' undefined** ➜ Added Reddit sentiment analysis call
+4. **'feature_engineer' missing** ➜ Added ML trading component initialization
+
+### ✅ System Status: FULLY OPERATIONAL
+
+## 📊 Example ML Analysis Output
+
+```
+🔍 Pre-Trade ML Analysis for QBE.AX
+ML Score: 42.9/100
+Recommendation: HOLD
+Risk Level: MEDIUM
+Position Size: 4.5%
+
+📊 Component Scores:
+   Sentiment Strength: 0.7
+   Sentiment Confidence: 59.0
+   Economic Context: 81.3
+   Divergence Score: 50.0
+   Technical Momentum: 50.0
+   ML Prediction Confidence: 25.0
+```
+
+## 🏦 Supported Banks
+- CBA.AX (Commonwealth Bank)
+- WBC.AX (Westpac)
+- ANZ.AX (ANZ Bank)
+- NAB.AX (National Australia Bank)
+- MQG.AX (Macquarie Group)
+- SUN.AX (Suncorp)
+- QBE.AX (QBE Insurance)
+
+## ⚡ Performance Tips
+- Set `SKIP_TRANSFORMERS=1` to reduce memory usage
+- System caches results for 30 minutes
+- Use Python 3.11/3.12 for best transformer support
+
+## 🔧 Environment Variables (Optional)
+```bash
+export SKIP_TRANSFORMERS=1          # Skip AI models (faster startup)
+export ALPACA_API_KEY=your_key      # For paper trading
+export ALPACA_SECRET_KEY=your_secret
+```
+
+## 📋 Complete Command Reference
+
+**IMPORTANT**: Set Python path first: `export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis`
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `ml-scores` | Get ML scores for all banks | `python app/main.py ml-scores` |
+| `pre-trade` | Pre-trade analysis for symbol | `python app/main.py pre-trade --symbol QBE.AX` |
+| `enhanced-dashboard` | Launch enhanced ML dashboard | `python app/main.py enhanced-dashboard` |
+| `dashboard` | Launch basic dashboard | `python app/main.py dashboard` |
+| `news` | News sentiment analysis | `python app/main.py news` |
+| `economic` | Economic regime analysis | `python app/main.py economic` |
+| `divergence` | Sector divergence analysis | `python app/main.py divergence` |
+| `morning` | Morning trading routine | `python app/main.py morning` |
+| `evening` | Evening trading summary | `python app/main.py evening` |
+| `status` | System health check | `python app/main.py status` |
+
+## 📈 NEW ML System Features
+- ✅ Multi-source news aggregation
+- ✅ AI-powered sentiment analysis
+- ✅ ML trading score calculation
+- ✅ Economic regime detection
+- ✅ Sector divergence analysis
+- ✅ Pre-trade risk assessment
+- ✅ Alpaca paper trading integration
+- ✅ Enhanced trading dashboard
+
+## 🚨 Troubleshooting
+
+### "No module named 'app'" Error
+**Solution**: Set the Python path in your terminal:
+```bash
+source .venv312/bin/activate
+export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
+python app/main.py status  # Test it works
+```
+
+### "delta_color only accepts: 'normal', 'inverse', or 'off'" Error
+**Status**: ✅ FIXED in enhanced dashboard
+- Fixed Streamlit delta_color parameter usage in economic analysis section
+- Dashboard now uses correct color values for metrics
+
+### Quick Setup Script
+Create this one-time setup script:
+```bash
+# Create a setup.sh file
+cat > setup.sh << 'EOF'
+#!/bin/bash
+source .venv312/bin/activate
+export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
+echo "✅ Environment ready for ML trading!"
+echo "Now run: python app/main.py [command]"
+EOF
+
+chmod +x setup.sh
+```
+
+Then just run: `./setup.sh` before using any commands.
+
+### Other Issues
+- **Memory issues**: Add `SKIP_TRANSFORMERS=1`
+- **Slow startup**: Transformer models download ~268MB first time
+- **Network errors**: News scraping may occasionally fail (system continues)
+- **Port 8501 in use**: Dashboard is already running in another terminal
+
+Ready to trade with ML! 🚀
+
+---
+
+## 📋 Legacy Prerequisites (For Reference)
 
 - **Python 3.8+** installed on your system
 - **Git** for cloning the repository

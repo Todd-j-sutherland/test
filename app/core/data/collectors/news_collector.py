@@ -17,6 +17,7 @@ sys.path.insert(0, parent_dir)
 from app.core.data.processors.news_processor import NewsTradingAnalyzer
 from app.core.ml.training.pipeline import MLTrainingPipeline
 from app.core.data.collectors.market_data import ASXDataFeed
+from app.core.data.collectors.keywords import KeywordManager
 from app.config.settings import Settings
 
 class SmartCollector:
@@ -26,6 +27,7 @@ class SmartCollector:
         self.analyzer = NewsTradingAnalyzer()
         self.ml_pipeline = MLTrainingPipeline()
         self.data_feed = ASXDataFeed()
+        self.keyword_manager = KeywordManager()
         self.active_signals = self.load_active_signals()
         self.collection_stats = {'signals_today': 0, 'outcomes_recorded': 0}
         
@@ -48,8 +50,11 @@ class SmartCollector:
         
         for symbol in self.symbols:
             try:
-                # Get sentiment analysis
-                result = self.analyzer.analyze_and_track(symbol)
+                # Get keywords for the bank
+                keywords = self.keyword_manager.get_keywords_for_bank(symbol)
+                
+                # Get sentiment analysis using keywords
+                result = self.analyzer.analyze_and_track(symbol, keywords=keywords)
                 
                 # Filter for high-quality signals
                 if self.is_high_quality_signal(result):

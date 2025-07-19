@@ -95,6 +95,91 @@ class TradingSystemManager:
         except Exception as e:
             print(f"❌ Enhanced sentiment error: {e}")
         
+        # Economic Context Analysis
+        print("\n🌍 Analyzing economic context...")
+        try:
+            from app.core.analysis.economic import EconomicSentimentAnalyzer
+            economic_analyzer = EconomicSentimentAnalyzer()
+            economic_sentiment = economic_analyzer.analyze_economic_sentiment()
+            regime = economic_sentiment.get('market_regime', {}).get('regime', 'Unknown')
+            print(f"   ✅ Economic analysis complete. Market Regime: {regime}")
+        except Exception as e:
+            print(f"   ❌ Economic analysis failed: {e}")
+
+        # Divergence Detection Analysis
+        print("\n🎯 Analyzing sector divergence...")
+        try:
+            from app.core.analysis.divergence import DivergenceDetector
+            from app.core.data.processors.news_processor import NewsTradingAnalyzer
+            
+            divergence_detector = DivergenceDetector()
+            news_analyzer = NewsTradingAnalyzer()
+            
+            # Get sentiment analysis for all banks
+            bank_analyses = {}
+            for symbol in market_symbols:
+                try:
+                    analysis = news_analyzer.analyze_single_bank(symbol, detailed=False)
+                    if analysis and 'overall_sentiment' in analysis:
+                        bank_analyses[symbol] = analysis
+                except Exception as e:
+                    print(f"   ⚠️ {symbol}: Analysis error")
+            
+            if bank_analyses:
+                divergence_analysis = divergence_detector.analyze_sector_divergence(bank_analyses)
+                sector_avg = divergence_analysis.get('sector_average', 0)
+                divergent_count = len(divergence_analysis.get('divergent_banks', {}))
+                
+                print(f"   📊 Sector average sentiment: {sector_avg:+.3f}")
+                print(f"   🎯 Divergent banks detected: {divergent_count}")
+                
+                # Show most extreme divergences
+                most_bullish = divergence_analysis.get('most_bullish', ('N/A', {}))
+                most_bearish = divergence_analysis.get('most_bearish', ('N/A', {}))
+                
+                if most_bullish[0] != 'N/A':
+                    score = most_bullish[1].get('divergence_score', 0)
+                    print(f"   📈 Most bullish divergence: {most_bullish[0]} ({score:+.3f})")
+                
+                if most_bearish[0] != 'N/A':
+                    score = most_bearish[1].get('divergence_score', 0)
+                    print(f"   📉 Most bearish divergence: {most_bearish[0]} ({score:+.3f})")
+                
+                print(f"   ✅ Divergence analysis complete")
+            else:
+                print(f"   ⚠️ Insufficient data for divergence analysis")
+                
+        except Exception as e:
+            print(f"   ❌ Divergence analysis failed: {e}")
+
+        # Enhanced ML Pipeline Analysis
+        print("\n🧠 Enhanced ML Pipeline Analysis...")
+        try:
+            from app.core.ml.enhanced_pipeline import EnhancedMLPipeline
+            
+            ml_pipeline = EnhancedMLPipeline()
+            
+            # Test prediction capabilities
+            print(f"   🔬 ML pipeline initialized with {len(ml_pipeline.models)} models")
+            
+            # Check if we have enough training data
+            ml_pipeline._load_training_data()
+            completed_samples = [
+                record for record in ml_pipeline.training_data 
+                if record.get('outcome') is not None
+            ]
+            
+            print(f"   📊 Training samples available: {len(completed_samples)}")
+            
+            if len(completed_samples) >= 50:
+                print(f"   🚀 Sufficient data for model training")
+            else:
+                print(f"   📈 Need {50 - len(completed_samples)} more samples for optimal training")
+            
+            print(f"   ✅ Enhanced ML pipeline analysis complete")
+        except Exception as e:
+            print(f"   ❌ Enhanced ML pipeline error: {e}")
+
         # Get overall market status
         print("\n📊 Market Overview...")
         try:
