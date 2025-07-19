@@ -244,47 +244,5 @@
     "symbol": "QBE.AX",
     "sentiment_score": 0.007052049135692108,
     "confidence": 0.5900000000000001
-  },
-  {
-    "timestamp": "2025-07-19T22:11:12.965062",
-    "symbol": "CBA.AX",
-    "sentiment_score": 0.020076445655943503,
-    "confidence": 0.71
-  },
-  {
-    "timestamp": "2025-07-19T22:12:14.639489",
-    "symbol": "WBC.AX",
-    "sentiment_score": 0.026725703551440074,
-    "confidence": 0.76
-  },
-  {
-    "timestamp": "2025-07-19T22:13:13.180369",
-    "symbol": "ANZ.AX",
-    "sentiment_score": 0.038682879250727525,
-    "confidence": 0.76
-  },
-  {
-    "timestamp": "2025-07-19T22:14:13.050049",
-    "symbol": "NAB.AX",
-    "sentiment_score": 0.02375772135979237,
-    "confidence": 0.76
-  },
-  {
-    "timestamp": "2025-07-19T22:15:16.066776",
-    "symbol": "MQG.AX",
-    "sentiment_score": 0.06955267966050524,
-    "confidence": 0.76
-  },
-  {
-    "timestamp": "2025-07-19T22:16:18.665809",
-    "symbol": "SUN.AX",
-    "sentiment_score": 0.03415453969284122,
-    "confidence": 0.6400000000000001
-  },
-  {
-    "timestamp": "2025-07-19T22:17:26.612498",
-    "symbol": "QBE.AX",
-    "sentiment_score": -0.0015424126035724524,
-    "confidence": 0.6100000000000001
   }
 ]
