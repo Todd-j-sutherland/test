@@ -101,6 +101,44 @@ class NewsSentimentAnalyzer:
         # Initialize keyword filter
         self.keyword_filter = BankNewsFilter()
         
+        # Define bank keywords for news searching
+        self.bank_keywords = {
+            'CBA.AX': ['Commonwealth Bank', 'CBA', 'CommBank', 'Commonwealth'],
+            'WBC.AX': ['Westpac', 'WBC', 'Westpac Banking Corporation'],
+            'ANZ.AX': ['ANZ', 'Australia and New Zealand Banking', 'ANZ Bank'],
+            'NAB.AX': ['NAB', 'National Australia Bank', 'National Bank'],
+            'MQG.AX': ['Macquarie', 'MQG', 'Macquarie Group', 'Macquarie Bank'],
+            'SUN.AX': ['Suncorp', 'SUN', 'Suncorp Group', 'Suncorp Bank'],
+            'QBE.AX': ['QBE', 'QBE Insurance', 'QBE Group']
+        }
+        
+        # Initialize ML trading components
+        self.feature_engineer = None
+        self.reddit = None
+        self.ml_model = None
+        self.enhanced_integration = None
+        
+        # Try to initialize ML trading components
+        if ML_TRADING_AVAILABLE:
+            try:
+                self.feature_engineer = FeatureEngineer()
+                logger.info("FeatureEngineer initialized successfully")
+            except Exception as e:
+                logger.warning(f"Failed to initialize FeatureEngineer: {e}")
+                self.feature_engineer = None
+        
+        # Try to initialize enhanced sentiment integration
+        if ENHANCED_SENTIMENT_AVAILABLE:
+            try:
+                self.enhanced_integration = SentimentIntegrationManager()
+                logger.info("Enhanced sentiment integration initialized successfully")
+            except Exception as e:
+                logger.warning(f"Failed to initialize enhanced sentiment integration: {e}")
+                self.enhanced_integration = None
+        
+        # Load ML model if available
+        self.ml_model = self._load_ml_model()
+        
         # Initialize transformer models if available
         self.transformer_pipelines = {}
         if TRANSFORMERS_AVAILABLE and not os.getenv('SKIP_TRANSFORMERS'):
@@ -407,6 +445,9 @@ class NewsSentimentAnalyzer:
         try:
             # Analyze sentiment
             sentiment_analysis = self._analyze_news_sentiment(all_news)
+            
+            # Get Reddit sentiment
+            reddit_sentiment = self._get_reddit_sentiment(symbol)
             
             # Check for specific events
             event_analysis = self._check_significant_events(all_news, symbol)
@@ -915,6 +956,80 @@ class NewsSentimentAnalyzer:
         except Exception as e:
             logger.warning(f"Error getting market context: {e}")
             return {'volatility_factor': 1.0}
+    
+    def get_all_news(self, search_terms: list, symbol: str) -> List[Dict]:
+        """
+        Collect news from all available sources for the given symbol and search terms.
+        
+        Args:
+            search_terms: List of keywords to search for
+            symbol: Stock symbol (e.g., 'CBA.AX')
+            
+        Returns:
+            List of news articles from all sources
+        """
+        all_news = []
+        
+        try:
+            # Fetch from RSS feeds
+            logger.debug(f"Fetching RSS news for {symbol}")
+            rss_news = self._fetch_rss_news(symbol)
+            all_news.extend(rss_news)
+            logger.debug(f"Found {len(rss_news)} RSS articles")
+        except Exception as e:
+            logger.warning(f"Error fetching RSS news for {symbol}: {e}")
+        
+        try:
+            # Fetch from Yahoo News
+            logger.debug(f"Fetching Yahoo news for {symbol}")
+            yahoo_news = self._fetch_yahoo_news(symbol)
+            all_news.extend(yahoo_news)
+            logger.debug(f"Found {len(yahoo_news)} Yahoo articles")
+        except Exception as e:
+            logger.warning(f"Error fetching Yahoo news for {symbol}: {e}")
+        
+        try:
+            # Scrape from news websites
+            logger.debug(f"Scraping news websites for {symbol}")
+            scraped_news = self._scrape_news_sites(symbol)
+            all_news.extend(scraped_news)
+            logger.debug(f"Found {len(scraped_news)} scraped articles")
+        except Exception as e:
+            logger.warning(f"Error scraping news sites for {symbol}: {e}")
+        
+        # Remove duplicates based on title similarity
+        all_news = self._remove_duplicate_news(all_news)
+        
+        logger.info(f"Collected {len(all_news)} total news articles for {symbol}")
+        return all_news
+    
+    def _remove_duplicate_news(self, news_items: List[Dict]) -> List[Dict]:
+        """Remove duplicate news articles based on title similarity"""
+        if not news_items:
+            return []
+        
+        unique_news = []
+        seen_titles = set()
+        
+        for item in news_items:
+            title = item.get('title', '').lower().strip()
+            if not title:
+                continue
+                
+            # Simple deduplication - check if we've seen a very similar title
+            is_duplicate = False
+            for seen_title in seen_titles:
+                # If titles are very similar (80% overlap), consider it a duplicate
+                if len(set(title.split()) & set(seen_title.split())) / len(set(title.split()) | set(seen_title.split())) > 0.8:
+                    is_duplicate = True
+                    break
+            
+            if not is_duplicate:
+                unique_news.append(item)
+                seen_titles.add(title)
+        
+        logger.debug(f"Removed {len(news_items) - len(unique_news)} duplicate articles")
+        return unique_news
     
     def _fetch_rss_news(self, symbol: str) -> List[Dict]:
         """Fetch news from RSS feeds"""
@@ -1636,9 +1751,9 @@ class NewsSentimentAnalyzer:
                 pass
             
             # Transformer sentiment (if available)
-            if self.transformer_models.get('general_sentiment'):
+            if self.transformer_pipelines.get('general'):
                 try:
-                    transformer_result = self.transformer_models['general_sentiment'](text)
+                    transformer_result = self.transformer_pipelines['general'](text)
                     if transformer_result:
                         # Convert to -1 to 1 scale
                         if transformer_result[0]['label'] == 'POSITIVE':

@@ -256,9 +256,69 @@ class EnhancedASXTradingSystem:
         else:
             print(f"❌ Portfolio Analysis Error: {portfolio_risk['error']}")
         
+        # Display ML Trading Scores if available
+        await self._display_ml_trading_scores()
+        
         print("\n" + "="*80)
         print("✅ Enhanced analysis complete!")
         print("="*80)
+
+    async def _display_ml_trading_scores(self):
+        """Display ML trading scores from recent analysis"""
+        try:
+            import json
+            import os
+            from pathlib import Path
+            
+            # Check for recent ML analysis
+            ml_analysis_file = Path('data/ml_analysis/latest_analysis.json')
+            
+            if not ml_analysis_file.exists():
+                print(f"\n📊 ML Trading Scores: Not available (run 'python -m app.main ml-analyze' first)")
+                return
+            
+            with open(ml_analysis_file, 'r') as f:
+                analysis_data = json.load(f)
+            
+            ml_scores = analysis_data.get('ml_scores', {})
+            if not ml_scores:
+                print(f"\n📊 ML Trading Scores: No scores in analysis data")
+                return
+            
+            print(f"\n📊 ML TRADING SCORES:")
+            print(f"    Timestamp: {analysis_data.get('timestamp', 'Unknown')}")
+            print(f"    -" * 60)
+            
+            # Display bank scores in a formatted table
+            banks = list(ml_scores.keys())
+            if banks:
+                print(f"    {'Bank':<12} {'ML Score':<10} {'Sentiment':<12} {'Technical':<12} {'Signal':<10}")
+                print(f"    {'-'*12} {'-'*10} {'-'*12} {'-'*12} {'-'*10}")
+                
+                for bank in sorted(banks):
+                    score_data = ml_scores[bank]
+                    ml_score = score_data.get('overall_score', 0)
+                    sentiment = score_data.get('sentiment_score', 0)
+                    technical = score_data.get('technical_score', 0)
+                    signal = score_data.get('trading_signal', 'HOLD')
+                    
+                    print(f"    {bank:<12} {ml_score:<10.3f} {sentiment:<12.3f} {technical:<12.3f} {signal:<10}")
+            
+            # Display summary statistics
+            summary = analysis_data.get('summary', {})
+            if summary:
+                print(f"\n    📈 Analysis Summary:")
+                print(f"       Economic Regime: {summary.get('economic_regime', 'Unknown')}")
+                print(f"       Trading Signals: {summary.get('trading_signals_generated', 0)}")
+                print(f"       Avg ML Score: {summary.get('average_ml_score', 0):.3f}")
+                
+                # Show top trading opportunities
+                top_opportunities = summary.get('top_trading_opportunities', [])
+                if top_opportunities:
+                    print(f"       Top Opportunities: {', '.join(top_opportunities[:3])}")
+        
+        except Exception as e:
+            print(f"\n⚠️ Could not display ML trading scores: {e}")
 
 async def main():
     """Main function"""
