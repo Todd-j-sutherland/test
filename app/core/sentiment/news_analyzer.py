@@ -550,7 +550,11 @@ class NewsSentimentAnalyzer:
             
             # Store in historical data (after all enhancements are added)
             try:
-                self.history_manager.store_sentiment(symbol, result)
+                self.history_manager.store_sentiment(
+                    symbol,
+                    result['overall_sentiment'],
+                    result['confidence']
+                )
             except Exception as e:
                 logger.warning(f"Failed to store sentiment history for {symbol}: {e}")
             
