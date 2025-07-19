@@ -26,6 +26,7 @@ data/historical/downloaded_*
 # Essential data that changes frequently (ML training input)
 data/sentiment_history/
 data/impact_analysis/
+data/** 
 
 # ML Models and training data (generated/trained models)
 data/ml_models/models/
