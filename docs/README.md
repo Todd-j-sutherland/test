@@ -43,6 +43,7 @@ python -m app.main status      # Health check
 python -m app.main morning     # Morning analysis
 python -m app.main evening     # Evening summary
 python -m app.main dashboard   # Web interface
+streamlit run app/dashboard/main.py
 
 # Testing commands
 python -m pytest tests/ -v                # All tests
