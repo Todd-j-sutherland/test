@@ -36,6 +36,7 @@ try:
     from app.core.trading.alpaca_integration import AlpacaMLTrader
     from app.core.data.collectors.market_data import ASXDataFeed
     from app.config.settings import Settings
+    from app.dashboard.components.trading_performance import enhanced_dashboard_performance_section
     COMPONENTS_AVAILABLE = True
 except ImportError as e:
     logger.error(f"Failed to import components: {e}")
@@ -115,6 +116,15 @@ def main():
         display_ml_predictions(ml_pipeline, bank_analyses)
         display_trading_signals(divergence_detector, bank_analyses)
         display_alpaca_integration(alpaca_trader, ml_scores)
+        
+        # Add the new performance section
+        st.markdown("---")
+        try:
+            from app.core.ml.tracking.progression_tracker import MLProgressionTracker
+            ml_tracker = MLProgressionTracker()
+            enhanced_dashboard_performance_section(ml_tracker)
+        except Exception as e:
+            st.error(f"⚠️ Performance tracking unavailable: {e}")
     else:
         st.error("❌ Unable to retrieve bank analysis data.")
 

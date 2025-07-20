@@ -322,3 +322,66 @@ Economic regime detection (Bull/Bear/Neutral)
 Bank sentiment analysis with live news
 Trading recommendations with confidence scores
 Performance tracking (your 70.7% success rate)
+
+
+
+Great question! Let me explain what **Divergence Scores** mean in your trading analysis system. Looking at your system, divergence scores are a key component of your ML trading signals. Summarized conversation historyNow let me look for the specific implementation of how divergence scores are calculated: Perfect! Now I have a comprehensive understanding of what **Divergence Scores** mean in your trading system. Let me explain:
+
+## 🎯 **Divergence Scores Explained**
+
+**Divergence Scores** in your trading system measure how much an individual bank's sentiment **differs from the overall banking sector average**. This is a powerful trading signal because it helps identify:
+
+### **What Divergence Measures:**
+
+1. **Individual vs. Sector Performance**
+   - How much a specific bank (like ANZ.AX) differs from the average sentiment of all banks
+   - Calculated as: `Bank Sentiment - Sector Average Sentiment`
+
+2. **Normalized & Confidence-Adjusted**
+   - Raw divergence is normalized by sector volatility
+   - Then adjusted by the confidence level of the analysis
+   - Formula: `(Raw Divergence / Sector Volatility) × Confidence`
+
+### **Divergence Score Interpretation:**
+
+| **Score Range** | **Meaning** | **Trading Implication** |
+|-----------------|-------------|-------------------------|
+| **+0.15 to +3.0** | **Positive Outlier** | Bank performing **better** than sector - potential **BUY** |
+| **-0.15 to -3.0** | **Negative Outlier** | Bank performing **worse** than sector - potential **SELL** |
+| **-0.15 to +0.15** | **In Line** | Bank following sector trend - **HOLD** |
+
+### **Key Components:**
+
+1. **Divergence Score**: The actual difference from sector average
+2. **Significance**: How statistically meaningful the divergence is (1.0-3.0 scale)
+3. **Opportunity Type**: 
+   - `outperformer` - beats sector average
+   - `underperformer` - lags sector average
+   - `in_line` - follows sector
+
+### **Why This Matters for Trading:**
+
+**Divergence identifies opportunities others might miss:**
+
+- **Positive Divergence** (+0.3): "ANZ has +0.3 sentiment while sector average is 0.0" → ANZ showing relative strength
+- **Negative Divergence** (-0.4): "CBA has -0.2 sentiment while sector average is +0.2" → CBA showing relative weakness
+
+### **In Your ML Trading Score:**
+
+The divergence score becomes one of 6 components in your overall ML trading score (0-100):
+
+1. Sentiment Strength (0-100)
+2. Sentiment Confidence (0-100) 
+3. Economic Context (0-100)
+4. **Divergence Score (0-100)** ← This one!
+5. Technical Momentum (0-100)
+6. ML Prediction Confidence (0-100)
+
+### **Real Example:**
+If CBA has sentiment of +0.5 and the sector average is +0.2:
+- **Raw Divergence**: +0.3 (CBA is 0.3 points above sector)
+- **Divergence Type**: "positive_outlier" 
+- **Opportunity**: "outperformer"
+- **Trading Signal**: Potential **BUY** (CBA showing relative strength)
+
+This helps you spot banks that are moving independently of the sector trend - often the most profitable trading opportunities! 📈

@@ -46,19 +46,19 @@ python -m app.main evening
 # Launch interactive dashboard
 python -m app.main dashboard
 
+# 💻 Local Setup
 source .venv312/bin/activate
 export PYTHONPATH=/Users/toddsutherland/Repos/trading_analysis
 cd /Users/toddsutherland/Repos/trading_analysis
 
-source .venv312/bin/activate
-export PYTHONPATH=/root/trading_venv/Repos/trading_analysis
-
-
-cd /root/test
+# 🌐 Remote Server Setup
+ssh -i ~/.ssh/id_rsa root@170.64.199.151
+cd test
+source ../trading_venv/bin/activate
 export PYTHONPATH=/root/test
-cd /root/test
 
-streamlit run app/main.py enhanced-dashboard
+# Run dashboard on remote server (accessible via browser)
+streamlit run app/dashboard/enhanced_main.py --server.port 8501 --server.address 0.0.0.0
 ```
 
 ## 📁 Project Structure
@@ -217,3 +217,24 @@ send
 scp -i ~/.ssh/id_rsa -r trading_analysis/data root@170.64.199.151:/root/test/
 
 scp -i ~/.ssh/id_rsa -r root@170.64.199.151:/root/test/data trading_analysis/data
+
+
+# Connect to your server
+ssh -i ~/.ssh/id_rsa root@170.64.199.151
+
+# Navigate to project and activate environment
+cd test
+source ../trading_venv/bin/activate
+export PYTHONPATH=/root/test
+
+# Run different commands
+python app/main.py status          # System health check
+python app/main.py ml-scores       # ML trading analysis
+python app/main.py news           # News sentiment analysis
+
+# Start dashboard
+streamlit run app/dashboard/enhanced_main.py --server.port 8504 --server.address 0.0.0.0
+
+
+
+ssh -i ~/.ssh/id_rsa root@170.64.199.151 "cd test && source ../trading_venv/bin/activate && export PYTHONPATH=/root/test && streamlit run app/dashboard/enhanced_main.py --server.port 8504 --server.address 0.0.0.0"
