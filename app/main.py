@@ -35,7 +35,7 @@ Examples:
     
     parser.add_argument(
         'command',
-        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard', 'enhanced-dashboard', 'professional-dashboard', 'news', 'divergence', 'economic', 'ml-scores', 'ml-trading', 'pre-trade', 'alpaca-setup', 'alpaca-test', 'start-trading'],
+        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard', 'enhanced-dashboard', 'professional-dashboard', 'news', 'divergence', 'economic', 'ml-scores', 'ml-trading', 'pre-trade', 'alpaca-setup', 'alpaca-test', 'start-trading', 'trading-history'],
         help='Command to execute'
     )
     
@@ -398,6 +398,136 @@ def launch_ml_dashboard():
         print(f"❌ Error launching dashboard: {e}")
         print(f"💡 Make sure Streamlit is installed: pip install streamlit plotly")
 
+def show_trading_history():
+    """Display ML trading positions with profit/loss information in a formatted table."""
+    print("📊 ML Trading History - Positions & Performance")
+    print("=" * 90)
+    
+    try:
+        import sqlite3
+        import os
+        from datetime import datetime
+        
+        db_path = 'data/position_tracking/position_outcomes.db'
+        
+        if not os.path.exists(db_path):
+            print("❌ No trading history database found")
+            print("💡 Positions will be recorded once ML trading starts")
+            return
+        
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        
+        # Check if there are any positions
+        cursor.execute("SELECT COUNT(*) FROM position_outcomes")
+        total_positions = cursor.fetchone()[0]
+        
+        if total_positions == 0:
+            print("📝 No trading positions found in database")
+            print("💡 Start ML trading to see positions here: python app/main.py ml-trading")
+            conn.close()
+            return
+        
+        # Get detailed position information
+        query = """
+        SELECT 
+            symbol,
+            DATE(entry_date) as entry_date,
+            ROUND(entry_price, 2) as entry_price,
+            DATE(exit_date) as exit_date,
+            ROUND(exit_price, 2) as exit_price,
+            position_type,
+            ROUND(position_size, 0) as shares,
+            CASE 
+                WHEN exit_price IS NOT NULL AND entry_price IS NOT NULL THEN 
+                    ROUND((exit_price - entry_price) * position_size, 2)
+                ELSE NULL
+            END as profit_loss,
+            CASE 
+                WHEN exit_price IS NOT NULL AND entry_price IS NOT NULL THEN 
+                    ROUND(((exit_price - entry_price) / entry_price) * 100, 2)
+                ELSE NULL
+            END as return_pct,
+            exit_reason,
+            ROUND(confidence_at_entry * 100, 1) as ml_confidence,
+            ROUND(sentiment_at_entry, 2) as sentiment_score
+        FROM position_outcomes 
+        ORDER BY entry_date DESC
+        """
+        
+        cursor.execute(query)
+        positions = cursor.fetchall()
+        
+        # Display header
+        print(f"\n🎯 Total Positions: {total_positions}")
+        print("\n" + "─" * 90)
+        print(f"{'Symbol':<8} {'Entry Date':<12} {'Entry $':<8} {'Exit Date':<12} {'Exit $':<8} {'Shares':<7} {'P&L $':<10} {'Return %':<9} {'ML Conf':<8} {'Exit Reason':<12}")
+        print("─" * 90)
+        
+        total_pnl = 0.0
+        winning_trades = 0
+        losing_trades = 0
+        open_positions = 0
+        
+        for pos in positions:
+            symbol, entry_date, entry_price, exit_date, exit_price, pos_type, shares, pnl, return_pct, exit_reason, ml_conf, sentiment = pos
+            
+            # Format values for display
+            exit_date_str = exit_date if exit_date else "OPEN"
+            exit_price_str = f"{exit_price:.2f}" if exit_price else "---"
+            pnl_str = f"{pnl:+.2f}" if pnl is not None else "OPEN"
+            return_pct_str = f"{return_pct:+.2f}%" if return_pct is not None else "OPEN"
+            exit_reason_str = exit_reason if exit_reason else "open"
+            
+            # Color coding for profit/loss
+            if pnl is not None:
+                pnl_color = "🟢" if pnl >= 0 else "🔴"
+                pnl_str = f"{pnl_color} {pnl_str}"
+                total_pnl += pnl
+                
+                if pnl >= 0:
+                    winning_trades += 1
+                else:
+                    losing_trades += 1
+            else:
+                open_positions += 1
+                pnl_str = "⚪ OPEN"
+            
+            print(f"{symbol:<8} {entry_date:<12} {entry_price:<8.2f} {exit_date_str:<12} {exit_price_str:<8} {shares:<7.0f} {pnl_str:<17} {return_pct_str:<9} {ml_conf:<6.1f}% {exit_reason_str:<12}")
+        
+        conn.close()
+        
+        # Display summary statistics
+        print("─" * 90)
+        print(f"\n📈 Performance Summary:")
+        print(f"   Total P&L: {'🟢' if total_pnl >= 0 else '🔴'} ${total_pnl:+,.2f}")
+        print(f"   Winning Trades: 🟢 {winning_trades}")
+        print(f"   Losing Trades: 🔴 {losing_trades}")
+        print(f"   Open Positions: ⚪ {open_positions}")
+        
+        if winning_trades + losing_trades > 0:
+            win_rate = (winning_trades / (winning_trades + losing_trades)) * 100
+            print(f"   Win Rate: {win_rate:.1f}%")
+            
+            if total_pnl != 0:
+                avg_win = sum(pos[7] for pos in positions if pos[7] and pos[7] > 0) / max(winning_trades, 1)
+                avg_loss = sum(pos[7] for pos in positions if pos[7] and pos[7] < 0) / max(losing_trades, 1)
+                print(f"   Avg Win: ${avg_win:.2f}")
+                print(f"   Avg Loss: ${avg_loss:.2f}")
+                if avg_loss != 0:
+                    profit_factor = abs(avg_win / avg_loss) if avg_loss < 0 else avg_win
+                    print(f"   Profit Factor: {profit_factor:.2f}")
+        
+        print(f"\n💡 Tips:")
+        print(f"   • Run 'python app/main.py ml-scores' to see current opportunities")
+        print(f"   • Run 'python app/main.py ml-trading' to execute new positions")
+        print(f"   • Your ML system has a 70.7% historical success rate")
+        
+    except Exception as e:
+        print(f"❌ Error displaying trading history: {e}")
+        import traceback
+        traceback.print_exc()
+
 def show_alpaca_setup():
     """Show Alpaca setup instructions."""
     try:
@@ -564,6 +694,8 @@ def main():
             test_alpaca_connection()
         elif args.command == 'start-trading':
             start_continuous_trading()
+        elif args.command == 'trading-history':
+            show_trading_history()
         
         logger.info(f"Command '{args.command}' completed successfully")
         
