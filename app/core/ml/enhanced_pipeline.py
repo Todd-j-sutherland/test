@@ -95,6 +95,9 @@ class EnhancedMLPipeline:
         
         self.scalers = {name: StandardScaler() for name in self.models.keys()}
         
+        # Try to load existing trained models
+        self._load_existing_models()
+        
         logger.info(f"Enhanced ML Pipeline initialized with {len(self.models)} models")
     
     def extract_features(self, sentiment_data: Dict, market_data: Dict = None, 
@@ -462,11 +465,73 @@ class EnhancedMLPipeline:
             json.dump(self.training_data, f, indent=2)
     
     def _load_training_data(self):
-        """Load training data from file."""
-        filepath = self.data_dir / 'training_data.json'
-        if filepath.exists():
-            with open(filepath, 'r') as f:
-                self.training_data = json.load(f)
+        """Load training data from SQLite database."""
+        try:
+            import sqlite3
+            db_path = "data/ml_models/training_data.db"
+            if not os.path.exists(db_path):
+                logger.warning(f"Training database not found: {db_path}")
+                return
+            
+            conn = sqlite3.connect(db_path)
+            
+            # Load sentiment features with outcomes
+            query = """
+            SELECT sf.*, tos.outcome_label, tos.return_pct, tos.created_at as outcome_timestamp
+            FROM sentiment_features sf
+            LEFT JOIN trading_outcomes tos ON sf.id = tos.feature_id
+            """
+            
+            cursor = conn.cursor()
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            
+            # Get column names
+            cursor.execute("PRAGMA table_info(sentiment_features)")
+            columns = [col[1] for col in cursor.fetchall()]
+            columns.extend(['outcome_label', 'return_pct', 'outcome_timestamp'])
+            
+            # Convert to training data format
+            self.training_data = []
+            for row in rows:
+                row_dict = dict(zip(columns, row))
+                
+                # Extract features (skip metadata columns)
+                features = {}
+                metadata_cols = ['id', 'symbol', 'timestamp', 'ml_features', 'feature_version', 'created_at', 'outcome_label', 'return_pct', 'outcome_timestamp']
+                for col, val in row_dict.items():
+                    if col not in metadata_cols and val is not None:
+                        features[col] = float(val)
+                
+                # Map outcome_label to string outcome
+                outcome = None
+                if row_dict.get('outcome_label') is not None:
+                    outcome_map = {0: 'unprofitable', 1: 'profitable', 2: 'neutral'}
+                    outcome = outcome_map.get(row_dict.get('outcome_label'), 'neutral')
+                
+                training_record = {
+                    'feature_id': f"{row_dict.get('symbol')}_{row_dict.get('id')}",
+                    'symbol': row_dict.get('symbol'),
+                    'timestamp': row_dict.get('timestamp'),
+                    'features': features,
+                    'outcome': outcome,
+                    'outcome_timestamp': row_dict.get('outcome_timestamp')
+                }
+                
+                self.training_data.append(training_record)
+            
+            conn.close()
+            logger.info(f"Loaded {len(self.training_data)} training samples from database")
+            
+        except Exception as e:
+            logger.error(f"Error loading training data from database: {e}")
+            # Fallback to JSON file
+            filepath = self.data_dir / 'training_data.json'
+            if filepath.exists():
+                with open(filepath, 'r') as f:
+                    self.training_data = json.load(f)
+            else:
+                self.training_data = []
     
     def _save_model(self, name: str, model, scaler):
         """Save trained model and scaler."""
@@ -483,6 +548,43 @@ class EnhancedMLPipeline:
         features_path = self.data_dir / 'feature_columns.json'
         with open(features_path, 'w') as f:
             json.dump(self.feature_columns, f)
+    
+    def _load_existing_models(self):
+        """Load existing trained models if available."""
+        try:
+            # Load feature columns first
+            features_path = self.data_dir / 'feature_columns.json'
+            if features_path.exists():
+                with open(features_path, 'r') as f:
+                    self.feature_columns = json.load(f)
+                logger.info(f"Loaded feature columns: {len(self.feature_columns)} features")
+            else:
+                logger.info("No feature columns file found, will train new models")
+                return
+            
+            # Load each model and scaler
+            loaded_count = 0
+            for name in list(self.models.keys()):
+                model_path = self.data_dir / f'{name}_model.pkl'
+                scaler_path = self.data_dir / f'{name}_scaler.pkl'
+                
+                if model_path.exists() and scaler_path.exists():
+                    try:
+                        # Load model and scaler
+                        self.models[name] = joblib.load(model_path)
+                        self.scalers[name] = joblib.load(scaler_path)
+                        loaded_count += 1
+                        logger.info(f"Loaded trained model: {name}")
+                    except Exception as e:
+                        logger.warning(f"Failed to load model {name}: {e}")
+                        # Keep the untrained model
+                else:
+                    logger.info(f"No trained model found for {name}, keeping untrained version")
+            
+            logger.info(f"Loaded {loaded_count}/{len(self.models)} trained models")
+            
+        except Exception as e:
+            logger.error(f"Error loading existing models: {e}")
     
     def _load_model(self, name: str) -> Tuple[Any, Any]:
         """Load trained model and scaler."""

@@ -57,6 +57,12 @@ cd test
 source ../trading_venv/bin/activate
 export PYTHONPATH=/root/test
 
+# 🌐 Remote Server Setup
+ssh -i ~/.ssh/id_rsa root@170.64.199.151
+cd test
+source ../trading_venv/bin/activate
+export PYTHONPATH=/root/test
+
 # Run dashboard on remote server (accessible via browser)
 streamlit run app/dashboard/enhanced_main.py --server.port 8501 --server.address 0.0.0.0
 ```
