@@ -10,7 +10,8 @@ import logging
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from scipy.signal import find_peaks, find_peaks_cwt
-import talib
+# import talib
+import pandas_ta as ta
 
 from ..analysis.technical import TechnicalAnalyzer
 from ...config.settings import Settings
@@ -119,7 +120,7 @@ class AIPatternDetector:
                 volume_trend = np.polyfit(range(len(window_data)), window_data['Volume'], 1)[0]
                 
                 # Technical indicators using your existing setup
-                rsi = talib.RSI(window_data['Close'].values, timeperiod=14)[-1] if len(window_data) >= 14 else 50
+                rsi = ta.rsi(window_data["Close"], length=14).iloc[-1] if len(window_data) >= 14 else 50
                 
                 # Peak/trough analysis
                 peaks, _ = find_peaks(window_data['Close'].values, distance=5)
