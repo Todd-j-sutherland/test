@@ -35,7 +35,7 @@ Examples:
     
     parser.add_argument(
         'command',
-        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard', 'enhanced-dashboard', 'news', 'divergence', 'economic', 'ml-scores', 'ml-trading', 'pre-trade'],
+        choices=['morning', 'evening', 'status', 'weekly', 'restart', 'test', 'dashboard', 'enhanced-dashboard', 'professional-dashboard', 'news', 'divergence', 'economic', 'ml-scores', 'ml-trading', 'pre-trade', 'alpaca-setup', 'alpaca-test', 'start-trading'],
         help='Command to execute'
     )
     
@@ -173,6 +173,60 @@ def run_economic_analysis():
             
     except Exception as e:
         print(f"❌ Economic analysis error: {e}")
+
+def run_alpaca_setup():
+    """Run Alpaca setup script"""
+    print("🏢 Running Alpaca Setup...")
+    
+    import subprocess
+    import sys
+    
+    setup_script = Path(__file__).parent.parent / "setup_alpaca.py"
+    
+    try:
+        subprocess.run([sys.executable, str(setup_script)], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Alpaca setup failed: {e}")
+    except FileNotFoundError:
+        print(f"❌ Setup script not found: {setup_script}")
+
+def test_alpaca_connection():
+    """Test Alpaca connection"""
+    print("🔌 Testing Alpaca Connection...")
+    
+    try:
+        from app.core.trading.alpaca_simulator import AlpacaTradingSimulator
+        
+        simulator = AlpacaTradingSimulator(paper_trading=True)
+        
+        if simulator.is_connected():
+            account_info = simulator.get_account_info()
+            print("✅ Successfully connected to Alpaca!")
+            print(f"📊 Account equity: ${account_info.get('equity', 0):,.2f}")
+            print(f"💰 Buying power: ${account_info.get('buying_power', 0):,.2f}")
+            print(f"💵 Cash: ${account_info.get('cash', 0):,.2f}")
+        else:
+            print("❌ Failed to connect to Alpaca")
+            print("💡 Run 'python app/main.py alpaca-setup' to configure credentials")
+            
+    except Exception as e:
+        print(f"❌ Error testing connection: {e}")
+
+def start_continuous_trading():
+    """Start continuous Alpaca trading service"""
+    print("🚀 Starting Continuous Alpaca Trading...")
+    
+    try:
+        from app.core.trading.continuous_alpaca_trader import ContinuousAlpacaTrader
+        
+        trader = ContinuousAlpacaTrader()
+        trader.run_continuous_trading()
+        
+    except ImportError:
+        print("❌ Continuous trading service not found")
+        print("💡 Run 'python app/main.py alpaca-setup' first")
+    except Exception as e:
+        print(f"❌ Error starting continuous trading: {e}")
 
 def run_ml_analysis():
     """Run comprehensive ML analysis before trading."""
@@ -476,10 +530,14 @@ def main():
         elif args.command == 'test':
             manager.test_enhanced_features()
         elif args.command == 'dashboard':
-            from app.dashboard.pages.professional import main as run_professional_dashboard
-            run_professional_dashboard()
+            # Use enhanced dashboard as default (professional dashboard has data issues)
+            launch_enhanced_dashboard()
         elif args.command == 'enhanced-dashboard':
             launch_enhanced_dashboard()
+        elif args.command == 'professional-dashboard':
+            # Keep old professional dashboard available but not as default
+            from app.dashboard.pages.professional import main as run_professional_dashboard
+            run_professional_dashboard()
         elif args.command == 'news':
             manager.news_analysis()
         elif args.command == 'divergence':
@@ -501,7 +559,11 @@ def main():
         elif args.command == 'ml-dashboard':
             launch_ml_dashboard()
         elif args.command == 'alpaca-setup':
-            show_alpaca_setup()
+            run_alpaca_setup()
+        elif args.command == 'alpaca-test':
+            test_alpaca_connection()
+        elif args.command == 'start-trading':
+            start_continuous_trading()
         
         logger.info(f"Command '{args.command}' completed successfully")
         

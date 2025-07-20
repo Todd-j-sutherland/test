@@ -47,7 +47,7 @@ class AlpacaTradingSimulator:
         
         # Get API credentials from environment
         api_key = os.getenv('ALPACA_API_KEY')
-        api_secret = os.getenv('ALPACA_API_SECRET')
+        api_secret = os.getenv('ALPACA_SECRET_KEY')  # Changed from ALPACA_API_SECRET
         base_url = os.getenv('ALPACA_BASE_URL', 'https://paper-api.alpaca.markets' if paper_trading else 'https://api.alpaca.markets')
         
         if not api_key or not api_secret:

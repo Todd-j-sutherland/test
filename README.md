@@ -57,6 +57,8 @@ export PYTHONPATH=/root/trading_venv/Repos/trading_analysis
 cd /root/test
 export PYTHONPATH=/root/test
 cd /root/test
+
+streamlit run app/main.py enhanced-dashboard
 ```
 
 ## 📁 Project Structure

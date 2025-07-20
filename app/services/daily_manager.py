@@ -366,6 +366,26 @@ class TradingSystemManager:
         print("   🕐 For continuous news updates, use: python -m app.main news --continuous")
         print("   📊 For detailed news analysis, use: python -m app.main news --all")
         
+        # Optional Alpaca Trading Integration
+        print("\n💹 Alpaca Trading Integration...")
+        try:
+            from app.core.trading.alpaca_simulator import AlpacaTradingSimulator
+            
+            alpaca_trader = AlpacaTradingSimulator(paper_trading=True)
+            
+            if alpaca_trader.is_connected():
+                account_info = alpaca_trader.get_account_info()
+                equity = account_info.get('equity', 0)
+                buying_power = account_info.get('buying_power', 0)
+                
+                print(f"   ✅ Alpaca connected - Equity: ${equity:,.2f}, Buying Power: ${buying_power:,.2f}")
+                print(f"   📈 Ready for ML-based paper trading")
+            else:
+                print(f"   ⚠️ Alpaca not connected (optional)")
+                print(f"   💡 Run 'python app/main.py alpaca-setup' to configure")
+        except Exception as e:
+            print(f"   ⚠️ Alpaca integration not available: {e}")
+
         print("\n🎯 MORNING ROUTINE COMPLETE!")
         print("🤖 All AI systems operational and ready for trading")
         print("📊 Enhanced machine learning models loaded")
