@@ -360,10 +360,36 @@ class TradingSystemManager:
             print(f"⚠️ News sentiment analysis warning: {e}")
             print("   📰 Basic news collection will continue in background")
         
-        # Option to start continuous news monitoring
-        print("\n🔄 News Monitoring Options...")
-        print("   📰 Smart collector will continue monitoring news sentiment")
-        print("   🕐 For continuous news updates, use: python -m app.main news --continuous")
+        # Start continuous news monitoring in background
+        print("\n🔄 Starting Background News Monitoring...")
+        try:
+            # Check if smart collector is already running (fix grep pattern)
+            ps_check = subprocess.run("ps aux | grep 'app.core.data.collectors.news_collector' | grep -v grep", 
+                                     shell=True, capture_output=True, text=True)
+            
+            if ps_check.returncode == 0:
+                print("   ⚠️  Smart collector already running in background")
+            else:
+                # Start smart collector in background
+                cmd = f"cd {self.root_dir} && python -m app.core.data.collectors.news_collector --interval 30"
+                print(f"   � Starting smart collector: {cmd}")
+                
+                subprocess.Popen(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                time.sleep(2)  # Give it time to start
+                
+                # Verify it started (fix grep pattern)
+                ps_verify = subprocess.run("ps aux | grep 'app.core.data.collectors.news_collector' | grep -v grep", 
+                                          shell=True, capture_output=True, text=True)
+                if ps_verify.returncode == 0:
+                    print("   ✅ Smart collector started successfully in background")
+                else:
+                    print("   ❌ Failed to start smart collector")
+                    
+        except Exception as e:
+            print(f"   ❌ Error starting background news monitoring: {e}")
+            
+        print("   📰 Smart collector monitoring news sentiment every 30 minutes")
+        print("   🕐 For manual news updates, use: python -m app.main news --continuous")
         print("   📊 For detailed news analysis, use: python -m app.main news --all")
         
         # Optional Alpaca Trading Integration
