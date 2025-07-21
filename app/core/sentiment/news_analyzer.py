@@ -141,8 +141,16 @@ class NewsSentimentAnalyzer:
         
         # Initialize transformer models if available
         self.transformer_pipelines = {}
-        if TRANSFORMERS_AVAILABLE and not os.getenv('SKIP_TRANSFORMERS'):
-            self.init_transformer_models()
+        
+        # Check for selective transformer loading
+        skip_transformers = os.getenv('SKIP_TRANSFORMERS', '').lower() in ['1', 'true', 'yes']
+        finbert_only = os.getenv('FINBERT_ONLY', '').lower() in ['1', 'true', 'yes']
+        
+        if TRANSFORMERS_AVAILABLE and not skip_transformers:
+            if finbert_only:
+                self.init_finbert_only()
+            else:
+                self.init_transformer_models()
             
     def init_transformer_models(self):
         """Initialize various transformer models for sentiment analysis"""
@@ -238,6 +246,37 @@ class NewsSentimentAnalyzer:
             logger.error(f"Error initializing transformer models: {e}")
             logger.warning("Falling back to traditional sentiment analysis methods only.")
             logger.info("For Python 3.13 users: Consider using Python 3.11 or 3.12 for full transformer support.")
+            self.transformer_pipelines = {}
+    
+    def init_finbert_only(self):
+        """Initialize only FinBERT for memory-constrained environments"""
+        
+        if not TRANSFORMERS_AVAILABLE:
+            logger.warning("Transformers backend not available. Skipping FinBERT initialization.")
+            return
+            
+        try:
+            logger.info("Initializing FinBERT-only mode for memory optimization...")
+            
+            # Only load FinBERT - most important for financial sentiment
+            try:
+                logger.info("Loading FinBERT for financial sentiment analysis...")
+                self.transformer_pipelines['financial'] = pipeline(
+                    "sentiment-analysis",
+                    model="ProsusAI/finbert",
+                    tokenizer="ProsusAI/finbert"
+                )
+                logger.info("✅ FinBERT loaded successfully in memory-optimized mode!")
+                
+            except Exception as e:
+                logger.warning(f"Could not load FinBERT in optimized mode: {e}")
+                logger.info("Falling back to TextBlob + VADER only.")
+            
+            logger.info(f"FinBERT-only initialization complete! Memory usage optimized.")
+            
+        except Exception as e:
+            logger.error(f"Error initializing FinBERT-only mode: {e}")
+            logger.warning("Falling back to traditional sentiment analysis methods only.")
             self.transformer_pipelines = {}
     
     def _initialize_ml_trading_models(self):

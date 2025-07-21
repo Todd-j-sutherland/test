@@ -309,17 +309,62 @@ class TradingSystemManager:
         
         # Enhanced News Sentiment Analysis
         print("\n📰 Running Enhanced News Sentiment Analysis...")
+        
+        # Check if we should use two-stage analysis for memory optimization
+        use_two_stage = os.getenv('USE_TWO_STAGE_ANALYSIS', '0') == '1'
+        skip_transformers = os.getenv('SKIP_TRANSFORMERS', '0') == '1'
+        
+        if use_two_stage:
+            print("   🔄 Using Two-Stage Analysis (Memory Optimized)")
+            try:
+                from app.core.sentiment.two_stage_analyzer import TwoStageAnalyzer
+                
+                two_stage = TwoStageAnalyzer()
+                bank_symbols = ['CBA.AX', 'ANZ.AX', 'WBC.AX', 'NAB.AX']
+                
+                # Memory status before analysis
+                memory_status = two_stage.get_memory_status()
+                print(f"   💾 Memory usage: {memory_status['memory_usage_mb']} MB")
+                
+                # Run stage 1 (always) + stage 2 (if memory permits)
+                include_finbert = not skip_transformers and memory_status['memory_usage_mb'] < 1500
+                
+                if include_finbert:
+                    print("   🕐🕕 Running both Stage 1 (Basic) + Stage 2 (FinBERT)")
+                    all_banks_analysis = two_stage.run_complete_analysis(bank_symbols, include_stage2=True)
+                else:
+                    print("   🕐 Running Stage 1 only (Basic sentiment - memory constrained)")
+                    all_banks_analysis = two_stage.run_complete_analysis(bank_symbols, include_stage2=False)
+                
+                # Convert to expected format for downstream processing
+                all_banks_analysis = {
+                    'market_overview': self._convert_two_stage_to_market_overview(all_banks_analysis),
+                    'individual_analysis': self._convert_two_stage_to_individual(all_banks_analysis)
+                }
+                
+            except Exception as e:
+                print(f"   ❌ Two-stage analysis failed: {e}")
+                print("   🔄 Falling back to standard analysis...")
+                use_two_stage = False
+        
+        if not use_two_stage:
+            try:
+                from app.core.data.processors.news_processor import NewsTradingAnalyzer
+                
+                # Initialize news analyzer
+                news_analyzer = NewsTradingAnalyzer()
+                
+                # Run comprehensive analysis of all major banks
+                print("   🏦 Analyzing news sentiment for all major banks...")
+                all_banks_analysis = news_analyzer.analyze_all_banks(detailed=False)
+                
+            except Exception as e:
+                print(f"⚠️ News sentiment analysis warning: {e}")
+                print("   📰 Basic news collection will continue in background")
+                all_banks_analysis = {'market_overview': {}, 'individual_analysis': {}}
+        
+        # Display market overview (common for both approaches)
         try:
-            from app.core.data.processors.news_processor import NewsTradingAnalyzer
-            
-            # Initialize news analyzer
-            news_analyzer = NewsTradingAnalyzer()
-            
-            # Run comprehensive analysis of all major banks
-            print("   🏦 Analyzing news sentiment for all major banks...")
-            all_banks_analysis = news_analyzer.analyze_all_banks(detailed=False)
-            
-            # Display market overview
             market_overview = all_banks_analysis.get('market_overview', {})
             if market_overview:
                 avg_sentiment = market_overview.get('average_sentiment', 0)
@@ -357,8 +402,7 @@ class TradingSystemManager:
             print('✅ Enhanced news sentiment analysis completed')
             
         except Exception as e:
-            print(f"⚠️ News sentiment analysis warning: {e}")
-            print("   📰 Basic news collection will continue in background")
+            print(f"⚠️ Error displaying sentiment results: {e}")
         
         # Start continuous news monitoring in background
         print("\n🔄 Starting Background News Monitoring...")
@@ -1006,3 +1050,79 @@ class TradingSystemManager:
         print("🚀 System ready for AI-powered trading")
         
         return True
+    
+    def _convert_two_stage_to_market_overview(self, two_stage_results: dict) -> dict:
+        """Convert two-stage analyzer results to market overview format"""
+        try:
+            if not two_stage_results:
+                return {}
+            
+            sentiments = []
+            high_confidence_count = 0
+            most_bullish = ('N/A', {})
+            most_bearish = ('N/A', {})
+            max_bullish = -1
+            max_bearish = 1
+            
+            for symbol, result in two_stage_results.items():
+                sentiment = result.get('overall_sentiment', 0)
+                confidence = result.get('confidence', 0)
+                
+                sentiments.append(sentiment)
+                
+                if confidence > 0.7:
+                    high_confidence_count += 1
+                
+                if sentiment > max_bullish:
+                    max_bullish = sentiment
+                    most_bullish = (symbol, {'sentiment_score': sentiment})
+                
+                if sentiment < max_bearish:
+                    max_bearish = sentiment
+                    most_bearish = (symbol, {'sentiment_score': sentiment})
+            
+            avg_sentiment = sum(sentiments) / len(sentiments) if sentiments else 0
+            
+            return {
+                'average_sentiment': avg_sentiment,
+                'high_confidence_count': high_confidence_count,
+                'most_bullish': most_bullish,
+                'most_bearish': most_bearish,
+                'total_analyzed': len(two_stage_results)
+            }
+            
+        except Exception as e:
+            self.logger.error(f"Error converting two-stage to market overview: {e}")
+            return {}
+    
+    def _convert_two_stage_to_individual(self, two_stage_results: dict) -> dict:
+        """Convert two-stage analyzer results to individual analysis format"""
+        try:
+            individual_analysis = {}
+            
+            for symbol, result in two_stage_results.items():
+                sentiment = result.get('overall_sentiment', 0)
+                confidence = result.get('confidence', 0)
+                
+                # Convert sentiment to signal
+                if sentiment > 0.1 and confidence > 0.6:
+                    signal = 'BUY'
+                elif sentiment < -0.1 and confidence > 0.6:
+                    signal = 'SELL'
+                else:
+                    signal = 'HOLD'
+                
+                individual_analysis[symbol] = {
+                    'signal': signal,
+                    'sentiment_score': sentiment,
+                    'confidence': confidence,
+                    'method': result.get('method', 'unknown'),
+                    'stage': result.get('stage', 1),
+                    'news_count': result.get('news_count', 0)
+                }
+            
+            return individual_analysis
+            
+        except Exception as e:
+            self.logger.error(f"Error converting two-stage to individual analysis: {e}")
+            return {}
