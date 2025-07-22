@@ -133,6 +133,7 @@ class NewsTradingAnalyzer:
                 'timestamp': datetime.now().isoformat(),
                 'sentiment_score': float(sentiment_score),
                 'confidence': float(confidence),
+                'ml_confidence': result.get('ml_confidence'),  # Add ML confidence
                 'news_count': news_count,
                 'time_context': time_context,
                 'trading_recommendation': trading_recommendation,
