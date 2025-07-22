@@ -435,10 +435,13 @@ class NewsSentimentAnalyzer:
         
         # Filter news using the enhanced keyword filter
         if keywords:
-            filtered_news = [
-                item for item in all_news 
-                if self.keyword_filter.is_relevant(item['title'] + " " + item.get('summary', ''), keywords)
-            ]
+            filtered_news = []
+            for item in all_news:
+                title_and_summary = item['title'] + " " + item.get('summary', '')
+                filter_result = self.keyword_filter.is_relevant_banking_news(title_and_summary, bank_symbol=symbol)
+                if filter_result.get('is_relevant', False):
+                    filtered_news.append(item)
+            
             logger.info(f"Filtered news for {symbol} from {len(all_news)} to {len(filtered_news)} articles using keywords.")
             all_news = filtered_news
 

@@ -468,11 +468,12 @@ class TradingSystemManager:
     
     def evening_routine(self):
         """Enhanced evening routine with comprehensive AI analysis and ML processing"""
+        import os  # Add import for environment variables
         print("🌆 EVENING ROUTINE - AI-Powered Daily Analysis")
         print("=" * 50)
         
         # Initialize data collectors and analyzers
-        print("\n� Initializing evening analysis components...")
+        print("\n📋 Initializing evening analysis components...")
         try:
             from app.core.data.collectors.market_data import ASXDataFeed
             from app.core.data.collectors.news_collector import SmartCollector
@@ -485,6 +486,53 @@ class TradingSystemManager:
         except Exception as e:
             print(f"❌ Component initialization error: {e}")
             return False
+        
+        # Enhanced News Sentiment Analysis (Evening Priority for Stage 2)
+        print("\n📰 Running Evening Enhanced Sentiment Analysis...")
+        
+        # Check if we should use two-stage analysis for memory optimization
+        use_two_stage = os.getenv('USE_TWO_STAGE_ANALYSIS', '0') == '1'
+        skip_transformers = os.getenv('SKIP_TRANSFORMERS', '0') == '1'
+        
+        # Evening routine prioritizes Stage 2 analysis when possible
+        if use_two_stage:
+            print("   🌙 Using Two-Stage Analysis (Evening Enhanced Mode)")
+            try:
+                from app.core.sentiment.two_stage_analyzer import TwoStageAnalyzer
+                
+                two_stage = TwoStageAnalyzer()
+                bank_symbols = ['CBA.AX', 'ANZ.AX', 'WBC.AX', 'NAB.AX']
+                
+                # Memory status before analysis
+                memory_status = two_stage.get_memory_status()
+                print(f"   💾 Memory usage: {memory_status['memory_usage_mb']} MB")
+                
+                # Evening: Prefer Stage 2 unless severely memory constrained
+                include_finbert = not skip_transformers and memory_status['memory_usage_mb'] < 1200
+                
+                if include_finbert:
+                    print("   🕐🕕 Evening Analysis: Running Stage 1 + Stage 2 (FinBERT Enhanced)")
+                    all_banks_analysis = two_stage.run_complete_analysis(bank_symbols, include_stage2=True)
+                else:
+                    print("   🕐 Evening Analysis: Stage 1 only (Memory constrained)")
+                    all_banks_analysis = two_stage.run_complete_analysis(bank_symbols, include_stage2=False)
+                
+                # Convert to expected format for downstream processing
+                all_banks_analysis = {
+                    'market_overview': self._convert_two_stage_to_market_overview(all_banks_analysis),
+                    'individual_analysis': self._convert_two_stage_to_individual(all_banks_analysis)
+                }
+                print('✅ Evening enhanced sentiment analysis completed with two-stage approach')
+                
+            except Exception as e:
+                print(f"⚠️ Two-stage analysis error, falling back to standard: {e}")
+                use_two_stage = False
+        
+        if not use_two_stage:
+            print("   📰 Using standard sentiment analysis (non-two-stage)")
+            # Original evening sentiment analysis
+            all_banks_analysis = news_analyzer.analyze_all_banks()
+            print('✅ Evening sentiment analysis completed')
         
         # Enhanced ensemble analysis with real ML processing
         print("\n🚀 Running enhanced ensemble analysis...")
