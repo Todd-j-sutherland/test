@@ -516,6 +516,7 @@ class NewsSentimentAnalyzer:
                 'overall_sentiment': overall_sentiment['score'],
                 'sentiment_components': overall_sentiment['components'],
                 'confidence': overall_sentiment['confidence'],
+                'ml_confidence': overall_sentiment.get('ml_confidence'),  # Add ML confidence
                 'recent_headlines': [news['title'] for news in all_news[:5]]
             }
             logger.info(f"Sentiment analysis result for {symbol}: {result}")
@@ -932,10 +933,26 @@ class NewsSentimentAnalyzer:
             # Calculate sentiment statistics
             sentiments = []
             for item in news_items:
+                # Try multiple ways to extract sentiment from news items
+                sentiment = 0
                 if 'sentiment_analysis' in item:
                     sentiment = item['sentiment_analysis'].get('composite', 0)
-                    sentiments.append(sentiment)
-                    total_sentiment += sentiment
+                elif 'sentiment' in item:
+                    sentiment = item['sentiment']
+                elif 'sentiment_score' in item:
+                    sentiment = item['sentiment_score']
+                else:
+                    # If no sentiment found, analyze the title/summary quickly
+                    text = item.get('title', '') + ' ' + item.get('summary', '')
+                    if text.strip():
+                        # Use VADER for quick sentiment
+                        sentiment = self.vader.polarity_scores(text)['compound']
+                
+                sentiments.append(sentiment)
+                total_sentiment += sentiment
+            
+            # Debug: Log the actual sentiment values
+            logger.info(f"ML Score Debug - Sentiment values: {sentiments[:5]}...")  # Show first 5
             
             if sentiments:
                 avg_sentiment = total_sentiment / len(sentiments)
@@ -957,6 +974,10 @@ class NewsSentimentAnalyzer:
             base_confidence = min(0.9, news_count / 10.0) # More news = higher confidence
             variance_penalty = min(0.3, sentiment_variance)  # High variance = lower confidence
             confidence = max(0.1, base_confidence - variance_penalty)
+            
+            # Debug logging for confidence calculation
+            logger.info(f"ML Trading Score Debug - News Count: {news_count}, Sentiment Variance: {sentiment_variance:.4f}")
+            logger.info(f"Base Confidence: {base_confidence:.4f}, Variance Penalty: {variance_penalty:.4f}, Final Confidence: {confidence:.4f}")
             
             return {
                 'ml_score': float(ml_score),

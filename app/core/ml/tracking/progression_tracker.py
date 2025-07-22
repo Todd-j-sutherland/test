@@ -66,9 +66,9 @@ class MLProgressionTracker:
                 logger.warning(f"Could not load model metrics history: {e}")
         return []
     
-    def record_prediction(self, symbol: str, prediction: Dict, actual_outcome: Optional[Dict] = None) -> str:
+    def record_prediction(self, symbol: str, prediction: Dict, actual_outcome: Dict = None) -> str:
         """
-        Record a new ML prediction
+        Record a new ML prediction with enhanced deduplication
         
         Args:
             symbol: Stock symbol
@@ -78,11 +78,47 @@ class MLProgressionTracker:
         Returns:
             Prediction ID for tracking
         """
-        prediction_id = f"{symbol}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        now = datetime.now()
+        
+        # Enhanced deduplication - check for duplicates within 30 minutes
+        cutoff_time = now - timedelta(minutes=30)
+        
+        for existing in reversed(self.prediction_history):
+            if existing['symbol'] == symbol:
+                existing_time = datetime.fromisoformat(existing['timestamp'])
+                if existing_time > cutoff_time:
+                    existing_pred = existing['prediction']
+                    
+                    # Check for exact signal match
+                    same_signal = existing_pred.get('signal') == prediction.get('signal')
+                    
+                    # Check confidence similarity (within 10%)
+                    existing_conf = existing_pred.get('confidence', 0)
+                    new_conf = prediction.get('confidence', 0)
+                    confidence_diff = abs(existing_conf - new_conf)
+                    similar_confidence = confidence_diff < 0.1
+                    
+                    # Check sentiment score similarity (within 0.05)
+                    existing_sentiment = existing_pred.get('sentiment_score', 0)
+                    new_sentiment = prediction.get('sentiment_score', 0)
+                    sentiment_diff = abs(existing_sentiment - new_sentiment)
+                    similar_sentiment = sentiment_diff < 0.05
+                    
+                    # If signal and confidence are similar, consider it a duplicate
+                    if same_signal and (similar_confidence or similar_sentiment):
+                        logger.info(f"🚫 Skipping duplicate prediction for {symbol}")
+                        logger.info(f"   Existing: {existing_pred.get('signal')} @ {existing_conf:.1%} confidence")
+                        logger.info(f"   New: {prediction.get('signal')} @ {new_conf:.1%} confidence")
+                        logger.info(f"   Time difference: {(now - existing_time).total_seconds()/60:.1f} minutes")
+                        return existing['id']
+                break  # Only check the most recent prediction for this symbol
+        
+        # Generate unique prediction ID with microseconds to avoid collisions
+        prediction_id = f"{symbol}_{now.strftime('%Y%m%d_%H%M%S_%f')}"
         
         prediction_record = {
             'id': prediction_id,
-            'timestamp': datetime.now().isoformat(),
+            'timestamp': now.isoformat(),
             'symbol': symbol,
             'prediction': prediction,
             'actual_outcome': actual_outcome,
@@ -92,8 +128,65 @@ class MLProgressionTracker:
         self.prediction_history.append(prediction_record)
         self._save_prediction_history()
         
-        logger.info(f"Recorded prediction {prediction_id} for {symbol}")
+        logger.info(f"✅ Recorded prediction {prediction_id} for {symbol}")
+        logger.info(f"   Signal: {prediction.get('signal', 'N/A')}")
+        logger.info(f"   Confidence: {prediction.get('confidence', 0):.1%}")
         return prediction_id
+    
+    def cleanup_duplicate_predictions(self, dry_run: bool = True) -> int:
+        """
+        Remove duplicate predictions from history
+        
+        Args:
+            dry_run: If True, only report what would be removed
+            
+        Returns:
+            Number of duplicates found/removed
+        """
+        if not self.prediction_history:
+            return 0
+        
+        seen_predictions = {}
+        duplicates_to_remove = []
+        
+        for i, pred in enumerate(self.prediction_history):
+            symbol = pred['symbol']
+            timestamp = pred['timestamp']
+            prediction_data = pred['prediction']
+            
+            # Create a key based on symbol, day, signal, and rounded confidence
+            try:
+                pred_time = datetime.fromisoformat(timestamp)
+                day_key = pred_time.strftime('%Y-%m-%d')
+                signal = prediction_data.get('signal', 'UNKNOWN')
+                confidence = round(prediction_data.get('confidence', 0), 1)  # Round to 1 decimal
+                
+                key = f"{symbol}_{day_key}_{signal}_{confidence}"
+                
+                if key in seen_predictions:
+                    # This is a duplicate
+                    duplicates_to_remove.append(i)
+                    if not dry_run:
+                        logger.info(f"🗑️ Removing duplicate: {pred['id']}")
+                    else:
+                        logger.info(f"🔍 Found duplicate: {pred['id']}")
+                else:
+                    seen_predictions[key] = i
+                    
+            except Exception as e:
+                logger.warning(f"Error processing prediction {pred.get('id', 'unknown')}: {e}")
+        
+        if duplicates_to_remove:
+            if not dry_run:
+                # Remove duplicates (in reverse order to maintain indices)
+                for i in reversed(duplicates_to_remove):
+                    del self.prediction_history[i]
+                self._save_prediction_history()
+                logger.info(f"✅ Removed {len(duplicates_to_remove)} duplicate predictions")
+            else:
+                logger.info(f"🔍 Found {len(duplicates_to_remove)} duplicate predictions (dry run)")
+        
+        return len(duplicates_to_remove)
     
     def update_prediction_outcome(self, prediction_id: str, actual_outcome: Dict):
         """

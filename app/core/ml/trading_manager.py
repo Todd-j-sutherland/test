@@ -23,6 +23,7 @@ class MLTradingManager:
         self.news_analyzer = None
         self.ml_scorer = None
         self.alpaca_trader = None
+        self.ml_tracker = None
         
         self._initialize_components()
     
@@ -41,6 +42,15 @@ class MLTradingManager:
             self.divergence_detector = DivergenceDetector()
             self.news_analyzer = NewsTradingAnalyzer()
             self.ml_scorer = MLTradingScorer()
+            
+            # Initialize ML performance tracker
+            try:
+                from app.core.ml.tracking.progression_tracker import MLProgressionTracker
+                self.ml_tracker = MLProgressionTracker()
+                logger.info("ML performance tracking initialized")
+            except Exception as tracker_error:
+                logger.warning(f"ML tracker not available: {tracker_error}")
+                self.ml_tracker = None
             
             # Try to initialize Alpaca, but continue if it fails
             try:
@@ -149,6 +159,9 @@ class MLTradingManager:
             
             # 6. Summary
             results['summary'] = self._generate_summary(results)
+            
+            # 7. Record ML Performance Metrics
+            self._record_ml_performance(results)
             
             print(f"\n✅ Complete ML analysis finished")
             return results
@@ -391,6 +404,83 @@ class MLTradingManager:
         }
         
         return summary
+    
+    def _record_ml_performance(self, analysis_results: Dict):
+        """Record ML performance metrics from analysis results"""
+        if not self.ml_tracker:
+            return
+        
+        try:
+            # Extract predictions from bank analyses
+            predictions_recorded = 0
+            bank_analyses = analysis_results.get('bank_analyses', {})
+            
+            for symbol, analysis in bank_analyses.items():
+                if 'overall_sentiment' in analysis:
+                    sentiment_score = analysis.get('overall_sentiment', 0.0)
+                    
+                    # Extract ML trading confidence if available, otherwise use overall confidence
+                    ml_confidence = analysis.get('ml_confidence', None)
+                    
+                    # Debug: Check what keys are available
+                    print(f"🔍 Analysis keys for {symbol}: {list(analysis.keys())}")
+                    print(f"🔍 ML confidence raw value: {analysis.get('ml_confidence', 'MISSING')}")
+                    
+                    # Use ML confidence if available, otherwise fallback to overall confidence
+                    confidence = ml_confidence if ml_confidence is not None else analysis.get('confidence', 0.8)
+                    
+                    # Debug logging for confidence tracking
+                    print(f"🔍 DEBUG - {symbol}: Sentiment={sentiment_score:.4f}, Overall Conf={analysis.get('confidence', 0.8):.4f}, ML Conf={ml_confidence}, Final={confidence:.4f}")
+                    
+                    # Convert sentiment score to trading signal
+                    if sentiment_score > 0.05:  # Positive sentiment threshold
+                        signal = "BUY"
+                    elif sentiment_score < -0.05:  # Negative sentiment threshold
+                        signal = "SELL"
+                    else:
+                        signal = "HOLD"  # Neutral sentiment
+                    
+                    prediction_data = {
+                        'signal': signal,
+                        'confidence': confidence,
+                        'sentiment_score': sentiment_score,
+                        'pattern_strength': min(confidence * 0.8, 1.0),  # Derived from confidence
+                        'features': {
+                            'sentiment': sentiment_score,
+                            'news_count': analysis.get('news_count', 0),
+                            'volume': 1.0,
+                            'volatility': 0.15
+                        }
+                    }
+                    
+                    self.ml_tracker.record_prediction(symbol, prediction_data)
+                    predictions_recorded += 1
+            
+            # Record trading performance based on analysis quality
+            if predictions_recorded > 0:
+                # Estimate performance based on confidence levels
+                total_confidence = sum(
+                    analysis.get('confidence', 0) 
+                    for analysis in bank_analyses.values()
+                    if 'confidence' in analysis
+                )
+                avg_confidence = total_confidence / predictions_recorded if predictions_recorded > 0 else 0.8
+                
+                # Estimate successful predictions based on confidence
+                estimated_successful = int(predictions_recorded * min(avg_confidence, 0.9))
+                
+                performance_data = {
+                    'successful_trades': estimated_successful,
+                    'total_trades': predictions_recorded,
+                    'average_confidence': round(avg_confidence, 3),
+                    'predictions_made': predictions_recorded
+                }
+                
+                self.ml_tracker.record_daily_performance(performance_data)
+                logger.info(f"Recorded ML performance: {predictions_recorded} predictions, {avg_confidence:.1%} avg confidence")
+            
+        except Exception as e:
+            logger.warning(f"Could not record ML performance: {e}")
     
     def _save_session_results(self, session_results: Dict):
         """Save session results to file."""

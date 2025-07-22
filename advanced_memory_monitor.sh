@@ -84,38 +84,52 @@ echo "🐍 Python Processes: $python_procs"
 echo ""
 echo "🧠 ML PERFORMANCE DATA STATUS:"
 echo "-------------------------------"
-if [ -f "/root/test/data/ml_performance/ml_performance_history.json" ]; then
-    file_size=$(stat -c%s "/root/test/data/ml_performance/ml_performance_history.json" 2>/dev/null || echo "0")
-    if [ "$file_size" -gt 100 ]; then
-        echo "✅ ML Performance History: Available ($((file_size/1024))KB)"
-        # Get latest performance metrics
-        latest_accuracy=$(tail -50 /root/test/data/ml_performance/ml_performance_history.json | grep -o '"accuracy":[0-9.]*' | tail -1 | cut -d: -f2 || echo "0")
-        latest_trades=$(tail -50 /root/test/data/ml_performance/ml_performance_history.json | grep -o '"total_trades":[0-9]*' | tail -1 | cut -d: -f2 || echo "0")
-        latest_successful=$(tail -50 /root/test/data/ml_performance/ml_performance_history.json | grep -o '"successful_trades":[0-9]*' | tail -1 | cut -d: -f2 || echo "0")
+if [ -f "/root/test/data_v2/data/ml_performance/ml_performance_history.json" ]; then
+    file_size=$(stat -c%s "/root/test/data_v2/data/ml_performance/ml_performance_history.json" 2>/dev/null || echo "0")
+        if [ "$file_size" -gt 100 ]; then
+            echo "✅ ML Performance History: Available ${file_size} bytes"        # Get latest performance metrics from the correct location
+        latest_record=$(tail -20 /root/test/data_v2/data/ml_performance/ml_performance_history.json | grep -A 20 '"date"' | tail -20)
         
-        if [ "$latest_trades" -gt 0 ]; then
-            success_rate=$(echo "scale=1; $latest_successful * 100 / $latest_trades" | bc -l 2>/dev/null || echo "0.0")
-            echo "📊 Latest Success Rate: ${success_rate}% (${latest_successful}/${latest_trades})"
+        if echo "$latest_record" | grep -q '"total_trades"'; then
+            latest_trades=$(echo "$latest_record" | grep '"total_trades"' | head -1 | sed 's/.*"total_trades": *\([0-9]*\).*/\1/')
+            latest_successful=$(echo "$latest_record" | grep '"successful_trades"' | head -1 | sed 's/.*"successful_trades": *\([0-9]*\).*/\1/')
+            latest_date=$(echo "$latest_record" | grep '"date"' | head -1 | sed 's/.*"date": *"\([^"]*\)".*/\1/')
+            
+            if [ "$latest_trades" -gt 0 ] && [ -n "$latest_trades" ]; then
+                success_rate=$(echo "scale=1; $latest_successful * 100 / $latest_trades" | bc -l 2>/dev/null || echo "0.0")
+                echo "📊 Latest Success Rate: ${success_rate}% - ${latest_successful}/${latest_trades} trades"
+                echo "📅 Latest Analysis: $latest_date"
+            fi
         fi
         
-        if [ "$latest_accuracy" != "0" ]; then
-            accuracy_percent=$(echo "scale=1; $latest_accuracy * 100" | bc -l 2>/dev/null || echo "0.0")
-            echo "🎯 Latest Accuracy: ${accuracy_percent}%"
+        # Check model training metrics
+        if [ -f "/root/test/data_v2/data/ml_performance/model_metrics_history.json" ]; then
+            model_size=$(stat -c%s "/root/test/data_v2/data/ml_performance/model_metrics_history.json" 2>/dev/null || echo "0")
+            echo "✅ Model Training History: Available ${model_size} bytes"
+            
+            training_sessions=$(grep -c '"timestamp"' /root/test/data_v2/data/ml_performance/model_metrics_history.json 2>/dev/null || echo "0")
+            echo "🔄 Training Sessions: $training_sessions"
+            
+            # Get latest model accuracy
+            latest_accuracy=$(tail -50 /root/test/data_v2/data/ml_performance/model_metrics_history.json | grep '"validation_accuracy"' | tail -1 | sed 's/.*"validation_accuracy": *\([0-9.]*\).*/\1/' | head -1)
+            if [ -n "$latest_accuracy" ] && [ "$latest_accuracy" != "0" ]; then
+                accuracy_percent=$(echo "scale=1; $latest_accuracy * 100" | bc -l 2>/dev/null || echo "0.0")
+                echo "🎯 Latest Model Accuracy: ${accuracy_percent}%"
+            fi
         fi
+        
+        echo "🧠 ML Commands Available:"
+        echo "   • python -m app.main ml-scores    - Current ML analysis"
+        echo "   • python -m app.main ml-trading   - Trading signals"
+        echo "   • python remote_ml_analysis.py   - Performance report"
+        
     else
         echo "⚠️  ML Performance History: Empty or corrupted"
     fi
 else
     echo "❌ ML Performance History: Not found"
-fi
-
-# Check model metrics
-if [ -f "/root/test/data/ml_performance/model_metrics_history.json" ]; then
-    echo "✅ Model Training Metrics: Available"
-    training_count=$(grep -c '"timestamp"' /root/test/data/ml_performance/model_metrics_history.json 2>/dev/null || echo "0")
-    echo "🔄 Training Sessions: $training_count"
-else
-    echo "❌ Model Training Metrics: Not found"
+    echo "📍 Checking alternative locations..."
+    find /root/test -name "ml_performance_history.json" -type f 2>/dev/null | head -3
 fi
 
 echo ""
@@ -132,4 +146,3 @@ else
     echo "⚠️  WARNING: Memory too low for evening analysis"
     echo "   Recommendation: Restart system or add swap"
 fi
-'
