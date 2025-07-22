@@ -169,9 +169,9 @@ class NewsTradingAnalyzer:
                 'timestamp': datetime.now().isoformat()
             }
     
-    def analyze_and_track(self, symbol: str) -> dict:
+    def analyze_and_track(self, symbol: str, keywords: list = None) -> dict:
         """Analyze sentiment and track for ML training"""
-        result = self.analyze_single_bank(symbol, detailed=True)
+        result = self.analyze_single_bank(symbol, detailed=True, keywords=keywords)
         
         # Record signal if it's actionable
         if self.outcome_tracker and result.get('signal') not in ['HOLD', None]:

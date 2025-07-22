@@ -50,10 +50,10 @@ class SmartCollector:
         
         for symbol in self.symbols:
             try:
-                # Get keywords for the bank
+                # Get keywords for the bank for targeted analysis
                 keywords = self.keyword_manager.get_keywords_for_bank(symbol)
                 
-                # Get sentiment analysis using keywords
+                # Get sentiment analysis with bank-specific keywords
                 result = self.analyzer.analyze_and_track(symbol, keywords=keywords)
                 
                 # Filter for high-quality signals
