@@ -72,6 +72,22 @@ export PYTHONPATH=/root/test
 # Run dashboard on remote server (accessible via browser)
 streamlit run app/dashboard/enhanced_main.py --server.port 8501 --server.address 0.0.0.0
 
+# 🛡️ Memory-Safe Operations (Recommended for 2GB Droplets)
+# Deploy complete memory management system (one-time setup)
+./deploy_memory_management.sh
+
+# Safe evening analysis (prevents OOM kills)
+./run_safe_evening.sh
+
+# Monitor memory status
+./advanced_memory_monitor.sh
+
+# Emergency recovery (if system becomes unresponsive)
+./emergency_memory_recovery.sh
+
+# Manual memory cleanup
+ssh -i ~/.ssh/id_rsa root@170.64.199.151 'bash /root/test/memory_cleanup.sh'
+
 # 🤖 Remote Two-Stage Analysis
 # Morning routine (Stage 1 continuous monitoring)
 ssh -i ~/.ssh/id_rsa root@170.64.199.151 'cd /root/test && source /root/trading_venv/bin/activate && export USE_TWO_STAGE_ANALYSIS=1 && export SKIP_TRANSFORMERS=1 && python -m app.main morning'
