@@ -27,7 +27,7 @@ sys.path.append(os.path.join(project_root, 'app'))
 from app.core.data.collectors.market_data import ASXDataFeed
 from app.services.daily_manager import TradingSystemManager
 from app.config.settings import Settings
-from simple_gmail_service import SimpleGmailService
+from hybrid_email_service import HybridEmailService
 from no_auth_email_service import NoAuthEmailService
 
 logger = logging.getLogger(__name__)
@@ -39,7 +39,7 @@ class HourlyTradingAlerts:
     
     def __init__(self):
         self.settings = Settings()
-        self.email_service = SimpleGmailService()
+        self.email_service = HybridEmailService()
         self.trading_manager = TradingSystemManager()
         self.market_data = ASXDataFeed()
         
