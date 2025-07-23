@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
 Hybrid Email Service
-Tries Gmail SMTP first, falls back to local sendmail
+Tries multiple email methods in order of preference:
+1. SendGrid API (recommended for DigitalOcean)
+2. Gmail SMTP (if available)
+3. Local sendmail (fallback)
 """
 
 import smtplib
@@ -10,13 +13,24 @@ import os
 from email.mime.text import MIMEText
 from pathlib import Path
 
+try:
+    from sendgrid_email_service import SendGridEmailService
+    SENDGRID_AVAILABLE = True
+except ImportError:
+    SENDGRID_AVAILABLE = False
+
 class HybridEmailService:
     """Email service that tries multiple methods"""
     
     def __init__(self):
         self.email_address = None
         self.email_password = None
+        self.sendgrid_service = None
         self.load_credentials()
+        
+        # Initialize SendGrid if available
+        if SENDGRID_AVAILABLE:
+            self.sendgrid_service = SendGridEmailService()
         
     def load_credentials(self):
         """Load email credentials from parent .env file"""
@@ -34,7 +48,12 @@ class HybridEmailService:
     
     def test_email_connection(self) -> bool:
         """Test if any email method is available"""
-        # Try Gmail SMTP first
+        # Try SendGrid first
+        if self.sendgrid_service and self.sendgrid_service.is_configured():
+            if self.sendgrid_service.test_connection():
+                return True
+        
+        # Try Gmail SMTP
         if self.email_address and self.email_password:
             try:
                 with smtplib.SMTP('smtp.gmail.com', 587) as server:
@@ -50,16 +69,21 @@ class HybridEmailService:
     def send_email(self, to_email: str, subject: str, body: str) -> bool:
         """Send email using the best available method"""
         
-        # Method 1: Try Gmail SMTP
+        # Method 1: Try SendGrid API (best for DigitalOcean)
+        if self.sendgrid_service and self.sendgrid_service.is_configured():
+            if self.sendgrid_service.send_email(to_email, subject, body):
+                return True
+        
+        # Method 2: Try Gmail SMTP
         if self.email_address and self.email_password:
             if self._send_via_gmail(to_email, subject, body):
                 return True
         
-        # Method 2: Fall back to sendmail
+        # Method 3: Fall back to sendmail
         if self._send_via_sendmail(to_email, subject, body):
             return True
         
-        # Method 3: Try alternative SMTP ports
+        # Method 4: Try alternative SMTP ports
         if self.email_address and self.email_password:
             if self._send_via_gmail_ssl(to_email, subject, body):
                 return True
