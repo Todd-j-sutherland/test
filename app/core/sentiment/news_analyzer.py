@@ -317,7 +317,15 @@ class NewsSentimentAnalyzer:
             self.ml_models = {}
     
     def _load_ml_model(self):
-        """Load the latest trained ML model"""
+        """
+        Load the latest trained ML model
+        
+        Returns:
+            Loaded ML model or None if not available
+            
+        Raises:
+            RuntimeError: If model files are corrupted or incompatible
+        """
         try:
             import joblib
             import json
@@ -325,26 +333,60 @@ class NewsSentimentAnalyzer:
             model_path = os.path.join("data/ml_models/models", "current_model.pkl")
             metadata_path = os.path.join("data/ml_models/models", "current_metadata.json")
             
-            if os.path.exists(model_path) and os.path.exists(metadata_path):
-                model = joblib.load(model_path)
-                
-                # Load metadata
-                with open(metadata_path, 'r') as f:
-                    metadata = json.load(f)
-                self.ml_feature_columns = metadata.get('feature_columns', [])
-                # Set threshold from metadata if available
-                performance = metadata.get('performance', {})
-                self.ml_threshold = performance.get('best_threshold', 0.5)
-                
-                logger.info(f"Loaded ML model: {metadata.get('model_type', 'unknown')} with {len(self.ml_feature_columns)} features")
-                return model
-            else:
-                logger.warning("No trained ML model found")
+            if not os.path.exists(model_path):
+                logger.info("No ML model file found at expected path")
                 return None
                 
+            if not os.path.exists(metadata_path):
+                logger.warning("ML model found but metadata missing - model may be incomplete")
+                return None
+            
+            # Validate file sizes (basic corruption check)
+            if os.path.getsize(model_path) < 1000:  # Less than 1KB is suspicious
+                raise RuntimeError(f"ML model file appears corrupted (size: {os.path.getsize(model_path)} bytes)")
+            
+            # Load and validate model
+            try:
+                model = joblib.load(model_path)
+            except Exception as e:
+                raise RuntimeError(f"Failed to load ML model from {model_path}: {e}") from e
+            
+            # Load and validate metadata
+            try:
+                with open(metadata_path, 'r') as f:
+                    metadata = json.load(f)
+            except json.JSONDecodeError as e:
+                raise RuntimeError(f"ML model metadata is corrupted: {e}") from e
+            except Exception as e:
+                raise RuntimeError(f"Failed to read ML model metadata: {e}") from e
+            
+            # Validate metadata structure
+            required_metadata = ['feature_columns', 'model_type']
+            for key in required_metadata:
+                if key not in metadata:
+                    raise RuntimeError(f"ML model metadata missing required key: {key}")
+            
+            self.ml_feature_columns = metadata.get('feature_columns', [])
+            if not self.ml_feature_columns:
+                raise RuntimeError("ML model has no feature columns defined")
+                
+            # Set threshold from metadata if available
+            performance = metadata.get('performance', {})
+            self.ml_threshold = performance.get('best_threshold', 0.5)
+            
+            # Validate model has required methods
+            if not hasattr(model, 'predict'):
+                raise RuntimeError("Loaded ML model does not have predict method")
+            
+            logger.info(f"Successfully loaded ML model: {metadata.get('model_type', 'unknown')} with {len(self.ml_feature_columns)} features")
+            return model
+            
+        except RuntimeError:
+            # Re-raise RuntimeErrors as they are expected
+            raise
         except Exception as e:
-            logger.error(f"Error loading ML model: {e}")
-            return None
+            # Convert unexpected errors to RuntimeError for consistent handling
+            raise RuntimeError(f"Unexpected error loading ML model: {e}") from e
     
     def _get_ml_prediction(self, sentiment_data: Dict) -> Dict:
         """Get ML prediction from sentiment data"""
@@ -398,19 +440,24 @@ class NewsSentimentAnalyzer:
                 proba = self.ml_model.predict_proba(X)[0]
                 confidence = max(proba)
             except Exception as e:
-                # Calculate dynamic fallback confidence based on available data
-                logger.warning(f"ML predict_proba failed: {e}, using fallback confidence calculation")
-                
-                # Base confidence from news volume and sentiment consistency
-                news_count = sentiment_data.get('news_count', 0)
-                overall_sentiment = abs(sentiment_data.get('overall_sentiment', 0))
-                
-                # Dynamic confidence: 0.45-0.75 range based on data quality
-                base_confidence = 0.45 + (min(news_count, 10) * 0.02)  # +0.02 per news article, max +0.20
-                sentiment_boost = min(overall_sentiment * 0.1, 0.1)    # +0.0-0.1 based on sentiment strength
-                
-                confidence = min(base_confidence + sentiment_boost, 0.75)  # Cap at 75%
-                logger.info(f"Fallback confidence: {confidence:.3f} (news: {news_count}, sentiment: {overall_sentiment:.3f})")
+                # Only use fallback for specific known issues, otherwise raise
+                if "predict_proba" in str(e).lower() or "probability" in str(e).lower():
+                    # Calculate dynamic fallback confidence based on available data
+                    logger.warning(f"ML predict_proba failed: {e}, using fallback confidence calculation")
+                    
+                    # Base confidence from news volume and sentiment consistency
+                    news_count = sentiment_data.get('news_count', 0)
+                    overall_sentiment = abs(sentiment_data.get('overall_sentiment', 0))
+                    
+                    # Dynamic confidence: 0.45-0.75 range based on data quality
+                    base_confidence = 0.45 + (min(news_count, 10) * 0.02)  # +0.02 per news article, max +0.20
+                    sentiment_boost = min(overall_sentiment * 0.1, 0.1)    # +0.0-0.1 based on sentiment strength
+                    
+                    confidence = min(base_confidence + sentiment_boost, 0.75)  # Cap at 75%
+                    logger.info(f"Fallback confidence: {confidence:.3f} (news: {news_count}, sentiment: {overall_sentiment:.3f})")
+                else:
+                    # For unexpected errors, raise to catch during testing
+                    raise RuntimeError(f"ML prediction failed unexpectedly: {e}") from e
             
             # Convert prediction to signal
             signal_map = {0: 'SELL', 1: 'BUY'}
@@ -1075,17 +1122,25 @@ class NewsSentimentAnalyzer:
             
         Returns:
             List of news articles from all sources
+            
+        Raises:
+            ValueError: If symbol is invalid or search_terms is empty
+            RuntimeError: If all news sources fail
         """
-        # Validate parameters
-        if not isinstance(symbol, str):
-            logger.error(f"Symbol must be string, got {type(symbol)}: {symbol}")
-            return []
+        # Validate parameters with proper exceptions
+        if not isinstance(symbol, str) or not symbol.strip():
+            raise ValueError(f"Symbol must be a non-empty string, got {type(symbol)}: {symbol}")
         
-        if not isinstance(search_terms, list):
-            logger.warning(f"Search terms should be list, got {type(search_terms)}: {search_terms}")
-            search_terms = [str(search_terms)] if search_terms else [symbol]
+        if not isinstance(search_terms, list) or len(search_terms) == 0:
+            raise ValueError(f"Search terms must be a non-empty list, got {type(search_terms)}: {search_terms}")
+        
+        # Ensure all search terms are strings
+        for i, term in enumerate(search_terms):
+            if not isinstance(term, str):
+                search_terms[i] = str(term)
         
         all_news = []
+        source_errors = []
         
         try:
             # Fetch from RSS feeds
@@ -1094,7 +1149,9 @@ class NewsSentimentAnalyzer:
             all_news.extend(rss_news)
             logger.debug(f"Found {len(rss_news)} RSS articles")
         except Exception as e:
-            logger.warning(f"Error fetching RSS news for {symbol}: {e}")
+            error_msg = f"RSS news fetch failed for {symbol}: {e}"
+            logger.warning(error_msg)
+            source_errors.append(error_msg)
         
         try:
             # Fetch from Yahoo News
@@ -1103,7 +1160,9 @@ class NewsSentimentAnalyzer:
             all_news.extend(yahoo_news)
             logger.debug(f"Found {len(yahoo_news)} Yahoo articles")
         except Exception as e:
-            logger.warning(f"Error fetching Yahoo news for {symbol}: {e}")
+            error_msg = f"Yahoo news fetch failed for {symbol}: {e}"
+            logger.warning(error_msg)
+            source_errors.append(error_msg)
         
         try:
             # Scrape from news websites
@@ -1112,10 +1171,19 @@ class NewsSentimentAnalyzer:
             all_news.extend(scraped_news)
             logger.debug(f"Found {len(scraped_news)} scraped articles")
         except Exception as e:
-            logger.warning(f"Error scraping news sites for {symbol}: {e}")
+            error_msg = f"News site scraping failed for {symbol}: {e}"
+            logger.warning(error_msg)
+            source_errors.append(error_msg)
+        
+        # If all sources failed and no news found, raise error for testing
+        if not all_news and len(source_errors) >= 3:
+            raise RuntimeError(f"All news sources failed for {symbol}. Errors: {'; '.join(source_errors)}")
         
         # Remove duplicates based on title similarity
-        all_news = self._remove_duplicate_news(all_news)
+        try:
+            all_news = self._remove_duplicate_news(all_news)
+        except Exception as e:
+            raise RuntimeError(f"Failed to remove duplicate news for {symbol}: {e}") from e
         
         logger.info(f"Collected {len(all_news)} total news articles for {symbol}")
         return all_news

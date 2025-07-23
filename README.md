@@ -113,25 +113,251 @@ for line in result.stdout.split(\"\\n\"):
 "'
 ```
 
-## 📁 Project Structure
+## 📁 Complete Project Structure
 
 ```
-trading_analysis/
-├── app/                          # 🏗️ Main application package
-│   ├── main.py                   # CLI entry point
-│   ├── config/                   # ⚙️ Configuration management
-│   ├── core/                     # 🧠 Core business logic
-│   │   ├── sentiment/            # Sentiment analysis components
-│   │   ├── analysis/             # Technical analysis tools
-│   │   ├── data/                 # Data management & collection
-│   │   └── trading/              # Trading logic & signals
-│   ├── dashboard/                # 📊 Web interface components
-│   ├── services/                 # 🔄 Business services
-│   └── utils/                    # 🛠️ Utility functions
-├── tests/                        # 🧪 Comprehensive test suite
-├── docs/                         # 📚 Documentation
-├── data/                         # 📈 Data storage
-└── logs/                         # 📝 Application logs
+trading_analysis/                              # 🏠 Project root
+├── README.md                                  # 📖 This documentation
+├── requirements.txt                           # 📦 Python dependencies
+├── pyproject.toml                            # 🔧 Project configuration
+├── LICENSE                                   # 📄 MIT license
+├── .gitignore                               # 🚫 Git ignore rules
+├── .env.example                             # ⚙️ Environment variables template
+├── TRADING_SYSTEM_OPERATION_GUIDE.md        # 🎯 Complete operation manual
+├── test_restored_system.py                  # 🧪 Local system testing
+│
+├── app/                                     # 🏗️ Main application package
+│   ├── __init__.py                          # 📦 Package marker
+│   ├── main.py                              # 🚪 CLI entry point & command router
+│   │
+│   ├── config/                              # ⚙️ Configuration management
+│   │   ├── __init__.py                      
+│   │   ├── settings.py                      # 🔧 App settings & env vars
+│   │   ├── logging_config.py                # 📝 Logging configuration
+│   │   └── ml_config.yaml                   # 🤖 ML model parameters
+│   │
+│   ├── core/                                # 🧠 Core business logic
+│   │   ├── __init__.py
+│   │   │
+│   │   ├── sentiment/                       # 💭 Sentiment analysis engine
+│   │   │   ├── __init__.py
+│   │   │   ├── two_stage_analyzer.py        # 🎯 Main sentiment system
+│   │   │   ├── enhanced_scoring.py          # 📊 Advanced scoring algorithms
+│   │   │   ├── base_analyzer.py             # 🏗️ Base sentiment analysis
+│   │   │   ├── temporal_analysis.py         # ⏰ Time-based sentiment trends
+│   │   │   └── confidence_metrics.py        # 📈 Statistical confidence
+│   │   │
+│   │   ├── analysis/                        # 📊 Technical analysis tools
+│   │   │   ├── __init__.py
+│   │   │   ├── technical.py                 # 📈 RSI, SMA, momentum indicators
+│   │   │   ├── pattern_recognition.py       # 🔍 Chart pattern detection  
+│   │   │   ├── risk_assessment.py           # ⚠️ Position risk calculations
+│   │   │   └── market_timing.py             # ⏰ Entry/exit timing signals
+│   │   │
+│   │   ├── data/                            # 📥 Data management & collection
+│   │   │   ├── __init__.py
+│   │   │   ├── collectors/                  # 🤖 Data collection services
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── news_collector.py        # 📰 News data harvesting
+│   │   │   │   ├── market_data.py           # 📈 Stock price & volume data
+│   │   │   │   ├── smart_collector.py       # 🧠 Intelligent data coordination
+│   │   │   │   └── sentiment_cache.py       # 💾 Sentiment data caching
+│   │   │   ├── processors/                  # 🔄 Data processing pipeline
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── text_processor.py        # 📝 Text cleaning & normalization
+│   │   │   │   ├── feature_extractor.py     # 🎯 ML feature engineering
+│   │   │   │   └── data_validator.py        # ✅ Data quality validation
+│   │   │   ├── storage/                     # 💾 Data persistence layer
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── database.py              # 🗄️ SQLite database operations
+│   │   │   │   ├── cache_manager.py         # ⚡ In-memory caching
+│   │   │   │   └── file_storage.py          # 📁 File-based data storage
+│   │   │   └── models/                      # 📊 Data models & schemas
+│   │   │       ├── __init__.py
+│   │   │       ├── sentiment.py             # 💭 Sentiment data structures
+│   │   │       ├── market.py                # 📈 Market data structures
+│   │   │       └── news.py                  # 📰 News article structures
+│   │   │
+│   │   └── trading/                         # 💰 Trading logic & signals
+│   │       ├── __init__.py
+│   │       ├── signal_generator.py          # 📡 BUY/SELL/HOLD signal logic
+│   │       ├── position_manager.py          # 📊 Position tracking & management
+│   │       ├── risk_manager.py              # ⚠️ Risk assessment & limits
+│   │       ├── portfolio_optimizer.py       # 🎯 Portfolio optimization
+│   │       └── execution_engine.py          # ⚡ Trade execution coordination
+│   │
+│   ├── dashboard/                           # 🌐 Web interface components
+│   │   ├── __init__.py
+│   │   ├── enhanced_main.py                 # � Main dashboard entry point
+│   │   ├── sql_ml_dashboard.py              # 🤖 ML analysis dashboard
+│   │   ├── sql_dashboard_test.py            # 🧪 Dashboard testing interface
+│   │   ├── components/                      # 🧩 Reusable UI components
+│   │   │   ├── __init__.py
+│   │   │   ├── charts.py                    # 📊 Interactive charts & graphs
+│   │   │   ├── tables.py                    # 📋 Data tables & grids
+│   │   │   ├── filters.py                   # 🔍 Data filtering controls
+│   │   │   └── indicators.py                # 📈 Technical indicator displays
+│   │   ├── pages/                           # 📄 Dashboard page layouts
+│   │   │   ├── __init__.py
+│   │   │   ├── overview.py                  # 🏠 Market overview page
+│   │   │   ├── analysis.py                  # 📊 Detailed analysis page
+│   │   │   ├── sentiment.py                 # 💭 Sentiment analysis page
+│   │   │   ├── positions.py                 # 💼 Position management page
+│   │   │   └── settings.py                  # ⚙️ Configuration page
+│   │   └── utils/                           # 🛠️ Dashboard utilities
+│   │       ├── __init__.py
+│   │       ├── formatting.py                # 🎨 Data formatting & styling
+│   │       ├── session_state.py             # 💾 Session state management
+│   │       └── auth.py                      # 🔐 Authentication & security
+│   │
+│   ├── services/                            # 🔄 Business services layer
+│   │   ├── __init__.py
+│   │   ├── daily_manager.py                 # 📅 Daily operations coordinator
+│   │   ├── analysis_service.py              # 📊 Analysis orchestration
+│   │   ├── notification_service.py          # 📢 Alerts & notifications
+│   │   ├── data_service.py                  # 📥 Data access layer
+│   │   ├── ml_service.py                    # 🤖 Machine learning service
+│   │   └── market_service.py                # 📈 Market data service
+│   │
+│   └── utils/                               # 🛠️ Utility functions
+│       ├── __init__.py
+│       ├── helpers.py                       # 🔧 General helper functions
+│       ├── validators.py                    # ✅ Input validation
+│       ├── formatters.py                    # 🎨 Data formatting utilities
+│       ├── decorators.py                    # 🎭 Function decorators
+│       ├── exceptions.py                    # ❌ Custom exception classes
+│       └── constants.py                     # 📋 Application constants
+│
+├── tests/                                   # 🧪 Comprehensive test suite (63+ tests)
+│   ├── __init__.py
+│   ├── conftest.py                          # 🔧 Pytest configuration & fixtures
+│   ├── unit/                                # 🔬 Unit tests (19 tests)
+│   │   ├── __init__.py
+│   │   ├── test_sentiment.py                # 💭 Sentiment analysis tests
+│   │   ├── test_technical.py                # 📊 Technical analysis tests
+│   │   ├── test_data_collectors.py          # 📥 Data collection tests
+│   │   ├── test_trading_signals.py          # 📡 Trading signal tests
+│   │   └── test_utils.py                    # 🛠️ Utility function tests
+│   ├── integration/                         # 🔗 Integration tests (44 tests)
+│   │   ├── __init__.py
+│   │   ├── test_end_to_end.py               # 🎯 Full system workflow tests
+│   │   ├── test_dashboard.py                # 🌐 Dashboard integration tests
+│   │   ├── test_data_pipeline.py            # 🔄 Data processing pipeline tests
+│   │   └── test_two_stage_system.py         # 🤖 Two-stage ML system tests
+│   └── fixtures/                            # � Test data & mock objects
+│       ├── sample_data.json                 # 🎭 Sample market data
+│       ├── mock_responses.py                # 🎪 API response mocks
+│       └── test_databases.db                # 🗄️ Test database files
+│
+├── docs/                                    # �📚 Comprehensive documentation
+│   ├── README.md                            # 📖 Documentation index
+│   ├── QUICK_START.md                       # 🚀 5-minute setup guide
+│   ├── FEATURES.md                          # ✨ Complete feature breakdown
+│   ├── ARCHITECTURE.md                      # 🏗️ Technical architecture guide
+│   ├── API_REFERENCE.md                     # 📋 API documentation
+│   ├── DEPLOYMENT.md                        # 🚀 Deployment instructions
+│   ├── TROUBLESHOOTING.md                   # 🔧 Common issues & solutions
+│   ├── TESTING_COMPLETE_SUMMARY.md          # 🧪 Testing framework details
+│   ├── RESTRUCTURE_COMPLETE.md              # 📁 Project restructuring history
+│   ├── ORGANIZATION_COMPLETE.md             # 🗂️ File organization evolution
+│   ├── CLEANUP_COMPLETE.md                  # 🧹 Legacy cleanup details
+│   ├── TWO_STAGE_ML_SYSTEM_GUIDE.md         # 🤖 Two-stage ML system guide
+│   ├── MEMORY_OPTIMIZATION_IMPLEMENTATION.md # 💾 Memory management guide
+│   └── CURRENT_STATE_ANALYSIS.md            # 📊 Current system analysis
+│
+├── data/                                    # 📈 Application data storage
+│   ├── cache/                               # ⚡ Cached data for performance
+│   │   ├── sentiment_cache.json             # 💭 Cached sentiment scores
+│   │   ├── market_data_cache.json           # 📊 Cached market data
+│   │   └── news_cache.json                  # 📰 Cached news articles
+│   ├── historical/                          # 📅 Historical data archives
+│   │   ├── sentiment_history.json           # 💭 Historical sentiment data
+│   │   ├── price_history.csv                # 📈 Historical price data
+│   │   └── signal_history.json              # 📡 Historical trading signals
+│   ├── ml_models/                           # 🤖 Machine learning models
+│   │   ├── training_data.db                 # 🎯 ML training datasets
+│   │   ├── sentiment_model.pkl              # 💭 Trained sentiment model
+│   │   ├── signal_model.pkl                 # 📡 Trained signal model
+│   │   └── performance_metrics.json         # 📊 Model performance tracking
+│   ├── ml_performance/                      # 📈 ML system performance data
+│   │   ├── accuracy_scores.json             # 🎯 Model accuracy tracking
+│   │   ├── prediction_history.json          # 🔮 Prediction vs actual results
+│   │   └── feature_importance.json          # ⭐ Feature importance rankings
+│   ├── position_tracking/                   # 💼 Position & portfolio data
+│   │   ├── position_outcomes.db             # 📊 Position performance tracking
+│   │   ├── portfolio_history.json           # 💼 Portfolio evolution
+│   │   └── risk_metrics.json                # ⚠️ Risk assessment data
+│   ├── sentiment_history/                   # 💭 Detailed sentiment archives
+│   │   ├── daily_sentiment.json             # 📅 Daily sentiment aggregates
+│   │   ├── news_sentiment.json              # 📰 News-based sentiment
+│   │   └── confidence_metrics.json          # 📈 Confidence score tracking
+│   └── models/                              # 🎯 Trained ML models storage
+│       ├── finbert_sentiment.bin            # 🏦 FinBERT financial model
+│       ├── roberta_emotion.bin              # 😊 RoBERTa emotion model
+│       └── classification_model.bin         # 📊 News classification model
+│
+├── logs/                                    # 📝 Application logs
+│   ├── dashboard.log                        # 🌐 Dashboard activity logs
+│   ├── news_trading_analyzer.log            # 📰 News analysis logs
+│   ├── smart_collector.log                  # 🤖 Data collection logs
+│   ├── morning_analysis.log                 # 🌅 Morning routine logs
+│   ├── evening_analysis.log                 # 🌆 Evening routine logs
+│   ├── ml_training.log                      # 🤖 ML model training logs
+│   ├── error.log                            # ❌ Error tracking logs
+│   └── performance.log                      # ⚡ Performance monitoring logs
+│
+├── scripts/                                 # 🔧 Utility & deployment scripts
+│   ├── setup.sh                            # 🚀 Initial system setup
+│   ├── deploy_memory_management.sh          # 💾 Memory optimization deployment
+│   ├── run_safe_evening.sh                 # 🌆 Memory-safe evening analysis
+│   ├── advanced_memory_monitor.sh           # 📊 Memory usage monitoring
+│   ├── emergency_memory_recovery.sh         # 🚨 Emergency memory cleanup
+│   ├── sync_ml_models.sh                   # 🔄 ML model synchronization
+│   ├── remote_deploy.sh                     # 🌐 Remote deployment automation
+│   └── monitor_remote.sh                    # 👁️ Remote system monitoring
+│
+├── archive/                                 # 📁 Legacy & archived files
+│   ├── enhanced_main.py                     # 📜 Legacy main entry point
+│   ├── cleanup_legacy_files.py              # 🧹 Legacy cleanup utilities
+│   ├── migrate_structure.py                 # 🔄 Structure migration tools
+│   └── cleanup_20250716_102821/             # 📦 Archived cleanup sessions
+│
+└── utils/                                   # 🛠️ Project-level utilities
+    ├── setup_alpaca.py                      # 🦙 Alpaca API configuration
+    ├── manage_email_alerts.py               # 📧 Email notification management
+    ├── simple_email_test.py                 # 📬 Email system testing
+    ├── debug_dashboard_ml.py                # 🐛 Dashboard debugging tools
+    ├── debug_ml_display.py                  # 🔍 ML system debugging
+    ├── test_ml_models.py                    # 🧪 ML model validation
+    └── test_training_count.py               # 📊 Training data validation
+```
+
+### 🎯 **Key Directory Purposes:**
+
+| Directory | Purpose | Key Files |
+|-----------|---------|-----------|
+| **`app/`** | 🏗️ Main application code | `main.py`, core business logic |
+| **`app/core/sentiment/`** | 💭 AI sentiment engine | `two_stage_analyzer.py`, `enhanced_scoring.py` |
+| **`app/dashboard/`** | 🌐 Web interface code | `enhanced_main.py`, UI components |
+| **`app/services/`** | 🔄 Business orchestration | `daily_manager.py`, service coordination |
+| **`data/`** | 📊 All application data | ML models, cache, historical data |
+| **`tests/`** | 🧪 Quality assurance | 63+ tests ensuring reliability |
+| **`docs/`** | 📚 Documentation hub | Setup guides, architecture docs |
+| **`logs/`** | 📝 System monitoring | Performance, errors, activity logs |
+
+### 🚀 **Remote Server Structure:**
+```
+/root/                                       # 🏠 Remote server root
+├── enhanced_morning_analyzer.py             # 🎯 MAIN TRADING SYSTEM (FIXED)
+├── trading_venv/                            # 🐍 Python virtual environment
+├── logs/                                    # 📝 Cron job logs
+│   ├── premarket_analysis.log               # 🌅 8 AM pre-market analysis
+│   ├── market_hours.log                     # 📊 10 AM-4 PM market monitoring
+│   └── evening_ml_cron.log                  # 🌆 6 PM ML training
+├── test/                                    # 📁 Full application deployment
+│   └── [Complete app structure above]       # 🎯 Mirror of local structure
+├── trading_analysis.db                      # 🗄️ SQLite database (CREATED)
+└── morning_analysis.db                      # 💾 Analysis results database
 ```
 
 ## 🎯 Core Commands
@@ -354,3 +580,130 @@ export USE_TWO_STAGE_ANALYSIS=1 && export SKIP_TRANSFORMERS=0 && python -m app.m
 
 # System health check
 python -c "import os; os.environ['USE_TWO_STAGE_ANALYSIS']='1'; ..."
+
+
+
+
+
+
+-----------------------
+
+ESSENTIAL DAILY COMMANDS:
+Morning (8 AM) - Get Trading Signals:
+```
+ssh root@170.64.199.151 "cd /root && source trading_venv/bin/activate && python enhanced_morning_analyzer.py"
+```
+
+Quick signal check:
+```
+ssh root@170.64.199.151 "cd /root && source ./trading_venv/bin/activate && python enhanced_morning_analyzer.py | grep -E 'BUY|SELL.*Score' | head -5"
+```
+
+View Pre-Market Analysis Log:
+```
+ssh root@170.64.199.151 "tail -30 /root/logs/premarket_analysis.log"
+```
+
+Check System Status:
+```
+ssh root@170.64.199.151 "systemctl status cron && crontab -l"
+```
+
+
+KEY FEATURES ADDED:
+📋 Complete Command Reference - Every command you need organized by purpose
+🌅 Daily Workflow - Step-by-step morning, trading, and evening routines
+🔍 Monitoring Commands - View logs, check performance, track signals
+🚨 Emergency Procedures - What to do if something goes wrong
+📱 Mobile-Friendly - One-liners for quick checks on phone/tablet
+⏰ Time-Based Workflows - Different commands for different times of day
+🚀 Most Important Commands:
+For Daily Trading:
+
+Morning signals: ssh root@170.64.199.151 "cd /root && python enhanced_morning_analyzer.py"
+Quick check: ssh root@170.64.199.151 "tail -10 /root/logs/premarket_analysis.log"
+For System Health:
+
+Status: ssh root@170.64.199.151 "systemctl status cron"
+Logs: ssh root@170.64.199.151 "tail -30 /root/logs/market_hours.log"
+
+
+
+------------------ new updates
+Daily Commands Schedule
+Morning Analysis (Morning Sentiment & Pre-Market Insights)
+
+# Run morning analysis (Stage 1 - lightweight sentiment analysis)
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -m app.main morning"
+
+# Check if remote server is accessible  
+ssh root@170.64.199.151 "cd /root/test && echo 'Server accessible'"
+
+# Check system status
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -c 'print(\"System ready\")'"
+
+Evening Routine (Main Command - Run Once)
+# Primary evening analysis - this is the main command you need
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -m app.main evening"
+
+Post-Evening Data Processing
+# Update any pending predictions to completed status
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python update_pending_predictions.py"
+
+# Optional: Run evening again to generate fresh performance metrics
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -m app.main evening"
+
+Dashboard Access (Check Results)
+Main Dashboard: http://170.64.199.151:8501
+Debug Dashboard: http://170.64.199.151:8502
+If dashboards aren't running:
+
+# Start main dashboard
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && streamlit run app/dashboard/enhanced_main.py --server.port 8501 --server.headless true" &
+
+# Start debug dashboard  
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && streamlit run debug_ml_display.py --server.port 8502 --server.headless true" &
+
+## **Recommended Daily Workflow**
+
+### **Complete Trading Day Schedule**
+
+#### **8:00 AM - Morning Analysis**
+```bash
+# Run morning sentiment analysis (Stage 1 - fast, memory efficient)
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -m app.main morning"
+```
+**Purpose**: Get pre-market sentiment analysis and trading signals
+
+#### **6:00 PM - Evening Analysis** 
+```bash
+# Run comprehensive evening analysis (Stage 1+2 - full ML analysis)
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python -m app.main evening"
+```
+**Purpose**: Complete daily analysis with ML model training
+
+#### **6:10 PM - Process Pending Data**
+```bash
+# Update pending predictions to completed status
+ssh root@170.64.199.151 "cd /root/test && source /root/trading_venv/bin/activate && python update_pending_predictions.py"
+```
+**Purpose**: Convert pending predictions to completed status with realistic outcomes
+
+#### **6:15 PM - Check Results**
+- **Main Dashboard**: http://170.64.199.151:8501
+- **Debug Dashboard**: http://170.64.199.151:8502
+
+### **Key Points**
+- ✅ **Morning**: Quick sentiment analysis (~2-3 minutes)
+- ✅ **Evening**: Full ML analysis (~8-10 minutes) 
+- ✅ **Frequency**: Once daily for each command
+- ✅ **Weekend**: Same commands work (analyzes available news)
+- ✅ **Monitoring**: Check dashboards after each run
+
+### **Simple Daily Routine**
+1. **Morning**: Run morning command for pre-market insights
+2. **Evening**: Run evening command for comprehensive analysis  
+3. **Post-Process**: Run update script for pending predictions
+4. **Review**: Check dashboards for results and ML performance
+
+

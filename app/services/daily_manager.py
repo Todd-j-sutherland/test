@@ -998,6 +998,19 @@ class TradingSystemManager:
             
             predictions = []
             
+            def _generate_signal_from_score(prediction_score, confidence):
+                """Generate trading signal from prediction score and confidence"""
+                if prediction_score >= 0.7 and confidence >= 0.8:
+                    return "BUY"
+                elif prediction_score >= 0.6 and confidence >= 0.7:
+                    return "BUY"
+                elif prediction_score <= 0.3 and confidence >= 0.7:
+                    return "SELL"
+                elif prediction_score <= 0.4 and confidence >= 0.8:
+                    return "SELL"
+                else:
+                    return "HOLD"
+            
             # Check sentiment analysis results
             try:
                 sentiment_cache_dir = Path("data/sentiment_cache")
@@ -1013,11 +1026,15 @@ class TradingSystemManager:
                                     data = json.load(f)
                                     
                                 if isinstance(data, dict) and 'overall_sentiment' in data:
+                                    prediction_score = data.get('overall_sentiment', 0.5)
+                                    confidence = data.get('confidence', 0.8)
+                                    
                                     prediction_data = {
-                                        'prediction_score': data.get('overall_sentiment', 0.5),
-                                        'confidence': data.get('confidence', 0.8),
+                                        'signal': _generate_signal_from_score(prediction_score, confidence),
+                                        'prediction_score': prediction_score,
+                                        'confidence': confidence,
                                         'features': {
-                                            'sentiment': data.get('overall_sentiment', 0.5),
+                                            'sentiment': prediction_score,
                                             'volume': 1.0,
                                             'volatility': 0.15
                                         }
@@ -1037,9 +1054,13 @@ class TradingSystemManager:
             if not predictions:
                 import random
                 for symbol in ['CBA.AX', 'ANZ.AX', 'WBC.AX', 'NAB.AX']:
+                    prediction_score = round(random.uniform(0.3, 0.8), 3)
+                    confidence = round(random.uniform(0.6, 0.9), 3)
+                    
                     prediction_data = {
-                        'prediction_score': round(random.uniform(0.3, 0.8), 3),
-                        'confidence': round(random.uniform(0.6, 0.9), 3),
+                        'signal': _generate_signal_from_score(prediction_score, confidence),
+                        'prediction_score': prediction_score,
+                        'confidence': confidence,
                         'features': {
                             'sentiment': round(random.uniform(-0.1, 0.1), 3),
                             'volume': round(random.uniform(0.8, 1.2), 1),

@@ -989,7 +989,10 @@ def display_standard_view(components, bank_analyses, ml_scores, sidebar_config):
     st.markdown("---")
     try:
         from app.core.ml.tracking.progression_tracker import MLProgressionTracker
-        ml_tracker = MLProgressionTracker()
+        # Ensure the tracker uses the correct, intended data directory
+        data_path = "data/ml_performance"
+        ml_tracker = MLProgressionTracker(data_dir=data_path)
+        st.sidebar.info(f"Data source: {Path(data_path).resolve()}") # Add info for debugging
         enhanced_dashboard_performance_section(ml_tracker)
     except Exception as e:
         st.error(f"⚠️ Performance tracking unavailable: {e}")
@@ -1038,7 +1041,10 @@ def display_standard_view(components, bank_analyses, ml_scores, sidebar_config):
     st.markdown("---")
     try:
         from app.core.ml.tracking.progression_tracker import MLProgressionTracker
-        ml_tracker = MLProgressionTracker()
+        # Ensure the tracker uses the correct, intended data directory
+        data_path = "data/ml_performance"
+        ml_tracker = MLProgressionTracker(data_dir=data_path)
+        st.sidebar.info(f"Data source: {Path(data_path).resolve()}") # Add info for debugging
         enhanced_dashboard_performance_section(ml_tracker)
     except Exception as e:
         st.error(f"⚠️ Performance tracking unavailable: {e}")
@@ -1064,7 +1070,10 @@ def display_compact_view(components, bank_analyses, ml_scores, sidebar_config):
     with tab4:
         try:
             from app.core.ml.tracking.progression_tracker import MLProgressionTracker
-            ml_tracker = MLProgressionTracker()
+            # Ensure the tracker uses the correct, intended data directory
+            data_path = "data/ml_performance"
+            ml_tracker = MLProgressionTracker(data_dir=data_path)
+            st.sidebar.info(f"Data source: {Path(data_path).resolve()}") # Add info for debugging
             enhanced_dashboard_performance_section(ml_tracker)
         except Exception as e:
             st.error(f"⚠️ Performance tracking unavailable: {e}")

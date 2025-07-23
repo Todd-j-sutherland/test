@@ -1,69 +1,73 @@
-#!/usr/bin/env python3
-"""
-Debug ML Prediction Display
-Test what's actually being returned by the ML pipeline in the dashboard context
-"""
+import streamlit as st
+import pandas as pd
+import json
+from pathlib import Path
 
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'app'))
+st.set_page_config(layout="wide")
 
-from app.core.ml.enhanced_pipeline import EnhancedMLPipeline
-
-def test_prediction_conversion():
-    """Test ML prediction to signal conversion"""
-    print("🔍 Testing ML Prediction to Signal Conversion")
-    print("=" * 50)
-    
-    # Initialize ML pipeline
-    pipeline = EnhancedMLPipeline("data/ml_models")
-    
-    # Mock sentiment data (similar to what dashboard would have)
-    sentiment_data = {
-        'overall_sentiment': 0.033,
-        'confidence': 0.59,
-        'news_count': 8,
-        'symbol': 'CBA.AX'
-    }
-    
-    # Mock market data
-    market_data = {
-        'price': 100.0,
-        'change_percent': 0.0,
-        'volume': 1000000,
-        'volatility': 0.15
-    }
-    
-    # Get prediction
-    prediction_result = pipeline.predict(sentiment_data, market_data, [])
-    
-    print(f"📊 Raw Prediction Result: {prediction_result}")
-    
-    if 'error' not in prediction_result:
-        # Convert numeric prediction to signal string (same logic as dashboard)
-        ensemble_pred = prediction_result.get('ensemble_prediction', 0)
-        signal_mapping = {0: 'SELL', 1: 'HOLD', 2: 'BUY'}
-        ml_signal = signal_mapping.get(ensemble_pred, 'HOLD')
-        
-        print(f"🎯 Ensemble Prediction (numeric): {ensemble_pred}")
-        print(f"📈 Converted Signal: {ml_signal}")
-        print(f"📊 Confidence: {prediction_result.get('ensemble_confidence', 0)}")
-        print(f"🔢 Feature Count: {prediction_result.get('feature_count', 0)}")
-        
-        # Test what would appear in the dataframe
-        ml_row = {
-            'Bank': 'CBA.AX',
-            'ML Prediction': ml_signal,
-            'ML Confidence': prediction_result.get('ensemble_confidence', 0),
-            'Sentiment Signal': 'HOLD',
-            'Feature Count': prediction_result.get('feature_count', 0)
-        }
-        
-        print(f"\n📋 Dashboard Row Data:")
-        for key, value in ml_row.items():
-            print(f"   {key}: {value}")
+def load_json_data(file_path):
+    """Loads data from a JSON file."""
+    if file_path.exists():
+        try:
+            with open(file_path, 'r') as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            st.error(f"Error decoding JSON from {file_path}. File might be empty or corrupt.")
+            return None
+        except Exception as e:
+            st.error(f"An error occurred while reading {file_path}: {e}")
+            return None
     else:
-        print(f"❌ Error in prediction: {prediction_result}")
+        st.warning(f"File not found: {file_path}")
+        return None
 
-if __name__ == '__main__':
-    test_prediction_conversion()
+def main():
+    """Main function to display the debug dashboard."""
+    st.title("📊 ML Performance Data Debugger")
+    st.write("This tool directly reads and displays the contents of the JSON data files used by the dashboards.")
+
+    # Define the path to the data directory
+    # This path is absolute on the remote server where this script will run
+    data_dir = Path("/root/test/data/ml_performance")
+
+    st.header("📍 Data Source")
+    st.info(f"Reading data from: `{data_dir}`")
+
+    # --- Display Prediction History ---
+    st.header("📜 Prediction History")
+    st.write("Shows the raw log of every prediction made by the `evening` command.")
+    prediction_file = data_dir / "prediction_history.json"
+    
+    prediction_data = load_json_data(prediction_file)
+
+    if prediction_data:
+        df_predictions = pd.DataFrame(prediction_data)
+        st.metric("Total Predictions Logged", len(df_predictions))
+        
+        # Display status counts
+        if 'status' in df_predictions.columns:
+            status_counts = df_predictions['status'].value_counts()
+            st.write("Prediction Status Counts:")
+            st.table(status_counts)
+
+        st.dataframe(df_predictions)
+    else:
+        st.error("Could not load prediction history data.")
+
+
+    # --- Display ML Performance History ---
+    st.header("📈 ML Performance History")
+    st.write("Shows the aggregated performance metrics, updated after predictions are resolved.")
+    performance_file = data_dir / "ml_performance_history.json"
+
+    performance_data = load_json_data(performance_file)
+
+    if performance_data:
+        df_performance = pd.DataFrame(performance_data)
+        st.metric("Total Performance Records", len(df_performance))
+        st.dataframe(df_performance)
+    else:
+        st.error("Could not load ML performance history data.")
+
+if __name__ == "__main__":
+    main()
