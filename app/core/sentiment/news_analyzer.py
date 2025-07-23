@@ -397,8 +397,20 @@ class NewsSentimentAnalyzer:
             try:
                 proba = self.ml_model.predict_proba(X)[0]
                 confidence = max(proba)
-            except:
-                confidence = 0.6  # Default confidence
+            except Exception as e:
+                # Calculate dynamic fallback confidence based on available data
+                logger.warning(f"ML predict_proba failed: {e}, using fallback confidence calculation")
+                
+                # Base confidence from news volume and sentiment consistency
+                news_count = sentiment_data.get('news_count', 0)
+                overall_sentiment = abs(sentiment_data.get('overall_sentiment', 0))
+                
+                # Dynamic confidence: 0.45-0.75 range based on data quality
+                base_confidence = 0.45 + (min(news_count, 10) * 0.02)  # +0.02 per news article, max +0.20
+                sentiment_boost = min(overall_sentiment * 0.1, 0.1)    # +0.0-0.1 based on sentiment strength
+                
+                confidence = min(base_confidence + sentiment_boost, 0.75)  # Cap at 75%
+                logger.info(f"Fallback confidence: {confidence:.3f} (news: {news_count}, sentiment: {overall_sentiment:.3f})")
             
             # Convert prediction to signal
             signal_map = {0: 'SELL', 1: 'BUY'}
@@ -430,8 +442,13 @@ class NewsSentimentAnalyzer:
         # Use provided keywords or default to the symbol's name
         search_terms = keywords or [symbol.split('.')[0]]
         
-        # Get news from all sources
-        all_news = self.get_all_news(search_terms, symbol)
+        # Get news from all sources - ensure symbol is passed correctly
+        try:
+            all_news = self.get_all_news(search_terms, symbol)
+            logger.info(f"Successfully collected {len(all_news)} news articles for {symbol}")
+        except Exception as e:
+            logger.error(f"Error collecting news for {symbol}: {e}")
+            all_news = []
         
         # Filter news using the enhanced keyword filter
         if keywords:
@@ -923,7 +940,35 @@ class NewsSentimentAnalyzer:
         """Calculate ML trading score based on news and market data"""
         try:
             if not news_items:
-                return {'ml_score': 0, 'confidence': 0}
+                # Instead of returning 0 confidence, calculate based on market conditions
+                logger.info("No news items available, using market-based confidence")
+                
+                market_volatility = market_data.get('market_volatility', 0.5)
+                market_trend = market_data.get('market_trend', 'neutral')
+                
+                # Dynamic confidence based on market conditions (0.35-0.65 range)
+                base_confidence = 0.35
+                if market_trend == 'bullish':
+                    base_confidence += 0.15
+                elif market_trend == 'bearish':
+                    base_confidence += 0.1
+                else:  # neutral
+                    base_confidence += 0.125
+                
+                # Volatility adjustment
+                volatility_adjustment = (1 - market_volatility) * 0.15  # Lower volatility = higher confidence
+                final_confidence = base_confidence + volatility_adjustment
+                
+                return {
+                    'ml_score': 0,
+                    'confidence': round(final_confidence, 3),
+                    'source': 'market_conditions',
+                    'features': {
+                        'market_volatility': market_volatility,
+                        'market_trend': market_trend,
+                        'news_count': 0
+                    }
+                }
             
             # Extract features from news
             total_sentiment = 0
@@ -1031,6 +1076,15 @@ class NewsSentimentAnalyzer:
         Returns:
             List of news articles from all sources
         """
+        # Validate parameters
+        if not isinstance(symbol, str):
+            logger.error(f"Symbol must be string, got {type(symbol)}: {symbol}")
+            return []
+        
+        if not isinstance(search_terms, list):
+            logger.warning(f"Search terms should be list, got {type(search_terms)}: {search_terms}")
+            search_terms = [str(search_terms)] if search_terms else [symbol]
+        
         all_news = []
         
         try:
